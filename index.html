@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美食收藏</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* === RESET === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--color-surface); color: var(--color-on-surface); min-height: 100vh; }
+ul, ol { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+a { text-decoration: none; color: inherit; }
+
+/* === VARIABLES === */
+:root {
+  --color-primary: #994700;
+  --color-primary-container: #ff7a00;
+  --color-primary-fixed: #ffdbc8;
+  --color-surface: #fbf8fc;
+  --color-surface-lowest: #ffffff;
+  --color-surface-container: #f0edf1;
+  --color-surface-high: #eae7eb;
+  --color-surface-variant: #e4e1e6;
+  --color-on-surface: #1b1b1e;
+  --color-on-surface-variant: #584235;
+  --color-outline: #8c7263;
+  --color-error: #ba1a1a;
+  --color-success: #2e7d32;
+  --color-visited: #4caf50;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.14);
+  --transition: 0.2s ease;
+  --sidebar-width: 256px;
+  --header-height: 64px;
+}
+
+/* === LAYOUT === */
+.app { display: flex; min-height: 100vh; }
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--color-surface-container);
+  border-right: 1px solid var(--color-surface-variant);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  z-index: 100;
+  transition: transform var(--transition);
+}
+.sidebar__logo {
+  padding: 20px 24px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-surface-variant);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar__logo-icon { font-size: 1.5rem; }
+.sidebar__nav { flex: 1; padding: 12px 0; }
+.sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+  margin-right: 12px;
+  transition: background var(--transition), color var(--transition);
+}
+.sidebar__nav-item:hover { background: var(--color-surface-high); color: var(--color-on-surface); }
+.sidebar__nav-item.active {
+  background: var(--color-primary-fixed);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.sidebar__nav-icon { font-size: 1.25rem; width: 24px; text-align: center; }
+.sidebar__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-surface-variant);
+  font-size: 0.8125rem;
+  color: var(--color-outline);
+}
+
+/* Main content */
+.main-wrapper {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  height: var(--header-height);
+  background: var(--color-surface-lowest);
+  border-bottom: 1px solid var(--color-surface-variant);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.header__title { font-size: 1.125rem; font-weight: 600; flex: 1; }
+.header__search {
+  display: flex;
+  align-items: center;
+  background: var(--color-surface-container);
+  border-radius: var(--radius-xl);
+  padding: 8px 16px;
+  gap: 8px;
+  width: 240px;
+}
+.header__search input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 0.875rem;
+  color: var(--color-on-surface);
+  width: 100%;
+}
+.header__search input::placeholder { color: var(--color-outline); }
+.header__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: opacity var(--transition);
+}
+.header__btn:hover { opacity: 0.88; }
+
+/* Page content */
+.page-content { padding: 24px; flex: 1; }
+.page { display: none; }
+.page.active { display: block; }
+
+/* === COMPONENTS === */
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.filter-bar__label { font-size: 0.875rem; color: var(--color-outline); white-space: nowrap; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-xl);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.chip.active {
+  background: var(--color-primary-fixed);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+.chip--tag { padding: 4px 10px; font-size: 0.75rem; }
+.chip--removable .chip__remove {
+  font-size: 0.875rem;
+  line-height: 1;
+  opacity: 0.6;
+  transition: opacity var(--transition);
+}
+.chip--removable:hover .chip__remove { opacity: 1; }
+
+/* Sort dropdown */
+.sort-select {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  margin-left: auto;
+}
+.sort-select:focus { border-color: var(--color-primary); }
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Card */
+.card {
+  background: var(--color-surface-lowest);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  position: relative;
+  transition: box-shadow var(--transition), transform var(--transition);
+  cursor: pointer;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.card__header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+.card__title { font-size: 1rem; font-weight: 600; color: var(--color-on-surface); flex: 1; margin-right: 8px; line-height: 1.3; }
+.card__menu-btn {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  color: var(--color-outline);
+  font-size: 1.125rem;
+  transition: background var(--transition);
+  flex-shrink: 0;
+  opacity: 0;
+}
+.card:hover .card__menu-btn { opacity: 1; }
+.card__menu-btn:hover { background: var(--color-surface-container); }
+
+/* Badge */
+.card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-xl);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.card__badge--want { background: #fff3e0; color: #e65100; }
+.card__badge--visited { background: #e8f5e9; color: #2e7d32; }
+
+/* Stars */
+.card__stars { display: flex; gap: 2px; margin-bottom: 8px; }
+.star { font-size: 1rem; color: #d4c5b0; }
+.star.filled { color: #f59e0b; }
+
+/* Meta */
+.card__meta {
+  font-size: 0.8125rem;
+  color: var(--color-outline);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.card__meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--color-outline); }
+
+/* Tags */
+.card__tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.card__tag {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-container);
+  color: var(--color-on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.card__tag--more { background: var(--color-surface-high); color: var(--color-outline); }
+
+/* Context menu */
+.context-menu {
+  position: absolute;
+  top: 44px; right: 12px;
+  background: var(--color-surface-lowest);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-surface-variant);
+  z-index: 200;
+  min-width: 140px;
+  overflow: hidden;
+  display: none;
+}
+.context-menu.open { display: block; }
+.context-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 0.875rem;
+  color: var(--color-on-surface);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.context-menu__item:hover { background: var(--color-surface-container); }
+.context-menu__item--danger { color: var(--color-error); }
+.context-menu__item--danger:hover { background: #ffeaea; }
+
+/* Load more */
+.load-more {
+  text-align: center;
+  padding: 24px;
+  color: var(--color-outline);
+  font-size: 0.875rem;
+}
+.load-more__btn {
+  padding: 10px 28px;
+  border-radius: var(--radius-xl);
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface-variant);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.load-more__btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+
+/* === DRAWER === */
+.drawer-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.drawer-overlay.open { opacity: 1; pointer-events: all; }
+.drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 480px;
+  background: var(--color-surface-lowest);
+  z-index: 301;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+}
+.drawer.open { transform: translateX(0); }
+.drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-surface-variant);
+}
+.drawer__title { font-size: 1.125rem; font-weight: 700; }
+.drawer__close {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  color: var(--color-outline);
+  transition: background var(--transition);
+}
+.drawer__close:hover { background: var(--color-surface-container); }
+.drawer__body { flex: 1; overflow-y: auto; padding: 24px; }
+.drawer__footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-surface-variant);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* Form */
+.form-group { margin-bottom: 20px; }
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-on-surface);
+  margin-bottom: 6px;
+}
+.form-label .required { color: var(--color-error); margin-left: 2px; }
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface);
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.form-input:focus { border-color: var(--color-primary); }
+.form-input::placeholder { color: var(--color-outline); }
+.form-select {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface);
+  font-size: 0.9375rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+.form-select:focus { border-color: var(--color-primary); }
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  color: var(--color-on-surface);
+  font-size: 0.9375rem;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color var(--transition);
+}
+.form-textarea:focus { border-color: var(--color-primary); }
+
+/* Radio group */
+.radio-group { display: flex; gap: 12px; }
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-surface-variant);
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all var(--transition);
+  flex: 1;
+  justify-content: center;
+}
+.radio-option input { display: none; }
+.radio-option.selected--want { border-color: #e65100; background: #fff3e0; color: #e65100; }
+.radio-option.selected--visited { border-color: #2e7d32; background: #e8f5e9; color: #2e7d32; }
+
+/* Star rating input */
+.star-rating { display: flex; gap: 6px; }
+.star-rating__star {
+  font-size: 1.75rem;
+  color: #d4c5b0;
+  cursor: pointer;
+  transition: color var(--transition), transform var(--transition);
+}
+.star-rating__star:hover, .star-rating__star.active { color: #f59e0b; transform: scale(1.1); }
+
+/* Tag chips in form */
+.tag-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Buttons */
+.btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-xl);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn--primary { background: var(--color-primary); color: white; }
+.btn--primary:hover { opacity: 0.88; }
+.btn--secondary {
+  background: var(--color-surface-container);
+  color: var(--color-on-surface-variant);
+  border: 1.5px solid var(--color-surface-variant);
+}
+.btn--secondary:hover { background: var(--color-surface-high); }
+.btn--danger { background: var(--color-error); color: white; }
+.btn--danger:hover { opacity: 0.88; }
+
+/* === MODAL === */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--color-surface-lowest);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  width: 360px;
+  max-width: 90vw;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+.modal-overlay.open .modal { transform: scale(1); }
+.modal__icon { font-size: 2.5rem; text-align: center; margin-bottom: 12px; }
+.modal__title { font-size: 1.125rem; font-weight: 700; text-align: center; margin-bottom: 8px; }
+.modal__desc { font-size: 0.875rem; color: var(--color-outline); text-align: center; margin-bottom: 24px; line-height: 1.5; }
+.modal__actions { display: flex; gap: 12px; }
+.modal__actions .btn { flex: 1; justify-content: center; }
+
+/* === TOAST === */
+.toast-container {
+  position: fixed;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.toast {
+  background: #1b1b1e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--radius-xl);
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: toastIn 0.3s ease;
+  white-space: nowrap;
+}
+.toast--success { background: #1b5e20; }
+.toast--error { background: #b71c1c; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === LOGIN PAGE === */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary-fixed) 0%, var(--color-surface) 60%);
+}
+.login-card {
+  background: var(--color-surface-lowest);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  width: 400px;
+  max-width: 90vw;
+  box-shadow: var(--shadow-lg);
+}
+.login-card__logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.login-card__logo-icon { font-size: 3rem; display: block; margin-bottom: 8px; }
+.login-card__logo-title { font-size: 1.5rem; font-weight: 700; color: var(--color-primary); }
+.login-card__logo-sub { font-size: 0.875rem; color: var(--color-outline); margin-top: 4px; }
+.login-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--color-surface-variant);
+  margin-bottom: 24px;
+}
+.login-tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-outline);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all var(--transition);
+}
+.login-tab.active { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+.login-hint {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--color-outline);
+  margin-top: 16px;
+}
+
+/* === TAG MANAGEMENT PAGE === */
+.tag-section { margin-bottom: 32px; }
+.tag-section__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin-bottom: 4px;
+}
+.tag-section__desc { font-size: 0.8125rem; color: var(--color-outline); margin-bottom: 14px; }
+.tag-list { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.tag-add-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+.tag-add-input input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-surface-variant);
+  background: var(--color-surface-lowest);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.tag-add-input input:focus { border-color: var(--color-primary); }
+
+/* === FAB (mobile) === */
+.fab {
+  position: fixed;
+  bottom: 80px; right: 20px;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  font-size: 1.5rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 90;
+  transition: transform var(--transition);
+}
+.fab:hover { transform: scale(1.08); }
+
+/* Bottom nav (mobile) */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--color-surface-lowest);
+  border-top: 1px solid var(--color-surface-variant);
+  z-index: 100;
+  height: 64px;
+}
+.bottom-nav__items { display: flex; height: 100%; }
+.bottom-nav__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  color: var(--color-outline);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.bottom-nav__item.active { color: var(--color-primary); }
+.bottom-nav__icon { font-size: 1.25rem; }
+
+/* Page header */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.page-header__title { font-size: 1.25rem; font-weight: 700; }
+.page-header__count { font-size: 0.875rem; color: var(--color-outline); margin-left: 8px; font-weight: 400; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-outline);
+}
+.empty-state__icon { font-size: 3rem; margin-bottom: 12px; }
+.empty-state__text { font-size: 0.9375rem; }
+
+/* === RESPONSIVE === */
+@media (max-width: 1100px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .main-wrapper { margin-left: 0; }
+  .header { padding: 0 16px; }
+  .header__search { display: none; }
+  .header__btn { display: none; }
+  .page-content { padding: 16px 16px 80px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .card__menu-btn { opacity: 1; }
+  .fab { display: flex; }
+  .bottom-nav { display: block; }
+  .drawer { width: 100%; }
+  .sort-select { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="login-page" class="login-page">
+  <div class="login-card">
+    <div class="login-card__logo">
+      <span class="login-card__logo-icon">🍜</span>
+      <div class="login-card__logo-title">美食收藏</div>
+      <div class="login-card__logo-sub">记录每一次美好的味道</div>
+    </div>
+    <div class="login-tabs">
+      <div class="login-tab active" data-tab="login">登录</div>
+      <div class="login-tab" data-tab="register">注册</div>
+    </div>
+    <div id="login-form">
+      <div class="form-group">
+        <label class="form-label">邮箱</label>
+        <input class="form-input" type="email" placeholder="请输入邮箱" id="login-email">
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input class="form-input" type="password" placeholder="请输入密码" id="login-password">
+      </div>
+      <button class="btn btn--primary" style="width:100%;justify-content:center;" id="login-btn">登录</button>
+      <div class="login-hint">忘记密码？请联系管理员</div>
+    </div>
+    <div id="register-form" style="display:none;">
+      <div class="form-group">
+        <label class="form-label">邮箱</label>
+        <input class="form-input" type="email" placeholder="请输入邮箱">
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input class="form-input" type="password" placeholder="请设置密码（至少6位）">
+      </div>
+      <div class="form-group">
+        <label class="form-label">确认密码</label>
+        <input class="form-input" type="password" placeholder="请再次输入密码">
+      </div>
+      <button class="btn btn--primary" style="width:100%;justify-content:center;" id="register-btn">注册</button>
+      <div class="login-hint">注册即表示同意用户协议</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="app" style="display:none;">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar__logo">
+      <span class="sidebar__logo-icon">🍜</span>
+      美食收藏
+    </div>
+    <nav class="sidebar__nav">
+      <div class="sidebar__nav-item active" data-view="list" data-filter="all">
+        <span class="sidebar__nav-icon">🍽️</span> 全部餐厅
+      </div>
+      <div class="sidebar__nav-item" data-view="list" data-filter="want">
+        <span class="sidebar__nav-icon">⭐</span> 想去
+      </div>
+      <div class="sidebar__nav-item" data-view="list" data-filter="visited">
+        <span class="sidebar__nav-icon">✅</span> 已吃
+      </div>
+      <div class="sidebar__nav-item" data-view="tags">
+        <span class="sidebar__nav-icon">🏷️</span> 标签管理
+      </div>
+    </nav>
+    <div class="sidebar__footer">
+      <div id="sidebar-count">共 0 家餐厅</div>
+    </div>
+  </aside>
+
+  <!-- Main wrapper -->
+  <div class="main-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="header__title" id="header-title">全部餐厅</div>
+      <div class="header__search">
+        <span>🔍</span>
+        <input type="text" placeholder="搜索餐厅..." id="search-input">
+      </div>
+      <button class="header__btn" id="add-btn">
+        <span>+</span> 添加餐厅
+      </button>
+    </header>
+
+    <!-- Page content -->
+    <main class="page-content">
+      <!-- List page -->
+      <div id="page-list" class="page active">
+        <div class="filter-bar" id="filter-bar">
+          <span class="filter-bar__label">菜系：</span>
+          <div class="chip active" data-cuisine="all">全部</div>
+          <div class="chip" data-cuisine="川菜">川菜</div>
+          <div class="chip" data-cuisine="粤菜">粤菜</div>
+          <div class="chip" data-cuisine="日料">日料</div>
+          <div class="chip" data-cuisine="西餐">西餐</div>
+          <div class="chip" data-cuisine="火锅">火锅</div>
+          <div class="chip" data-cuisine="其他">其他</div>
+          <select class="sort-select" id="sort-select">
+            <option value="default">默认排序</option>
+            <option value="rating-desc">评分最高</option>
+            <option value="rating-asc">评分最低</option>
+            <option value="name-asc">名称 A-Z</option>
+          </select>
+        </div>
+        <div class="page-header">
+          <div>
+            <span class="page-header__title" id="list-title">全部餐厅</span>
+            <span class="page-header__count" id="list-count"></span>
+          </div>
+        </div>
+        <div class="card-grid" id="card-grid"></div>
+        <div class="load-more" id="load-more" style="display:none;">
+          <button class="load-more__btn" id="load-more-btn">加载更多...</button>
+        </div>
+      </div>
+
+      <!-- Tags page -->
+      <div id="page-tags" class="page">
+        <div class="page-header">
+          <span class="page-header__title">标签管理</span>
+        </div>
+        <div class="tag-section">
+          <div class="tag-section__title">系统标签</div>
+          <div class="tag-section__desc">系统预设标签，不可删除</div>
+          <div class="tag-list" id="system-tags-list"></div>
+        </div>
+        <div class="tag-section">
+          <div class="tag-section__title">自定义标签</div>
+          <div class="tag-section__desc">你创建的标签，可以删除</div>
+          <div class="tag-list" id="custom-tags-list"></div>
+          <div class="tag-add-input">
+            <input type="text" id="new-tag-input" placeholder="输入新标签名称..." maxlength="12">
+            <button class="btn btn--primary" id="add-tag-btn" style="padding:8px 18px;font-size:0.875rem;">添加</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- FAB (mobile) -->
+  <button class="fab" id="fab-btn">+</button>
+
+  <!-- Bottom nav (mobile) -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav__items">
+      <div class="bottom-nav__item active" data-view="list" data-filter="all">
+        <span class="bottom-nav__icon">🍽️</span>
+        <span>全部</span>
+      </div>
+      <div class="bottom-nav__item" data-view="list" data-filter="want">
+        <span class="bottom-nav__icon">⭐</span>
+        <span>想去</span>
+      </div>
+      <div class="bottom-nav__item" data-view="list" data-filter="visited">
+        <span class="bottom-nav__icon">✅</span>
+        <span>已吃</span>
+      </div>
+      <div class="bottom-nav__item" data-view="tags">
+        <span class="bottom-nav__icon">🏷️</span>
+        <span>标签</span>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- DRAWER: Add/Edit -->
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer__header">
+    <div class="drawer__title" id="drawer-title">添加餐厅</div>
+    <button class="drawer__close" id="drawer-close">✕</button>
+  </div>
+  <div class="drawer__body">
+    <input type="hidden" id="edit-id">
+    <div class="form-group">
+      <label class="form-label">店名 <span class="required">*</span></label>
+      <input class="form-input" type="text" id="f-name" placeholder="请输入餐厅名称">
+    </div>
+    <div class="form-group">
+      <label class="form-label">状态</label>
+      <div class="radio-group">
+        <label class="radio-option" id="radio-want">
+          <input type="radio" name="status" value="want" checked>
+          ⭐ 想去
+        </label>
+        <label class="radio-option" id="radio-visited">
+          <input type="radio" name="status" value="visited">
+          ✅ 已吃
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">评分</label>
+      <div class="star-rating" id="star-rating">
+        <span class="star-rating__star" data-val="1">★</span>
+        <span class="star-rating__star" data-val="2">★</span>
+        <span class="star-rating__star" data-val="3">★</span>
+        <span class="star-rating__star" data-val="4">★</span>
+        <span class="star-rating__star" data-val="5">★</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">菜系</label>
+      <select class="form-select" id="f-cuisine">
+        <option value="">请选择菜系</option>
+        <option value="川菜">川菜</option>
+        <option value="粤菜">粤菜</option>
+        <option value="日料">日料</option>
+        <option value="西餐">西餐</option>
+        <option value="火锅">火锅</option>
+        <option value="其他">其他</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">人均价格（元）</label>
+      <input class="form-input" type="number" id="f-price" placeholder="例如：80">
+    </div>
+    <div class="form-group">
+      <label class="form-label">地址</label>
+      <input class="form-input" type="text" id="f-address" placeholder="请输入餐厅地址">
+    </div>
+    <div class="form-group">
+      <label class="form-label">来源链接</label>
+      <input class="form-input" type="url" id="f-source" placeholder="大众点评/小红书链接">
+    </div>
+    <div class="form-group">
+      <label class="form-label">标签</label>
+      <div class="tag-chips" id="form-tags"></div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">备注</label>
+      <textarea class="form-textarea" id="f-notes" placeholder="记录一些特别的感受..."></textarea>
+    </div>
+  </div>
+  <div class="drawer__footer">
+    <button class="btn btn--secondary" id="drawer-cancel">取消</button>
+    <button class="btn btn--primary" id="drawer-save">保存</button>
+  </div>
+</div>
+
+<!-- DELETE MODAL -->
+<div class="modal-overlay" id="delete-modal">
+  <div class="modal">
+    <div class="modal__icon">🗑️</div>
+    <div class="modal__title">确认删除</div>
+    <div class="modal__desc" id="delete-modal-desc">确定要删除这家餐厅吗？此操作无法撤销。</div>
+    <div class="modal__actions">
+      <button class="btn btn--secondary" id="delete-cancel">取消</button>
+      <button class="btn btn--danger" id="delete-confirm">删除</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toast-container"></div>
+
+<script>
+/* === DATA === */
+const SYSTEM_TAGS = ['环境好', '服务好', '性价比高', '适合约会', '适合聚餐', '网红打卡', '老字号', '宵夜', '外卖好', '停车方便'];
+
+let customTags = ['家庭聚餐', '同事推荐'];
+
+let restaurants = [
+  {
+    id: 1,
+    name: '老四川麻辣烫',
+    status: 'visited',
+    rating: 4,
+    cuisine: '川菜',
+    price: 45,
+    address: '北京市朝阳区三里屯路19号',
+    source: 'https://www.dianping.com',
+    tags: ['环境好', '性价比高', '宵夜'],
+    notes: '麻辣烫非常正宗，汤底很香，推荐加豆腐和宽粉。'
+  },
+  {
+    id: 2,
+    name: '鮨·山本日料',
+    status: 'want',
+    rating: 0,
+    cuisine: '日料',
+    price: 380,
+    address: '上海市静安区南京西路1788号',
+    source: 'https://www.xiaohongshu.com',
+    tags: ['适合约会', '网红打卡'],
+    notes: '朋友强烈推荐，说是上海最好的omakase之一。'
+  },
+  {
+    id: 3,
+    name: '外婆家杭帮菜',
+    status: 'visited',
+    rating: 5,
+    cuisine: '粤菜',
+    price: 68,
+    address: '杭州市西湖区龙井路1号',
+    source: '',
+    tags: ['老字号', '家庭聚餐', '性价比高'],
+    notes: '东坡肉和西湖醋鱼都很棒，排队要等1小时但值得。'
+  },
+  {
+    id: 4,
+    name: 'The Butcher牛排馆',
+    status: 'visited',
+    rating: 3,
+    cuisine: '西餐',
+    price: 260,
+    address: '北京市东城区王府井大街88号',
+    source: 'https://www.dianping.com',
+    tags: ['适合约会', '停车方便'],
+    notes: '牛排火候掌握一般，但环境很好，适合商务宴请。'
+  },
+  {
+    id: 5,
+    name: '海底捞火锅（望京店）',
+    status: 'visited',
+    rating: 4,
+    cuisine: '火锅',
+    price: 120,
+    address: '北京市朝阳区望京SOHO T1',
+    source: '',
+    tags: ['服务好', '适合聚餐', '同事推荐'],
+    notes: '服务真的没话说，等位时有小零食和美甲服务。'
+  }
+];
+
+let nextId = 6;
+
+/* === STATE === */
+let state = {
+  view: 'list',         // 'list' | 'tags'
+  statusFilter: 'all',  // 'all' | 'want' | 'visited'
+  cuisineFilter: 'all',
+  sortBy: 'default',
+  searchQuery: '',
+  displayCount: 4,
+  editingId: null,
+  deletingId: null,
+  formRating: 0,
+  formSelectedTags: []
+};
+
+/* === HELPERS === */
+function getAllTags() {
+  return [...SYSTEM_TAGS, ...customTags];
+}
+
+function getFilteredRestaurants() {
+  let list = [...restaurants];
+  if (state.statusFilter !== 'all') {
+    list = list.filter(r => r.status === state.statusFilter);
+  }
+  if (state.cuisineFilter !== 'all') {
+    list = list.filter(r => r.cuisine === state.cuisineFilter);
+  }
+  if (state.searchQuery) {
+    const q = state.searchQuery.toLowerCase();
+    list = list.filter(r =>
+      r.name.toLowerCase().includes(q) ||
+      (r.address && r.address.toLowerCase().includes(q)) ||
+      (r.cuisine && r.cuisine.toLowerCase().includes(q))
+    );
+  }
+  if (state.sortBy === 'rating-desc') list.sort((a, b) => b.rating - a.rating);
+  else if (state.sortBy === 'rating-asc') list.sort((a, b) => a.rating - b.rating);
+  else if (state.sortBy === 'name-asc') list.sort((a, b) => a.name.localeCompare(b.name));
+  return list;
+}
+
+function renderStars(rating, max = 5) {
+  let html = '';
+  for (let i = 1; i <= max; i++) {
+    html += `<span class="star${i <= rating ? ' filled' : ''}">★</span>`;
+  }
+  return html;
+}
+
+function renderCard(r) {
+  const badgeClass = r.status === 'want' ? 'card__badge--want' : 'card__badge--visited';
+  const badgeText = r.status === 'want' ? '⭐ 想去' : '✅ 已吃';
+  const visibleTags = r.tags.slice(0, 3);
+  const extraCount = r.tags.length - 3;
+  const tagsHtml = visibleTags.map(t => `<span class="card__tag">${t}</span>`).join('') +
+    (extraCount > 0 ? `<span class="card__tag card__tag--more">+${extraCount}</span>` : '');
+  const metaParts = [];
+  if (r.cuisine) metaParts.push(r.cuisine);
+  if (r.price) metaParts.push(`人均¥${r.price}`);
+  const metaHtml = metaParts.map((p, i) =>
+    i === 0 ? p : `<span class="card__meta-dot"></span>${p}`
+  ).join('');
+
+  return `
+    <div class="card" data-id="${r.id}">
+      <div class="card__header">
+        <div class="card__title">${escHtml(r.name)}</div>
+        <button class="card__menu-btn" data-action="menu" data-id="${r.id}" title="更多操作">⋯</button>
+      </div>
+      <div class="card__badge ${badgeClass}">${badgeText}</div>
+      ${r.rating > 0 ? `<div class="card__stars">${renderStars(r.rating)}</div>` : ''}
+      ${metaHtml ? `<div class="card__meta">${metaHtml}</div>` : ''}
+      ${r.tags.length > 0 ? `<div class="card__tags">${tagsHtml}</div>` : ''}
+      <div class="context-menu" id="menu-${r.id}">
+        <div class="context-menu__item" data-action="edit" data-id="${r.id}">✏️ 编辑</div>
+        <div class="context-menu__item context-menu__item--danger" data-action="delete" data-id="${r.id}">🗑️ 删除</div>
+      </div>
+    </div>`;
+}
+
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* === RENDER === */
+function renderList() {
+  const filtered = getFilteredRestaurants();
+  const grid = document.getElementById('card-grid');
+  const loadMore = document.getElementById('load-more');
+  const listCount = document.getElementById('list-count');
+  const listTitle = document.getElementById('list-title');
+
+  const titles = { all: '全部餐厅', want: '想去', visited: '已吃' };
+  listTitle.textContent = titles[state.statusFilter] || '全部餐厅';
+  listCount.textContent = `共 ${filtered.length} 家`;
+
+  const visible = filtered.slice(0, state.displayCount);
+  if (visible.length === 0) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-state__icon">🍽️</div><div class="empty-state__text">暂无餐厅，快去添加吧！</div></div>`;
+  } else {
+    grid.innerHTML = visible.map(renderCard).join('');
+  }
+
+  if (filtered.length > state.displayCount) {
+    loadMore.style.display = 'block';
+  } else {
+    loadMore.style.display = 'none';
+  }
+}
+
+function renderTagsPage() {
+  const sysList = document.getElementById('system-tags-list');
+  const custList = document.getElementById('custom-tags-list');
+  sysList.innerHTML = SYSTEM_TAGS.map(t =>
+    `<span class="chip chip--tag">${t}</span>`
+  ).join('');
+  custList.innerHTML = customTags.map(t =>
+    `<span class="chip chip--tag chip--removable" data-tag="${escHtml(t)}">${t} <span class="chip__remove" data-action="remove-tag" data-tag="${escHtml(t)}">✕</span></span>`
+  ).join('');
+}
+
+function renderFormTags() {
+  const container = document.getElementById('form-tags');
+  container.innerHTML = getAllTags().map(t => {
+    const active = state.formSelectedTags.includes(t);
+    return `<span class="chip chip--tag${active ? ' active' : ''}" data-action="toggle-form-tag" data-tag="${escHtml(t)}">${t}</span>`;
+  }).join('');
+}
+
+function renderStarRating() {
+  document.querySelectorAll('#star-rating .star-rating__star').forEach(s => {
+    const v = parseInt(s.dataset.val);
+    s.classList.toggle('active', v <= state.formRating);
+  });
+}
+
+function renderSidebarCount() {
+  document.getElementById('sidebar-count').textContent = `共 ${restaurants.length} 家餐厅`;
+}
+
+function renderAll() {
+  renderSidebarCount();
+  if (state.view === 'list') {
+    document.getElementById('page-list').classList.add('active');
+    document.getElementById('page-tags').classList.remove('active');
+    renderList();
+  } else {
+    document.getElementById('page-list').classList.remove('active');
+    document.getElementById('page-tags').classList.add('active');
+    renderTagsPage();
+  }
+  updateNavActive();
+  updateHeaderTitle();
+}
+
+function updateNavActive() {
+  document.querySelectorAll('.sidebar__nav-item').forEach(el => {
+    const matchView = el.dataset.view === state.view;
+    const matchFilter = !el.dataset.filter || el.dataset.filter === state.statusFilter;
+    el.classList.toggle('active', matchView && matchFilter);
+  });
+  document.querySelectorAll('.bottom-nav__item').forEach(el => {
+    const matchView = el.dataset.view === state.view;
+    const matchFilter = !el.dataset.filter || el.dataset.filter === state.statusFilter;
+    el.classList.toggle('active', matchView && matchFilter);
+  });
+}
+
+function updateHeaderTitle() {
+  const titles = { all: '全部餐厅', want: '想去', visited: '已吃' };
+  const el = document.getElementById('header-title');
+  if (state.view === 'tags') el.textContent = '标签管理';
+  else el.textContent = titles[state.statusFilter] || '全部餐厅';
+}
+
+/* === DRAWER === */
+function openDrawer(id = null) {
+  state.editingId = id;
+  state.formRating = 0;
+  state.formSelectedTags = [];
+
+  document.getElementById('drawer-title').textContent = id ? '编辑餐厅' : '添加餐厅';
+  document.getElementById('edit-id').value = id || '';
+
+  if (id) {
+    const r = restaurants.find(x => x.id === id);
+    if (r) {
+      document.getElementById('f-name').value = r.name;
+      document.getElementById('f-cuisine').value = r.cuisine || '';
+      document.getElementById('f-price').value = r.price || '';
+      document.getElementById('f-address').value = r.address || '';
+      document.getElementById('f-source').value = r.source || '';
+      document.getElementById('f-notes').value = r.notes || '';
+      state.formRating = r.rating;
+      state.formSelectedTags = [...r.tags];
+      const radioWant = document.querySelector('input[name="status"][value="want"]');
+      const radioVisited = document.querySelector('input[name="status"][value="visited"]');
+      if (r.status === 'visited') { radioVisited.checked = true; }
+      else { radioWant.checked = true; }
+      updateRadioStyle();
+    }
+  } else {
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-cuisine').value = '';
+    document.getElementById('f-price').value = '';
+    document.getElementById('f-address').value = '';
+    document.getElementById('f-source').value = '';
+    document.getElementById('f-notes').value = '';
+    document.querySelector('input[name="status"][value="want"]').checked = true;
+    updateRadioStyle();
+  }
+
+  renderStarRating();
+  renderFormTags();
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+}
+
+function closeDrawer() {
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+}
+
+function updateRadioStyle() {
+  const val = document.querySelector('input[name="status"]:checked').value;
+  document.getElementById('radio-want').className = 'radio-option' + (val === 'want' ? ' selected--want' : '');
+  document.getElementById('radio-visited').className = 'radio-option' + (val === 'visited' ? ' selected--visited' : '');
+}
+
+function saveRestaurant() {
+  const name = document.getElementById('f-name').value.trim();
+  if (!name) { showToast('请输入店名', 'error'); return; }
+  const status = document.querySelector('input[name="status"]:checked').value;
+  const cuisine = document.getElementById('f-cuisine').value;
+  const price = parseInt(document.getElementById('f-price').value) || 0;
+  const address = document.getElementById('f-address').value.trim();
+  const source = document.getElementById('f-source').value.trim();
+  const notes = document.getElementById('f-notes').value.trim();
+
+  const data = { name, status, rating: state.formRating, cuisine, price, address, source, tags: [...state.formSelectedTags], notes };
+
+  if (state.editingId) {
+    const idx = restaurants.findIndex(r => r.id === state.editingId);
+    if (idx !== -1) restaurants[idx] = { ...restaurants[idx], ...data };
+    showToast('✅ 保存成功');
+  } else {
+    restaurants.push({ id: nextId++, ...data });
+    showToast('✅ 添加成功');
+  }
+  closeDrawer();
+  renderAll();
+}
+
+/* === DELETE === */
+function openDeleteModal(id) {
+  state.deletingId = id;
+  const r = restaurants.find(x => x.id === id);
+  document.getElementById('delete-modal-desc').textContent =
+    `确定要删除「${r ? r.name : ''}」吗？此操作无法撤销。`;
+  document.getElementById('delete-modal').classList.add('open');
+}
+
+function closeDeleteModal() {
+  document.getElementById('delete-modal').classList.remove('open');
+  state.deletingId = null;
+}
+
+function confirmDelete() {
+  if (state.deletingId) {
+    restaurants = restaurants.filter(r => r.id !== state.deletingId);
+    closeDeleteModal();
+    showToast('🗑️ 已删除');
+    renderAll();
+  }
+}
+
+/* === TOAST === */
+function showToast(msg, type = 'success') {
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast toast--${type}`;
+  toast.textContent = msg;
+  container.appendChild(toast);
+  setTimeout(() => { toast.remove(); }, 2800);
+}
+
+/* === EVENT DELEGATION === */
+document.addEventListener('click', function(e) {
+  const target = e.target;
+
+  // Login tabs
+  if (target.classList.contains('login-tab')) {
+    document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
+    target.classList.add('active');
+    const tab = target.dataset.tab;
+    document.getElementById('login-form').style.display = tab === 'login' ? 'block' : 'none';
+    document.getElementById('register-form').style.display = tab === 'register' ? 'block' : 'none';
+  }
+
+  // Login button
+  if (target.id === 'login-btn') {
+    document.getElementById('login-page').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+    renderAll();
+  }
+
+  // Register button
+  if (target.id === 'register-btn') {
+    showToast('注册功能暂未开放，请联系管理员', 'error');
+  }
+
+  // Sidebar nav
+  if (target.closest('.sidebar__nav-item')) {
+    const item = target.closest('.sidebar__nav-item');
+    state.view = item.dataset.view;
+    if (item.dataset.filter) state.statusFilter = item.dataset.filter;
+    state.displayCount = 4;
+    renderAll();
+  }
+
+  // Bottom nav
+  if (target.closest('.bottom-nav__item')) {
+    const item = target.closest('.bottom-nav__item');
+    state.view = item.dataset.view;
+    if (item.dataset.filter) state.statusFilter = item.dataset.filter;
+    state.displayCount = 4;
+    renderAll();
+  }
+
+  // Add button (header + FAB)
+  if (target.id === 'add-btn' || target.id === 'fab-btn') {
+    openDrawer();
+  }
+
+  // Cuisine filter chips
+  if (target.dataset.cuisine) {
+    document.querySelectorAll('[data-cuisine]').forEach(c => c.classList.remove('active'));
+    target.classList.add('active');
+    state.cuisineFilter = target.dataset.cuisine;
+    state.displayCount = 4;
+    renderList();
+  }
+
+  // Load more
+  if (target.id === 'load-more-btn') {
+    state.displayCount += 4;
+    renderList();
+  }
+
+  // Card menu button
+  if (target.dataset.action === 'menu') {
+    e.stopPropagation();
+    const id = parseInt(target.dataset.id);
+    const menu = document.getElementById(`menu-${id}`);
+    const isOpen = menu.classList.contains('open');
+    document.querySelectorAll('.context-menu.open').forEach(m => m.classList.remove('open'));
+    if (!isOpen) menu.classList.add('open');
+    return;
+  }
+
+  // Context menu edit
+  if (target.dataset.action === 'edit') {
+    const id = parseInt(target.dataset.id);
+    document.querySelectorAll('.context-menu.open').forEach(m => m.classList.remove('open'));
+    openDrawer(id);
+    return;
+  }
+
+  // Context menu delete
+  if (target.dataset.action === 'delete') {
+    const id = parseInt(target.dataset.id);
+    document.querySelectorAll('.context-menu.open').forEach(m => m.classList.remove('open'));
+    openDeleteModal(id);
+    return;
+  }
+
+  // Close context menus on outside click
+  if (!target.closest('.context-menu') && !target.dataset.action) {
+    document.querySelectorAll('.context-menu.open').forEach(m => m.classList.remove('open'));
+  }
+
+  // Drawer close
+  if (target.id === 'drawer-close' || target.id === 'drawer-cancel' || target.id === 'drawer-overlay') {
+    closeDrawer();
+  }
+
+  // Drawer save
+  if (target.id === 'drawer-save') {
+    saveRestaurant();
+  }
+
+  // Delete modal
+  if (target.id === 'delete-cancel' || target.id === 'delete-modal') {
+    closeDeleteModal();
+  }
+  if (target.id === 'delete-confirm') {
+    confirmDelete();
+  }
+
+  // Star rating
+  if (target.classList.contains('star-rating__star')) {
+    state.formRating = parseInt(target.dataset.val);
+    renderStarRating();
+  }
+
+  // Form tag toggle
+  if (target.dataset.action === 'toggle-form-tag') {
+    const tag = target.dataset.tag;
+    const idx = state.formSelectedTags.indexOf(tag);
+    if (idx === -1) state.formSelectedTags.push(tag);
+    else state.formSelectedTags.splice(idx, 1);
+    renderFormTags();
+  }
+
+  // Remove custom tag
+  if (target.dataset.action === 'remove-tag') {
+    const tag = target.dataset.tag;
+    customTags = customTags.filter(t => t !== tag);
+    renderTagsPage();
+    showToast('标签已删除');
+  }
+
+  // Add custom tag
+  if (target.id === 'add-tag-btn') {
+    const input = document.getElementById('new-tag-input');
+    const val = input.value.trim();
+    if (!val) return;
+    if (getAllTags().includes(val)) { showToast('标签已存在', 'error'); return; }
+    customTags.push(val);
+    input.value = '';
+    renderTagsPage();
+    showToast('✅ 标签已添加');
+  }
+});
+
+// Radio status change
+document.querySelectorAll('input[name="status"]').forEach(radio => {
+  radio.addEventListener('change', updateRadioStyle);
+});
+
+// Sort select
+document.getElementById('sort-select').addEventListener('change', function() {
+  state.sortBy = this.value;
+  renderList();
+});
+
+// Search input
+document.getElementById('search-input').addEventListener('input', function() {
+  state.searchQuery = this.value.trim();
+  state.displayCount = 4;
+  renderList();
+});
+
+// Tag add on Enter
+document.getElementById('new-tag-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('add-tag-btn').click();
+});
+
+// Login on Enter
+document.getElementById('login-password').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') document.getElementById('login-btn').click();
+});
+
+// Star rating hover effect
+document.getElementById('star-rating').addEventListener('mouseover', function(e) {
+  if (e.target.classList.contains('star-rating__star')) {
+    const hoverVal = parseInt(e.target.dataset.val);
+    document.querySelectorAll('#star-rating .star-rating__star').forEach(s => {
+      s.classList.toggle('active', parseInt(s.dataset.val) <= hoverVal);
+    });
+  }
+});
+document.getElementById('star-rating').addEventListener('mouseleave', function() {
+  renderStarRating();
+});
+
+/* === INIT === */
+// Show login page on load
+document.getElementById('login-page').style.display = 'flex';
+document.getElementById('app').style.display = 'none';
+</script>
+</body>
+</html>

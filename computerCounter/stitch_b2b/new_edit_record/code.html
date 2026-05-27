@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>高级建筑师 - 记录输入</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcf",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-primary-fixed": "#001848",
+                    "background": "#f8f9fb",
+                    "on-surface": "#191c1e",
+                    "secondary-container": "#b6c8fe",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#a33500",
+                    "surface-tint": "#0c56d0",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-dim": "#d9dadc",
+                    "surface-container-high": "#e7e8ea",
+                    "secondary-fixed-dim": "#b4c5fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e2e4",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "secondary": "#4c5d8d",
+                    "outline": "#737685",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface": "#f8f9fb",
+                    "on-secondary-container": "#415382",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f6",
+                    "primary-container": "#0052cc",
+                    "on-secondary-fixed": "#021945",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-primary-container": "#c4d2ff",
+                    "on-background": "#191c1e",
+                    "surface-bright": "#f8f9fb",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c3c6d6",
+                    "on-surface-variant": "#434654",
+                    "surface-container-highest": "#e1e2e4",
+                    "primary": "#003d9b",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#edeef0",
+                    "secondary-fixed": "#dae2ff",
+                    "on-secondary-fixed-variant": "#344573",
+                    "tertiary": "#7b2600",
+                    "on-primary-fixed-variant": "#0040a2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', 'Noto Sans SC', sans-serif;
+        }
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.2);
+        }
+    </style>
+<style>
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center w-full px-6 py-3 docked full-width top-0 sticky z-50 tonal-shift bg-slate-100/50 dark:bg-slate-900/50">
+<div class="flex items-center gap-4">
+<button class="p-2 -ml-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors rounded-full text-slate-500 dark:text-slate-400">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-xl font-bold font-manrope text-slate-900 dark:text-slate-50 tracking-tight">编辑记录</h1>
+</div>
+<div class="flex items-center">
+<button class="p-2 rounded-full text-error hover:bg-error-container/30 transition-colors" id="delete-trigger">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</header>
+<main class="flex-grow px-6 py-8 max-w-lg mx-auto w-full space-y-8">
+<!-- Hero Section/Visual Context -->
+<div class="relative h-48 w-full rounded-xl overflow-hidden mb-8 shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A professional architectural blueprint laying on a clean white desk with high-end drafting tools. The lighting is bright and airy, reflecting a modern workspace aesthetic. The color palette features deep blues and subtle grays, creating an atmosphere of precision and executive focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCv0UF5wniZM8ylyGTiHm8P-Vuy8S3VIuEErCp8Rxkp7hRJVpwX9Pl4XYdR2GjtAX-P0SVjeA284vnJvSXCUucSRTLnS1lF3nAX5qPv9GRalLGc7JDhh3S9SKWSI1ALAy4cTwXJv9Jpq-MUekWAFo9lHR3QR5u4xLHwNruem4qYptyfaMUDEjXIcT1XxLcGRu4ZweVZ0YMaNER8QzIcn8bfBTd_nfex9vZEAMYX-LvldC5ejUvFeTdJDn4bexHicImyDFLiXCip6JS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<p class="text-[11px] font-semibold font-inter uppercase tracking-wider text-on-primary/80 mb-1">项目 ID</p>
+<h2 class="text-xl font-bold font-manrope text-on-primary">ARCH-2024-08</h2>
+</div>
+</div>
+<form class="space-y-6">
+<!-- Date Picker -->
+<div class="group">
+<label class="block text-sm font-medium font-inter text-outline mb-2 ml-1">录入日期</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface font-inter text-md group-focus-within:bg-surface-container-highest transition-colors" type="date" value="2023-11-24"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none">calendar_today</span>
+</div>
+</div>
+<!-- Style Name -->
+<div class="group">
+<label class="block text-sm font-medium font-inter text-outline mb-2 ml-1">款式名称</label>
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface font-inter text-md group-focus-within:bg-surface-container-highest transition-colors" placeholder="例如：简约柱式" type="text" value="行政套房 B 型"/>
+</div>
+</div>
+<!-- Numeric Row -->
+<div class="grid grid-cols-2 gap-4">
+<div class="group">
+<label class="block text-sm font-medium font-inter text-outline mb-2 ml-1">数量</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface font-inter text-md group-focus-within:bg-surface-container-highest transition-colors" type="number" value="12"/>
+</div>
+<div class="group">
+<label class="block text-sm font-medium font-inter text-outline mb-2 ml-1">单价 ($)</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface font-inter text-md group-focus-within:bg-surface-container-highest transition-colors" step="0.01" type="number" value="450.00"/>
+</div>
+</div>
+<!-- Remarks -->
+<div class="group">
+<label class="block text-sm font-medium font-inter text-outline mb-2 ml-1">备注</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface font-inter text-md group-focus-within:bg-surface-container-highest transition-colors resize-none" rows="4">初步绘图阶段已完成。结构完整性已由高级顾问审核。等待材料采购的最终签字。</textarea>
+</div>
+</form>
+<!-- Totals Summary Card -->
+<div class="bg-primary-container/10 p-6 rounded-xl space-y-2 border border-primary/5">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium font-inter text-on-secondary-fixed-variant">小计估算</span>
+<span class="text-lg font-bold font-manrope text-primary">$5,400.00</span>
+</div>
+<div class="flex justify-between items-center opacity-70">
+<span class="text-xs font-inter text-on-surface-variant">预估税费 (10%)</span>
+<span class="text-xs font-inter text-on-surface-variant">$540.00</span>
+</div>
+</div>
+<!-- Spacer for bottom padding -->
+<div class="h-24"></div>
+</main>
+<!-- Bottom Actions Area -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl px-6 pt-4 pb-10 flex gap-4 items-center">
+<button class="flex-grow bg-primary-container text-on-primary-container py-4 rounded-xl font-bold font-manrope shadow-lg active:scale-95 transition-all duration-150">
+            保存记录
+        </button>
+</div>
+<!-- Delete Confirmation Modal -->
+<div class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4 hidden" id="delete-modal">
+<div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="modal-overlay"></div>
+<div class="relative bg-surface w-full max-w-md rounded-t-2xl sm:rounded-2xl p-6 transform translate-y-full transition-transform duration-300 shadow-2xl" id="modal-content">
+<div class="w-12 h-1 bg-surface-variant rounded-full mx-auto mb-6 sm:hidden"></div>
+<div class="flex flex-col items-center text-center space-y-4">
+<div class="w-16 h-16 bg-error-container rounded-full flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-3xl">warning</span>
+</div>
+<h3 class="text-xl font-extrabold font-manrope text-on-surface">确认删除</h3>
+<p class="text-on-surface-variant font-inter leading-relaxed">
+                    您确定要永久删除此记录吗？此操作无法撤销，并将影响项目分析。
+                </p>
+</div>
+<div class="flex flex-col gap-3 mt-8">
+<button class="w-full bg-error text-on-error py-3.5 rounded-xl font-bold font-manrope active:scale-95 transition-all">
+                    是的，删除记录
+                </button>
+<button class="w-full bg-surface-container-high text-on-surface-variant py-3.5 rounded-xl font-bold font-manrope active:scale-95 transition-all" id="modal-cancel">
+                    取消
+                </button>
+</div>
+</div>
+</div>
+<script>
+        const deleteTrigger = document.getElementById('delete-trigger');
+        const deleteModal = document.getElementById('delete-modal');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modalContent = document.getElementById('modal-content');
+        const modalCancel = document.getElementById('modal-cancel');
+
+        function openModal() {
+            deleteModal.classList.remove('hidden');
+            // Trigger animation frame for transition
+            requestAnimationFrame(() => {
+                modalOverlay.classList.remove('opacity-0');
+                modalOverlay.classList.add('opacity-100');
+                modalContent.classList.remove('translate-y-full');
+                modalContent.classList.add('translate-y-0');
+            });
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('opacity-100');
+            modalOverlay.classList.add('opacity-0');
+            modalContent.classList.remove('translate-y-0');
+            modalContent.classList.add('translate-y-full');
+            
+            setTimeout(() => {
+                deleteModal.classList.add('hidden');
+            }, 300);
+        }
+
+        deleteTrigger.addEventListener('click', openModal);
+        modalCancel.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        // Micro-interactions for form inputs
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('scale-[1.01]');
+                input.style.transition = 'all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

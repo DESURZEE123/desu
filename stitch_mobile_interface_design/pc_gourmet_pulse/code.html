@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gourmet Pulse - 新增美食记录</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fbf8fc",
+                        "inverse-surface": "#303033",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f2f7",
+                        "secondary-fixed-dim": "#c6c5cf",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-primary-fixed": "#321200",
+                        "primary-container": "#ff7a00",
+                        "on-tertiary-container": "#353738",
+                        "surface-container": "#f0edf1",
+                        "surface-bright": "#fbf8fc",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "tertiary-fixed": "#e2e2e3",
+                        "tertiary": "#5d5e60",
+                        "surface-container-highest": "#e4e1e6",
+                        "surface-tint": "#994700",
+                        "surface-container-high": "#eae7eb",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "on-primary-fixed-variant": "#753400",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb68b",
+                        "on-secondary-fixed": "#1a1b22",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#63646c",
+                        "on-primary-container": "#5c2800",
+                        "background": "#fbf8fc",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdbc8",
+                        "tertiary-container": "#9fa0a1",
+                        "secondary": "#5d5e66",
+                        "on-surface": "#1b1b1e",
+                        "secondary-container": "#e3e1ec",
+                        "inverse-primary": "#ffb68b",
+                        "secondary-fixed": "#e3e1ec",
+                        "error-container": "#ffdad6",
+                        "primary": "#994700",
+                        "outline-variant": "#e0c0af",
+                        "on-secondary-fixed-variant": "#46464e",
+                        "inverse-on-surface": "#f3f0f4",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#584235",
+                        "surface-variant": "#e4e1e6",
+                        "outline": "#8c7263",
+                        "surface-dim": "#dcd9dd",
+                        "on-background": "#1b1b1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "48px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["22px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fbf8fc;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e1e6;
+            border-radius: 10px;
+        }
+        .drawer-overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            transition: opacity 0.3s ease;
+        }
+        .drawer-content {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Background Layer (Simulation of "全部收藏" Page) -->
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="hidden md:flex flex-col h-full py-8 px-4 bg-surface border-r border-surface-variant w-64">
+<div class="flex items-center gap-3 px-2 mb-10">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">restaurant</span>
+</div>
+<h1 class="text-headline-sm font-black text-on-surface">Gourmet Pulse</h1>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-high text-primary border-r-4 border-primary font-label-md text-label-md translate-x-1 transition-all" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span>全部收藏</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span>想去</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span>已吃</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">label</span>
+<span>标签管理</span>
+</a>
+</nav>
+<div class="mt-auto space-y-2 pt-8 border-t border-surface-variant">
+<div class="flex items-center gap-3 px-2 mb-4">
+<img alt="User profile" class="w-10 h-10 rounded-full object-cover" data-alt="A clean, professional headshot of a young adult food enthusiast in a modern minimalist setting. The person has a friendly expression, soft natural lighting, and the background is a blurred high-end kitchen with stainless steel accents. The overall aesthetic is bright and corporate-modern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABn3wYnj97gMccSx10FcvL5fwOYRupqmDIbmkLRrwNJV0sDiBLDXRVWcxTQcmk13shzzsFaJnCMbC3YUqjOYmX8RiY0GqZ7SkKU3rUvQlJjjoxfA1S7MlGSifhV5Gru2vHfulGDouSh4_4cTCC-Kq-18_5flWVBypY_fjroYOwNOtsT6IsNE-AbrD2LZROMlFirP3vG030c1gKovQz2gSs03ijwutJozQqKysc8up8ElcrB8qs8YelOI_VzkTttzxQ5eYftSueuooE"/>
+<div>
+<p class="font-headline-sm text-headline-sm">陈晨</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">美食主理人</p>
+</div>
+</div>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-low transition-all font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content (Simulated List) -->
+<main class="flex-1 overflow-y-auto custom-scrollbar p-margin-desktop">
+<header class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-4">
+<h2 class="text-headline-xl font-headline-xl">全部收藏</h2>
+<span class="text-on-surface-variant font-body-md text-body-md">128 家餐厅</span>
+</div>
+<button class="bg-primary hover:bg-surface-tint text-on-primary px-6 py-2.5 rounded-full flex items-center gap-2 transition-all active:scale-95 font-headline-sm text-headline-sm" onclick="toggleDrawer(true)">
+<span class="material-symbols-outlined">add</span>
+                    添加餐厅
+                </button>
+</header>
+<!-- Simulated Cards Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6 opacity-40 select-none pointer-events-none">
+<div class="bg-surface-container-lowest border border-surface-variant p-4 rounded-xl flex gap-6">
+<div class="w-48 h-48 bg-surface-container-high rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-end, minimalist restaurant interior featuring a long wooden bar and soft, warm spotlighting. The architecture is clean with vertical lines and a sense of calm. A few meticulously prepared dishes are placed on the counter. The overall atmosphere is sophisticated and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCul1LMpt_q1NVbcXYhMKltGG6HAUKbzqS19qaSI-srB3ZnAKEZew7kIovlR4O4RdaFPN0EETBb3hXcWzLT01PFCIPLvbjtoWycUXw3i87mXLq33AV6ByQC6DsjmvtaQiRs97-PXNqs_i2_HsaGz4QIcTJXUCGxb55pPrSsZvVwu_7xHo5F9-ziyXqQiFTvhWE9aniAbGwVK0b2_hP9Si8tItzixjtDTEIGh8U31xQsHnTgnKMqWIlX5CVWcDRN_TVKRMrTp04LmCg9"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between">
+<h3 class="text-headline-md font-headline-md">Le Comptoir de Pierre Gagnaire</h3>
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md">法餐 · 法国菜 · 米其林二星</p>
+<div class="flex items-center gap-4 text-primary font-headline-sm text-headline-sm">
+<span>¥ 1,200 / 人均</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Duplicate for layout -->
+<div class="bg-surface-container-lowest border border-surface-variant p-4 rounded-xl flex gap-6">
+<div class="w-48 h-48 bg-surface-container-high rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Authentic Japanese omakase setting with a chef meticulously preparing sushi behind a pristine light wood counter. Minimalist aesthetic with focus on the craftsmanship. Soft, warm ambient lighting illuminates the fresh ingredients. Corporate yet approachable high-end dining style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsfUjMXCLA-BZqc1FEZV5En_dlKUwDHZ4h5_e7pSOLrgnZqbQ4bJAuw7ZCRpQBe9Us-ZOK-3JWXxlCspDnDseqFgDR4TPSxK_lJE2RQ_G1socGWze0PUvl5is0Zx9XYXUUpaggY2TfSyl_mD2Uzd3T_NbFE4P1KQX5zclnZlNJ32qoH5FIoXTS75-qib_5hD5qKJn9No-B7joDuWd9r-xL7fkqgm7ryK3IAg-PE6ELhNaPjQo7h7dTW5XQleb6BoRbwfsbOI-Wxk5l"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex justify-between">
+<h3 class="text-headline-md font-headline-md">鮨 さいとう</h3>
+<span class="material-symbols-outlined">more_horiz</span>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md">日料 · 寿司 · 米其林三星</p>
+<div class="flex items-center gap-4 text-primary font-headline-sm text-headline-sm">
+<span>¥ 2,500 / 人均</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Drawer Component -->
+<div class="drawer-overlay fixed inset-0 z-[60] hidden opacity-0 flex justify-end" id="drawerOverlay" onclick="toggleDrawer(false)">
+<div class="drawer-content bg-white w-full max-w-[560px] h-full shadow-2xl flex flex-col translate-x-full" id="drawerContent" onclick="event.stopPropagation()">
+<!-- Drawer Header -->
+<div class="flex justify-between items-center px-8 py-6 border-b border-surface-variant">
+<div>
+<h2 class="text-headline-lg font-headline-lg">新增美食记录</h2>
+<p class="text-on-surface-variant font-body-sm text-body-sm">记录你所热爱的每一口美味</p>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors active:scale-90" onclick="toggleDrawer(false)">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Drawer Body (Form) -->
+<form class="flex-1 overflow-y-auto custom-scrollbar px-8 py-8 space-y-8">
+<!-- Store Name -->
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">店名 <span class="text-error">*</span></label>
+<input class="w-full px-4 py-3 rounded-lg border border-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-surface-container-lowest transition-all" placeholder="输入餐厅全名" required="" type="text"/>
+</div>
+<!-- Status & Rating -->
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">状态</label>
+<div class="flex gap-2">
+<label class="flex-1 cursor-pointer">
+<input class="sr-only peer" name="status" type="radio" value="want"/>
+<div class="text-center py-2.5 rounded-lg border border-surface-variant peer-checked:bg-primary-fixed peer-checked:border-primary-fixed peer-checked:text-on-primary-fixed hover:bg-surface-container-low transition-all font-body-md text-body-md">想去</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input checked="" class="sr-only peer" name="status" type="radio" value="eaten"/>
+<div class="text-center py-2.5 rounded-lg border border-surface-variant peer-checked:bg-primary-fixed peer-checked:border-primary-fixed peer-checked:text-on-primary-fixed hover:bg-surface-container-low transition-all font-body-md text-body-md">已吃</div>
+</label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">评分 <span class="text-error">*</span></label>
+<div class="flex items-center gap-1 h-[46px]" id="starRating">
+<span class="material-symbols-outlined cursor-pointer text-surface-variant hover:text-primary transition-colors" data-value="1">star</span>
+<span class="material-symbols-outlined cursor-pointer text-surface-variant hover:text-primary transition-colors" data-value="2">star</span>
+<span class="material-symbols-outlined cursor-pointer text-surface-variant hover:text-primary transition-colors" data-value="3">star</span>
+<span class="material-symbols-outlined cursor-pointer text-surface-variant hover:text-primary transition-colors" data-value="4">star</span>
+<span class="material-symbols-outlined cursor-pointer text-surface-variant hover:text-primary transition-colors" data-value="5">star</span>
+</div>
+</div>
+</div>
+<!-- Cuisine & Price -->
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">菜系</label>
+<div class="relative">
+<select class="w-full appearance-none px-4 py-3 rounded-lg border border-surface-variant focus:outline-none focus:border-primary bg-surface-container-lowest font-body-md text-body-md">
+<option>请选择菜系</option>
+<option>川菜</option>
+<option>粤菜</option>
+<option>日料</option>
+<option>法餐</option>
+<option>意料</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">人均价格</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">¥</span>
+<input class="w-full pl-8 pr-4 py-3 rounded-lg border border-surface-variant focus:outline-none focus:border-primary bg-surface-container-lowest font-body-md text-body-md" placeholder="0" type="number"/>
+</div>
+</div>
+</div>
+<!-- Address & URL -->
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">地址</label>
+<div class="relative">
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-surface-variant focus:outline-none focus:border-primary bg-surface-container-lowest font-body-md text-body-md" placeholder="搜索餐厅位置" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">location_on</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">来源链接</label>
+<div class="relative">
+<input class="w-full pl-10 pr-4 py-3 rounded-lg border border-surface-variant focus:outline-none focus:border-primary bg-surface-container-lowest font-body-md text-body-md" placeholder="http://" type="url"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">link</span>
+</div>
+</div>
+</div>
+<!-- Tags -->
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">标签</label>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="px-3 py-1.5 rounded-full border border-primary text-primary bg-primary-fixed font-label-md text-label-md flex items-center gap-1">
+                            浪漫约会 <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="px-3 py-1.5 rounded-full border border-primary text-primary bg-primary-fixed font-label-md text-label-md flex items-center gap-1">
+                            米其林 <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<button class="px-3 py-1.5 rounded-full border border-surface-variant text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> 自定义
+                        </button>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<span class="text-center py-1.5 rounded border border-surface-variant text-on-surface-variant text-body-sm font-body-sm hover:border-primary cursor-pointer transition-all">朋友聚餐</span>
+<span class="text-center py-1.5 rounded border border-surface-variant text-on-surface-variant text-body-sm font-body-sm hover:border-primary cursor-pointer transition-all">景观餐厅</span>
+<span class="text-center py-1.5 rounded border border-surface-variant text-on-surface-variant text-body-sm font-body-sm hover:border-primary cursor-pointer transition-all">极力推荐</span>
+<span class="text-center py-1.5 rounded border border-surface-variant text-on-surface-variant text-body-sm font-body-sm hover:border-primary cursor-pointer transition-all">环境优美</span>
+</div>
+</div>
+<!-- Notes -->
+<div class="space-y-2">
+<label class="block font-headline-sm text-headline-sm text-on-surface">备注</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-surface-variant focus:outline-none focus:border-primary bg-surface-container-lowest font-body-md text-body-md resize-none" placeholder="说说这家餐厅的特色..." rows="4"></textarea>
+</div>
+</form>
+<!-- Drawer Footer -->
+<div class="px-8 py-6 border-t border-surface-variant bg-surface flex gap-4">
+<button class="flex-1 py-3 rounded-full border border-surface-variant font-headline-sm text-headline-sm hover:bg-surface-container-low transition-colors active:scale-95" onclick="toggleDrawer(false)">取消</button>
+<button class="flex-[2] py-3 rounded-full bg-primary text-white font-headline-sm text-headline-sm hover:bg-surface-tint shadow-lg transition-all active:scale-95">保存记录</button>
+</div>
+</div>
+</div>
+<script>
+        function toggleDrawer(show) {
+            const overlay = document.getElementById('drawerOverlay');
+            const content = document.getElementById('drawerContent');
+            
+            if (show) {
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.add('opacity-100');
+                    content.classList.remove('translate-x-full');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.classList.remove('opacity-100');
+                content.classList.add('translate-x-full');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 400);
+            }
+        }
+
+        // Star Rating Logic
+        const stars = document.querySelectorAll('#starRating span');
+        stars.forEach((star, index) => {
+            star.addEventListener('click', () => {
+                stars.forEach((s, i) => {
+                    if (i <= index) {
+                        s.style.fontVariationSettings = "'FILL' 1";
+                        s.classList.add('text-primary');
+                        s.classList.remove('text-surface-variant');
+                    } else {
+                        s.style.fontVariationSettings = "'FILL' 0";
+                        s.classList.remove('text-primary');
+                        s.classList.add('text-surface-variant');
+                    }
+                });
+            });
+        });
+
+        // Open drawer on load for demonstration
+        window.onload = () => {
+            setTimeout(() => toggleDrawer(true), 800);
+        };
+    </script>
+</body></html>
