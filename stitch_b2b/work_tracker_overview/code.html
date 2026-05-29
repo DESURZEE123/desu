@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcf",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-primary-fixed": "#001848",
+                    "background": "#f8f9fb",
+                    "on-surface": "#191c1e",
+                    "secondary-container": "#b6c8fe",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#a33500",
+                    "surface-tint": "#0c56d0",
+                    "inverse-primary": "#b2c5ff",
+                    "surface-dim": "#d9dadc",
+                    "surface-container-high": "#e7e8ea",
+                    "secondary-fixed-dim": "#b4c5fb",
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e1e2e4",
+                    "primary-fixed": "#dae2ff",
+                    "on-tertiary-container": "#ffc6b2",
+                    "secondary": "#4c5d8d",
+                    "outline": "#737685",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "surface": "#f8f9fb",
+                    "on-secondary-container": "#415382",
+                    "error": "#ba1a1a",
+                    "surface-container-low": "#f3f4f6",
+                    "primary-container": "#0052cc",
+                    "on-secondary-fixed": "#021945",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary-fixed-variant": "#812800",
+                    "primary-fixed-dim": "#b2c5ff",
+                    "on-primary-container": "#c4d2ff",
+                    "on-background": "#191c1e",
+                    "surface-bright": "#f8f9fb",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c3c6d6",
+                    "on-surface-variant": "#434654",
+                    "surface-container-highest": "#e1e2e4",
+                    "primary": "#003d9b",
+                    "on-tertiary-fixed": "#380d00",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#edeef0",
+                    "secondary-fixed": "#dae2ff",
+                    "on-secondary-fixed-variant": "#344573",
+                    "tertiary": "#7b2600",
+                    "on-primary-fixed-variant": "#0040a2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "display": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-header {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-pill {
+            position: relative;
+        }
+        .active-pill::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: currentColor;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-24">
+<!-- Top Bar Component -->
+<header class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</div>
+<h1 class="text-xl font-bold font-headline tracking-tight text-slate-900 dark:text-slate-50">工作追踪器</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined">add</span>
+</button>
+</header>
+<main class="px-6 py-6 space-y-8">
+<!-- Hero Summary Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-sm font-medium text-outline font-label uppercase tracking-widest">总累计收益</p>
+<h2 class="text-4xl font-extrabold font-display text-primary mt-1">$14,280.50</h2>
+</div>
+<div class="bg-secondary-container/30 px-3 py-1 rounded-full flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-sm text-on-secondary-container">trending_up</span>
+<span class="text-xs font-bold text-on-secondary-container">+12%</span>
+</div>
+</div>
+<!-- Bento Visual Component -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl space-y-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+<p class="text-xs text-outline font-medium uppercase tracking-tight">已追踪单位</p>
+<p class="text-2xl font-bold font-display">2,840</p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl space-y-2">
+<span class="material-symbols-outlined text-primary">speed</span>
+<p class="text-xs text-outline font-medium uppercase tracking-tight">平均日薪</p>
+<p class="text-2xl font-bold font-display">$425.00</p>
+</div>
+</div>
+</section>
+<!-- Earnings History List -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold font-headline text-on-surface">收益记录</h3>
+<button class="text-sm font-semibold text-primary font-label">查看详情</button>
+</div>
+<div class="space-y-3">
+<!-- Month Entry: October -->
+<div class="bg-surface-container-low p-1 rounded-xl">
+<div class="bg-surface-container-lowest flex items-center justify-between p-4 rounded-lg group transition-all hover:bg-slate-50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex flex-col items-center justify-center rounded-lg">
+<span class="text-[10px] font-bold text-outline uppercase">十月</span>
+<span class="text-lg font-bold leading-none">23</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">2023年10月</h4>
+<p class="text-sm text-outline">已完成 482 件</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-primary">$4,850.00</p>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Month Entry: September -->
+<div class="bg-surface-container-low p-1 rounded-xl">
+<div class="bg-surface-container-lowest flex items-center justify-between p-4 rounded-lg group transition-all hover:bg-slate-50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex flex-col items-center justify-center rounded-lg">
+<span class="text-[10px] font-bold text-outline uppercase">九月</span>
+<span class="text-lg font-bold leading-none">23</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">2023年9月</h4>
+<p class="text-sm text-outline">已完成 410 件</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-primary">$3,920.00</p>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Month Entry: August -->
+<div class="bg-surface-container-low p-1 rounded-xl">
+<div class="bg-surface-container-lowest flex items-center justify-between p-4 rounded-lg group transition-all hover:bg-slate-50">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container flex flex-col items-center justify-center rounded-lg">
+<span class="text-[10px] font-bold text-outline uppercase">八月</span>
+<span class="text-lg font-bold leading-none">23</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">2023年8月</h4>
+<p class="text-sm text-outline">已完成 551 件</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-lg font-bold text-primary">$5,510.50</p>
+<span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Decorative Card -->
+<section class="relative overflow-hidden rounded-2xl bg-primary-container p-6 text-on-primary-container shadow-xl">
+<div class="relative z-10 space-y-4">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+<span class="material-symbols-outlined text-white">insights</span>
+</div>
+<h3 class="text-2xl font-bold font-headline leading-tight">年终预计收益：<br/>$62,400</h3>
+<p class="text-sm text-on-primary-container/80 max-w-[200px]">基于您最近一个季度的当前表现。</p>
+<button class="bg-white text-primary px-4 py-2 rounded-lg font-bold text-sm transition-transform active:scale-95">升级预测模型</button>
+</div>
+<!-- Decorative image element -->
+<div class="absolute -right-8 -bottom-8 w-40 h-40 opacity-40 mix-blend-overlay rotate-12">
+<img alt="抽象数据可视化" class="w-full h-full object-cover rounded-full" data-alt="A sophisticated digital artwork featuring abstract 3D data nodes and flowing streams of light in a deep navy and electric blue palette. The composition is dynamic and architectural, suggesting high-performance computation and precision tracking. Soft volumetric lighting highlights the sleek surfaces, creating a premium professional aesthetic suitable for a financial dashboard background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzC1NaPuNxpwI1yo2yt5fMD7R_uLX1-ic071dQQ4qS33xHWlImABo73tZIk7uiFfthUFcZeCr3CbqmXiJWk40wIsFw1yOE47rVcQa4SMveOrT1_E8EIzEo7LQnNyH7R_UtquanO4MX_1u6rS4LjwzVqdPdd5hpyeWYIYv6jxhR2rg3Xl1NfPMxpe8mcrgnnMTb6l842EdZDba9xG-K08jInC298sE1Xa9UjFovFnzyGiafe4Z2cL1dB_DbV5GcaCxtIwme-QJ4lYZS"/>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width rounded-t-2xl shadow-[0_-4px_24px_0_rgba(25,28,30,0.06)]">
+<!-- Overview (Active) -->
+<a class="flex flex-col items-center justify-center text-blue-700 dark:text-blue-400 bg-blue-50/50 dark:bg-blue-900/20 rounded-xl px-4 py-1.5 active-pill active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[11px] font-semibold font-inter uppercase tracking-wider mt-0.5">工作台</span>
+</a>
+<!-- Leads -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="text-[11px] font-semibold font-inter uppercase tracking-wider mt-0.5">线索</span>
+</a>
+<!-- Analytics -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="text-[11px] font-semibold font-inter uppercase tracking-wider mt-0.5">分析</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-300" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[11px] font-semibold font-inter uppercase tracking-wider mt-0.5">个人中心</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for list items
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('touchstart', () => {
+                item.style.transform = 'scale(0.98)';
+            });
+            item.addEventListener('touchend', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple scroll observer for header transparency/shadow shift
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-sm');
+                header.classList.remove('bg-slate-50/80');
+                header.classList.add('bg-white');
+            } else {
+                header.classList.remove('shadow-sm');
+                header.classList.add('bg-slate-50/80');
+                header.classList.remove('white');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="light" lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>工作记录追踪器</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "background": "#f8f9fb",
+        "on-surface": "#191c1e",
+        "secondary-container": "#b6c8fe",
+        "on-secondary": "#ffffff",
+        "surface-tint": "#0c56d0",
+        "inverse-primary": "#b2c5ff",
+        "surface-dim": "#d9dadc",
+        "surface-container-high": "#e7e8ea",
+        "on-tertiary": "#ffffff",
+        "surface-variant": "#e1e2e4",
+        "primary-fixed": "#dae2ff",
+        "secondary": "#4c5d8d",
+        "outline": "#737685",
+        "surface": "#f8f9fb",
+        "on-secondary-container": "#415382",
+        "error": "#ba1a1a",
+        "surface-container-low": "#f3f4f6",
+        "primary-container": "#0052cc",
+        "on-secondary-fixed": "#021945",
+        "inverse-surface": "#2e3132",
+        "primary-fixed-dim": "#b2c5ff",
+        "on-primary-container": "#c4d2ff",
+        "on-background": "#191c1e",
+        "surface-bright": "#f8f9fb",
+        "error-container": "#ffdad6",
+        "outline-variant": "#c3c6d6",
+        "on-surface-variant": "#434654",
+        "surface-container-highest": "#e1e2e4",
+        "primary": "#003d9b",
+        "on-primary": "#ffffff",
+        "on-error": "#ffffff",
+        "on-error-container": "#93000a",
+        "surface-container-lowest": "#ffffff",
+        "surface-container": "#edeef0",
+        "secondary-fixed": "#dae2ff",
+        "on-secondary-fixed-variant": "#344573",
+        "tertiary": "#7b2600",
+        "on-primary-fixed-variant": "#0040a2"
+      },
+      borderRadius: {
+        "DEFAULT": "0.5rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      },
+      fontFamily: {
+        "headline": ["Manrope"],
+        "display": ["Manrope"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+body { font-family: 'Inter', 'Noto Sans SC', sans-serif; -webkit-tap-highlight-color: transparent; }
+h1,h2,h3 { font-family: 'Manrope', 'Noto Sans SC', sans-serif; }
+.page { display: none; }
+.page.active { display: flex; flex-direction: column; min-height: 100dvh; }
+input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 2px rgba(0,82,204,0.2); }
+.slide-up { animation: slideUp 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+
+<!-- ===== PAGE 1: 主页 ===== -->
+<div class="page active" id="page-home">
+  <header class="bg-slate-50/90 backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4 shadow-sm">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
+        <span class="material-symbols-outlined text-[20px]">account_circle</span>
+      </div>
+      <h1 class="text-xl font-bold font-headline tracking-tight">工作记录</h1>
+    </div>
+    <button onclick="goToEdit(null)" class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:opacity-80 transition-opacity active:scale-95">
+      <span class="material-symbols-outlined">add</span>
+    </button>
+  </header>
+  <main class="flex-grow px-6 py-6 space-y-8 pb-10">
+    <section class="space-y-2">
+      <p class="text-sm font-medium text-outline uppercase tracking-widest">总累计收益</p>
+      <h2 class="text-4xl font-extrabold font-display text-primary" id="home-total">¥0.00</h2>
+    </section>
+    <section class="space-y-4">
+      <h3 class="text-lg font-bold font-headline">月度收益</h3>
+      <div class="space-y-3" id="month-list">
+        <p class="text-outline text-sm">暂无记录</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ===== PAGE 2: 新建/编辑记录 ===== -->
+<div class="page" id="page-edit">
+  <header class="bg-slate-50/90 backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 shadow-sm">
+    <div class="flex items-center gap-4">
+      <button onclick="goBack()" class="p-2 -ml-2 hover:bg-slate-200/50 transition-colors rounded-full text-slate-500">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h1 class="text-xl font-bold font-headline" id="edit-title">新建记录</h1>
+    </div>
+    <button class="p-2 rounded-full text-error hover:bg-error-container/30 transition-colors" id="edit-delete-btn" onclick="triggerDeleteEdit()" style="display:none">
+      <span class="material-symbols-outlined">delete</span>
+    </button>
+  </header>
+  <main class="flex-grow px-6 py-8 max-w-lg mx-auto w-full space-y-6 pb-32">
+    <input type="hidden" id="edit-record-id"/>
+    <div class="group">
+      <label class="block text-sm font-medium text-outline mb-2 ml-1">录入日期</label>
+      <div class="relative">
+        <input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface text-md transition-colors" type="date" id="edit-date"/>
+        <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-outline pointer-events-none">calendar_today</span>
+      </div>
+    </div>
+    <div class="group">
+      <label class="block text-sm font-medium text-outline mb-2 ml-1">款式名称</label>
+      <input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface text-md transition-colors" type="text" id="edit-style" placeholder="例如：简约款A型"/>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="group">
+        <label class="block text-sm font-medium text-outline mb-2 ml-1">件数</label>
+        <input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface text-md transition-colors" type="number" id="edit-qty" min="1" placeholder="0"/>
+      </div>
+      <div class="group">
+        <label class="block text-sm font-medium text-outline mb-2 ml-1">单价 (¥)</label>
+        <input class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface text-md transition-colors" type="number" id="edit-price" step="0.01" min="0" placeholder="0.00"/>
+      </div>
+    </div>
+    <div class="group">
+      <label class="block text-sm font-medium text-outline mb-2 ml-1">特殊说明</label>
+      <textarea class="w-full bg-surface-container-low border-none rounded-lg px-4 py-3.5 text-on-surface text-md transition-colors resize-none" rows="4" id="edit-note" placeholder="可填写特殊说明..."></textarea>
+    </div>
+    <div class="bg-primary-container/10 p-5 rounded-xl border border-primary/10">
+      <div class="flex justify-between items-center">
+        <span class="text-sm font-medium text-on-secondary-fixed-variant">本条小计</span>
+        <span class="text-lg font-bold text-primary" id="edit-subtotal">¥0.00</span>
+      </div>
+    </div>
+  </main>
+  <div class="fixed bottom-0 left-0 w-full z-40 bg-slate-50/90 backdrop-blur-xl px-6 pt-4 pb-10">
+    <button onclick="saveRecord()" class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-bold font-headline shadow-lg active:scale-95 transition-all">
+      保存记录
+    </button>
+  </div>
+</div>
+
+<!-- ===== PAGE 3: 当月详细列表 ===== -->
+<div class="page" id="page-month">
+  <header class="bg-slate-50/90 backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center w-full px-6 py-3 shadow-sm">
+    <div class="flex items-center gap-4">
+      <button onclick="goHome()" class="p-2 -ml-2 hover:bg-slate-200/50 transition-colors rounded-full text-slate-500">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h1 class="text-xl font-bold font-headline" id="month-title">2024年1月</h1>
+    </div>
+    <button onclick="goToEdit(null)" class="w-9 h-9 flex items-center justify-center rounded-xl bg-primary text-on-primary hover:opacity-80 active:scale-95 transition-all">
+      <span class="material-symbols-outlined text-[20px]">add</span>
+    </button>
+  </header>
+  <main class="flex-grow px-6 py-6 space-y-6 pb-10">
+    <div class="flex justify-between items-center bg-primary-container/10 p-4 rounded-xl border border-primary/10">
+      <span class="text-sm font-medium text-outline">当月合计</span>
+      <span class="text-xl font-bold text-primary" id="month-total">¥0.00</span>
+    </div>
+    <div class="space-y-4" id="day-list">
+      <p class="text-outline text-sm">暂无记录</p>
+    </div>
+  </main>
+</div>
+
+<!-- ===== 删除确认弹窗 ===== -->
+<div class="fixed inset-0 z-[60] flex items-end sm:items-center justify-center hidden" id="delete-modal">
+  <div class="absolute inset-0 bg-on-surface/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="modal-overlay"></div>
+  <div class="relative bg-surface w-full max-w-md rounded-t-2xl sm:rounded-2xl p-6 transform translate-y-full transition-transform duration-300 shadow-2xl" id="modal-content">
+    <div class="w-12 h-1 bg-surface-variant rounded-full mx-auto mb-6 sm:hidden"></div>
+    <div class="flex flex-col items-center text-center space-y-4">
+      <div class="w-16 h-16 bg-error-container rounded-full flex items-center justify-center text-on-error-container">
+        <span class="material-symbols-outlined text-3xl">warning</span>
+      </div>
+      <h3 class="text-xl font-extrabold font-headline text-on-surface">确认删除</h3>
+      <p class="text-on-surface-variant leading-relaxed">确定要删除这条记录吗？此操作无法撤销。</p>
+    </div>
+    <div class="flex flex-col gap-3 mt-8">
+      <button onclick="confirmDelete()" class="w-full bg-error text-on-error py-3.5 rounded-xl font-bold font-headline active:scale-95 transition-all">
+        确认删除
+      </button>
+      <button onclick="closeModal()" class="w-full bg-surface-container-high text-on-surface-variant py-3.5 rounded-xl font-bold font-headline active:scale-95 transition-all">
+        取消
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== 数据层 =====
+const STORAGE_KEY = 'work_records';
+
+// Mock 初始数据
+const mockData = [
+  { id: 1, date: '2024-01-05', style: '简约款A型', qty: 20, price: 15, note: '客户要求加急' },
+  { id: 2, date: '2024-01-05', style: '复古款B型', qty: 15, price: 18, note: '' },
+  { id: 3, date: '2024-01-12', style: '简约款A型', qty: 30, price: 15, note: '' },
+  { id: 4, date: '2024-01-20', style: '时尚款C型', qty: 25, price: 22, note: '特殊面料' },
+  { id: 5, date: '2024-02-03', style: '复古款B型', qty: 40, price: 18, note: '' },
+  { id: 6, date: '2024-02-15', style: '简约款A型', qty: 35, price: 16, note: '春季新价格' },
+  { id: 7, date: '2024-03-08', style: '时尚款C型', qty: 50, price: 22, note: '' },
+  { id: 8, date: '2024-03-22', style: '经典款D型', qty: 28, price: 20, note: '加班完成' },
+];
+
+function loadData() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(mockData));
+    return mockData;
+  }
+  return JSON.parse(raw);
+}
+
+function saveData(records) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
+}
+
+function nextId(records) {
+  return records.length ? Math.max(...records.map(r => r.id)) + 1 : 1;
+}
+
+// ===== 格式化 =====
+function fmtMoney(n) {
+  return '¥' + Number(n).toFixed(2);
+}
+
+function parseYM(dateStr) {
+  const [y, m] = dateStr.split('-');
+  return `${y}-${m}`;
+}
+
+function ymLabel(ym) {
+  const [y, m] = ym.split('-');
+  return `${y}年${parseInt(m)}月`;
+}
+
+// ===== 页面切换 =====
+let currentMonth = null;
+let pendingDeleteId = null;
+let deleteContext = null; // 'edit' | 'month'
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  renderHome();
+  showPage('page-home');
+}
+
+function goBack() {
+  if (currentMonth) {
+    renderMonth(currentMonth);
+    showPage('page-month');
+  } else {
+    goHome();
+  }
+}
+
+// ===== 主页渲染 =====
+function renderHome() {
+  const records = loadData();
+  const total = records.reduce((s, r) => s + r.qty * r.price, 0);
+  document.getElementById('home-total').textContent = fmtMoney(total);
+
+  // 按月分组
+  const months = {};
+  records.forEach(r => {
+    const ym = parseYM(r.date);
+    if (!months[ym]) months[ym] = 0;
+    months[ym] += r.qty * r.price;
+  });
+
+  const sortedMonths = Object.keys(months).sort((a, b) => b.localeCompare(a));
+  const container = document.getElementById('month-list');
+
+  if (!sortedMonths.length) {
+    container.innerHTML = '<p class="text-outline text-sm">暂无记录</p>';
+    return;
+  }
+
+  container.innerHTML = sortedMonths.map(ym => `
+    <div class="bg-surface-container-low p-1 rounded-xl">
+      <div class="bg-surface-container-lowest flex items-center justify-between p-4 rounded-lg group transition-all hover:bg-slate-50 cursor-pointer active:scale-[0.98]"
+           onclick="openMonth('${ym}')">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-surface-container flex flex-col items-center justify-center rounded-lg">
+            <span class="text-[10px] font-bold text-outline uppercase">${ym.split('-')[1]}月</span>
+            <span class="text-lg font-bold leading-none">${ym.split('-')[0].slice(2)}</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-on-surface">${ymLabel(ym)}</h4>
+            <p class="text-sm text-outline">${records.filter(r => parseYM(r.date) === ym).reduce((s,r)=>s+r.qty,0)} 件</p>
+          </div>
+        </div>
+        <div class="text-right flex items-center gap-1">
+          <p class="text-lg font-bold text-primary">${fmtMoney(months[ym])}</p>
+          <span class="material-symbols-outlined text-outline group-hover:translate-x-1 transition-transform">chevron_right</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ===== 月详情渲染 =====
+function openMonth(ym) {
+  currentMonth = ym;
+  renderMonth(ym);
+  showPage('page-month');
+}
+
+function renderMonth(ym) {
+  const records = loadData().filter(r => parseYM(r.date) === ym);
+  document.getElementById('month-title').textContent = ymLabel(ym);
+
+  const monthTotal = records.reduce((s, r) => s + r.qty * r.price, 0);
+  document.getElementById('month-total').textContent = fmtMoney(monthTotal);
+
+  // 按日分组
+  const days = {};
+  records.forEach(r => {
+    if (!days[r.date]) days[r.date] = [];
+    days[r.date].push(r);
+  });
+
+  const sortedDays = Object.keys(days).sort((a, b) => b.localeCompare(a));
+  const container = document.getElementById('day-list');
+
+  if (!sortedDays.length) {
+    container.innerHTML = '<p class="text-outline text-sm">暂无记录</p>';
+    return;
+  }
+
+  container.innerHTML = sortedDays.map(date => {
+    const dayRecords = days[date];
+    const dayTotal = dayRecords.reduce((s, r) => s + r.qty * r.price, 0);
+    const [, , d] = date.split('-');
+
+    const rows = dayRecords.map(r => `
+      <div class="flex items-center justify-between py-3 border-b border-outline-variant/30 last:border-0">
+        <div class="flex-1 min-w-0">
+          <p class="font-medium text-on-surface truncate">${r.style}</p>
+          <p class="text-sm text-outline">${r.qty}件 × ${fmtMoney(r.price)}</p>
+          ${r.note ? `<p class="text-xs text-outline/70 mt-0.5 truncate">${r.note}</p>` : ''}
+        </div>
+        <div class="flex items-center gap-2 ml-3 shrink-0">
+          <span class="font-bold text-primary">${fmtMoney(r.qty * r.price)}</span>
+          <button onclick="goToEdit(${r.id})" class="p-1.5 rounded-lg hover:bg-surface-container transition-colors text-outline">
+            <span class="material-symbols-outlined text-[18px]">edit</span>
+          </button>
+          <button onclick="askDelete(${r.id}, 'month')" class="p-1.5 rounded-lg hover:bg-error-container/30 transition-colors text-error">
+            <span class="material-symbols-outlined text-[18px]">delete</span>
+          </button>
+        </div>
+      </div>
+    `).join('');
+
+    return `
+      <div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+        <div class="flex items-center justify-between px-4 py-3 bg-surface-container">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-extrabold font-display text-primary">${parseInt(d)}</span>
+            <span class="text-sm text-outline">日</span>
+          </div>
+          <span class="text-sm font-bold text-on-surface">${fmtMoney(dayTotal)}</span>
+        </div>
+        <div class="px-4">${rows}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ===== 编辑页 =====
+function goToEdit(id) {
+  const records = loadData();
+  const record = id ? records.find(r => r.id === id) : null;
+
+  document.getElementById('edit-record-id').value = id || '';
+  document.getElementById('edit-title').textContent = id ? '编辑记录' : '新建记录';
+  document.getElementById('edit-delete-btn').style.display = id ? 'block' : 'none';
+
+  if (record) {
+    document.getElementById('edit-date').value = record.date;
+    document.getElementById('edit-style').value = record.style;
+    document.getElementById('edit-qty').value = record.qty;
+    document.getElementById('edit-price').value = record.price;
+    document.getElementById('edit-note').value = record.note || '';
+  } else {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('edit-date').value = today;
+    document.getElementById('edit-style').value = '';
+    document.getElementById('edit-qty').value = '';
+    document.getElementById('edit-price').value = '';
+    document.getElementById('edit-note').value = '';
+  }
+
+  updateSubtotal();
+  showPage('page-edit');
+}
+
+function updateSubtotal() {
+  const qty = parseFloat(document.getElementById('edit-qty').value) || 0;
+  const price = parseFloat(document.getElementById('edit-price').value) || 0;
+  document.getElementById('edit-subtotal').textContent = fmtMoney(qty * price);
+}
+
+document.getElementById('edit-qty').addEventListener('input', updateSubtotal);
+document.getElementById('edit-price').addEventListener('input', updateSubtotal);
+
+function saveRecord() {
+  const date = document.getElementById('edit-date').value;
+  const style = document.getElementById('edit-style').value.trim();
+  const qty = parseFloat(document.getElementById('edit-qty').value);
+  const price = parseFloat(document.getElementById('edit-price').value);
+  const note = document.getElementById('edit-note').value.trim();
+  const idVal = document.getElementById('edit-record-id').value;
+
+  if (!date || !style || !qty || !price) {
+    alert('请填写日期、款式、件数和单价');
+    return;
+  }
+
+  const records = loadData();
+  const ym = parseYM(date);
+
+  if (idVal) {
+    const idx = records.findIndex(r => r.id === parseInt(idVal));
+    if (idx !== -1) {
+      records[idx] = { ...records[idx], date, style, qty, price, note };
+    }
+  } else {
+    records.push({ id: nextId(records), date, style, qty, price, note });
+  }
+
+  saveData(records);
+  currentMonth = ym;
+  renderMonth(ym);
+  showPage('page-month');
+}
+
+// ===== 删除逻辑 =====
+function askDelete(id, ctx) {
+  pendingDeleteId = id;
+  deleteContext = ctx;
+  openModal();
+}
+
+function triggerDeleteEdit() {
+  const id = parseInt(document.getElementById('edit-record-id').value);
+  if (id) askDelete(id, 'edit');
+}
+
+function confirmDelete() {
+  if (!pendingDeleteId) return;
+  const records = loadData().filter(r => r.id !== pendingDeleteId);
+  saveData(records);
+  closeModal();
+
+  if (deleteContext === 'edit') {
+    if (currentMonth) {
+      renderMonth(currentMonth);
+      showPage('page-month');
+    } else {
+      goHome();
+    }
+  } else {
+    renderMonth(currentMonth);
+  }
+
+  pendingDeleteId = null;
+  deleteContext = null;
+}
+
+function openModal() {
+  const modal = document.getElementById('delete-modal');
+  const overlay = document.getElementById('modal-overlay');
+  const content = document.getElementById('modal-content');
+  modal.classList.remove('hidden');
+  requestAnimationFrame(() => {
+    overlay.classList.remove('opacity-0');
+    overlay.classList.add('opacity-100');
+    content.classList.remove('translate-y-full');
+    content.classList.add('translate-y-0');
+  });
+}
+
+function closeModal() {
+  const overlay = document.getElementById('modal-overlay');
+  const content = document.getElementById('modal-content');
+  overlay.classList.remove('opacity-100');
+  overlay.classList.add('opacity-0');
+  content.classList.remove('translate-y-0');
+  content.classList.add('translate-y-full');
+  setTimeout(() => {
+    document.getElementById('delete-modal').classList.add('hidden');
+  }, 300);
+}
+
+document.getElementById('modal-overlay').addEventListener('click', closeModal);
+
+// ===== 初始化 =====
+renderHome();
+</script>
+</body>
+</html>
