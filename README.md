@@ -1,2 +1,0 @@
-# desu
-Record Daily Life
