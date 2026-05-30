@@ -34,10 +34,11 @@ export async function middleware(request: NextRequest) {
     }
   });
 
-  const { data: { user } } = await supabase.auth.getUser();
+  // getSession() reads from cookie locally (no network call) — fast on all devices
+  // Only fall back to signIn when there's truly no session cookie
+  const { data: { session } } = await supabase.auth.getSession();
 
-  // Auto sign-in with the default account if not authenticated
-  if (!user) {
+  if (!session) {
     await supabase.auth.signInWithPassword({ email: AUTO_EMAIL, password: AUTO_PASSWORD });
   }
 
