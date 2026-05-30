@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { DeleteRecordButton } from "@/components/DeleteRecordButton";
 import { RecordForm } from "@/components/RecordForm";
@@ -15,7 +15,7 @@ export default async function EditRecordPage({ params }: { params: Promise<{ id:
     record = await getRecordById(id);
   } catch (error) {
     if (error instanceof AuthRequiredError) {
-      redirect("/login");
+      notFound();
     }
     throw error;
   }

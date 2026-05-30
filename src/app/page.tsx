@@ -1,22 +1,25 @@
-import { redirect } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { MonthList } from "@/components/MonthList";
 import { getGrandTotal, getMonthSummaries } from "@/lib/aggregate";
 import { formatMoney } from "@/lib/format";
 import { AuthRequiredError, listRecords } from "@/lib/records";
+import type { WorkRecord } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  let records;
+  let records: WorkRecord[];
 
   try {
     records = await listRecords();
   } catch (error) {
     if (error instanceof AuthRequiredError) {
-      redirect("/login");
+      // Auto-login is handled by middleware; if still unauthenticated after that,
+      // show empty state rather than crashing or redirect-looping with /login.
+      records = [];
+    } else {
+      throw error;
     }
-    throw error;
   }
 
   const total = getGrandTotal(records);

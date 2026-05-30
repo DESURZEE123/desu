@@ -1,9 +1,10 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { DayRecordList } from "@/components/DayRecordList";
 import { getDayGroups, getGrandTotal } from "@/lib/aggregate";
 import { formatMoney, monthLabel } from "@/lib/format";
 import { AuthRequiredError, listRecordsByMonth } from "@/lib/records";
+import type { WorkRecord } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
@@ -18,15 +19,16 @@ export default async function MonthPage({ params }: { params: Promise<{ ym: stri
     notFound();
   }
 
-  let records;
+  let records: WorkRecord[];
 
   try {
     records = await listRecordsByMonth(ym);
   } catch (error) {
     if (error instanceof AuthRequiredError) {
-      redirect("/login");
+      records = [];
+    } else {
+      throw error;
     }
-    throw error;
   }
 
   const total = getGrandTotal(records);
