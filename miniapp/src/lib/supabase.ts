@@ -1,8 +1,11 @@
 import Taro from '@tarojs/taro'
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-const SUPABASE_URL = process.env.TARO_APP_SUPABASE_URL || ''
-const SUPABASE_ANON_KEY = process.env.TARO_APP_SUPABASE_ANON_KEY || ''
+declare const __SUPABASE_URL__: string
+declare const __SUPABASE_ANON_KEY__: string
+
+const SUPABASE_URL = __SUPABASE_URL__
+const SUPABASE_ANON_KEY = __SUPABASE_ANON_KEY__
 
 // wx.request wrapped as a fetch-compatible function
 function wxFetch(url: RequestInfo | URL, options: RequestInit = {}): Promise<Response> {

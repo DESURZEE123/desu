@@ -24,6 +24,7 @@ export const useAuthStore = create<AuthState>((set) => ({
       const session = await wechatLogin()
       set({ user: session.user, isAuthenticated: true, isLoading: false })
     } catch (err) {
+      console.error('login error:', err)
       set({ isLoading: false })
       throw err
     }

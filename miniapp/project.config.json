@@ -1,7 +1,7 @@
 {
   "description": "项目私有配置文件。此文件不做版本管理，可用于存放项目私有信息。",
-  "projectname": "desu-miniapp",
-  "appid": "touristappid",
+  "projectname": "desu-miniapp-counter",
+  "appid": "wx0391db08e8ccfdc8",
   "compileType": "miniprogram",
   "setting": {
     "coverView": true,
