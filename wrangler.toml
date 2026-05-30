@@ -1,4 +1,4 @@
-name = "desu-work-tracker"
+name = "computer-counter"
 compatibility_date = "2024-12-18"
 compatibility_flags = ["nodejs_compat"]
 
@@ -7,4 +7,5 @@ directory = ".open-next/assets"
 binding = "ASSETS"
 
 [vars]
-# Add environment variables here or set them in the Cloudflare dashboard
+NEXT_PUBLIC_SUPABASE_URL = "https://xgzrznwwhhrqvbhdrfet.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhnenJ6bnd3aGhycXZiaGRyZmV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4ODE3NTcsImV4cCI6MjA5NTQ1Nzc1N30.aN-XaDY6zIUt5JNw1x9uIK2czaZbzn9QCqfC1aixxr0"
