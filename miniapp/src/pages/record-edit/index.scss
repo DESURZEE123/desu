@@ -1,0 +1,11 @@
+.record-edit-page {
+  min-height: 100vh;
+  background: var(--color-surface);
+}
+
+.record-edit-loading {
+  padding: 80px 32px;
+  text-align: center;
+  color: var(--color-on-surface-variant);
+  font-size: 28px;
+}

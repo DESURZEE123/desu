@@ -1,0 +1,32 @@
+page {
+  background-color: #f8f9fb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  color: #1a1c23;
+  font-size: 28px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 32px;
+  max-width: 100%;
+}
+
+// Material Design 3 color tokens
+:root {
+  --color-primary: #003d9b;
+  --color-primary-container: #0052cc;
+  --color-on-primary: #ffffff;
+  --color-surface: #f8f9fb;
+  --color-surface-variant: #e1e2ec;
+  --color-on-surface: #1a1c23;
+  --color-on-surface-variant: #44464f;
+  --color-outline: #737685;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-secondary: #5a5d72;
+  --color-secondary-container: #dfe1f9;
+}

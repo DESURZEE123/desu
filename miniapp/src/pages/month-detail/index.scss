@@ -1,0 +1,46 @@
+.month-detail-page {
+  min-height: 100vh;
+  background: var(--color-surface);
+  padding-bottom: 48px;
+}
+
+.month-detail-total {
+  margin: 24px 32px;
+  background: var(--color-primary);
+  border-radius: 20px;
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.month-detail-total-label {
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.month-detail-total-amount {
+  font-size: 48px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.month-detail-loading,
+.month-detail-empty {
+  padding: 80px 32px;
+  text-align: center;
+  color: var(--color-on-surface-variant);
+  font-size: 28px;
+}
+
+.month-detail-empty-text {
+  font-size: 28px;
+  color: var(--color-on-surface-variant);
+}
+
+.month-detail-list {
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

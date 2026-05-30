@@ -1,0 +1,31 @@
+{
+  "name": "desu-miniapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "工作记录追踪器 - 微信小程序",
+  "scripts": {
+    "dev:weapp": "taro build --type weapp --watch",
+    "build:weapp": "taro build --type weapp"
+  },
+  "dependencies": {
+    "@nutui/nutui-react-taro": "^3.0.0",
+    "@supabase/supabase-js": "^2.46.1",
+    "@tarojs/components": "4.2.0",
+    "@tarojs/react": "4.2.0",
+    "@tarojs/runtime": "4.2.0",
+    "@tarojs/taro": "4.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "zustand": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@tarojs/cli": "4.2.0",
+    "@tarojs/webpack5-runner": "4.2.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "babel-preset-taro": "4.2.0",
+    "sass": "^1.77.0",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,48 @@
+.month-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+
+  &:active {
+    background: var(--color-surface-variant);
+  }
+}
+
+.month-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.month-card-label {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.month-card-quantity {
+  font-size: 24px;
+  color: var(--color-on-surface-variant);
+}
+
+.month-card-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.month-card-total {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.month-card-arrow {
+  font-size: 36px;
+  color: var(--color-outline);
+  line-height: 1;
+}
