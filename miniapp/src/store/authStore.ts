@@ -2,7 +2,9 @@ import { create } from 'zustand'
 import Taro from '@tarojs/taro'
 import type { User } from '@supabase/supabase-js'
 import { getSupabaseClient } from '@/lib/supabase'
-import { wechatLogin } from '@/lib/wechat'
+
+const AUTO_EMAIL = 'zhaoping@qq.com'
+const AUTO_PASSWORD = '123456'
 
 interface AuthState {
   user: User | null
@@ -21,8 +23,13 @@ export const useAuthStore = create<AuthState>((set) => ({
   login: async () => {
     set({ isLoading: true })
     try {
-      const session = await wechatLogin()
-      set({ user: session.user, isAuthenticated: true, isLoading: false })
+      const supabase = getSupabaseClient()
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: AUTO_EMAIL,
+        password: AUTO_PASSWORD
+      })
+      if (error) throw error
+      set({ user: data.user, isAuthenticated: true, isLoading: false })
     } catch (err) {
       console.error('login error:', err)
       set({ isLoading: false })
@@ -45,7 +52,8 @@ export const useAuthStore = create<AuthState>((set) => ({
       if (data.session) {
         set({ user: data.session.user, isAuthenticated: true, isLoading: false })
       } else {
-        set({ isLoading: false })
+        // 没有 session 就自动登录
+        await useAuthStore.getState().login()
       }
     } catch {
       set({ isLoading: false })

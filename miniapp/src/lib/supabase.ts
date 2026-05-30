@@ -8,6 +8,7 @@ const SUPABASE_URL = __SUPABASE_URL__
 const SUPABASE_ANON_KEY = __SUPABASE_ANON_KEY__
 
 // wx.request wrapped as a fetch-compatible function
+// 小程序没有 Headers / Response / fetch，全部手动模拟
 function wxFetch(url: RequestInfo | URL, options: RequestInit = {}): Promise<Response> {
   return new Promise((resolve, reject) => {
     const urlStr = typeof url === 'string' ? url : url.toString()
@@ -23,14 +24,8 @@ function wxFetch(url: RequestInfo | URL, options: RequestInit = {}): Promise<Res
     }
 
     const headers: Record<string, string> = {}
-    if (options.headers) {
-      if (options.headers instanceof Headers) {
-        options.headers.forEach((value, key) => {
-          headers[key] = value
-        })
-      } else {
-        Object.assign(headers, options.headers)
-      }
+    if (options.headers && typeof options.headers === 'object') {
+      Object.assign(headers, options.headers)
     }
 
     Taro.request({
@@ -39,13 +34,22 @@ function wxFetch(url: RequestInfo | URL, options: RequestInit = {}): Promise<Res
       data,
       header: headers,
       success(res) {
-        const body = typeof res.data === 'string' ? res.data : JSON.stringify(res.data)
-        resolve(
-          new Response(body, {
-            status: res.statusCode,
-            headers: res.header as Record<string, string>
-          })
-        )
+        const bodyStr = typeof res.data === 'string' ? res.data : JSON.stringify(res.data)
+        const status = res.statusCode
+        const resHeaders = res.header as Record<string, string>
+
+        // 手动构造符合 fetch Response 接口的对象
+        const mockResponse = {
+          ok: status >= 200 && status < 300,
+          status,
+          headers: {
+            get: (key: string) => resHeaders[key] ?? resHeaders[key.toLowerCase()] ?? null
+          },
+          json: () => Promise.resolve(typeof res.data === 'string' ? JSON.parse(res.data) : res.data),
+          text: () => Promise.resolve(bodyStr),
+          clone: function () { return this }
+        }
+        resolve(mockResponse as unknown as Response)
       },
       fail(err) {
         reject(new Error(err.errMsg || 'Request failed'))
@@ -87,6 +91,14 @@ export function getSupabaseClient(): SupabaseClient {
         detectSessionInUrl: false
       }
     })
+
+    // 强制禁用 realtime，避免 WebSocket 初始化
+    // @ts-ignore
+    _client.realtime = {
+      channel: () => ({ subscribe: () => {}, unsubscribe: () => {} }),
+      removeAllChannels: () => {},
+      disconnect: () => {}
+    }
   }
   return _client
 }
