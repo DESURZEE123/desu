@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AiAgentLink } from '../AiAgentLink'
 import { Icon } from '../Icon'
 import {
   education,
@@ -9,11 +10,11 @@ import {
 } from '../../data/profile'
 
 const BOTTOM_NAV: { id: string; icon: string; label: string }[] = [
-  { id: 'home', icon: 'home', label: 'Home' },
-  { id: 'skills', icon: 'bolt', label: 'Skills' },
-  { id: 'projects', icon: 'description', label: 'Projects' },
-  { id: 'life', icon: 'camera', label: 'Life' },
-  { id: 'contact', icon: 'mail', label: 'Contact' },
+  { id: 'home', icon: 'home', label: '首页' },
+  { id: 'skills', icon: 'bolt', label: '技能' },
+  { id: 'projects', icon: 'description', label: '项目' },
+  { id: 'life', icon: 'camera', label: '生活' },
+  { id: 'contact', icon: 'mail', label: '联系' },
 ]
 
 export function MobilePortfolio() {
@@ -44,11 +45,14 @@ export function MobilePortfolio() {
           WANG YIYANG
         </h1>
         <a
-          href={`tel:${profile.phoneTel}`}
-          className="flex h-10 w-10 items-center justify-center rounded-lg transition-colors duration-150 hover:bg-primary-container/10 active:scale-95"
-          aria-label="电话"
+          href="https://chat.lulmuio.cn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 rounded-lg bg-primary px-2.5 py-1.5 text-[12px] font-semibold text-white transition-all active:scale-95"
+          aria-label="AI Agent，新窗口打开"
         >
-          <Icon name="call" className="text-primary" />
+          <Icon name="smart_toy" className="text-[18px]" />
+          AI Agent
         </a>
       </header>
 
@@ -77,6 +81,9 @@ export function MobilePortfolio() {
                 {item.label}
               </button>
             ))}
+            <div className="mt-2 border-t border-outline-variant/30 pt-3">
+              <AiAgentLink variant="banner" />
+            </div>
           </div>
         </div>
       )}
@@ -119,6 +126,7 @@ export function MobilePortfolio() {
               </div>
             </div>
           </div>
+          <AiAgentLink variant="banner" />
         </section>
 
         <section id="skills" className="px-margin-mobile py-6">

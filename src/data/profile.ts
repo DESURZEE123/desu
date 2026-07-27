@@ -11,12 +11,18 @@ export const profile = {
   email: 'des65071@gmail.com',
   company: '南京弟齐信息技术有限公司',
   companyShort: '弟齐信息',
-  greeting: '你好啊，欢迎来到我的个人站。',
+  greeting: '',
   intro:
     '我是王怡阳，一名做 ToB SaaS 的产品经理。负责 MarketUp（CRM+营销自动化）产品规划与迭代，围绕企业「获客-转化-协同」全链路持续打磨产品。',
   status: '目前在职 · 南京弟齐信息技术有限公司',
   quote:
     '具备产品需求分析、方案设计及项目推进能力，熟悉 ToB SaaS 产品设计流程，能够从业务场景出发分析问题并持续推动产品优化；逻辑思维清晰，学习能力强，责任心强，具备良好的沟通表达与团队协作能力，执行力强，能够积极推动项目落地。',
+}
+
+export const aiAgent = {
+  name: 'AI Agent',
+  url: 'https://chat.lulmuio.cn/',
+  desc: '可调用业务系统的 AI 助手 · 在线体验',
 }
 
 export const skills = [
@@ -110,6 +116,7 @@ export const projects = [
     iconBg: 'bg-primary-container',
     iconColor: 'text-white opacity-30',
     badgeClass: 'bg-primary text-white',
+    demoUrl: 'https://chat.lulmuio.cn/',
     summary:
       '用 AI 把企业已有的产品、案例、行业知识和营销内容变成可生产、可分发、可追踪、可转化的内容资产，服务于 B2B 获客到销售转化的完整营销闭环。',
     points: [
@@ -123,7 +130,7 @@ export const projects = [
 ]
 
 export const education = {
-  school: '徐州工程学院（统招本科）',
+  school: '',
   major: '信息管理与信息技术',
   period: '2020.09 - 2024.06',
   certificates: ['软考·软件设计师', '英语六级 (CET-6)'],

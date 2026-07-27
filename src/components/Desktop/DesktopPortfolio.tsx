@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AiAgentLink } from '../AiAgentLink'
 import { Icon } from '../Icon'
 import {
   education,
@@ -66,9 +67,10 @@ export function DesktopPortfolio() {
                 {item.label}
               </a>
             ))}
+            <AiAgentLink variant="nav" />
             <a
               href={`mailto:${profile.email}`}
-              className="rounded-lg bg-primary px-6 py-2 font-label-md text-white transition-all hover:bg-primary-container active:scale-95"
+              className="rounded-lg border border-outline-variant px-5 py-2 font-label-md text-primary transition-all hover:border-primary hover:bg-surface-container-low active:scale-95"
             >
               联系我
             </a>
@@ -109,15 +111,16 @@ export function DesktopPortfolio() {
               </div>
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
+              <AiAgentLink variant="hero" />
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-center gap-2 rounded-lg bg-primary px-8 py-4 font-headline-md text-white transition-all hover:shadow-lg active:scale-95"
+                className="flex items-center gap-2 rounded-lg border border-primary px-8 py-4 font-headline-md text-primary transition-all hover:bg-primary hover:text-white active:scale-95"
               >
                 <Icon name="mail" /> {profile.email}
               </a>
               <a
                 href={`tel:${profile.phoneTel}`}
-                className="flex items-center gap-2 rounded-lg border border-primary px-8 py-4 font-headline-md text-primary transition-all hover:bg-primary hover:text-white active:scale-95"
+                className="flex items-center gap-2 rounded-lg border border-outline-variant px-8 py-4 font-headline-md text-on-surface-variant transition-all hover:border-primary hover:text-primary active:scale-95"
               >
                 <Icon name="call" /> {profile.phone}
               </a>
