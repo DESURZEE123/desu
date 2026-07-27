@@ -1,11 +1,24 @@
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { DesktopPortfolio } from './components/Desktop/DesktopPortfolio'
 import { MobilePortfolio } from './components/Mobile/MobilePortfolio'
+import { AlbumPage } from './pages/AlbumPage'
 import { useMediaQuery } from './hooks/useMediaQuery'
 
-function App() {
+function HomePage() {
   const isDesktop = useMediaQuery('(min-width: 768px)')
-
   return isDesktop ? <DesktopPortfolio /> : <MobilePortfolio />
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/album" element={<AlbumPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App

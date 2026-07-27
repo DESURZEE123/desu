@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { AiAgentLink } from '../AiAgentLink'
 import { Icon } from '../Icon'
+import { SiteHeader } from '../SiteHeader'
 import {
   education,
   experiences,
@@ -21,10 +23,39 @@ const NAV_ITEMS = [
 const DESKTOP_SKILL_ICONS = ['strategy', 'design_services', 'psychology', 'groups']
 
 const COVER_IMG = '/photo.jpg'
+const HEADER_OFFSET = 80
 
 export function DesktopPortfolio() {
+  const location = useLocation()
   const [activeNav, setActiveNav] = useState('about')
   const clickingRef = useRef(false)
+
+  const scrollTo = (id: string) => {
+    const target = document.getElementById(id)
+    if (!target) return
+    clickingRef.current = true
+    setActiveNav(id)
+    window.scrollTo({ top: target.offsetTop - HEADER_OFFSET, behavior: 'smooth' })
+    window.setTimeout(() => {
+      clickingRef.current = false
+    }, 700)
+  }
+
+  useEffect(() => {
+    const hash = location.hash.replace('#', '')
+    if (!hash) return
+    const timer = window.setTimeout(() => {
+      const target = document.getElementById(hash)
+      if (!target) return
+      clickingRef.current = true
+      setActiveNav(hash)
+      window.scrollTo({ top: target.offsetTop - HEADER_OFFSET, behavior: 'smooth' })
+      window.setTimeout(() => {
+        clickingRef.current = false
+      }, 700)
+    }, 50)
+    return () => window.clearTimeout(timer)
+  }, [location.hash])
 
   useEffect(() => {
     const sectionIds = NAV_ITEMS.map((item) => item.id)
@@ -54,19 +85,10 @@ export function DesktopPortfolio() {
     return () => observer.disconnect()
   }, [])
 
-  const scrollTo = (id: string) => {
-    const target = document.getElementById(id)
-    if (!target) return
-    clickingRef.current = true
-    setActiveNav(id)
-    window.scrollTo({ top: target.offsetTop - 24, behavior: 'smooth' })
-    window.setTimeout(() => {
-      clickingRef.current = false
-    }, 700)
-  }
-
   return (
     <div className="min-h-screen bg-[#eef1f6] font-body-md text-body-md text-on-surface selection:bg-primary/10">
+      <SiteHeader activeSection={activeNav} onScrollTo={scrollTo} />
+
       <div className="mx-auto flex max-w-[1280px] gap-6 px-6 py-8 lg:px-10">
         {/* Left sidebar */}
         <aside className="flex w-[280px] shrink-0 flex-col gap-5 self-start">
@@ -90,7 +112,6 @@ export function DesktopPortfolio() {
                 <h1 className="font-headline-md text-xl font-bold text-primary">
                   {profile.name}
                 </h1>
-                <p className="mt-1 text-sm text-on-surface-variant">{profile.roleLine}</p>
               </div>
 
               <div className="mb-4 space-y-2.5 border-y border-outline-variant/30 py-4">
@@ -166,11 +187,10 @@ export function DesktopPortfolio() {
                         e.preventDefault()
                         scrollTo(item.id)
                       }}
-                      className={`block rounded-xl px-3 py-2.5 text-sm transition-all ${
-                        active
+                      className={`block rounded-xl px-3 py-2.5 text-sm transition-all ${active
                           ? 'bg-secondary-container/35 font-semibold text-primary'
                           : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
-                      }`}
+                        }`}
                     >
                       {item.label}
                     </a>
@@ -240,9 +260,8 @@ export function DesktopPortfolio() {
                   </div>
                   <div className="relative flex-1 border-l-2 border-surface-container-highest pb-2 pl-8">
                     <div
-                      className={`absolute -left-[9px] top-1.5 h-4 w-4 rounded-full ${
-                        exp.current ? 'bg-primary' : 'bg-surface-dim'
-                      }`}
+                      className={`absolute -left-[9px] top-1.5 h-4 w-4 rounded-full ${exp.current ? 'bg-primary' : 'bg-surface-dim'
+                        }`}
                     />
                     <h3 className="mb-2 font-headline-lg text-xl text-primary">{exp.company}</h3>
                     <p className="mb-4 text-on-surface-variant">{exp.description}</p>
@@ -257,6 +276,36 @@ export function DesktopPortfolio() {
                       ))}
                     </div>
                   </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Prototypes */}
+          <section
+            id="prototypes"
+            className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
+          >
+            <div className="mb-8 text-center">
+              <h2 className="mb-2 font-headline-lg text-2xl text-primary">工作原型</h2>
+              <p className="text-on-surface-variant">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
+            </div>
+            <div className="grid grid-cols-3 gap-5">
+              {[
+                { title: '移动端线索流转界面', sub: 'Figma · MasterGo' },
+                { title: 'PC 管理后台全局看板', sub: 'High-Fidelity Mockup' },
+                { title: '自动化流程编辑器', sub: 'Workflow Logic Design' },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-xl border border-outline-variant bg-gradient-to-br from-primary to-secondary p-5"
+                >
+                  <Icon
+                    name="draw"
+                    className="absolute right-5 top-5 text-5xl text-white/20 transition-transform group-hover:scale-110"
+                  />
+                  <p className="font-headline-md text-white">{item.title}</p>
+                  <p className="text-sm text-white/60">{item.sub}</p>
                 </div>
               ))}
             </div>
@@ -315,36 +364,6 @@ export function DesktopPortfolio() {
             </div>
           </section>
 
-          {/* Prototypes */}
-          <section
-            id="prototypes"
-            className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
-          >
-            <div className="mb-8 text-center">
-              <h2 className="mb-2 font-headline-lg text-2xl text-primary">工作原型</h2>
-              <p className="text-on-surface-variant">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
-            </div>
-            <div className="grid grid-cols-3 gap-5">
-              {[
-                { title: '移动端线索流转界面', sub: 'Figma · MasterGo' },
-                { title: 'PC 管理后台全局看板', sub: 'High-Fidelity Mockup' },
-                { title: '自动化流程编辑器', sub: 'Workflow Logic Design' },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-xl border border-outline-variant bg-gradient-to-br from-primary to-secondary p-5"
-                >
-                  <Icon
-                    name="draw"
-                    className="absolute right-5 top-5 text-5xl text-white/20 transition-transform group-hover:scale-110"
-                  />
-                  <p className="font-headline-md text-white">{item.title}</p>
-                  <p className="text-sm text-white/60">{item.sub}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
           {/* Interests */}
           <section
             id="interests"
@@ -370,9 +389,8 @@ export function DesktopPortfolio() {
               {['摄影', '街拍', '运动', '跑步'].map((label, i) => (
                 <div
                   key={label}
-                  className={`flex h-56 items-center justify-center rounded-xl border border-outline-variant bg-surface-container-low ${
-                    i % 2 === 1 ? 'mt-6' : ''
-                  }`}
+                  className={`flex h-56 items-center justify-center rounded-xl border border-outline-variant bg-surface-container-low ${i % 2 === 1 ? 'mt-6' : ''
+                    }`}
                 >
                   <span className="font-headline-md text-on-surface-variant">{label}</span>
                 </div>
@@ -402,7 +420,7 @@ export function DesktopPortfolio() {
                     <p className="font-medium text-on-surface-variant">
                       {education.period}
                     </p>
-                    
+
                     <div className="mt-4 flex flex-wrap gap-2">
                       {education.certificates.map((cert) => (
                         <span
