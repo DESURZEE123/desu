@@ -4,44 +4,39 @@ import { SiteHeader } from '../components/SiteHeader'
 import { Icon } from '../components/Icon'
 import { album } from '../data/album'
 import { profile } from '../data/profile'
+import './AlbumPage.less'
 
 export function AlbumPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   return (
-    <div className="min-h-screen bg-[#eef1f6] font-body-md text-body-md text-on-surface selection:bg-primary/10">
+    <div className="album-page font-body-md selection:bg-primary/10">
       <SiteHeader />
 
-      <div className="mx-auto max-w-[1280px] space-y-6 px-6 py-8 lg:px-10">
-        <div className="text-sm text-on-surface-variant">
-          <Link to="/" className="hover:text-primary">
-            首页
-          </Link>
-          <span className="mx-2 text-outline">/</span>
-          <span className="text-primary">相册</span>
+      <div className="album-page__container">
+        <div className="album-page__breadcrumb">
+          <Link to="/">首页</Link>
+          <span className="sep">/</span>
+          <span className="current">相册</span>
         </div>
 
-        <section className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(27,43,58,0.06)]">
-          <div className="relative h-56 overflow-hidden md:h-72">
-            <img
-              src={album.cover}
-              alt=""
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/45 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-8">
-              <Icon name="photo_library" className="mb-3 text-3xl text-white/70" />
-              <h1 className="font-headline-xl text-4xl text-white md:text-5xl">{album.title}</h1>
-              <div className="mt-4 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/35 px-3 py-1 text-xs text-white backdrop-blur-sm">
+        <section className="album-page__card">
+          <div className="album-page__hero">
+            <img src={album.cover} alt="" />
+            <div className="mask" />
+            <div className="hero-content">
+              <Icon name="photo_library" className="hero-icon material-symbols-outlined" />
+              <h1>{album.title}</h1>
+              <div className="meta">
+                <span className="meta-item">
                   <Icon name="person" className="text-[14px]" />
                   {album.author}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/35 px-3 py-1 text-xs text-white backdrop-blur-sm">
+                <span className="meta-item">
                   <Icon name="calendar_today" className="text-[14px]" />
                   {album.date}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/35 px-3 py-1 text-xs text-white backdrop-blur-sm">
+                <span className="meta-item">
                   <Icon name="image" className="text-[14px]" />
                   {album.photos.length} 张
                 </span>
@@ -49,22 +44,18 @@ export function AlbumPage() {
             </div>
           </div>
 
-          <div className="p-6 md:p-8">
-            <p className="mb-6 text-on-surface-variant">{album.description}</p>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="album-page__body">
+            {album.description ? <p className="desc">{album.description}</p> : null}
+            <div className="album-page__grid">
               {album.photos.map((photo, index) => (
                 <button
                   key={photo.id}
                   type="button"
+                  className="photo-btn"
                   onClick={() => setLightboxIndex(index)}
-                  className="group overflow-hidden rounded-xl bg-surface-container-low shadow-[0_6px_18px_rgba(27,43,58,0.08)] transition-transform hover:-translate-y-0.5"
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                  <div className="photo-frame">
+                    <img src={photo.src} alt={photo.alt} />
                   </div>
                 </button>
               ))}
@@ -72,24 +63,21 @@ export function AlbumPage() {
           </div>
         </section>
 
-        <footer className="rounded-2xl bg-white px-8 py-6 shadow-[0_8px_30px_rgba(27,43,58,0.06)]">
-          <div className="font-bold text-primary">
+        <footer className="album-page__footer">
+          <div className="name">
             {profile.name} {profile.nameEn}
           </div>
-          <p className="text-sm text-on-surface-variant">
+          <p className="copy">
             © 2026 {profile.name}. Built with Product Thinking & Professional Excellence.
           </p>
         </footer>
       </div>
 
       {lightboxIndex !== null && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setLightboxIndex(null)}
-        >
+        <div className="album-lightbox" onClick={() => setLightboxIndex(null)}>
           <button
             type="button"
-            className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25"
+            className="lb-close"
             onClick={() => setLightboxIndex(null)}
             aria-label="关闭"
           >
@@ -97,7 +85,7 @@ export function AlbumPage() {
           </button>
           <button
             type="button"
-            className="absolute left-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 md:left-8"
+            className="lb-prev"
             onClick={(e) => {
               e.stopPropagation()
               setLightboxIndex((i) =>
@@ -109,14 +97,14 @@ export function AlbumPage() {
             <Icon name="chevron_left" />
           </button>
           <img
+            className="lb-img"
             src={album.photos[lightboxIndex].src}
             alt={album.photos[lightboxIndex].alt}
-            className="max-h-[85vh] max-w-[90vw] rounded-xl object-contain"
             onClick={(e) => e.stopPropagation()}
           />
           <button
             type="button"
-            className="absolute right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white hover:bg-white/25 md:right-8"
+            className="lb-next"
             onClick={(e) => {
               e.stopPropagation()
               setLightboxIndex((i) =>

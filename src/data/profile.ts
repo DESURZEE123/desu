@@ -22,7 +22,7 @@ export const profile = {
 export const aiAgent = {
   name: 'AI Agent',
   url: 'https://chat.lulmuio.cn/',
-  desc: '可调用业务系统的 AI 助手 · 在线体验',
+  desc: 'AI 助手 · 在线体验',
 }
 
 export const skills = [

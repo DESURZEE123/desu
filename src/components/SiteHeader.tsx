@@ -28,21 +28,21 @@ export function SiteHeader({ activeSection = 'home', onScrollTo }: Props) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-outline-variant/20 bg-[#eef1f6]/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
+    <header className="site-header sticky top-0 z-50 border-b border-outline-variant/20 bg-[#eef1f6]/85 backdrop-blur-md">
+      <div className="site-header__inner mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-6 px-6 lg:px-10">
         <Link
           to="/"
-          className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
+          className="site-header__brand flex items-center gap-2.5 transition-opacity hover:opacity-80"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white">
             王
           </span>
-          <span className="font-headline-md text-[17px] font-bold text-primary">
+          <span className="site-header__brand-name font-headline-md text-[17px] font-bold text-primary">
             {profile.nameEn}
           </span>
         </Link>
 
-        <nav className="flex items-center gap-1 rounded-full bg-white px-2 py-1.5 shadow-[0_4px_20px_rgba(27,43,58,0.06)]">
+        <nav className="site-header__nav flex items-center gap-1 rounded-full bg-white px-2 py-1.5 shadow-[0_4px_20px_rgba(27,43,58,0.06)]">
           {HOME_NAV.map((item) => {
             const active = !isAlbum && activeSection === item.id
             return (
@@ -72,7 +72,7 @@ export function SiteHeader({ activeSection = 'home', onScrollTo }: Props) {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="site-header__actions flex items-center gap-1">
           <a
             href="https://chat.lulmuio.cn/"
             target="_blank"
