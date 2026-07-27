@@ -1,4 +1,4 @@
-<!-- 个人作品站 - 桌面端 (PC) -->
+<!-- 个人作品站 - 桌面端 (专业冷色版) -->
 <!DOCTYPE html>
 
 <html lang="zh-CN"><head>
@@ -8,99 +8,95 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Tailwind Configuration -->
+<!-- Tailwind Configuration based on Professional Cold Directive -->
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
         theme: {
           extend: {
             "colors": {
-                    "surface-bright": "#fcf9f8",
-                    "error": "#ba1a1a",
-                    "cream-background": "#FFFDF9",
-                    "surface-dim": "#dcd9d9",
-                    "inverse-on-surface": "#f3f0f0",
-                    "inverse-primary": "#ffb59d",
-                    "status-want": "#FFB74D",
-                    "secondary-container": "#e6e2db",
-                    "secondary-fixed": "#e6e2db",
-                    "on-tertiary-fixed": "#002204",
-                    "secondary-fixed-dim": "#c9c6c0",
-                    "on-secondary-container": "#66645f",
-                    "on-surface": "#1b1c1c",
-                    "surface-tint": "#ab3500",
-                    "surface-container-low": "#f6f3f2",
-                    "warm-gray": "#757575",
-                    "surface": "#fcf9f8",
-                    "primary-fixed": "#ffdbd0",
-                    "primary": "#0d7377", /* Custom brand primary based on user prompt */
-                    "on-secondary-fixed": "#1c1c18",
-                    "surface-container-lowest": "#ffffff",
-                    "on-tertiary-container": "#003a0b",
-                    "on-primary": "#ffffff",
-                    "tertiary-fixed": "#94f990",
-                    "tertiary": "#006e1c",
-                    "on-secondary": "#ffffff",
-                    "on-error-container": "#93000a",
-                    "on-surface-variant": "#594139",
-                    "inverse-surface": "#303030",
-                    "on-secondary-fixed-variant": "#484742",
-                    "surface-container-highest": "#e4e2e1",
-                    "surface-container": "#f0eded",
-                    "surface-variant": "#e4e2e1",
-                    "on-tertiary": "#ffffff",
-                    "surface-container-high": "#eae7e7",
-                    "outline-variant": "#e1bfb5",
-                    "on-tertiary-fixed-variant": "#005313",
-                    "on-primary-fixed": "#390c00",
-                    "primary-fixed-dim": "#ffb59d",
-                    "outline": "#8d7168",
-                    "status-eaten": "#FF6B35",
-                    "on-primary-fixed-variant": "#832600",
-                    "on-background": "#1b1c1c",
-                    "background": "#fcf9f8",
-                    "tertiary-container": "#4aad4e",
-                    "on-error": "#ffffff",
-                    "primary-container": "#ff6b35",
-                    "error-container": "#ffdad6",
-                    "tertiary-fixed-dim": "#78dc77",
-                    "on-primary-container": "#5f1900",
-                    "soft-mint": "#E8F5E9",
-                    "secondary": "#605e59"
+                "on-tertiary-fixed": "#291805",
+                "surface-variant": "#d9e3f9",
+                "primary-container": "#1b2b3a",
+                "surface": "#f9f9ff",
+                "outline-variant": "#c4c6cc",
+                "on-surface": "#121c2c",
+                "on-surface-variant": "#43474c",
+                "primary": "#1b2b3a", /* Adjusted to professional navy from theme */
+                "on-primary-fixed": "#0c1d2b",
+                "secondary-container": "#9bb8fe",
+                "on-error": "#ffffff",
+                "on-tertiary": "#ffffff",
+                "surface-container-low": "#f0f3ff",
+                "surface-bright": "#f9f9ff",
+                "on-tertiary-fixed-variant": "#5a422b",
+                "outline": "#74777c",
+                "on-primary": "#ffffff",
+                "error": "#ba1a1a",
+                "secondary-fixed": "#d9e2ff",
+                "surface-container-high": "#dee8ff",
+                "on-secondary-container": "#284785",
+                "background": "#f9f9ff",
+                "secondary-fixed-dim": "#afc6ff",
+                "surface-tint": "#506071",
+                "surface-dim": "#d0daf0",
+                "on-error-container": "#93000a",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "secondary": "#3f5d9c",
+                "inverse-surface": "#273141",
+                "inverse-on-surface": "#ebf1ff",
+                "tertiary-fixed": "#ffdcbe",
+                "on-secondary": "#ffffff",
+                "tertiary": "#221101",
+                "on-background": "#121c2c",
+                "tertiary-fixed-dim": "#e2c0a2",
+                "on-tertiary-container": "#a98b6f",
+                "on-secondary-fixed-variant": "#254583",
+                "on-primary-container": "#8292a5",
+                "inverse-primary": "#b8c8dc",
+                "tertiary-container": "#392510",
+                "primary-fixed-dim": "#b8c8dc",
+                "surface-container-highest": "#d9e3f9",
+                "primary-fixed": "#d3e4f8",
+                "on-secondary-fixed": "#001944",
+                "surface-container": "#e7eeff",
+                "on-primary-fixed-variant": "#384858"
             },
             "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "9999px"
             },
             "spacing": {
-                    "margin-mobile": "20px",
-                    "stack-sm": "8px",
-                    "unit": "4px",
-                    "stack-lg": "24px",
-                    "margin-desktop": "32px",
-                    "gutter": "16px",
-                    "stack-md": "16px"
+                "container-max": "1440px",
+                "margin-mobile": "20px",
+                "unit": "4px",
+                "gutter": "24px",
+                "margin-desktop": "64px"
             },
             "fontFamily": {
-                    "caption": ["Be Vietnam Pro"],
-                    "body-md": ["Be Vietnam Pro"],
-                    "label-md": ["Be Vietnam Pro"],
-                    "headline-md": ["Plus Jakarta Sans"],
-                    "headline-lg": ["Plus Jakarta Sans"],
-                    "body-lg": ["Be Vietnam Pro"],
-                    "headline-lg-mobile": ["Plus Jakarta Sans"]
+                "headline-lg": ["Plus Jakarta Sans"],
+                "label-sm": ["Plus Jakarta Sans"],
+                "headline-xl": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "body-sm": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Plus Jakarta Sans"],
+                "headline-lg-mobile": ["Plus Jakarta Sans"],
+                "label-md": ["Plus Jakarta Sans"]
             },
             "fontSize": {
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
             }
           },
         },
@@ -112,8 +108,8 @@
             vertical-align: middle;
         }
         body {
-            background-color: #fcf9f8;
-            color: #1b1c1c;
+            background-color: #f9f9ff;
+            color: #121c2c;
             scroll-behavior: smooth;
         }
         .bento-grid {
@@ -122,106 +118,106 @@
             gap: 24px;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid #c4c6cc;
         }
         .text-gradient {
-            background: linear-gradient(135deg, #0d7377 0%, #14b8a6 100%);
+            background: linear-gradient(135deg, #1b2b3a 0%, #3f5d9c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="font-body-md text-body-md selection:bg-primary/20">
+<body class="font-body-md text-body-md selection:bg-primary/10">
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-sm">
-<nav class="flex justify-between items-center px-margin-desktop py-stack-sm max-w-7xl mx-auto">
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant">
+<nav class="flex justify-between items-center px-margin-desktop py-4 max-w-7xl mx-auto">
 <div class="font-headline-md text-headline-md font-bold text-primary">王怡阳 Yiyang</div>
-<div class="hidden md:flex items-center gap-stack-lg">
+<div class="hidden md:flex items-center gap-8">
 <a class="text-primary font-bold border-b-2 border-primary cursor-pointer transition-transform active:scale-95 py-1" href="#about">关于</a>
-<a class="text-secondary hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#experience">经历</a>
-<a class="text-secondary hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#projects">项目</a>
-<a class="text-secondary hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#prototypes">原型</a>
-<a class="text-secondary hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#interests">兴趣</a>
-<a class="text-secondary hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#education">教育</a>
-<button class="bg-primary text-white px-6 py-2 rounded-full font-label-md hover:opacity-90 transition-all active:scale-95">联系我</button>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#experience">经历</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#projects">项目</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#prototypes">原型</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#interests">兴趣</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer transition-transform active:scale-95" href="#education">教育</a>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-label-md hover:bg-primary-container transition-all active:scale-95">联系我</button>
 </div>
 </nav>
 </header>
 <main class="mt-20">
 <!-- Hero Section -->
 <section class="px-margin-desktop max-w-7xl mx-auto py-24 flex flex-col md:flex-row items-center gap-16" id="about">
-<div class="flex-1 space-y-stack-lg">
-<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-md">
+<div class="flex-1 space-y-6">
+<div class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-4 py-1.5 rounded-lg font-label-sm border border-outline-variant">
 <span class="relative flex h-2 w-2">
 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
 <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
 </span>
-                    目前在职 · 弟齐信息
-                </div>
-<h1 class="font-headline-lg text-6xl tracking-tight leading-tight">
-                    你好啊，欢迎来到我的个人站。<br/>
-                    我是<span class="text-gradient">王怡阳</span>
+                目前在职 · 弟齐信息
+            </div>
+<h1 class="font-headline-xl text-6xl tracking-tight leading-tight">
+                你好啊，欢迎来到我的个人站。<br/>
+                我是<span class="text-gradient">王怡阳</span>
 </h1>
-<p class="font-body-lg text-secondary text-xl max-w-2xl">
-                    一名做 ToB SaaS 的产品经理。致力于通过数字技术赋能商业增长，构建高效的获客与转化体系。
-                </p>
-<div class="grid grid-cols-2 gap-y-4 pt-4 border-t border-surface-container">
+<p class="font-body-lg text-on-surface-variant text-xl max-w-2xl">
+                一名做 ToB SaaS 的产品经理。致力于通过数字技术赋能商业增长，构建高效的获客与转化体系。
+            </p>
+<div class="grid grid-cols-2 gap-y-4 pt-4 border-t border-outline-variant">
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">person_pin</span>
-<span class="text-secondary">ToB 产品经理｜2 年经验</span>
+<span class="material-symbols-outlined text-secondary">person_pin</span>
+<span class="text-on-surface-variant">ToB 产品经理｜2 年经验</span>
 </div>
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">cake</span>
-<span class="text-secondary">1999 年出生</span>
+<span class="material-symbols-outlined text-secondary">cake</span>
+<span class="text-on-surface-variant">1999 年出生</span>
 </div>
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<span class="text-secondary">上海 / 苏州</span>
+<span class="material-symbols-outlined text-secondary">location_on</span>
+<span class="text-on-surface-variant">上海 / 苏州</span>
 </div>
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">school</span>
-<span class="text-secondary">徐州工程学院</span>
+<span class="material-symbols-outlined text-secondary">school</span>
+<span class="text-on-surface-variant">徐州工程学院</span>
 </div>
 </div>
 <div class="flex gap-4 pt-4">
-<a class="bg-primary text-white px-8 py-4 rounded-full font-headline-md flex items-center gap-2 hover:shadow-lg transition-all active:scale-95" href="mailto:yiyang.wang@email.com">
+<a class="bg-primary text-white px-8 py-4 rounded-lg font-headline-md flex items-center gap-2 hover:shadow-lg transition-all active:scale-95" href="mailto:yiyang.wang@email.com">
 <span class="material-symbols-outlined">mail</span> 获取我的简历
-                    </a>
+                </a>
 </div>
 </div>
 <div class="relative w-80 h-80 md:w-[450px] md:h-[450px]">
-<div class="absolute inset-0 bg-primary/5 rounded-3xl transform rotate-6 scale-105"></div>
-<div class="absolute inset-0 bg-primary/10 rounded-3xl transform -rotate-3"></div>
-<div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-<img class="w-full h-full object-cover" data-alt="A professional yet friendly portrait of a young male Product Manager, Wang Yiyang, with a background consisting of a clean, minimalist office environment with soft teal lighting. The composition is bright and modern, with high-key lighting that emphasizes a friendly smile. The aesthetic is clean-cut and minimalist, consistent with a modern tech-focused professional portrait, featuring subtle brand-colored accents in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9esF_6Tfqi7cO9Ji2iHqHtDcYspi4hW82mbaq8KVxms2WXhm9NrbbaSuN0HbuZy76vsrGGSF2hWmypm8oB4KK6OFKBp-1gj0rmnnY7cOeeGiNdtn2_34vpEeEOeEA8u7apbk-CQZKtr6rVsPUswg701R6L02nHxsty4-QroRI8g5kWw8Czg9_LLYxq2y6uCR87U3FuLSbzim63zmTLSrmu5G1QsIaEmWEpJRKbGQKQrrRp8LFPohCpNvmL0eaT41nwv3M56LIuLI"/>
+<div class="absolute inset-0 bg-surface-container-high rounded-xl transform rotate-6 scale-105 border border-outline-variant"></div>
+<div class="absolute inset-0 bg-surface-container-highest rounded-xl transform -rotate-3 border border-outline-variant"></div>
+<div class="relative w-full h-full rounded-xl overflow-hidden shadow-xl border-2 border-white">
+<img alt="Wang Yiyang Portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9esF_6Tfqi7cO9Ji2iHqHtDcYspi4hW82mbaq8KVxms2WXhm9NrbbaSuN0HbuZy76vsrGGSF2hWmypm8oB4KK6OFKBp-1gj0rmnnY7cOeeGiNdtn2_34vpEeEOeEA8u7apbk-CQZKtr6rVsPUswg701R6L02nHxsty4-QroRI8g5kWw8Czg9_LLYxq2y6uCR87U3FuLSbzim63zmTLSrmu5G1QsIaEmWEpJRKbGQKQrrRp8LFPohCpNvmL0eaT41nwv3M56LIuLI"/>
 </div>
 </div>
 </section>
-<!-- Skill Pills (Horizontal Scroll or Flex) -->
-<section class="bg-surface-container py-12">
+<!-- Skill Pillars -->
+<section class="bg-surface-container-low py-12 border-y border-outline-variant">
 <div class="px-margin-desktop max-w-7xl mx-auto">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<div class="glass-card p-6 rounded-2xl flex flex-col gap-3 group hover:bg-primary transition-all duration-300">
+<div class="glass-card p-6 rounded-lg flex flex-col gap-3 group hover:bg-primary hover:border-primary transition-all duration-300">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">strategy</span>
 <h3 class="font-headline-md group-hover:text-white">业务架构设计</h3>
-<p class="text-secondary group-hover:text-white/80">擅长梳理复杂业务逻辑，将商业需求转化为高可用的 SaaS 架构。</p>
+<p class="text-on-surface-variant group-hover:text-white/80">擅长梳理复杂业务逻辑，将商业需求转化为高可用的 SaaS 架构。</p>
 </div>
-<div class="glass-card p-6 rounded-2xl flex flex-col gap-3 group hover:bg-primary transition-all duration-300">
+<div class="glass-card p-6 rounded-lg flex flex-col gap-3 group hover:bg-primary hover:border-primary transition-all duration-300">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">auto_awesome</span>
 <h3 class="font-headline-md group-hover:text-white">营销自动化 (MA)</h3>
-<p class="text-secondary group-hover:text-white/80">精通全渠道线索追踪与自动化触达策略，提升私域运营效率。</p>
+<p class="text-on-surface-variant group-hover:text-white/80">精通全渠道线索追踪与自动化触达策略，提升私域运营效率。</p>
 </div>
-<div class="glass-card p-6 rounded-2xl flex flex-col gap-3 group hover:bg-primary transition-all duration-300">
+<div class="glass-card p-6 rounded-lg flex flex-col gap-3 group hover:bg-primary hover:border-primary transition-all duration-300">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">psychology</span>
 <h3 class="font-headline-md group-hover:text-white">AI 智能应用</h3>
-<p class="text-secondary group-hover:text-white/80">结合 RAG 技术构建行业知识库，实现智能化的销售协同与客服体系。</p>
+<p class="text-on-surface-variant group-hover:text-white/80">结合 RAG 技术构建行业知识库，实现智能化的销售协同与客服体系。</p>
 </div>
-<div class="glass-card p-6 rounded-2xl flex flex-col gap-3 group hover:bg-primary transition-all duration-300">
+<div class="glass-card p-6 rounded-lg flex flex-col gap-3 group hover:bg-primary hover:border-primary transition-all duration-300">
 <span class="material-symbols-outlined text-primary group-hover:text-white text-4xl">data_exploration</span>
 <h3 class="font-headline-md group-hover:text-white">数据驱动增长</h3>
-<p class="text-secondary group-hover:text-white/80">利用全链路埋点分析，量化转化漏斗，实现产品体验的持续迭代。</p>
+<p class="text-on-surface-variant group-hover:text-white/80">利用全链路埋点分析，量化转化漏斗，实现产品体验的持续迭代。</p>
 </div>
 </div>
 </div>
@@ -230,75 +226,75 @@
 <section class="px-margin-desktop max-w-7xl mx-auto py-24" id="experience">
 <div class="flex items-center gap-4 mb-16">
 <h2 class="font-headline-lg text-4xl">工作经历</h2>
-<div class="h-px flex-1 bg-surface-container-highest"></div>
+<div class="h-px flex-1 bg-outline-variant"></div>
 </div>
 <div class="space-y-12">
 <div class="flex flex-col md:flex-row gap-8 relative">
 <div class="md:w-1/4">
 <p class="text-primary font-bold text-xl">2024.06 - 至今</p>
-<p class="text-secondary">产品经理</p>
+<p class="text-on-surface-variant">产品经理</p>
 </div>
-<div class="flex-1 pb-12 border-l-2 border-primary/20 pl-8 relative">
+<div class="flex-1 pb-12 border-l-2 border-surface-container-highest pl-8 relative">
 <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-primary"></div>
 <h3 class="font-headline-lg text-2xl mb-2 text-primary">弟齐信息 (DQI)</h3>
-<p class="text-secondary mb-4">主导线索全生命周期管理系统的设计与迭代，优化 SaaS 平台核心获客组件。负责私域营销自动化工具 (MA) 的从 0 到 1 建设，对接多平台 API 实现全域数据同步。</p>
+<p class="text-on-surface-variant mb-4">主导线索全生命周期管理系统的设计与迭代，优化 SaaS 平台核心获客组件。负责私域营销自动化工具 (MA) 的从 0 到 1 建设，对接多平台 API 实现全域数据同步。</p>
 <div class="flex flex-wrap gap-2">
-<span class="bg-surface-container px-3 py-1 rounded-full text-caption font-medium">B端架构</span>
-<span class="bg-surface-container px-3 py-1 rounded-full text-caption font-medium">SaaS 系统</span>
-<span class="bg-surface-container px-3 py-1 rounded-full text-caption font-medium">API 开放平台</span>
+<span class="bg-surface-container px-3 py-1 rounded-lg text-sm font-medium border border-outline-variant">B端架构</span>
+<span class="bg-surface-container px-3 py-1 rounded-lg text-sm font-medium border border-outline-variant">SaaS 系统</span>
+<span class="bg-surface-container px-3 py-1 rounded-lg text-sm font-medium border border-outline-variant">API 开放平台</span>
 </div>
 </div>
 </div>
 <div class="flex flex-col md:flex-row gap-8 relative">
 <div class="md:w-1/4">
-<p class="text-primary font-bold text-xl">2023.06 - 2024.04</p>
-<p class="text-secondary">产品运营专员 (实习)</p>
+<p class="text-secondary font-bold text-xl">2023.06 - 2024.04</p>
+<p class="text-on-surface-variant">产品运营专员 (实习)</p>
 </div>
-<div class="flex-1 pb-12 border-l-2 border-primary/20 pl-8 relative">
+<div class="flex-1 pb-12 border-l-2 border-surface-container-highest pl-8 relative">
 <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-surface-dim"></div>
 <h3 class="font-headline-lg text-2xl mb-2 text-primary">百盛中国 (Yum China)</h3>
-<p class="text-secondary mb-4">参与连锁餐饮供应链系统的优化与门店运营数据采集分析。协助制定多品牌联动营销方案，分析千万级用户行为习惯，输出产品改进建议。</p>
+<p class="text-on-surface-variant mb-4">参与连锁餐饮供应链系统的优化与门店运营数据采集分析。协助制定多品牌联动营销方案，分析千万级用户行为习惯，输出产品改进建议。</p>
 <div class="flex flex-wrap gap-2">
-<span class="bg-surface-container px-3 py-1 rounded-full text-caption font-medium">大型企业内部系统</span>
-<span class="bg-surface-container px-3 py-1 rounded-full text-caption font-medium">业务流程优化</span>
+<span class="bg-surface-container px-3 py-1 rounded-lg text-sm font-medium border border-outline-variant">大型企业内部系统</span>
+<span class="bg-surface-container px-3 py-1 rounded-lg text-sm font-medium border border-outline-variant">业务流程优化</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Projects - Bento Grid -->
-<section class="bg-surface-container-low py-24" id="projects">
+<section class="bg-surface-container-low py-24 border-y border-outline-variant" id="projects">
 <div class="px-margin-desktop max-w-7xl mx-auto">
 <div class="mb-16">
 <h2 class="font-headline-lg text-4xl mb-4">项目经历</h2>
-<p class="text-secondary">深耕 B 端领域，打通从“获客”到“转化”的全链路闭环</p>
+<p class="text-on-surface-variant">深耕 B 端领域，打通从“获客”到“转化”的全链路闭环</p>
 </div>
 <div class="bento-grid">
 <!-- Project 1 -->
-<div class="col-span-12 md:col-span-7 group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-<div class="h-64 overflow-hidden">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean UI dashboard interface showing lead acquisition metrics, graphs, and a funnel chart. The style is modern SaaS with a professional teal primary color, high-density information layout, and soft rounded corners. The setting is a bright digital workspace environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy-sqUjD0yxl8IGhSWDHB--c0tvxRVlyOUZmlHmeATdjlDfT5YR1GeRPSeLSEPv7dGTuRQznnhXffAxCqM2hRV4hiiaFuZN_25VC29m4TAF2qHUAqf44dVhM1lGHZbOZRvg-wjFOLTqa_sR8b2a_FKUH7D8duxWoEw6qUYWyIXLjEVjUNkNh0W5K8Z0Y_gtRZVHbpuUKzj2hAgYG9yXVLN_9-9GF5snY5fe-JbhUy0W6HlaX4T04itI6Maq44oHrUpEbfOF7C8j4g"/>
+<div class="col-span-12 md:col-span-7 group bg-white rounded-lg overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-500">
+<div class="h-64 overflow-hidden border-b border-outline-variant">
+<img alt="Project Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy-sqUjD0yxl8IGhSWDHB--c0tvxRVlyOUZmlHmeATdjlDfT5YR1GeRPSeLSEPv7dGTuRQznnhXffAxCqM2hRV4hiiaFuZN_25VC29m4TAF2qHUAqf44dVhM1lGHZbOZRvg-wjFOLTqa_sR8b2a_FKUH7D8duxWoEw6qUYWyIXLjEVjUNkNh0W5K8Z0Y_gtRZVHbpuUKzj2hAgYG9yXVLN_9-9GF5snY5fe-JbhUy0W6HlaX4T04itI6Maq44oHrUpEbfOF7C8j4g"/>
 </div>
 <div class="p-8">
 <div class="flex justify-between items-start mb-4">
 <h3 class="font-headline-lg text-2xl">全域线索获取平台</h3>
-<span class="bg-primary/10 text-primary px-3 py-1 rounded-lg font-label-md">核心项目</span>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-lg font-label-md border border-secondary/20">核心项目</span>
 </div>
-<p class="text-secondary mb-6 line-clamp-2">解决企业多渠道资源分散痛点，实现百度、抖快等多平台线索自动聚合与智能清洗，提升线索利用率 40%。</p>
+<p class="text-on-surface-variant mb-6 line-clamp-2">解决企业多渠道资源分散痛点，实现百度、抖快等多平台线索自动聚合与智能清洗，提升线索利用率 40%。</p>
 <div class="flex gap-4">
-<span class="text-primary font-bold flex items-center gap-1 cursor-pointer">查看详情 <span class="material-symbols-outlined">arrow_right_alt</span></span>
+<span class="text-primary font-bold flex items-center gap-1 cursor-pointer hover:underline">查看详情 <span class="material-symbols-outlined">arrow_right_alt</span></span>
 </div>
 </div>
 </div>
 <!-- Project 2 -->
-<div class="col-span-12 md:col-span-5 group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="col-span-12 md:col-span-5 group bg-white rounded-lg overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-500">
 <div class="p-8 flex flex-col h-full">
-<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
 <span class="material-symbols-outlined text-primary">dynamic_feed</span>
 </div>
 <h3 class="font-headline-lg text-2xl mb-4">营销自动化 (MA) 策略中心</h3>
-<p class="text-secondary mb-auto">基于用户行为触发自动化工作流。通过可视化看板配置 S-O-P 流程，实现私域精准触达，显著降低运营人工成本。</p>
-<div class="mt-8 pt-8 border-t border-surface-container">
+<p class="text-on-surface-variant mb-auto">基于用户行为触发自动化工作流。通过可视化看板配置 S-O-P 流程，实现私域精准触达，显著降低运营人工成本。</p>
+<div class="mt-8 pt-8 border-t border-outline-variant">
 <div class="flex -space-x-3">
 <div class="w-8 h-8 rounded-full border-2 border-white bg-primary flex items-center justify-center text-[10px] text-white">MA</div>
 <div class="w-8 h-8 rounded-full border-2 border-white bg-secondary flex items-center justify-center text-[10px] text-white">CRM</div>
@@ -307,35 +303,35 @@
 </div>
 </div>
 <!-- Project 3 -->
-<div class="col-span-12 md:col-span-5 group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="col-span-12 md:col-span-5 group bg-white rounded-lg overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-500">
 <div class="p-8 flex flex-col h-full">
-<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
 <span class="material-symbols-outlined text-primary">groups</span>
 </div>
 <h3 class="font-headline-lg text-2xl mb-4">销售协同转化工作台</h3>
-<p class="text-secondary">针对一线销售团队设计的移动端助手。集成了实时消息提醒、公海池抢单、客户轨迹地图等功能，打通销售转化最后一公里。</p>
-<div class="mt-8 bg-surface-container h-32 rounded-2xl flex items-center justify-center">
-<span class="text-secondary text-caption font-medium">Dashboard Preview</span>
+<p class="text-on-surface-variant">针对一线销售团队设计的移动端助手。集成了实时消息提醒、公海池抢单、客户轨迹地图等功能，打通销售转化最后一公里。</p>
+<div class="mt-8 bg-surface-container h-32 rounded-lg flex items-center justify-center border border-outline-variant">
+<span class="text-on-surface-variant text-sm font-medium">Dashboard Preview</span>
 </div>
 </div>
 </div>
 <!-- Project 4 -->
-<div class="col-span-12 md:col-span-7 group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="col-span-12 md:col-span-7 group bg-white rounded-lg overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-500">
 <div class="flex flex-col md:flex-row h-full">
 <div class="p-8 md:w-3/5">
-<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 border border-primary/20">
 <span class="material-symbols-outlined text-primary" data-weight="fill">smart_toy</span>
 </div>
 <h3 class="font-headline-lg text-2xl mb-4">AI 行业智能知识库</h3>
-<p class="text-secondary mb-6">利用 RAG 框架封装垂直领域知识，为 B 端企业提供定制化问答。支持文档自动切片与向量化搜索，准确率提升至 92%。</p>
-<button class="border-2 border-primary text-primary px-6 py-2 rounded-full font-label-md hover:bg-primary hover:text-white transition-all">案例演示</button>
+<p class="text-on-surface-variant mb-6">利用 RAG 框架封装垂直领域知识，为 B 端企业提供定制化问答。支持文档自动切片与向量化搜索，准确率提升至 92%。</p>
+<button class="border border-primary text-primary px-6 py-2 rounded-lg font-label-md hover:bg-primary hover:text-white transition-all">案例演示</button>
 </div>
-<div class="md:w-2/5 bg-primary/5 p-4 flex items-center justify-center">
+<div class="md:w-2/5 bg-surface-container-low p-4 flex items-center justify-center border-l border-outline-variant">
 <div class="grid grid-cols-2 gap-2">
-<div class="w-16 h-16 bg-white rounded-lg shadow-sm"></div>
-<div class="w-16 h-16 bg-white rounded-lg shadow-sm mt-4"></div>
-<div class="w-16 h-16 bg-white rounded-lg shadow-sm -mt-4"></div>
-<div class="w-16 h-16 bg-white rounded-lg shadow-sm"></div>
+<div class="w-16 h-16 bg-white rounded-lg border border-outline-variant shadow-sm"></div>
+<div class="w-16 h-16 bg-white rounded-lg border border-outline-variant shadow-sm mt-4"></div>
+<div class="w-16 h-16 bg-white rounded-lg border border-outline-variant shadow-sm -mt-4"></div>
+<div class="w-16 h-16 bg-white rounded-lg border border-outline-variant shadow-sm"></div>
 </div>
 </div>
 </div>
@@ -347,57 +343,57 @@
 <section class="px-margin-desktop max-w-7xl mx-auto py-24" id="prototypes">
 <div class="text-center mb-16">
 <h2 class="font-headline-lg text-4xl mb-4">工作原型</h2>
-<p class="text-secondary">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
+<p class="text-on-surface-variant">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A detailed black and white wireframe of a complex B2B SaaS analytics dashboard, showing various widgets, data visualizations, and navigation sidebars. The style is professional and systematic, indicating high attention to UX architecture and information hierarchy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW6xxeP9rGWZ7ap2fhCQjKPkZj4vPhQaMIV6TkTd8pCqEwFWf0RmCY14unxpw0h1HRFsdtASIHpvVRlbsBsEwUmR6GJ_ipHRzCaHmANb2MYTfAEKHRDX3JiqpFYUZNEu4SNLcPGalOO2FRM0o3iYZyd91jpw_Clvjzpo1ZZ2lABV1z8OyJTVtmp2GViVOJ4PJLiFF_q9UibkrYzR1SaRWSPImQ0_TyeKoytnMpA57ItqJ3uSRoj0cUgI5GT0zVK9MtAqeSae4Odt0"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
+<div class="group relative aspect-[3/4] rounded-lg overflow-hidden bg-surface-container border border-outline-variant">
+<img alt="Wireframe 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW6xxeP9rGWZ7ap2fhCQjKPkZj4vPhQaMIV6TkTd8pCqEwFWf0RmCY14unxpw0h1HRFsdtASIHpvVRlbsBsEwUmR6GJ_ipHRzCaHmANb2MYTfAEKHRDX3JiqpFYUZNEu4SNLcPGalOO2FRM0o3iYZyd91jpw_Clvjzpo1ZZ2lABV1z8OyJTVtmp2GViVOJ4PJLiFF_q9UibkrYzR1SaRWSPImQ0_TyeKoytnMpA57ItqJ3uSRoj0cUgI5GT0zVK9MtAqeSae4Odt0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1b2b3a]/90 via-[#1b2b3a]/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
 <p class="text-white font-headline-md">移动端线索流转界面</p>
-<p class="text-white/60 text-caption">Figma · Axure RP</p>
+<p class="text-white/60 text-sm">Figma · Axure RP</p>
 </div>
 </div>
-<div class="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A clean, minimalist high-fidelity UI mockup of a desktop CRM software, focusing on user management and communication history. Features a professional layout with a focus on whitespace and clear call-to-action buttons in a soft teal palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzLSlQa10CFANtZYbwIitTHeMAGVpPq8X8L9RR9KbGdZip8Cnp897zhchzRgucUJqBcq0WTFPqy2h-CuXqczcX1B6d4pOOSvZRWIBosHv3_EJCo5T3--HVegX2tejJeOWOBgYTvHRQaqlfIhpxxrpNKs_bO3v5CARDj3tQnQrLelUBCDC0yAAHZp6QVytxCmH6yRepQ7IO2JgOdv0hXKZo_CKtJpFP5Hcrch7oPcfYeBUYCl2EYh-3nDiG3_msim6_I-waQRzB7FI"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
+<div class="group relative aspect-[3/4] rounded-lg overflow-hidden bg-surface-container border border-outline-variant">
+<img alt="Mockup 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzLSlQa10CFANtZYbwIitTHeMAGVpPq8X8L9RR9KbGdZip8Cnp897zhchzRgucUJqBcq0WTFPqy2h-CuXqczcX1B6d4pOOSvZRWIBosHv3_EJCo5T3--HVegX2tejJeOWOBgYTvHRQaqlfIhpxxrpNKs_bO3v5CARDj3tQnQrLelUBCDC0yAAHZp6QVytxCmH6yRepQ7IO2JgOdv0hXKZo_CKtJpFP5Hcrch7oPcfYeBUYCl2EYh-3nDiG3_msim6_I-waQRzB7FI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1b2b3a]/90 via-[#1b2b3a]/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
 <p class="text-white font-headline-md">PC 管理后台全局看板</p>
-<p class="text-white/60 text-caption">High-Fidelity Mockup</p>
+<p class="text-white/60 text-sm">High-Fidelity Mockup</p>
 </div>
 </div>
-<div class="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container">
-<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A conceptual flow diagram of an automated marketing workflow, visualized with clean nodes and connecting lines. The aesthetic is modern and technological, showing the logical structure of a software's backend process in a visually digestible format." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTfEEnfEb-zmMH4DInNupdm3oph2vsWXnoquBkFvHV1-DoUQTWex8Ir5PC7ywRI1wJRYcYbxwL5cNYUy26SO9drzeA95IZB8mzePIjPMUPrEITB8b2oSgE5NamNEXDdBO_N-ZTyFD6BMkL48qg5P45f6n6K_oOAf41BdX3EMAoFifArmahArQEsJCypJ9c-HxAIOLZ6XliexjJfjylmwmJgNgzpPvzKa9bmKKwiRQRwSxlj-4DdfKDxZIhAZ66MluK9ztDWGBrYsk"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
+<div class="group relative aspect-[3/4] rounded-lg overflow-hidden bg-surface-container border border-outline-variant">
+<img alt="Workflow Logic 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTfEEnfEb-zmMH4DInNupdm3oph2vsWXnoquBkFvHV1-DoUQTWex8Ir5PC7ywRI1wJRYcYbxwL5cNYUy26SO9drzeA95IZB8mzePIjPMUPrEITB8b2oSgE5NamNEXDdBO_N-ZTyFD6BMkL48qg5P45f6n6K_oOAf41BdX3EMAoFifArmahArQEsJCypJ9c-HxAIOLZ6XliexjJfjylmwmJgNgzpPvzKa9bmKKwiRQRwSxlj-4DdfKDxZIhAZ66MluK9ztDWGBrYsk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1b2b3a]/90 via-[#1b2b3a]/20 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform">
 <p class="text-white font-headline-md">自动化流程编辑器</p>
-<p class="text-white/60 text-caption">Workflow Logic Design</p>
+<p class="text-white/60 text-sm">Workflow Logic Design</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Interests - Photo & Sports -->
-<section class="bg-surface py-24 border-t border-surface-container" id="interests">
+<!-- Interests -->
+<section class="bg-surface py-24 border-t border-outline-variant" id="interests">
 <div class="px-margin-desktop max-w-7xl mx-auto">
 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
 <div class="md:w-1/2">
 <h2 class="font-headline-lg text-4xl mb-4">生活与热爱</h2>
-<p class="text-secondary">在产品经理的理性逻辑之外，我喜欢用摄影捕捉感性瞬间，通过运动保持高效的精力和清醒的思考。我认为好的产品经理应该拥有对生活细腻的洞察力。</p>
+<p class="text-on-surface-variant">在产品经理的理性逻辑之外，我喜欢用摄影捕捉感性瞬间，通过运动保持高效的精力和清醒的思考。我认为好的产品经理应该拥有对生活细腻的洞察力。</p>
 </div>
 <div class="flex gap-4">
-<div class="p-3 bg-primary text-white rounded-full"><span class="material-symbols-outlined">photo_camera</span></div>
-<div class="p-3 bg-secondary/10 text-secondary rounded-full"><span class="material-symbols-outlined">directions_run</span></div>
+<div class="p-3 bg-primary text-white rounded-lg"><span class="material-symbols-outlined">photo_camera</span></div>
+<div class="p-3 bg-secondary/10 text-secondary rounded-lg border border-secondary/20"><span class="material-symbols-outlined">directions_run</span></div>
 </div>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-<div class="rounded-2xl overflow-hidden h-48 md:h-80">
-<img class="w-full h-full object-cover hover:scale-110 transition-all duration-500" data-alt="A beautiful street photography shot in a historic Chinese city at sunset, with golden hour light reflecting off ancient architecture and modern glass buildings. The mood is nostalgic and serene, captured with a cinematic film aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPeiIi3NGUNTBBmKPtHmUbCMHzFc5KdsunFvr35GmNhYdJg3b37Ll5zfFKccPrEHRmQwTOut_SKJVD4XJn_m3Apu6X8qUeYRDvU76ttg1AjVqwIXcsjQi57w9W6U1NbrAN-u_mVd4S66ct_VvCXWeUrbRVQNPJlIuQM_wgniT0vSXVwvzMfz0xHcSwF9y_Aczn_aD30jdnw-XjEbXDrgj9Rh0lbJ8MWzRHT6d0fJfBbr8QnUPifxyO6vVkgh02RYhTnWfsT9CtyGc"/>
+<div class="rounded-lg overflow-hidden h-48 md:h-80 border border-outline-variant">
+<img alt="Street Photography" class="w-full h-full object-cover hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPeiIi3NGUNTBBmKPtHmUbCMHzFc5KdsunFvr35GmNhYdJg3b37Ll5zfFKccPrEHRmQwTOut_SKJVD4XJn_m3Apu6X8qUeYRDvU76ttg1AjVqwIXcsjQi57w9W6U1NbrAN-u_mVd4S66ct_VvCXWeUrbRVQNPJlIuQM_wgniT0vSXVwvzMfz0xHcSwF9y_Aczn_aD30jdnw-XjEbXDrgj9Rh0lbJ8MWzRHT6d0fJfBbr8QnUPifxyO6vVkgh02RYhTnWfsT9CtyGc"/>
 </div>
-<div class="rounded-2xl overflow-hidden h-48 md:h-80 mt-8">
-<img class="w-full h-full object-cover hover:scale-110 transition-all duration-500" data-alt="An action-oriented shot of a person running on a coastal track during early morning. The lighting is cool and blue-toned, with high contrast and sharp focus on the movement. The aesthetic is energetic and minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCloE5F7S8p2fVrdBkBy9bH1fHhvT6Va1AxFfowHVbwLJym8mjtsCDb95IKstOqiV2boP5OReC5qholWgtPd9qNQtOxqqJhIap3oR--n-PiwcZ-zWVQtfxWQIzUG-3xthrzr3Zl00QiuSROYwZShHPx6ZqaZ8n7VdnybC4_u1BEjmPjffzoU8QEXZYAH_-VHlHaaoKQrkfS-Vozt26Vplp9zTiNwxIyRA13shPQLKK_gDvdXk2IIqWli70fDOklm6tcyZf46A_BtH0"/>
+<div class="rounded-lg overflow-hidden h-48 md:h-80 mt-8 border border-outline-variant">
+<img alt="Sports Shot" class="w-full h-full object-cover hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCloE5F7S8p2fVrdBkBy9bH1fHhvT8Va1AxFfowHVbwLJym8mjtsCDb95IKstOqiV2boP5OReC5qholWgtPd9qNQtOxqqJhIap3oR--n-PiwcZ-zWVQtfxWQIzUG-3xthrzr3Zl00QiuSROYwZShHPx6ZqaZ8n7VdnybC4_u1BEjmPjffzoU8QEXZYAH_-VHlHaaoKQrkfS-Vozt26Vplp9zTiNwxIyRA13shPQLKK_gDvdXk2IIqWli70fDOklm6tcyZf46A_BtH0"/>
 </div>
-<div class="rounded-2xl overflow-hidden h-48 md:h-80">
-<img class="w-full h-full object-cover hover:scale-110 transition-all duration-500" data-alt="A minimalist architectural photograph of a modern museum interior, featuring dramatic shadows and geometric shapes. The color palette is composed of soft whites and deep teals, creating a calm and contemplative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEsBib6OQAVuEAkr_D5zmr9Qa2FGxVMy74J15jKtxClI6j325Tn5Dgyal4TAQbS3d_ORjO_xd7mqj_5p-oF-3yTwcWDXmrDDMo7TwMtfOWBcC29H6VuYPmea9_4wranlLQOJyXFTZY7n2qqXVSlF_Q4afwPoBasZn8UAN-Qv2rc3ojZlH_0PiKvaZtgyvxKzs0S93vbYHWVHunQuu4g5FZtYb_JozTLrfXKefwltkkMeUz8Eej-sPruj2Ff5NHPiR5F2Bm60nlKbE"/>
+<div class="rounded-lg overflow-hidden h-48 md:h-80 border border-outline-variant">
+<img alt="Architectural Minimalism" class="w-full h-full object-cover hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEsBib6OQAVuEAkr_D5zmr9Qa2FGxVMy74J15jKtxClI6j325Tn5Dgyal4TAQbS3d_ORjO_xd7mqj_5p-oF-3yTwcWDXmrDDMo7TwMtfOWBcC29H6VuYPmea9_4wranlLQOJyXFTZY7n2qqXVSlF_Q4afwPoBasZn8UAN-Qv2rc3ojZlH_0PiKvaZtgyvxKzs0S93vbYHWVHunQuu4g5FZtYb_JozTLrfXKefwltkkMeUz8Eej-sPruj2Ff5NHPiR5F2Bm60nlKbE"/>
 </div>
-<div class="rounded-2xl overflow-hidden h-48 md:h-80 mt-8">
-<img class="w-full h-full object-cover hover:scale-110 transition-all duration-500" data-alt="A close-up shot of a vintage film camera sitting on a wooden cafe table next to a cup of latte. The lighting is warm and inviting, with a shallow depth of field focusing on the intricate details of the camera lens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk7R27TfYXq7ULCYFPUAsfMzozcQhTAzfj0baUVWx-1G99IbzCuPCbGRHkKe-OXC6IH3vgT5Ksu1TV43OWW801kjJFlME7TwrJj9P-6MQmR37YwsQESxuUc-eeMgltRfYcOVhBRe33vEWbYTz2lxHmzYbRzrgZT7RDLc-km6CFbgtFliw8YIcKebz2ZQqL0AHfAKMOBkltOWc6ZoEnEANDT5PzZxylyiqVS_K3Dgr70iBPkaOApEY6N6T16LoRh0AcYWhH5kBDqOU"/>
+<div class="rounded-lg overflow-hidden h-48 md:h-80 mt-8 border border-outline-variant">
+<img alt="Vintage Camera" class="w-full h-full object-cover hover:scale-110 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk7R27TfYXq7ULCYFPUAsfMzozcQhTAzfj0baUVWx-1G99IbzCuPCbGRHkKe-OXC6IH3vgT5Ksu1TV43OWW801kjJFlME7TwrJj9P-6MQmR37YwsQESxuUc-eeMgltRfYcOVhBRe33vEWbYTz2lxHmzYbRzrgZT7RDLc-km6CFbgtFliw8YIcKebz2ZQqL0AHfAKMOBkltOWc6ZoEnEANDT5PzZxylyiqVS_K3Dgr70iBPkaOApEY6N6T16LoRh0AcYWhH5kBDqOU"/>
 </div>
 </div>
 </div>
@@ -405,27 +401,27 @@
 <!-- Education & Bio Quote -->
 <section class="px-margin-desktop max-w-7xl mx-auto py-24" id="education">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-<div class="space-y-stack-lg">
+<div class="space-y-6">
 <h2 class="font-headline-lg text-4xl mb-8">教育背景</h2>
-<div class="flex gap-6 items-start p-8 rounded-3xl bg-surface-container-low border border-primary/10">
-<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+<div class="flex gap-6 items-start p-8 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
 <span class="material-symbols-outlined text-primary text-3xl">school</span>
 </div>
 <div>
 <h4 class="font-headline-md text-xl mb-1">徐州工程学院</h4>
-<p class="text-secondary font-medium">本科 · 2019 - 2023</p>
+<p class="text-on-surface-variant font-medium">本科 · 2019 - 2023</p>
 <div class="mt-4 flex flex-wrap gap-2">
-<span class="bg-white/50 px-2 py-1 rounded text-caption text-secondary">在校期间获二等奖学金</span>
-<span class="bg-white/50 px-2 py-1 rounded text-caption text-secondary">产品协会负责人</span>
+<span class="bg-surface px-2 py-1 rounded-lg text-sm text-on-surface-variant border border-outline-variant">在校期间获二等奖学金</span>
+<span class="bg-surface px-2 py-1 rounded-lg text-sm text-on-surface-variant border border-outline-variant">产品协会负责人</span>
 </div>
 </div>
 </div>
 </div>
 <div class="relative">
-<span class="material-symbols-outlined text-primary/20 text-8xl absolute -top-12 -left-8 select-none">format_quote</span>
+<span class="material-symbols-outlined text-primary/10 text-8xl absolute -top-12 -left-8 select-none">format_quote</span>
 <blockquote class="text-2xl font-headline-md leading-relaxed text-on-surface relative z-10 italic">
-                        “作为一名年轻的 PM，我深信 SaaS 的本质是‘效率革命’。我的目标是让复杂的业务逻辑变简单，让每一条流量都能找到属于它的闭环。保持好奇，死磕逻辑。”
-                    </blockquote>
+                    “作为一名年轻的 PM，我深信 SaaS 的本质是‘效率革命’。我的目标是让复杂的业务逻辑变简单，让每一条流量都能找到属于它的闭环。保持好奇，死磕逻辑。”
+                </blockquote>
 <div class="mt-8 flex items-center gap-4">
 <div class="w-12 h-0.5 bg-primary"></div>
 <p class="font-bold text-primary">王怡阳 · 个人自述</p>
@@ -435,59 +431,55 @@
 </section>
 </main>
 <!-- Footer -->
-<footer class="bg-surface-container w-full py-stack-lg mt-24">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-stack-md max-w-7xl mx-auto">
+<footer class="bg-surface-container-low w-full py-12 mt-24 border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop gap-6 max-w-7xl mx-auto">
 <div class="flex flex-col gap-2">
 <div class="font-headline-md text-headline-md text-primary font-bold">王怡阳 Yiyang</div>
-<p class="font-caption text-caption text-secondary">© 2024 王怡阳. Built with Passion &amp; Food for Thought.</p>
+<p class="text-sm text-on-surface-variant">© 2024 王怡阳. Built with Passion &amp; Professional Rigor.</p>
 </div>
-<div class="flex gap-stack-lg">
-<a class="text-secondary hover:text-primary underline transition-all font-caption text-caption" href="#">微信</a>
-<a class="text-secondary hover:text-primary underline transition-all font-caption text-caption" href="#">简历下载</a>
-<a class="text-secondary hover:text-primary underline transition-all font-caption text-caption" href="mailto:yiyang.wang@email.com">Email</a>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-sm" href="#">微信</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-sm" href="#">简历下载</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all text-sm" href="mailto:yiyang.wang@email.com">Email</a>
 </div>
 </div>
 </footer>
-<!-- Interactive script for header scroll effect -->
+<!-- Interactive script -->
 <script>
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 20) {
-                header.classList.add('shadow-md');
-                header.classList.add('py-2');
-                header.classList.remove('py-stack-sm');
-            } else {
-                header.classList.remove('shadow-md');
-                header.classList.remove('py-2');
-                header.classList.add('py-stack-sm');
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 20) {
+            header.classList.add('shadow-md');
+            header.classList.add('py-2');
+        } else {
+            header.classList.remove('shadow-md');
+            header.classList.remove('py-2');
+        }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                    a.classList.add('text-on-surface-variant');
+                });
+                this.classList.remove('text-on-surface-variant');
+                this.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
             }
         });
-
-        // Simple smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Update active state
-                    document.querySelectorAll('nav a').forEach(a => {
-                        a.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary');
-                        a.classList.add('text-secondary');
-                    });
-                    this.classList.remove('text-secondary');
-                    this.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
-                }
-            });
-        });
-    </script>
+    });
+</script>
 </body></html>
 
-<!-- 个人作品站 - 移动端全量版 (H5) -->
+<!-- 个人作品站 - 移动端全量版 (专业冷色版) -->
 <!DOCTYPE html>
 
 <html class="scroll-smooth" lang="zh-CN"><head>
@@ -495,8 +487,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>王怡阳 | ToB SaaS 产品经理个人作品集</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
       tailwind.config = {
@@ -504,91 +495,88 @@
         theme: {
           extend: {
             "colors": {
-                    "warm-gray": "#757575",
-                    "on-secondary-fixed": "#1c1c18",
-                    "secondary-container": "#e6e2db",
-                    "secondary-fixed-dim": "#c9c6c0",
-                    "on-primary-container": "#5f1900",
-                    "status-want": "#FFB74D",
-                    "on-secondary-fixed-variant": "#484742",
+                    "on-tertiary-fixed": "#291805",
+                    "surface-variant": "#d9e3f9",
+                    "primary-container": "#1b2b3a",
+                    "surface": "#f9f9ff",
+                    "outline-variant": "#c4c6cc",
+                    "on-surface": "#121c2c",
+                    "on-surface-variant": "#43474c",
+                    "primary": "#051625",
+                    "on-primary-fixed": "#0c1d2b",
+                    "secondary-container": "#9bb8fe",
                     "on-error": "#ffffff",
-                    "surface-container": "#f0eded",
-                    "surface-container-highest": "#e4e2e1",
-                    "cream-background": "#FFFDF9",
-                    "surface-container-high": "#eae7e7",
-                    "on-primary-fixed": "#390c00",
-                    "surface-variant": "#e4e2e1",
-                    "surface-dim": "#dcd9d9",
-                    "surface-container-low": "#f6f3f2",
-                    "primary-fixed": "#ffdbd0",
-                    "error": "#ba1a1a",
-                    "on-tertiary-fixed-variant": "#005313",
-                    "surface-tint": "#ab3500",
-                    "secondary": "#605e59",
-                    "on-secondary": "#ffffff",
-                    "on-tertiary-container": "#003a0b",
-                    "soft-mint": "#E8F5E9",
-                    "primary-fixed-dim": "#ffb59d",
-                    "status-eaten": "#FF6B35",
-                    "outline": "#8d7168",
-                    "inverse-on-surface": "#f3f0f0",
-                    "tertiary-fixed-dim": "#78dc77",
-                    "on-tertiary-fixed": "#002204",
-                    "on-primary-fixed-variant": "#832600",
-                    "tertiary-container": "#4aad4e",
-                    "on-surface-variant": "#594139",
-                    "secondary-fixed": "#e6e2db",
-                    "on-background": "#1b1c1c",
-                    "inverse-primary": "#ffb59d",
-                    "surface-bright": "#fcf9f8",
-                    "outline-variant": "#e1bfb5",
-                    "primary": "#ab3500",
-                    "inverse-surface": "#303030",
-                    "on-secondary-container": "#66645f",
-                    "on-primary": "#ffffff",
-                    "background": "#fcf9f8",
-                    "tertiary": "#006e1c",
                     "on-tertiary": "#ffffff",
-                    "surface-container-lowest": "#ffffff",
-                    "on-surface": "#1b1c1c",
-                    "tertiary-fixed": "#94f990",
+                    "surface-container-low": "#f0f3ff",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary-fixed-variant": "#5a422b",
+                    "outline": "#74777c",
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#d9e2ff",
+                    "surface-container-high": "#dee8ff",
+                    "on-secondary-container": "#284785",
+                    "background": "#f9f9ff",
+                    "secondary-fixed-dim": "#afc6ff",
+                    "surface-tint": "#506071",
+                    "surface-dim": "#d0daf0",
                     "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
                     "error-container": "#ffdad6",
-                    "primary-container": "#ff6b35",
-                    "surface": "#fcf9f8"
+                    "secondary": "#3f5d9c",
+                    "inverse-surface": "#273141",
+                    "inverse-on-surface": "#ebf1ff",
+                    "tertiary-fixed": "#ffdcbe",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#221101",
+                    "on-background": "#121c2c",
+                    "tertiary-fixed-dim": "#e2c0a2",
+                    "on-tertiary-container": "#a98b6f",
+                    "on-secondary-fixed-variant": "#254583",
+                    "on-primary-container": "#8292a5",
+                    "inverse-primary": "#b8c8dc",
+                    "tertiary-container": "#392510",
+                    "primary-fixed-dim": "#b8c8dc",
+                    "surface-container-highest": "#d9e3f9",
+                    "primary-fixed": "#d3e4f8",
+                    "on-secondary-fixed": "#001944",
+                    "surface-container": "#e7eeff",
+                    "on-primary-fixed-variant": "#384858"
             },
             "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
             },
             "spacing": {
-                    "margin-desktop": "32px",
-                    "stack-md": "16px",
-                    "stack-lg": "24px",
-                    "gutter": "16px",
-                    "margin-mobile": "20px",
+                    "container-max": "1440px",
+                    "margin-mobile": "16px",
                     "unit": "4px",
-                    "stack-sm": "8px"
+                    "gutter": "24px",
+                    "margin-desktop": "64px"
             },
             "fontFamily": {
-                    "body-lg": ["Be Vietnam Pro"],
-                    "headline-md": ["Plus Jakarta Sans"],
-                    "headline-lg-mobile": ["Plus Jakarta Sans"],
-                    "body-md": ["Be Vietnam Pro"],
                     "headline-lg": ["Plus Jakarta Sans"],
-                    "caption": ["Be Vietnam Pro"],
-                    "label-md": ["Be Vietnam Pro"]
+                    "label-sm": ["Plus Jakarta Sans"],
+                    "headline-xl": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"]
             },
             "fontSize": {
-                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
-                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
-                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
             }
           },
         },
@@ -600,359 +588,350 @@
             vertical-align: middle;
         }
         .active-tab {
-            color: #ab3500;
-            border-bottom: 2px solid #ab3500;
+            color: #1b2b3a;
+            border-bottom: 2px solid #1b2b3a;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        body {
+            min-height: max(884px, 100dvh);
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+</head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 w-full">
-<button class="w-10 h-10 flex items-center justify-center hover:bg-tertiary-container/20 transition-colors rounded-full active:scale-95 duration-150">
-<span class="material-symbols-outlined text-tertiary">menu</span>
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 border-b border-outline-variant/30">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-primary-container/10 transition-colors rounded-lg active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">menu</span>
 </button>
-<h1 class="font-headline-md text-headline-md font-bold text-tertiary tracking-tight">WANG YIYANG</h1>
-<button class="w-10 h-10 flex items-center justify-center hover:bg-tertiary-container/20 transition-colors rounded-full active:scale-95 duration-150">
-<span class="material-symbols-outlined text-tertiary">account_circle</span>
+<h1 class="font-headline-md text-[20px] font-bold text-primary tracking-tight">WANG YIYANG</h1>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-primary-container/10 transition-colors rounded-lg active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">account_circle</span>
 </button>
 </header>
 <main class="pt-16 pb-24">
 <!-- Hero Section -->
-<section class="px-margin-mobile py-stack-lg flex flex-col gap-stack-md relative overflow-hidden">
-<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
-<div class="z-10 mt-8">
-<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md mb-stack-sm inline-block">
-                    Product Manager Portfolio
-                </span>
-<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-stack-sm">
-                    你好啊，欢迎来到我的个人站。
-                </h2>
+<section class="px-margin-mobile py-8 flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="z-10 mt-4">
+<span class="bg-primary-container text-white px-3 py-1 rounded-sm font-label-md text-[12px] mb-2 inline-block">
+                Product Manager Portfolio
+            </span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">
+                你好啊，欢迎来到我的个人站。
+            </h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                    我是王怡阳，一名做 ToB SaaS 的产品经理。
-                </p>
+                我是王怡阳，一名做 ToB SaaS 的产品经理。
+            </p>
 </div>
-<div class="flex items-center gap-stack-md p-stack-md bg-surface-container-low rounded-xl border border-outline-variant/30">
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-xl border border-outline-variant/30">
 <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-container shrink-0">
 <img class="w-full h-full object-cover" data-alt="A professional yet friendly portrait of a young male product manager named Wang Yiyang, wearing a minimalist white shirt in a modern, brightly lit office environment with soft natural lighting. The aesthetic is clean and high-key, mirroring a modern SaaS startup vibe with warm orange accents in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3hZI5ly3pIqFdyEgNWouXeIZ_JBxQTcH8PwZ0IDh8u7-LfdoPgI4JdUSy5PRsQGzU-esxnHoJ7MafKJT3GRToAKPqSKYOQPJlvKGNICOXOPjmtlmJpTWvLf0cS8buA39Th0C3Veaz9MRjhnwPZKOUuvq_IuD5_3rLvmeDMG1HgVb3QaUmhZaifwZApiUFhJRwSf95nqlJ4sd5m1moNvLLNFQRtY1_O3aovDj9tHrW2acrgICvLalKu7uQCWwvEE7GvCGw2YIqaIs"/>
 </div>
 <div class="flex flex-col">
-<span class="font-headline-md text-headline-md text-on-surface">王怡阳</span>
-<span class="font-body-md text-body-md text-primary font-semibold">ToB 产品经理｜2 年工作经验</span>
+<span class="font-headline-md text-[18px] text-on-surface">王怡阳</span>
+<span class="font-body-md text-body-md text-secondary font-semibold">ToB 产品经理｜2 年工作经验</span>
 <div class="flex flex-wrap gap-2 mt-2">
-<span class="text-caption text-warm-gray flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span>2001.01</span>
-<span class="text-caption text-warm-gray flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span>江苏南京</span>
+<span class="text-[12px] text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span>2001.01</span>
+<span class="text-[12px] text-outline flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span>江苏南京</span>
 </div>
 </div>
 </div>
 </section>
-<!-- About/Skills Section: Bento Grid -->
-<section class="px-margin-mobile py-stack-lg">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<!-- About/Skills Section -->
+<section class="px-margin-mobile py-6">
+<h3 class="font-headline-md text-[20px] text-on-surface mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">bolt</span> 核心竞争力
-            </h3>
-<div class="grid grid-cols-2 gap-stack-md">
-<div class="col-span-2 p-stack-md bg-white rounded-2xl shadow-sm border border-outline-variant/20 flex flex-col gap-2">
+        </h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 p-4 bg-surface-container-highest rounded-xl border border-outline-variant/30 flex flex-col gap-2">
 <span class="material-symbols-outlined text-primary text-3xl">hub</span>
 <span class="font-bold text-on-surface">核心优势 (B端SaaS)</span>
-<p class="text-caption text-on-surface-variant">深入理解CRM、线索流转与公海池逻辑，具备0-1构建复杂业务系统的实战经验。</p>
+<p class="text-body-sm text-on-surface-variant">深入理解CRM、线索流转与公海池逻辑，具备0-1构建复杂业务系统的实战经验。</p>
 </div>
-<div class="p-stack-md bg-soft-mint rounded-2xl border border-tertiary/10 flex flex-col gap-2">
-<span class="material-symbols-outlined text-tertiary">design_services</span>
+<div class="p-4 bg-surface-container-low rounded-xl border border-outline-variant/30 flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary">design_services</span>
 <span class="font-bold text-on-surface">专业技能</span>
-<p class="text-caption text-on-surface-variant">精通 Figma, MasterGo 原型设计与 SQL 数据查询。</p>
+<p class="text-body-sm text-on-surface-variant">精通 Figma, MasterGo 原型设计与 SQL 数据查询。</p>
 </div>
-<div class="p-stack-md bg-primary-fixed/30 rounded-2xl border border-primary/10 flex flex-col gap-2">
-<span class="material-symbols-outlined text-primary">psychology</span>
+<div class="p-4 bg-surface-container-low rounded-xl border border-outline-variant/30 flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary">psychology</span>
 <span class="font-bold text-on-surface">AI产品经验</span>
-<p class="text-caption text-on-surface-variant">基于 Cursor, Claude Code 提升产研效率，探索AI+营销闭环。</p>
+<p class="text-body-sm text-on-surface-variant">基于 Cursor, Claude Code 提升产研效率，探索AI+营销闭环。</p>
 </div>
-<div class="col-span-2 p-stack-md bg-surface-container rounded-2xl border border-outline-variant/20 flex items-center justify-between">
+<div class="col-span-2 p-4 bg-surface-container rounded-xl border border-outline-variant/30 flex items-center justify-between">
 <div class="flex flex-col">
 <span class="font-bold text-on-surface">协同交付</span>
-<p class="text-caption text-on-surface-variant">敏捷开发实践，高质量 PRD 输出，确保产研高效协同。</p>
+<p class="text-body-sm text-on-surface-variant">敏捷开发实践，高质量 PRD 输出，确保产研高效协同。</p>
 </div>
-<span class="material-symbols-outlined text-on-surface-variant text-4xl">groups</span>
+<span class="material-symbols-outlined text-outline text-4xl">groups</span>
 </div>
 </div>
 </section>
 <!-- Work Experience -->
-<section class="px-margin-mobile py-stack-lg">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<section class="px-margin-mobile py-6">
+<h3 class="font-headline-md text-[20px] text-on-surface mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">work</span> 职业履历
-            </h3>
-<div class="flex flex-col gap-stack-md relative before:content-[''] before:absolute before:left-[11px] before:top-4 before:bottom-4 before:w-[2px] before:bg-outline-variant/30">
+        </h3>
+<div class="flex flex-col gap-6 relative before:content-[''] before:absolute before:left-[11px] before:top-4 before:bottom-4 before:w-[2px] before:bg-outline-variant/30">
 <!-- Entry 1 -->
-<div class="flex gap-stack-md relative">
+<div class="flex gap-4 relative">
 <div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0 z-10 shadow-lg shadow-primary/20">
 <div class="w-2 h-2 rounded-full bg-white"></div>
 </div>
 <div class="flex flex-col pb-4">
-<span class="text-caption text-primary font-bold">2024.06 - 至今</span>
+<span class="text-[12px] text-primary font-bold">2024.06 - 至今</span>
 <span class="font-bold text-on-surface text-body-lg">弟齐 (Digee)</span>
 <span class="text-body-md text-on-surface-variant">产品经理</span>
-<p class="text-caption text-warm-gray mt-2 leading-relaxed">负责公司核心线索管理平台的 0-1 构建与迭代，主导从线索获取到销售协同的全链路数字化升级。</p>
+<p class="text-body-sm text-outline mt-2 leading-relaxed">负责公司核心线索管理平台的 0-1 构建与迭代，主导从线索获取到销售协同的全链路数字化升级。</p>
 </div>
 </div>
 <!-- Entry 2 -->
-<div class="flex gap-stack-md relative">
+<div class="flex gap-4 relative">
 <div class="w-6 h-6 rounded-full bg-outline-variant flex items-center justify-center shrink-0 z-10">
 <div class="w-2 h-2 rounded-full bg-white"></div>
 </div>
 <div class="flex flex-col">
-<span class="text-caption text-warm-gray font-bold">2023.06 - 2024.04</span>
+<span class="text-[12px] text-outline font-bold">2023.06 - 2024.04</span>
 <span class="font-bold text-on-surface text-body-lg">百胜中国 (Yum China)</span>
 <span class="text-body-md text-on-surface-variant">产品运营实习</span>
-<p class="text-caption text-warm-gray mt-2 leading-relaxed">参与数字化运营平台的日常运维与需求收集，分析用户行为数据以优化流程体验。</p>
+<p class="text-body-sm text-outline mt-2 leading-relaxed">参与数字化运营平台的日常运维与需求收集，分析用户行为数据以优化流程体验。</p>
 </div>
 </div>
 </div>
 </section>
 <!-- Projects -->
-<section class="px-margin-mobile py-stack-lg bg-surface-container-lowest">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<section class="px-margin-mobile py-6 bg-surface-container-low">
+<h3 class="font-headline-md text-[20px] text-on-surface mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">assignment</span> 核心项目
-            </h3>
-<div class="flex flex-col gap-stack-lg">
+        </h3>
+<div class="flex flex-col gap-6">
 <!-- Project 1 -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-outline-variant/10">
+<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
 <div class="h-32 bg-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-5xl">database</span>
+<span class="material-symbols-outlined text-white text-5xl opacity-40">database</span>
 </div>
-<div class="p-stack-md">
+<div class="p-4">
 <div class="flex justify-between items-start mb-2">
 <h4 class="font-bold text-on-surface text-body-lg leading-tight">线索获取与统一数据平台</h4>
-<span class="bg-soft-mint text-tertiary text-[10px] px-2 py-0.5 rounded font-bold">从 0 到 1</span>
+<span class="bg-secondary-container/30 text-on-secondary-container text-[10px] px-2 py-0.5 rounded font-bold">从 0 到 1</span>
 </div>
-<ul class="flex flex-col gap-1 text-body-md text-on-surface-variant list-disc pl-4">
+<ul class="flex flex-col gap-1 text-body-sm text-on-surface-variant list-disc pl-4">
 <li>构建全渠道线索采集系统，整合API、表单与手动导入。</li>
 <li>实现数据去重与标准化，提升线索有效率 35%。</li>
 </ul>
 <div class="flex gap-2 mt-4">
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">数据架构</span>
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">全链路</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">数据架构</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">全链路</span>
 </div>
 </div>
 </div>
 <!-- Project 2 -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-outline-variant/10">
-<div class="h-32 bg-status-want/30 flex items-center justify-center">
-<span class="material-symbols-outlined text-status-want text-5xl">auto_fix_high</span>
+<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+<div class="h-32 bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-5xl opacity-40">auto_fix_high</span>
 </div>
-<div class="p-stack-md">
+<div class="p-4">
 <div class="flex justify-between items-start mb-2">
 <h4 class="font-bold text-on-surface text-body-lg leading-tight">线索培育与营销自动化</h4>
-<span class="bg-primary-fixed text-primary text-[10px] px-2 py-0.5 rounded font-bold">精细化运营</span>
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-2 py-0.5 rounded font-bold">精细化运营</span>
 </div>
-<ul class="flex flex-col gap-1 text-body-md text-on-surface-variant list-disc pl-4">
+<ul class="flex flex-col gap-1 text-body-sm text-on-surface-variant list-disc pl-4">
 <li>设计自动化触达工作流（SDR），覆盖邮件、短信、企微。</li>
 <li>建立线索分层机制，针对高意向线索实现秒级流转。</li>
 </ul>
 <div class="flex gap-2 mt-4">
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">MA</span>
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">SDR</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">MA</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">SDR</span>
 </div>
 </div>
 </div>
 <!-- Project 3 -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-outline-variant/10">
-<div class="h-32 bg-tertiary-container/30 flex items-center justify-center">
-<span class="material-symbols-outlined text-tertiary text-5xl">trending_up</span>
+<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+<div class="h-32 bg-primary/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl opacity-40">trending_up</span>
 </div>
-<div class="p-stack-md">
+<div class="p-4">
 <div class="flex justify-between items-start mb-2">
 <h4 class="font-bold text-on-surface text-body-lg leading-tight">线索评分与销售协同</h4>
-<span class="bg-secondary-fixed text-secondary text-[10px] px-2 py-0.5 rounded font-bold">闭环增长</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] px-2 py-0.5 rounded font-bold">闭环增长</span>
 </div>
-<ul class="flex flex-col gap-1 text-body-md text-on-surface-variant list-disc pl-4">
+<ul class="flex flex-col gap-1 text-body-sm text-on-surface-variant list-disc pl-4">
 <li>建立 Lead Scoring 模型，动态计算用户价值。</li>
 <li>优化公海池分配规则，销售人效提升 20%。</li>
 </ul>
 <div class="flex gap-2 mt-4">
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">CRM</span>
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">算法</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">CRM</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">算法</span>
 </div>
 </div>
 </div>
 <!-- Project 4 -->
-<div class="bg-white rounded-2xl shadow-md overflow-hidden border border-outline-variant/10">
-<div class="h-32 bg-primary/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-5xl">smart_toy</span>
+<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-outline-variant/30">
+<div class="h-32 bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl opacity-30">smart_toy</span>
 </div>
-<div class="p-stack-md">
+<div class="p-4">
 <div class="flex justify-between items-start mb-2">
 <h4 class="font-bold text-on-surface text-body-lg leading-tight">AI 知识库与智能线索挖掘</h4>
-<span class="bg-primary-container text-white text-[10px] px-2 py-0.5 rounded font-bold">AI+营销</span>
+<span class="bg-primary text-white text-[10px] px-2 py-0.5 rounded font-bold">AI+营销</span>
 </div>
-<ul class="flex flex-col gap-1 text-body-md text-on-surface-variant list-disc pl-4">
+<ul class="flex flex-col gap-1 text-body-sm text-on-surface-variant list-disc pl-4">
 <li>整合 LLM 实现多格式非结构化文档的知识库入库。</li>
 <li>基于 AI 语义识别从社交媒体中自动识别高潜客户。</li>
 </ul>
 <div class="flex gap-2 mt-4">
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">LLM</span>
-<span class="bg-surface-container text-on-surface-variant text-caption px-2 py-1 rounded">RAG</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">LLM</span>
+<span class="bg-surface-container text-on-surface-variant text-[12px] px-2 py-1 rounded">RAG</span>
 </div>
 </div>
 </div>
 </div>
 </section>
 <!-- Prototypes Grid -->
-<section class="px-margin-mobile py-stack-lg">
-<div class="flex justify-between items-end mb-stack-md">
-<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<section class="px-margin-mobile py-6">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-headline-md text-[20px] text-on-surface flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">draw</span> 产品原型
-                </h3>
-<span class="text-caption text-warm-gray">* 已脱敏处理</span>
+            </h3>
+<span class="text-[12px] text-outline">* 已脱敏处理</span>
 </div>
 <div class="grid grid-cols-3 gap-2">
-<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden">
+<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="A clean, minimalist UI prototype screenshot of a CRM dashboard with orange charts and soft gray tables. High-fidelity web design with professional SaaS layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu_VNKJvePxtLRIjvKqyBrOQGgif-BU1FWxh5APBgB2Q5f3oAj1Dv104V9RIW93naj2dxdszxIZ1Pw-f3MY6-x_qDQeRiDzcK-vyn2fWucdNj0YT7fGJz8vgpHylG-Cgid9i1giosnVVxRXJ51GVWb7_hN4ETQnitmqOXETCRkspRt2ZhscXl37Agx6_Y1vPoxQ6iQNlSunGixSpxjwo1k88Je4mosWMuMqrelRHkAk81dlhCvl84X2sNOnW9JCpuiU8sqhrDUTpc"/>
 </div>
-<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden">
+<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="A mobile app wireframe for a lead tracking application, showing a timeline view of customer interactions. Clean lines, rounded buttons, and organized typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc36cAdbx7byEXePaDz2z7QicQ-mTiQZxRYFFEubUTVvRAYWSJR3LyIZ3iUsTM7rZBUIWvOe8UvmlR1tKoEbkuxLC6v-c3ESqJrz3-Z1N2ruxlzAZQM98rBoHIWKRWBupS4hUj7n2o4sDd_r20kypQ-KPWINELbAhWVwNmyNJj9vYBZ7YrRv4gFW06yQLLQUq7MLLAzoZMNhokmJGgEmfKuq4PeZjvTbv0EOUEhwX8SOCiW5MYA1xTWkWrsCLfEva3YpDWUy4ATrs"/>
 </div>
-<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden">
-<div class="w-full h-full flex items-center justify-center bg-primary-fixed/20">
+<div class="aspect-square bg-primary-fixed/20 rounded-lg overflow-hidden flex items-center justify-center border border-outline-variant/20">
 <span class="material-symbols-outlined text-primary">visibility</span>
 </div>
-</div>
-<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden">
+<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="Detailed UI components for a B2B platform, including dropdowns, toggles, and data cards in a warm minimalist style with orange primary accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrSNJgIPrUDx_B4MvkkAq-le97BJHllHUw4sDVlB2zxNfXpgqaEjAR4R-joSvGr4VPV5n3zWHrV_dIh-05f0dzg5K3m_wzDOo4a2f8bMoDX61vMFeE5eKog1ym93SBM-ohkHo-tD4itE2gCrUMUSLzDTvPpeOfr0HSMIc_Dh9As5IUlK4ZGkwpuyFHlTj2rdTcDXLptQsryDk6Yg-4YXGc4YLYZpSZf8X0exunaYdsq1zMIuINEILZ0oRuw96S1_XfqzI2KWK1V2M"/>
 </div>
-<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden">
+<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="An automation workflow builder UI mockup, showing interconnected nodes and logical paths for an email marketing campaign." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFOlJ30wGl2RXhxGbU0kdB6wDThhTxjxpdeznprF5atF3uhmQw2X971gfLOaBsz3jXs-zmAgCQsr5YpPwk_jzjW6DlfSQYeez2xHyO2z7mYI2YzLY8iSQtS2GG8G2iV0Mqa-JWJnfFWHsasoBZYxK_s_d-239GUefWd57UELp7MIQxNH9MvCsBqMxtiJ6paff_2xkxAP4nqsEpqRyvcRgLikgNK2s1tmXsdvN-exX2ses-voQCEbu8bIGEyO4cJXcBtU7Z5t2qLdc"/>
 </div>
-<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden">
+<div class="aspect-square bg-surface-container-highest rounded-lg overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-300" data-alt="A complex data visualization dashboard prototype showing revenue growth and lead conversion rates with a focus on usability and clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQJdhAyMLa-CfC1a2qtBCc7shQNhbDJpOkH9G2nwGP4FEgwNfm2qf9ZbEIaHs3JLmhjm7OYEJvtiB9-TVqON4TXZu8Wy2rwtFI6cbAurmq8KRZBH1KTak5CtZ3I--GpLviLE45AumGbfy6NqMWx3iFCudtjjyYnostzC-ceJO_7F309nXcDfnlMB83ujg3mN7inTGhQ8bd18fLyQ2iyzNyvwLHm7BiVS65dbgtJSWVcDq6DIFCaIH2dVv6EzMuqfc1X52Dk5EYOd0"/>
 </div>
 </div>
 </section>
 <!-- Hobbies Section -->
-<section class="px-margin-mobile py-stack-lg">
-<h3 class="font-headline-md text-headline-md text-on-surface mb-stack-md flex items-center gap-2">
+<section class="px-margin-mobile py-6">
+<h3 class="font-headline-md text-[20px] text-on-surface mb-4 flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">favorite</span> 生活瞬间
-            </h3>
-<div class="flex gap-stack-md mb-stack-md border-b border-outline-variant/30">
+        </h3>
+<div class="flex gap-6 mb-4 border-b border-outline-variant/30">
 <button class="pb-2 font-bold active-tab" id="tab-photo" onclick="switchTab('photography')">摄影 Photography</button>
 <button class="pb-2 font-bold text-on-surface-variant" id="tab-sports" onclick="switchTab('sports')">运动 Sports</button>
 </div>
-<div class="grid grid-cols-2 gap-stack-sm" id="photography-content">
-<div class="h-48 bg-surface-container rounded-xl overflow-hidden">
+<div class="grid grid-cols-2 gap-3" id="photography-content">
+<div class="h-48 bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover" data-alt="A stunning sunset photograph captured in Nanjing, China. The sky is a blend of soft oranges and deep purples, reflecting over a calm river with city silhouettes in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL_mFy4etaMnrhlEk29I_bxJJ7DGnmmxwNwoiD0azh9jQAsbNUFQ1d1eQb15Zt-jsAPRCe_30e0m9sSorVIm5gH1uLUwn85ww7WyTSJp3SlBBpE6ZLN5p4rBviHjkTEL9pwblnUum75JI7bSbKANioCWuOJ3mliVU2baiGGu7A2i03TQvRTCgJzxT23SgTwlJ56H1GEEgR-Ip_59cPv9AbmE3Q9J2ApCx4zg9rKuoReSeQBdzowuksefInCrZdw2oxSLB58CfNDYM"/>
 </div>
-<div class="h-48 bg-surface-container rounded-xl overflow-hidden">
+<div class="h-48 bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover" data-alt="A minimalist street photography shot of a quiet alleyway in a historic Chinese neighborhood, focusing on the interplay of light and shadow on textured stone walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7OLS1ky7z_wYLLMwsNL7lDzq0zsGgcg-Q2KHAZAKXaOU6nMT7gY6GTz1ZM-X25M-f0TQF5a0t964C0a-stt5FQDQ7VH4E8ZuhjCkPvZ_Lmczvgy5O7MQyTJkXDt4ae-PJ4M677FRrQu1_itXmC4k9KmHgZ-ZWO3h9aBk_Jzc1KcmD_XC1WQird2XWCju4IYrzC_EZaOPh-JfJoM097wTLX0OoEPxhOgldlWomogy2FrG8jk3wOO1KAj1-T_4jmCKl23kJj7PGYsY"/>
 </div>
 </div>
-<div class="hidden grid grid-cols-2 gap-stack-sm" id="sports-content">
-<div class="h-48 bg-surface-container rounded-xl overflow-hidden">
+<div class="hidden grid grid-cols-2 gap-3" id="sports-content">
+<div class="h-48 bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover" data-alt="A dynamic action shot of a young man playing basketball in an outdoor court. The lighting is golden hour sunshine, highlighting the energy and movement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPMShCJBIISxQqQBtTR0hEBDJTPP30x_DV8zSCZj2vX8bZTWVA5JJGdLSp42gclAtaQP160CTYIkbrRE-avGgpzbQ1l3wmRK1_h19WTykEdAZz3hX63_HJBgQF-0UTx48BO4Lc8e4agJEi0pAH5uPfBf_-Iwt1Qr-bCkLXcnWBPjBYS3EnJgJLVGDAGKxF7ti9PUncKU-5OEiB6IYKRKLxY0CFfJb4Z9zQ5ndZBS6--UR7CkukmxaPrEoitCDTQYOe8qa6H28yst4"/>
 </div>
-<div class="h-48 bg-surface-container rounded-xl overflow-hidden">
+<div class="h-48 bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant/20">
 <img class="w-full h-full object-cover" data-alt="A close-up of a pair of running shoes on a modern athletic track, with a soft-focus background of a green sports field. The mood is determined and healthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVxPCC9u-ZLbAB_L3XT0gW73hu54BNfM-4koYjkkSynOWWMHzHkANG0UPsTvqxOepMuq5Yed4ClEeUSnvOkVVT2KvCkm0ydxAbx1h6Dr_yehsKigM3icB_hJJ4C0iZiQf6nuGxAO1e1ZEjbA64XxL0D7zP8VMzPx40K53GIKlFl9q3aCwPp8tFwKYLHbzlBCXVCINJUCi2qMpw8CvmM-URb2SWPJc_2Pl1IKAwBtxu3LRQ_r-76Sbmn5R11tcNzvftbK6fYKCdx1c"/>
 </div>
 </div>
 </section>
 <!-- Education & Intro -->
-<section class="px-margin-mobile py-stack-lg bg-primary-fixed/10">
-<div class="p-stack-md bg-white rounded-2xl shadow-sm border border-primary/10">
-<div class="flex items-center gap-stack-md mb-stack-md">
-<div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-xl shrink-0">
+<section class="px-margin-mobile py-6 bg-surface-container-low">
+<div class="p-4 bg-white rounded-xl shadow-sm border border-outline-variant/30">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 bg-primary-container/10 flex items-center justify-center rounded-lg shrink-0">
 <span class="material-symbols-outlined text-primary">school</span>
 </div>
 <div class="flex flex-col">
 <span class="font-bold text-on-surface">徐州工程学院</span>
-<span class="text-caption text-on-surface-variant">信息管理与信息技术 · 2020.09-2024.06</span>
+<span class="text-[12px] text-on-surface-variant">信息管理与信息技术 · 2020.09-2024.06</span>
 </div>
 </div>
-<div class="flex flex-wrap gap-2 mb-stack-md">
-<span class="bg-soft-mint text-tertiary text-caption px-3 py-1 rounded-full font-bold">软考·软件设计师</span>
-<span class="bg-soft-mint text-tertiary text-caption px-3 py-1 rounded-full font-bold">英语六级 (CET-6)</span>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary/5 text-primary text-[12px] px-3 py-1 rounded-sm font-bold border border-primary/10">软考·软件设计师</span>
+<span class="bg-primary/5 text-primary text-[12px] px-3 py-1 rounded-sm font-bold border border-primary/10">英语六级 (CET-6)</span>
 </div>
-<hr class="border-outline-variant/30 mb-stack-md"/>
-<p class="font-body-md text-on-surface-variant italic leading-relaxed">
-                    "效率与结果先行。作为一名拥有信息管理背景的产品经理，我热衷于通过数字化手段重构业务流程，将复杂的问题拆解为可落地、可衡量的功能模块。在AI浪潮下，我正积极探索LLM在B端场景的深度整合，为企业创造真正的提效价值。"
-                </p>
+<hr class="border-outline-variant/30 mb-4"/>
+<p class="font-body-md text-on-surface-variant italic leading-relaxed text-[14px]">
+                "效率与结果先行。作为一名拥有信息管理背景的产品经理，我热衷于通过数字化手段重构业务流程，将复杂的问题拆解为可落地、可衡量的功能模块。在AI浪潮下，我正积极探索LLM在B端场景的深度整合，为企业创造真正的提效价值。"
+            </p>
 </div>
 </section>
 <!-- Footer / Contact -->
-<footer class="px-margin-mobile py-stack-lg flex flex-col gap-stack-md bg-surface-container-low mt-8">
+<footer class="px-margin-mobile py-8 flex flex-col gap-6 bg-surface-container-low border-t border-outline-variant/30">
 <div class="flex flex-col gap-2">
-<h3 class="font-headline-md text-headline-md text-on-surface">保持联系</h3>
+<h3 class="font-headline-md text-[20px] text-on-surface">保持联系</h3>
 <p class="text-body-md text-on-surface-variant">如果你对我的经历感兴趣，或者有合作机会，欢迎随时沟通。</p>
 </div>
-<div class="flex flex-col gap-stack-sm">
-<a class="flex items-center gap-stack-md p-stack-sm bg-white rounded-xl border border-outline-variant/20" href="mailto:yiyang.wang@example.com">
-<span class="material-symbols-outlined text-primary bg-primary-fixed/30 p-2 rounded-lg">mail</span>
+<div class="flex flex-col gap-3">
+<a class="flex items-center gap-4 p-3 bg-white rounded-xl border border-outline-variant/30" href="mailto:yiyang.wang@example.com">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-2 rounded-lg">mail</span>
 <span class="text-on-surface-variant font-medium">yiyang.wang@example.com</span>
 </a>
-<a class="flex items-center gap-stack-md p-stack-sm bg-white rounded-xl border border-outline-variant/20" href="tel:+8613800000000">
-<span class="material-symbols-outlined text-primary bg-primary-fixed/30 p-2 rounded-lg">call</span>
+<a class="flex items-center gap-4 p-3 bg-white rounded-xl border border-outline-variant/30" href="tel:+8613800000000">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-2 rounded-lg">call</span>
 <span class="text-on-surface-variant font-medium">+86 138-0000-0000</span>
 </a>
 </div>
-<div class="flex items-center justify-between mt-stack-md">
-<button class="flex items-center gap-2 bg-on-surface text-surface px-4 py-2 rounded-full font-label-md active:scale-95 transition-transform" onclick="window.print()">
+<div class="flex items-center justify-between mt-4">
+<button class="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-sm font-label-md active:scale-95 transition-transform" onclick="window.print()">
 <span class="material-symbols-outlined text-[18px]">print</span> 打印简历
-                </button>
-<span class="text-caption text-warm-gray">© 2024 王怡阳 Portfolio</span>
+            </button>
+<span class="text-[12px] text-outline">© 2024 王怡阳 Portfolio</span>
 </div>
 </footer>
 </main>
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface dark:bg-surface-dim shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50 rounded-t-xl">
-<a class="flex flex-col items-center justify-center bg-tertiary-container text-on-tertiary-container rounded-full px-4 py-1 active:translate-y-[-2px] duration-200" href="#home">
-<span class="material-symbols-outlined">home</span>
-<span class="font-label-md text-label-md">Home</span>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 py-3 pb-safe bg-surface border-t border-outline-variant/30 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<a class="flex flex-col items-center justify-center text-primary active:scale-95 duration-200" href="#home">
+<span class="material-symbols-outlined font-variation-fill">home</span>
+<span class="font-label-md text-[12px]">Home</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary transition-all active:translate-y-[-2px] duration-200" href="#skills">
+<a class="flex flex-col items-center justify-center text-outline-variant hover:text-primary transition-all active:scale-95 duration-200" href="#skills">
 <span class="material-symbols-outlined">bolt</span>
-<span class="font-label-md text-label-md">Skills</span>
+<span class="font-label-md text-[12px]">Skills</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary transition-all active:translate-y-[-2px] duration-200" href="#projects">
+<a class="flex flex-col items-center justify-center text-outline-variant hover:text-primary transition-all active:scale-95 duration-200" href="#projects">
 <span class="material-symbols-outlined">description</span>
-<span class="font-label-md text-label-md">Projects</span>
+<span class="font-label-md text-[12px]">Projects</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary transition-all active:translate-y-[-2px] duration-200" href="#life">
+<a class="flex flex-col items-center justify-center text-outline-variant hover:text-primary transition-all active:scale-95 duration-200" href="#life">
 <span class="material-symbols-outlined">camera</span>
-<span class="font-label-md text-label-md">Life</span>
+<span class="font-label-md text-[12px]">Life</span>
 </a>
-<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-tertiary transition-all active:translate-y-[-2px] duration-200" href="#contact">
+<a class="flex flex-col items-center justify-center text-outline-variant hover:text-primary transition-all active:scale-95 duration-200" href="#contact">
 <span class="material-symbols-outlined">mail</span>
-<span class="font-label-md text-label-md">Contact</span>
+<span class="font-label-md text-[12px]">Contact</span>
 </a>
 </nav>
 <script>
-        function switchTab(tab) {
-            const photoContent = document.getElementById('photography-content');
-            const sportsContent = document.getElementById('sports-content');
-            const tabPhoto = document.getElementById('tab-photo');
-            const tabSports = document.getElementById('tab-sports');
+    function switchTab(tab) {
+        const photoContent = document.getElementById('photography-content');
+        const sportsContent = document.getElementById('sports-content');
+        const tabPhoto = document.getElementById('tab-photo');
+        const tabSports = document.getElementById('tab-sports');
 
-            if (tab === 'photography') {
-                photoContent.classList.remove('hidden');
-                sportsContent.classList.add('hidden');
-                tabPhoto.classList.add('active-tab');
-                tabPhoto.classList.remove('text-on-surface-variant');
-                tabSports.classList.remove('active-tab');
-                tabSports.classList.add('text-on-surface-variant');
-            } else {
-                photoContent.classList.add('hidden');
-                sportsContent.classList.remove('hidden');
-                tabSports.classList.add('active-tab');
-                tabSports.classList.remove('text-on-surface-variant');
-                tabPhoto.classList.remove('active-tab');
-                tabPhoto.classList.add('text-on-surface-variant');
-            }
+        if (tab === 'photography') {
+            photoContent.classList.remove('hidden');
+            sportsContent.classList.add('hidden');
+            tabPhoto.classList.add('active-tab');
+            tabPhoto.classList.remove('text-on-surface-variant');
+            tabSports.classList.remove('active-tab');
+            tabSports.classList.add('text-on-surface-variant');
+        } else {
+            photoContent.classList.add('hidden');
+            sportsContent.classList.remove('hidden');
+            tabSports.classList.add('active-tab');
+            tabSports.classList.remove('text-on-surface-variant');
+            tabPhoto.classList.remove('active-tab');
+            tabPhoto.classList.add('text-on-surface-variant');
         }
-    </script>
+    }
+</script>
 </body></html>

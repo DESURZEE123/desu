@@ -2,7 +2,7 @@ export const profile = {
   name: '王怡阳',
   nameEn: 'Yiyang',
   role: 'ToB 产品经理',
-  roleLine: 'ToB 产品经理｜2 年工作经验',
+  roleLine: 'ToB 产品经理',
   birth: '2001.01',
   location: '江苏南京',
   major: '信息管理与信息系统',

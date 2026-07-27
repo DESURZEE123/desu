@@ -377,14 +377,7 @@ export function MobilePortfolio() {
             </a>
           </div>
           <div className="mt-4 flex items-center justify-between">
-            <button
-              type="button"
-              className="flex items-center gap-2 rounded-sm bg-primary px-4 py-2 font-label-md text-white transition-transform active:scale-95"
-              onClick={() => window.print()}
-            >
-              <Icon name="print" className="text-[18px]" /> 打印简历
-            </button>
-            <span className="text-[12px] text-outline">© 2024 {profile.name} Portfolio</span>
+            <span className="text-[12px] text-outline">© 2026 {profile.name}. Built with Product Thinking & Professional Excellence.</span>
           </div>
         </footer>
       </main>
