@@ -66,8 +66,8 @@ export function MobilePortfolio() {
               { id: 'home', label: '首页' },
               { id: 'skills', label: '核心竞争力' },
               { id: 'experience', label: '职业履历' },
-              { id: 'projects', label: '核心项目' },
               { id: 'prototypes', label: '产品原型' },
+              { id: 'projects', label: '核心项目' },
               { id: 'life', label: '生活瞬间' },
               { id: 'education', label: '教育背景' },
               { id: 'contact', label: '联系方式' },
@@ -197,7 +197,7 @@ export function MobilePortfolio() {
                     {exp.period}
                   </span>
                   <span className="text-body-lg font-bold text-on-surface">
-                    {exp.companyShort}
+                    {exp.company}
                   </span>
                   <span className="text-body-md text-on-surface-variant">{exp.title}</span>
                   <p className="mt-2 text-body-sm leading-relaxed text-outline">
@@ -206,6 +206,30 @@ export function MobilePortfolio() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+
+        <section id="prototypes" className="px-margin-mobile py-6">
+          <div className="mb-4 flex items-end justify-between">
+            <h3 className="flex items-center gap-2 font-headline-md text-[20px] text-on-surface">
+              <Icon name="draw" className="text-primary" /> 产品原型
+            </h3>
+            <span className="text-[12px] text-outline">* 已脱敏处理</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            {['线索流转', '后台看板', '工作流', '表单留资', '用户画像', 'AI Agent'].map(
+              (label) => (
+                <div
+                  key={label}
+                  className="flex aspect-square items-center justify-center rounded-lg border border-outline-variant/20 bg-surface-container-highest"
+                >
+                  <span className="px-1 text-center text-[12px] text-on-surface-variant">
+                    {label}
+                  </span>
+                </div>
+              ),
+            )}
           </div>
         </section>
 
@@ -252,29 +276,6 @@ export function MobilePortfolio() {
                 </div>
               </div>
             ))}
-          </div>
-        </section>
-
-        <section id="prototypes" className="px-margin-mobile py-6">
-          <div className="mb-4 flex items-end justify-between">
-            <h3 className="flex items-center gap-2 font-headline-md text-[20px] text-on-surface">
-              <Icon name="draw" className="text-primary" /> 产品原型
-            </h3>
-            <span className="text-[12px] text-outline">* 已脱敏处理</span>
-          </div>
-          <div className="grid grid-cols-3 gap-2">
-            {['线索流转', '后台看板', '工作流', '表单留资', '用户画像', 'AI Agent'].map(
-              (label) => (
-                <div
-                  key={label}
-                  className="flex aspect-square items-center justify-center rounded-lg border border-outline-variant/20 bg-surface-container-highest"
-                >
-                  <span className="px-1 text-center text-[12px] text-on-surface-variant">
-                    {label}
-                  </span>
-                </div>
-              ),
-            )}
           </div>
         </section>
 

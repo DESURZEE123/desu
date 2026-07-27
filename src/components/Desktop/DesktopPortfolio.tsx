@@ -12,12 +12,14 @@ import {
 } from '../../data/profile'
 
 const NAV_ITEMS = [
-  { id: 'about', label: '关于' },
-  { id: 'experience', label: '经历' },
-  { id: 'projects', label: '项目' },
-  { id: 'prototypes', label: '原型' },
-  { id: 'interests', label: '兴趣' },
-  { id: 'education', label: '教育' },
+  { id: 'home', label: '首页' },
+  { id: 'skills', label: '核心竞争力' },
+  { id: 'experience', label: '职业履历' },
+  { id: 'prototypes', label: '产品原型' },
+  { id: 'projects', label: '核心项目' },
+  { id: 'life', label: '生活瞬间' },
+  { id: 'education', label: '教育背景' },
+  { id: 'contact', label: '联系方式' },
 ] as const
 
 const DESKTOP_SKILL_ICONS = ['strategy', 'design_services', 'psychology', 'groups']
@@ -27,7 +29,7 @@ const HEADER_OFFSET = 80
 
 export function DesktopPortfolio() {
   const location = useLocation()
-  const [activeNav, setActiveNav] = useState('about')
+  const [activeNav, setActiveNav] = useState('home')
   const clickingRef = useRef(false)
 
   const scrollTo = (id: string) => {
@@ -205,7 +207,7 @@ export function DesktopPortfolio() {
         <main className="min-w-0 flex-1 space-y-6 pb-10">
           {/* About */}
           <section
-            id="about"
+            id="home"
             className="overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
           >
             <div className="relative h-44 overflow-hidden">
@@ -217,22 +219,20 @@ export function DesktopPortfolio() {
           </section>
 
           {/* Skills */}
-          <section className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]">
+          <section
+            id="skills"
+            className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
+          >
             <h2 className="mb-6 font-headline-lg text-2xl text-primary">核心竞争力</h2>
             <div className="grid grid-cols-2 gap-5">
               {skills.map((skill, index) => (
-                <div
-                  key={skill.title}
-                  className="glass-card group flex flex-col gap-3 rounded-xl p-5 transition-all duration-300 hover:border-primary hover:bg-primary"
-                >
+                <div key={skill.title} className="skill-card flex flex-col gap-3 rounded-xl p-5">
                   <Icon
                     name={DESKTOP_SKILL_ICONS[index] ?? skill.icon}
-                    className="text-3xl text-primary group-hover:text-white"
+                    className="skill-card-icon text-3xl text-primary"
                   />
-                  <h3 className="font-headline-md group-hover:text-white">{skill.title}</h3>
-                  <p className="text-sm text-on-surface-variant group-hover:text-white/80">
-                    {skill.desc}
-                  </p>
+                  <h3 className="skill-card-title font-headline-md text-on-surface">{skill.title}</h3>
+                  <p className="skill-card-desc text-sm text-on-surface-variant">{skill.desc}</p>
                 </div>
               ))}
             </div>
@@ -244,7 +244,7 @@ export function DesktopPortfolio() {
             className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
           >
             <div className="mb-10 flex items-center gap-4">
-              <h2 className="font-headline-lg text-2xl text-primary">工作经历</h2>
+              <h2 className="font-headline-lg text-2xl text-primary">职业履历</h2>
               <div className="h-px flex-1 bg-outline-variant" />
             </div>
             <div className="space-y-10">
@@ -287,7 +287,7 @@ export function DesktopPortfolio() {
             className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
           >
             <div className="mb-8 text-center">
-              <h2 className="mb-2 font-headline-lg text-2xl text-primary">工作原型</h2>
+              <h2 className="mb-2 font-headline-lg text-2xl text-primary">产品原型</h2>
               <p className="text-on-surface-variant">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
             </div>
             <div className="grid grid-cols-3 gap-5">
@@ -317,7 +317,7 @@ export function DesktopPortfolio() {
             className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
           >
             <div className="mb-8">
-              <h2 className="mb-2 font-headline-lg text-2xl text-primary">项目经历</h2>
+              <h2 className="mb-2 font-headline-lg text-2xl text-primary">核心项目</h2>
               <p className="text-on-surface-variant">
                 围绕 MarketUp 产品，打通从「获客」到「转化」的全链路闭环
               </p>
@@ -366,12 +366,12 @@ export function DesktopPortfolio() {
 
           {/* Interests */}
           <section
-            id="interests"
+            id="life"
             className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
           >
             <div className="mb-8 flex items-end justify-between gap-6">
               <div className="max-w-xl">
-                <h2 className="mb-2 font-headline-lg text-2xl text-primary">生活与热爱</h2>
+                <h2 className="mb-2 font-headline-lg text-2xl text-primary">生活瞬间</h2>
                 <p className="text-on-surface-variant">
                   在产品经理的理性逻辑之外，我喜欢用摄影捕捉感性瞬间，通过运动保持高效的精力和清醒的思考。
                 </p>
@@ -450,7 +450,10 @@ export function DesktopPortfolio() {
             </div>
           </section>
 
-          <footer className="rounded-2xl bg-white px-8 py-6 shadow-[0_8px_30px_rgba(27,43,58,0.06)]">
+          <footer
+            id="contact"
+            className="rounded-2xl bg-white px-8 py-6 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
+          >
             <div className="flex items-center justify-between gap-6">
               <div>
                 <div className="font-bold text-primary">

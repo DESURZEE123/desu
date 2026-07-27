@@ -3,10 +3,10 @@ import { Icon } from './Icon'
 import { profile } from '../data/profile'
 
 const HOME_NAV = [
-  { id: 'about', label: '关于' },
-  { id: 'experience', label: '经历' },
-  { id: 'prototypes', label: '原型示例' },
-  { id: 'projects', label: '项目' },
+  { id: 'home', label: '首页' },
+  { id: 'experience', label: '职业履历' },
+  { id: 'prototypes', label: '产品原型' },
+  { id: 'projects', label: '核心项目' },
 ] as const
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
   onScrollTo?: (id: string) => void
 }
 
-export function SiteHeader({ activeSection = 'about', onScrollTo }: Props) {
+export function SiteHeader({ activeSection = 'home', onScrollTo }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
   const isAlbum = location.pathname === '/album'
