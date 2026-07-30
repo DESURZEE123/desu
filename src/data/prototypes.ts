@@ -5,7 +5,7 @@ const coverXiaochengxu =
   'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730174434222-image1ud5u9rjlkp8h.png'
 
 const coverGongzuoliu =
-  'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730175704321-%E5%B7%A5%E4%BD%9C%E6%B5%81f2lmwmq8mv55.png'
+  'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730180543058-1111bfw8pqwqda3b.png'
 
 export type PrototypeItem = {
   id: string
