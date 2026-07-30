@@ -9,6 +9,7 @@ import {
   projects,
   skills,
 } from '../../data/profile'
+import { prototypes } from '../../data/prototypes'
 
 const BOTTOM_NAV: { id: string; icon: string; label: string }[] = [
   { id: 'home', icon: 'home', label: '首页' },
@@ -156,19 +157,19 @@ export function MobilePortfolio() {
               <h3 className="mb-2 text-xs font-semibold tracking-wide text-outline">页面</h3>
               <div className="grid grid-cols-2 gap-2.5">
                 <Link
+                  to="/prototype"
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-xl border border-outline-variant/50 bg-white px-3 py-3.5 text-center text-sm font-medium text-on-surface transition-colors active:bg-surface-container-low"
+                >
+                  产品原型
+                </Link>
+                <Link
                   to="/album"
                   onClick={() => setMenuOpen(false)}
                   className="rounded-xl border border-outline-variant/50 bg-white px-3 py-3.5 text-center text-sm font-medium text-on-surface transition-colors active:bg-surface-container-low"
                 >
                   相册
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => scrollTo('home')}
-                  className="rounded-xl border border-outline-variant/50 bg-white px-3 py-3.5 text-center text-sm font-medium text-on-surface transition-colors active:bg-surface-container-low"
-                >
-                  关于
-                </button>
               </div>
             </section>
 
@@ -315,21 +316,34 @@ export function MobilePortfolio() {
             <h3 className="flex items-center gap-2 font-headline-md text-[20px] text-on-surface">
               <Icon name="draw" className="text-primary" /> 产品原型
             </h3>
-            <span className="text-[12px] text-outline">* 已脱敏处理</span>
+            <Link to="/prototype" className="text-[12px] font-medium text-primary">
+              查看全部 →
+            </Link>
           </div>
-          <div className="grid grid-cols-3 gap-2">
-            {['线索流转', '后台看板', '工作流', '表单留资', '用户画像', 'AI Agent'].map(
-              (label) => (
-                <div
-                  key={label}
-                  className="flex aspect-square items-center justify-center rounded-lg border border-outline-variant/20 bg-white"
-                >
-                  <span className="px-1 text-center text-[12px] text-on-surface-variant">
-                    {label}
-                  </span>
+          <div className="flex flex-col gap-3">
+            {prototypes.map((item) => (
+              <Link
+                key={item.id}
+                to="/prototype"
+                className="flex items-stretch gap-3 rounded-xl border border-outline-variant/20 bg-white p-3"
+              >
+                <div className="h-20 w-24 shrink-0 overflow-hidden rounded-lg bg-surface-container">
+                  <img
+                    src={item.cover}
+                    alt={item.title}
+                    className="h-full w-full object-cover object-top"
+                  />
                 </div>
-              ),
-            )}
+                <div className="flex min-w-0 flex-1 flex-col justify-center gap-1">
+                  <h4 className="text-body-md font-bold leading-tight text-on-surface">
+                    {item.title}
+                  </h4>
+                  <p className="line-clamp-2 text-[12px] leading-relaxed text-on-surface-variant">
+                    {item.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 

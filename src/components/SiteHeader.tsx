@@ -5,7 +5,6 @@ import { profile } from '../data/profile'
 const HOME_NAV = [
   { id: 'home', label: '首页' },
   { id: 'experience', label: '职业履历' },
-  { id: 'prototypes', label: '产品原型' },
   { id: 'projects', label: '核心项目' },
 ] as const
 
@@ -18,6 +17,8 @@ export function SiteHeader({ activeSection = 'home', onScrollTo }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
   const isAlbum = location.pathname === '/album'
+  const isPrototype = location.pathname === '/prototype'
+  const isSubPage = isAlbum || isPrototype
 
   const goHomeSection = (id: string) => {
     if (location.pathname !== '/') {
@@ -44,7 +45,7 @@ export function SiteHeader({ activeSection = 'home', onScrollTo }: Props) {
 
         <nav className="site-header__nav flex items-center gap-1 rounded-full bg-white px-2 py-1.5 shadow-[0_4px_20px_rgba(27,43,58,0.06)]">
           {HOME_NAV.map((item) => {
-            const active = !isAlbum && activeSection === item.id
+            const active = !isSubPage && activeSection === item.id
             return (
               <button
                 key={item.id}
@@ -60,6 +61,16 @@ export function SiteHeader({ activeSection = 'home', onScrollTo }: Props) {
               </button>
             )
           })}
+          <Link
+            to="/prototype"
+            className={`rounded-full px-4 py-1.5 text-sm transition-all ${
+              isPrototype
+                ? 'bg-secondary-container/40 font-semibold text-primary'
+                : 'text-on-surface-variant hover:text-primary'
+            }`}
+          >
+            产品原型
+          </Link>
           <Link
             to="/album"
             className={`rounded-full px-4 py-1.5 text-sm transition-all ${

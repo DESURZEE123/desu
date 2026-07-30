@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { AiAgentLink } from '../AiAgentLink'
 import { Icon } from '../Icon'
 import { SiteHeader } from '../SiteHeader'
@@ -10,6 +10,7 @@ import {
   projects,
   skills,
 } from '../../data/profile'
+import { prototypes } from '../../data/prototypes'
 
 const NAV_ITEMS = [
   { id: 'home', label: '首页' },
@@ -286,27 +287,38 @@ export function DesktopPortfolio() {
             id="prototypes"
             className="rounded-2xl bg-white p-8 shadow-[0_8px_30px_rgba(27,43,58,0.06)]"
           >
-            <div className="mb-8 text-center">
-              <h2 className="mb-2 font-headline-lg text-2xl text-primary">产品原型</h2>
-              <p className="text-on-surface-variant">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
+            <div className="mb-8 flex items-end justify-between gap-4">
+              <div>
+                <h2 className="mb-2 font-headline-lg text-2xl text-primary">产品原型</h2>
+                <p className="text-on-surface-variant">专注易用性与逻辑严密性的原型输出 (脱敏展示)</p>
+              </div>
+              <Link
+                to="/prototype"
+                className="shrink-0 text-sm font-medium text-primary transition-opacity hover:opacity-70"
+              >
+                查看全部 →
+              </Link>
             </div>
-            <div className="grid grid-cols-3 gap-5">
-              {[
-                { title: '移动端线索流转界面', sub: 'Figma · MasterGo' },
-                { title: 'PC 管理后台全局看板', sub: 'High-Fidelity Mockup' },
-                { title: '自动化流程编辑器', sub: 'Workflow Logic Design' },
-              ].map((item) => (
-                <div
-                  key={item.title}
-                  className="group relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-xl border border-outline-variant bg-gradient-to-br from-primary to-secondary p-5"
+            <div className="flex flex-col gap-4">
+              {prototypes.map((item) => (
+                <Link
+                  key={item.id}
+                  to="/prototype"
+                  className="group flex items-stretch gap-5 rounded-xl border border-outline-variant bg-surface-container-lowest p-4 transition-all hover:shadow-md"
                 >
-                  <Icon
-                    name="draw"
-                    className="absolute right-5 top-5 text-5xl text-white/20 transition-transform group-hover:scale-110"
-                  />
-                  <p className="font-headline-md text-white">{item.title}</p>
-                  <p className="text-sm text-white/60">{item.sub}</p>
-                </div>
+                  <div className="h-[108px] w-[144px] shrink-0 overflow-hidden rounded-lg bg-surface-container">
+                    <img
+                      src={item.cover}
+                      alt={item.title}
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex min-w-0 flex-1 flex-col justify-center gap-2">
+                    <h3 className="font-headline-md text-lg text-primary">{item.title}</h3>
+                    <p className="line-clamp-2 text-sm text-on-surface-variant">{item.description}</p>
+                    <p className="text-xs text-outline">{item.tools}</p>
+                  </div>
+                </Link>
               ))}
             </div>
           </section>
