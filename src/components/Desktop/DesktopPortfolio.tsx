@@ -399,17 +399,15 @@ export function DesktopPortfolio() {
                 <Link
                   key={photo.id}
                   to="/album"
-                  className={`group block overflow-hidden rounded-xl border border-outline-variant ${
+                  className={`group relative block h-56 overflow-hidden rounded-xl border border-outline-variant bg-surface-container-low ${
                     i % 2 === 1 ? 'mt-6' : ''
                   }`}
                 >
-                  <div className="h-56 overflow-hidden bg-surface-container-low">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="absolute left-0 top-0 block h-[115%] w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
                 </Link>
               ))}
             </div>

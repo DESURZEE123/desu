@@ -407,15 +407,13 @@ export function MobilePortfolio() {
               <Link
                 key={photo.id}
                 to="/album"
-                className="block overflow-hidden rounded-xl border border-outline-variant/20 bg-white"
+                className="relative block h-48 overflow-hidden rounded-xl border border-outline-variant/20 bg-white"
               >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={photo.src}
-                    alt={photo.alt}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="absolute left-0 top-0 block h-[115%] w-full object-cover object-top"
+                />
               </Link>
             ))}
           </div>
