@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AiAgentLink } from '../AiAgentLink'
 import { Icon } from '../Icon'
+import { lifePreviewPhotos } from '../../data/album'
 import {
   education,
   experiences,
@@ -22,7 +23,6 @@ const BOTTOM_NAV: { id: string; icon: string; label: string }[] = [
 const COVER_IMG = '/photo.jpg'
 
 export function MobilePortfolio() {
-  const [hobbyTab, setHobbyTab] = useState<'photography' | 'sports'>('photography')
   const [activeNav, setActiveNav] = useState('home')
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -394,37 +394,29 @@ export function MobilePortfolio() {
         </section>
 
         <section id="life" className="px-margin-mobile py-6">
-          <h3 className="mb-4 flex items-center gap-2 font-headline-md text-[20px] text-on-surface">
-            <Icon name="favorite" className="text-primary" /> 生活瞬间
-          </h3>
-          <div className="mb-4 flex gap-6 border-b border-outline-variant/30">
-            <button
-              type="button"
-              className={`pb-2 font-bold ${
-                hobbyTab === 'photography' ? 'active-tab' : 'text-on-surface-variant'
-              }`}
-              onClick={() => setHobbyTab('photography')}
-            >
-              摄影 Photography
-            </button>
-            <button
-              type="button"
-              className={`pb-2 font-bold ${
-                hobbyTab === 'sports' ? 'active-tab' : 'text-on-surface-variant'
-              }`}
-              onClick={() => setHobbyTab('sports')}
-            >
-              运动 Sports
-            </button>
+          <div className="mb-4 flex items-end justify-between">
+            <h3 className="flex items-center gap-2 font-headline-md text-[20px] text-on-surface">
+              <Icon name="favorite" className="text-primary" /> 生活瞬间
+            </h3>
+            <Link to="/album" className="text-[12px] font-medium text-primary">
+              查看相册 →
+            </Link>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {(hobbyTab === 'photography' ? ['街拍', '日落'] : ['篮球', '跑步']).map((label) => (
-              <div
-                key={label}
-                className="flex h-48 items-center justify-center rounded-xl border border-outline-variant/20 bg-white"
+            {lifePreviewPhotos.map((photo) => (
+              <Link
+                key={photo.id}
+                to="/album"
+                className="block overflow-hidden rounded-xl border border-outline-variant/20 bg-white"
               >
-                <span className="text-on-surface-variant">{label}</span>
-              </div>
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </section>

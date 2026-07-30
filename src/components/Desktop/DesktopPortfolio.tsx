@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { AiAgentLink } from '../AiAgentLink'
 import { Icon } from '../Icon'
 import { SiteHeader } from '../SiteHeader'
+import { lifePreviewPhotos } from '../../data/album'
 import {
   education,
   experiences,
@@ -384,27 +385,32 @@ export function DesktopPortfolio() {
             <div className="mb-8 flex items-end justify-between gap-6">
               <div className="max-w-xl">
                 <h2 className="mb-2 font-headline-lg text-2xl text-primary">生活瞬间</h2>
-                <p className="text-on-surface-variant">
-                </p>
+                <p className="text-on-surface-variant">旅途与户外里留下的片刻</p>
               </div>
-              <div className="flex gap-3">
-                <div className="rounded-lg bg-primary p-3 text-white">
-                  <Icon name="photo_camera" />
-                </div>
-                <div className="rounded-lg border border-secondary/20 bg-secondary/10 p-3 text-secondary">
-                  <Icon name="directions_run" />
-                </div>
-              </div>
+              <Link
+                to="/album"
+                className="shrink-0 text-sm font-medium text-primary transition-opacity hover:opacity-70"
+              >
+                查看相册 →
+              </Link>
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {['摄影', '街拍', '运动', '跑步'].map((label, i) => (
-                <div
-                  key={label}
-                  className={`flex h-56 items-center justify-center rounded-xl border border-outline-variant bg-surface-container-low ${i % 2 === 1 ? 'mt-6' : ''
-                    }`}
+              {lifePreviewPhotos.map((photo, i) => (
+                <Link
+                  key={photo.id}
+                  to="/album"
+                  className={`group block overflow-hidden rounded-xl border border-outline-variant ${
+                    i % 2 === 1 ? 'mt-6' : ''
+                  }`}
                 >
-                  <span className="font-headline-md text-on-surface-variant">{label}</span>
-                </div>
+                  <div className="h-56 overflow-hidden bg-surface-container-low">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </Link>
               ))}
             </div>
           </section>
