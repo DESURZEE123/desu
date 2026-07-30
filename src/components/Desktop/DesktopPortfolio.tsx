@@ -385,7 +385,6 @@ export function DesktopPortfolio() {
               <div className="max-w-xl">
                 <h2 className="mb-2 font-headline-lg text-2xl text-primary">生活瞬间</h2>
                 <p className="text-on-surface-variant">
-                  在产品经理的理性逻辑之外，我喜欢用摄影捕捉感性瞬间，通过运动保持高效的精力和清醒的思考。
                 </p>
               </div>
               <div className="flex gap-3">

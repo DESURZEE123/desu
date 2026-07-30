@@ -192,7 +192,7 @@ export function MobilePortfolio() {
               {profile.greeting || `你好，我是${profile.name}`}
             </h2>
             <p className="font-body-lg text-body-lg leading-relaxed text-on-surface-variant">
-              我是{profile.name}，一名做 ToB SaaS 的产品经理。
+              一名做 ToB SaaS 的产品经理。
             </p>
           </div>
           <div className="flex items-center gap-4 rounded-xl border border-outline-variant/30 bg-white p-4 shadow-sm">
