@@ -4,6 +4,9 @@ const coverLiuzi =
 const coverXiaochengxu =
   'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730174434222-image1ud5u9rjlkp8h.png'
 
+const coverGongzuoliu =
+  'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730175704321-%E5%B7%A5%E4%BD%9C%E6%B5%81f2lmwmq8mv55.png'
+
 export type PrototypeItem = {
   id: string
   title: string
@@ -19,7 +22,7 @@ export const prototypesPage = {
   author: '王怡阳',
   date: '2026-07',
   description:
-    '产品经历中绘制的高保真原型，覆盖获客留资、小程序营销等 ToB 场景，展示已脱敏。',
+    '产品经历中绘制的高保真原型，覆盖获客留资、小程序营销、自动化工作流等 ToB 场景，展示已脱敏。',
 }
 
 export const prototypes = [
@@ -40,5 +43,14 @@ export const prototypes = [
     cover: coverXiaochengxu,
     tools: 'Figma · MasterGo',
     tags: ['小程序', '营销', '获客'],
+  },
+  {
+    id: '3',
+    title: 'MarketUp—工作流',
+    description:
+      '可视化自动化工作流编排界面，支持系统事件触发、机器人通知、多分支控制与第三方应用集成。',
+    cover: coverGongzuoliu,
+    tools: 'Figma · MasterGo',
+    tags: ['工作流', '自动化', '编排'],
   },
 ] satisfies PrototypeItem[]
