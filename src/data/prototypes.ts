@@ -1,5 +1,8 @@
-import coverLiuzi from '../assets/prototype/xxx公司—单产品留资.png'
-import coverXiaochengxu from '../assets/prototype/xxx公司—小程序营销.png'
+const coverLiuzi =
+  'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730174434033-xxx%E5%85%AC%E5%8F%B8%E5%8D%95%E4%BA%A7%E5%93%81%E7%95%99%E8%B5%84b8p8yhx23juu.png'
+
+const coverXiaochengxu =
+  'https://assets-cdn-01.marketup.cn/marketup/company/659/2026/0730/cu/5026743922694145/20260730174434222-image1ud5u9rjlkp8h.png'
 
 export type PrototypeItem = {
   id: string

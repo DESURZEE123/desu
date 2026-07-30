@@ -33,10 +33,6 @@ export function AlbumPage() {
                   {album.author}
                 </span>
                 <span className="meta-item">
-                  <Icon name="calendar_today" className="text-[14px]" />
-                  {album.date}
-                </span>
-                <span className="meta-item">
                   <Icon name="image" className="text-[14px]" />
                   {album.photos.length} 张
                 </span>

@@ -33,10 +33,6 @@ export function PrototypePage() {
                   {prototypesPage.author}
                 </span>
                 <span className="meta-item">
-                  <Icon name="calendar_today" className="text-[14px]" />
-                  {prototypesPage.date}
-                </span>
-                <span className="meta-item">
                   <Icon name="layers" className="text-[14px]" />
                   {prototypes.length} 个
                 </span>
