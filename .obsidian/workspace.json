@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "尽调评审系统需求文档合集.md",
+                "file": "尽调系统/尽调评审系统需求文档合集.md",
                 "mode": "source",
                 "source": false
               },
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "尽调评审系统需求文档合集.md",
+                "file": "尽调系统/尽调评审系统需求文档合集.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "尽调评审系统需求文档合集.md",
+                "file": "尽调系统/尽调评审系统需求文档合集.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "尽调评审系统需求文档合集.md",
+                "file": "尽调系统/尽调评审系统需求文档合集.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -183,12 +183,13 @@
       "bases:新建数据库": false
     }
   },
-  "active": "072a8c444b7f9946",
+  "active": "01c876ba3468b2ba",
   "lastOpenFiles": [
+    "尽调系统",
     "PRD/分析文档.md",
     "PRD/1.合作历史.pdf",
     "其他补充/特有名词表.md",
-    "尽调评审系统需求文档合集.md",
+    "尽调系统/尽调评审系统需求文档合集.md",
     "尽调系统优化/本地化存储.md",
     "其他补充",
     "分析文档.md",
