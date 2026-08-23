@@ -165,12 +165,12 @@
               "title": "尽调评审系统需求文档合集 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,12 +185,14 @@
   },
   "active": "072a8c444b7f9946",
   "lastOpenFiles": [
-    "本地化存储.md",
-    "尽调本地化存储.md",
-    "特有名词表.md",
-    "尽调评审系统需求文档合集.md",
-    "分析文档.md",
     "PRD/分析文档.md",
-    "PRD/1.合作历史.pdf"
+    "PRD/1.合作历史.pdf",
+    "其他补充/特有名词表.md",
+    "尽调评审系统需求文档合集.md",
+    "尽调系统优化/本地化存储.md",
+    "其他补充",
+    "分析文档.md",
+    "尽调系统优化",
+    "尽调本地化存储.md"
   ]
 }
