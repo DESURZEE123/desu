@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "尽调系统/尽调评审系统需求文档合集.md",
+                "file": "尽调系统/业务模块与子系统对照整理.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "尽调评审系统需求文档合集"
+              "title": "业务模块与子系统对照整理"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "尽调系统/尽调评审系统需求文档合集.md",
+                "file": "尽调系统/业务模块与子系统对照整理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "尽调评审系统需求文档合集 的反向链接列表"
+              "title": "业务模块与子系统对照整理 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "尽调系统/尽调评审系统需求文档合集.md",
+                "file": "尽调系统/业务模块与子系统对照整理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "尽调评审系统需求文档合集 的出链列表"
+              "title": "业务模块与子系统对照整理 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "尽调系统/尽调评审系统需求文档合集.md",
+                "file": "尽调系统/业务模块与子系统对照整理.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "尽调评审系统需求文档合集 的大纲"
+              "title": "业务模块与子系统对照整理 的大纲"
             }
           }
         ],
@@ -185,14 +185,14 @@
   },
   "active": "072a8c444b7f9946",
   "lastOpenFiles": [
+    "尽调系统/尽调评审系统 · 总览.md",
+    "尽调系统/尽调评审系统需求文档合集.md",
     "PRD/产品中心产品需求说明书.md",
     "尽调系统/业务模块与子系统对照整理.md",
-    "尽调系统/尽调评审系统 · 总览.md",
     "尽调系统/项目审批/3.实施方案.md",
     "尽调系统/突破定价/突破定价详情页.md",
     "尽调系统/突破定价/突破定价列表页.md",
     "尽调系统/突破定价/_突破定价 索引.md",
-    "尽调系统/尽调评审系统需求文档合集.md",
     "尽调系统/首页/首页.md",
     "尽调系统/首页/_首页 索引.md",
     "尽调系统/首页",
