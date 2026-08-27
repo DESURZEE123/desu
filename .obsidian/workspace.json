@@ -183,8 +183,13 @@
       "bases:新建数据库": false
     }
   },
-  "active": "072a8c444b7f9946",
+  "active": "01c876ba3468b2ba",
   "lastOpenFiles": [
+    "PRD/生成pdf报告/prjc_integrate_project_base_info.md",
+    "PRD/生成pdf报告/prjc_integrate_report.md",
+    "PRD/生成pdf报告/prjc_style_render.md",
+    "PRD/生成pdf报告/HTML文件输出.md",
+    "PRD/生成pdf报告/mock.html",
     "PRD/生成pdf报告/样式Skill.md",
     "PRD/生成pdf报告/报告自动生成PDF模块.md",
     "PRD/生成pdf报告/项目基本信息.md",
@@ -198,7 +203,6 @@
     "PRD/生成pdf报告/report-data.json",
     "PRD/生成pdf报告/report-preview.html",
     "PRD/生成pdf报告/report-fragment.html",
-    "PRD/生成pdf报告/render-report.mjs",
     "PRD/项目基本信息.md",
     "PRD/样式Skill.md",
     "PRD/项目基本信息模块样式规范.md",
@@ -216,9 +220,6 @@
     "尽调系统/突破定价/突破定价列表页.md",
     "尽调系统/突破定价/_突破定价 索引.md",
     "尽调系统/首页/首页.md",
-    "尽调系统/首页/_首页 索引.md",
-    "尽调系统/项目审批/项目概要.md",
-    "尽调系统/项目审批/项目总结.md",
-    "尽调系统/项目审批/项目审批列表页.md"
+    "尽调系统/首页/_首页 索引.md"
   ]
 }
