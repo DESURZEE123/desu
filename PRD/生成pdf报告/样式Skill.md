@@ -1,6 +1,6 @@
 # 样式 Skill（L2 · 统一样式渲染）
 
-> 所属：报告自动生成 PDF 模块（PRJC_REPORT）  
+> 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
 > 上游：L1 功能整合 Skill 输出的结构化 JSON  
 > 下游：HTML 片段 → PDF 生成服务
 
@@ -20,6 +20,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 
 ```json
 {
+  "moduleIndex": 1,
   "moduleName": "模块中文名称",
   "moduleKey": "module_key",
   "blocks": []
@@ -28,6 +29,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 
 | 字段 | 类型 | 必填 | 说明 |
 | ---- | ---- | :--: | ---- |
+| `moduleIndex` | number | 是 | 模块排序索引，L0 按升序整合与渲染；**不输出到 HTML** |
 | `moduleName` | string | 是 | 模块中文标题，渲染为模块顶栏 |
 | `moduleKey` | string | 是 | 模块标识，仅用于数据匹配，不输出到 HTML |
 | `blocks` | array | 是 | 模块内数据块列表，按数组顺序渲染 |
@@ -395,6 +397,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 
 ```json
 {
+  "moduleIndex": 1,
   "moduleName": "基本信息",
   "moduleKey": "project_base_info",
   "blocks": [
