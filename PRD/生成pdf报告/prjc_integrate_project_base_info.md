@@ -13,6 +13,20 @@
 
 AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不做业务分析或 HTML 渲染。
 
+**尽调系统类型对照**
+
+| 中文 | 英文类型 |
+| ---- | -------- |
+| 闪光租 | `prjc-flr` |
+| 小企业 | `prjc-slb` |
+| 厂商租赁 | `prjc-drs` |
+<!-- | 印包 | `prjc-PEP` | -->
+| 环卫 | `prjc-si` |
+| 通用大单 | `prjc-gld` |
+| 大健康 | `prjc-hdr` |
+
+> 编码规则：`prjc-{小写系统码}`。印包（`prjc-PEP`）暂不在本节对照表启用，文中涉及印包的模块规则保持不变。
+
 ---
 
 ## 二、模块标识
@@ -29,14 +43,18 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 来源路径 | 说明 |
 | -------- | ---- |
-| `projectAttribute` / `headInfo.projectType` | 尽调系统类型，决定字段展示范围 |
+| `projectAttribute` | 尽调系统类型（`prjc-*`），决定字段展示范围 |
 | `projectBaseInfo` | 模块主数据对象 |
 | `projectBaseInfo.quoteInfo` | 报价信息分组 |
 | `projectBaseInfo.referenceYield` | 参考收益率分组 |
 | `projectBaseInfo.environmentAndSocialRisk` | 环境与社会风险评估 |
-| `projectBaseInfo.filingStatusInfo` | 闪光租 · 项目备案情况 |
-| `projectBaseInfo.projectSourceList` | 通用大单 · 业务信息来源列表 |
-| `projectBaseInfo.siteSituationList` | 现场尽调情况列表 |
+| `projectBaseInfo.filingStatusInfo` | prjc-flr · 项目备案情况 |
+| `projectBaseInfo.projectSourceList` | prjc-gld · 业务信息来源列表 |
+| `projectBaseInfo.siteSituation` | 现场考察情况（prjc-flr / prjc-drs / prjc-si） |
+| `projectBaseInfo.siteSituationList` | 现场尽调情况列表（prjc-slb / prjc-PEP） |
+| `projectBaseInfo.procedureStatusInfo` | prjc-PEP · 手续情况 |
+| `projectBaseInfo.onsiteInspectionDetails` | prjc-PEP · 尽调情况说明 |
+| `projectBaseInfo.companyBaseInfo` | 项目基本情况（非 prjc-gld） |
 
 ---
 
@@ -55,22 +73,28 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ## 五、尽调系统差异约束
 
-| 分组 / 字段 | 闪光租 | 小企业 | 厂商租赁 | 印包 | 环卫 | 通用大单 |
-| ----------- | :----: | :----: | :------: | :--: | :--: | :------: |
-| 项目基本信息（通用字段） | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 报价信息 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 参考收益率 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 环境与社会风险评估 | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| 项目备案情况（filingStatusInfo） | ✅ | — | — | — | — | — |
-| 对应老合同 | — | ✅ | — | — | — | 条件展示 |
-| 现场尽调情况 | — | ✅ | ✅ | — | ✅ | — |
-| 业务信息来源 | — | — | — | — | — | ✅ |
+| 分组 / 字段 | prjc-flr | prjc-slb | prjc-drs | prjc-PEP | prjc-si | prjc-gld | prjc-hdr |
+| ----------- | :----: | :----: | :------: | :--: | :--: | :------: | :------: |
+| 项目基本信息（通用字段） | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 报价信息 | — | — | — | — | — | ✅ | — |
+| 参考收益率 | — | — | — | — | — | ✅ | — |
+| 环境与社会风险评估 | ✅ | ✅ | ✅ | ✅ | ✅ | — | 待补充 |
+| 项目基本情况（companyBaseInfo） | ✅ | ✅ | ✅ | ✅ | ✅ | — | 待补充 |
+| 项目备案情况（filingStatusInfo） | ✅ | — | — | — | — | — | — |
+| 对应老合同（oldContInfoList） | — | 条件 | — | — | — | 条件 | — |
+| 现场考察情况（siteSituation） | ✅ | — | ✅ | — | ✅ | — | — |
+| 现场尽调情况（siteSituationList） | — | ✅ | — | ✅ | — | — | — |
+| 手续情况（procedureStatusInfo） | — | — | — | ✅ | — | — | — |
+| 尽调情况说明（onsiteInspectionDetails） | — | — | — | ✅ | — | — | — |
+| 业务信息来源（projectSourceList） | — | — | — | — | — | ✅ | — |
 
 **条件展示规则：**
 
-- `对应老合同`：小企业且 `projectType = 老客租项目` 时展示
-- `项目备案情况`：仅 `projectAttribute = 闪光租` 时展示
+- `对应老合同`：prjc-slb 且 `projectType = 老客租项目` 时展示；prjc-gld 按页面规则条件展示
+- `项目备案情况`：仅 prjc-flr 展示
+- `现场考察情况` / `现场尽调情况`：尽调页面命名不同，PDF 按接口字段分别输出；prjc-drs、prjc-si 走「现场考察情况」，prjc-slb、prjc-PEP 走「现场尽调情况」
 - `合同收益IRR(银票)`：实施方案存在投放方式=银票时展示（`referenceYield.contIrrBanknote` 有值）
+- `prjc-hdr`（大健康）：本节模块差异待补充，当前 PDF 模块暂不输出专属 block
 - `SOFR类型` / `margin`：业务部门=航运金融事业部时展示
 
 ---
@@ -82,12 +106,16 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 顺序 | blockKey | label | displayType | 适用系统 |
 | :--: | -------- | ----- | ------------- | -------- |
 | 1 | `projectBaseInfo` | 项目基本信息 | `group` | 全部 |
-| 2 | `quoteInfo` | 报价信息 | `group` | 全部 |
-| 3 | `referenceYield` | 参考收益率 | `group` | 全部 |
-| 4 | `environmentAndSocialRisk` | 环境与社会风险评估 | `group` | 闪光租 / 小企业 / 厂商租赁 / 印包 / 环卫 |
-| 5 | `filingStatusInfo` | 项目备案情况 | 混合（见 §6.5） | 仅闪光租 |
-| 6 | `siteSituationList` | 现场尽调情况 | `table` | 小企业 / 厂商租赁 / 环卫 |
-| 7 | `projectSourceList` | 业务信息来源 | `table` / `empty` | 通用大单 |
+| 2 | `quoteInfo` | 报价信息 | `group` | 仅 prjc-gld |
+| 3 | `referenceYield` | 参考收益率 | `group` | 仅 prjc-gld |
+| 4 | `environmentAndSocialRisk` | 环境与社会风险评估 | `group` | prjc-flr / prjc-slb / prjc-drs / prjc-PEP / prjc-si |
+| 5 | `companyBaseInfo` | 项目基本情况 | `longText` | prjc-flr / prjc-slb / prjc-drs / prjc-PEP / prjc-si |
+| 6 | `filingStatusInfo` | 项目备案情况 | 混合（见 §7.5） | 仅 prjc-flr |
+| 7 | `siteSituation` | 现场考察情况 | `longText` | prjc-flr / prjc-drs / prjc-si |
+| 8 | `siteSituationList` | 现场尽调情况 | `table` | prjc-slb / prjc-PEP |
+| 9 | `procedureStatusInfo` | 手续情况 | 待定义 | 仅 prjc-PEP |
+| 10 | `onsiteInspectionDetails` | 尽调情况说明 | `longText` | 仅 prjc-PEP |
+| 11 | `projectSourceList` | 业务信息来源 | `table` / `empty` | prjc-gld |
 
 ---
 
@@ -98,29 +126,29 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 顺序 | label | 接口字段 | displayType | 适用系统 | 格式化 |
 | :--: | ----- | -------- | ----------- | -------- | ------ |
 | 1 | 客户名称 | `customerName` | `direct` | 全部 | 原样 |
-| 2 | 融资形式 | `leaseCategry` | `direct` | 通用大单 | 原样 |
-| 3 | 项目金额 | `projectAmount` | `direct` | 非通用大单 | 千分位 + 2 位小数 |
+| 2 | 融资形式 | `leaseCategry` | `direct` | prjc-gld | 原样 |
+| 3 | 项目金额 | `projectAmount` | `direct` | 非 prjc-gld | 千分位 + 2 位小数 |
 | 4 | 资金用途 | `capitalUse` | `direct` | 全部 | 原样 |
-| 5 | 业务部门 | `deptName` | `direct` | 通用大单 | 原样 |
-| 6 | 租赁方式 | `leaseMethod` | `direct` | 非通用大单 | 原样 |
-| 7 | 项目经理 | `managerName` / `managerWorkNo` | `person` | 全部 | 姓名（工号） |
-| 8 | 项目协办人 | `custHelpName` / `custHelpNo` | `person` | 全部 | 姓名（工号） |
+| 5 | 业务部门 | `deptName` | `direct` | prjc-gld | 原样 |
+| 6 | 租赁方式 | `leaseMethod` | `direct` | 非 prjc-gld | 原样 |
+| 7 | 项目经理 | `managerName` | `person` | 全部 | 姓名 |
+| 8 | 项目协办人 | `custHelpName` | `person` | 全部 | 姓名 |
 | 9 | 项目来源 | `projectSource` | `direct` | 全部 | 原样 |
-| 10 | 是否单个报价 | `isOnetoone` | `direct` | 通用大单 | 原样 |
-| 11 | 是否投保 | `isInsure` | `direct` | 通用大单 | 原样 |
-| 12 | 项目绿色投向 | `greenIndustry` | `direct` | 通用大单 | 原样 |
+| 10 | 是否单个报价 | `isOnetoone` | `direct` | prjc-gld | 原样 |
+| 11 | 是否投保 | `isInsure` | `direct` | prjc-gld | 原样 |
+| 12 | 项目绿色投向 | `greenIndustry` | `direct` | prjc-gld | 原样 |
 | 13 | 项目类型 | `projectType` | `direct` | 全部 | 原样 |
-| 14 | 评审部门 | `reviewDept` | `direct` | 通用大单 | 原样 |
-| 15 | 投保情况 | `insuranceSituation` | `direct` | 非通用大单 | 原样 |
-| 16 | 售后回租原因 | `leasebackReason` | `direct` | 非通用大单 / 非环卫大单 | 原样 |
-| 17 | 对应老合同 | `oldContInfoList` | `direct` | 小企业（条件） | 取合同名称，多个用 `；` 分隔 |
-| 18 | 项目来源说明 | `projectSourceDesc` | `direct` | 厂商租赁 / 印包 | 原样 |
-| 19 | 现场尽调情况 | `siteSituation` | `longText` | 闪光租 | 原样 |
-| 20 | 项目基本情况 | `companyBaseInfo` | `longText` | 非通用大单 | 原样 |
-| 21 | 租赁物保险 | `leaseInsurance` | `longText` | 非通用大单 | 原样 |
-| 22 | 售后回租原因说明 | `leasebackExplain` | `longText` | 非通用大单 / 非环卫大单 | 原样 |
+| 14 | 评审部门 | `reviewDept` | `direct` | prjc-gld | 原样 |
+| 15 | 投保情况 | `insuranceSituation` | `direct` | 非 prjc-gld | 原样 |
+| 16 | 售后回租原因 | `leasebackReason` | `direct` | 非 prjc-gld / 非 prjc-si | 原样 |
+| 17 | 对应老合同 | `oldContInfoList` | `direct` | prjc-slb（条件） | 取合同名称，多个用 `；` 分隔 |
+| 18 | 项目来源说明 | `projectSourceDesc` | `direct` | prjc-drs / prjc-PEP | 原样 |
+| 19 | 租赁物保险 | `leaseInsurance` | `longText` | 非 prjc-gld | 原样 |
+| 20 | 售后回租原因说明 | `leasebackExplain` | `longText` | 非 prjc-gld / 非 prjc-si | 原样 |
 
-> 通用大单字段顺序对齐页面截图：4 列栅格，先横后纵填充。
+> `项目基本情况`（`companyBaseInfo`）、`现场考察情况`（`siteSituation`）、`现场尽调情况`（`siteSituationList`）、`手续情况`（`procedureStatusInfo`）、`尽调情况说明`（`onsiteInspectionDetails`）按第六节独立 block 输出，不放入 `projectBaseInfo` group。
+
+> prjc-gld 字段顺序对齐页面截图：4 列栅格，先横后纵填充。
 
 ### 7.2 报价信息（group · columns: 4）
 
@@ -167,7 +195,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 是否存在隐患风险 | `hiddenRiskResult` | `direct` |
 | 评估结果 | `assessResult` | `direct` |
 
-### 7.5 项目备案情况（仅闪光租）
+### 7.5 项目备案情况（仅 prjc-flr）
 
 数据来源：`projectBaseInfo.filingStatusInfo`
 
@@ -223,11 +251,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 容量 MW | 保留 2 位小数，如 `23.00` |
 | 电价 | 保留 4 位小数，单位「元/度」 |
 | 枚举 | 直接展示接口返回的中文值，不做码值转换 |
-| 人员 | `name` 有值 + `workNo` 有值 → L2 渲染为 `姓名（工号）` |
+| 人员 | `name` 有值 + `workNo` 有值 → L2 渲染为 `姓名` |
 
 ---
 
-## 九、输出示例（闪光租 · 基于 data.js）
+## 九、输出示例（prjc-flr）
 
 ```json
 {
