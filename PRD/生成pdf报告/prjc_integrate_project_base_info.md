@@ -3,13 +3,13 @@
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
 > 模块索引：**1**（第一个展示）  
 > 上游：用户传入的尽调项目全量参数  
-> 下游：[样式 Skill](./样式Skill.md)（L2 统一样式渲染）
+> 下游：prjc_style_render.md（L2 统一样式渲染）
 
 ---
 
 ## 一、Skill Role（技能角色）
 
-本 Skill 从用户传入参数中提取 `projectBaseInfo` 及相关子对象，按尽调系统类型筛选字段、映射中文展示名、标注 `displayType`，输出符合 [样式 Skill](./样式Skill.md) Schema 的结构化 JSON。
+本 Skill 从用户传入参数中提取 `projectBaseInfo` 及相关子对象，按尽调系统类型筛选字段、映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md的Schema 的结构化 JSON。
 
 AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不做业务分析或 HTML 渲染。
 
