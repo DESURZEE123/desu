@@ -131,8 +131,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 4 | 资金用途 | `capitalUse` | `direct` | 全部 | 原样 |
 | 5 | 业务部门 | `deptName` | `direct` | prjc-gld | 原样 |
 | 6 | 租赁方式 | `leaseMethod` | `direct` | 非 prjc-gld | 原样 |
-| 7 | 项目经理 | `managerName` | `person` | 全部 | 姓名 |
-| 8 | 项目协办人 | `custHelpName` | `person` | 全部 | 姓名 |
+| 7 | 项目经理 | `managerName` | `direct` | 全部 | 仅姓名，不传工号 |
+| 8 | 项目协办人 | `custHelpName` | `direct` | 全部 | 仅姓名，不传工号 |
 | 9 | 项目来源 | `projectSource` | `direct` | 全部 | 原样 |
 | 10 | 是否单个报价 | `isOnetoone` | `direct` | prjc-gld | 原样 |
 | 11 | 是否投保 | `isInsure` | `direct` | prjc-gld | 原样 |
@@ -251,7 +251,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 容量 MW | 保留 2 位小数，如 `23.00` |
 | 电价 | 保留 4 位小数，单位「元/度」 |
 | 枚举 | 直接展示接口返回的中文值，不做码值转换 |
-| 人员 | `name` 有值 + `workNo` 有值 → L2 渲染为 `姓名` |
+| 人员姓名 | 项目经理 / 项目协办人取 `managerName` / `custHelpName`，`direct` 输出，不传工号 |
 
 ---
 
@@ -275,8 +275,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
         { "blockKey": "projectSource", "label": "项目来源", "displayType": "direct", "value": "代销-厂商" },
         { "blockKey": "leaseMethod", "label": "租赁方式", "displayType": "direct", "value": "回租" },
         { "blockKey": "capitalUse", "label": "资金用途", "displayType": "direct", "value": "购置本次租赁物" },
-        { "blockKey": "manager", "label": "项目经理", "displayType": "person", "name": "顾泽平", "workNo": "0569" },
-        { "blockKey": "custHelp", "label": "项目协办人", "displayType": "person", "name": "盛泽宇", "workNo": "0616" },
+        { "blockKey": "managerName", "label": "项目经理", "displayType": "direct", "value": "顾泽平" },
+        { "blockKey": "custHelpName", "label": "项目协办人", "displayType": "direct", "value": "盛泽宇" },
         { "blockKey": "insuranceSituation", "label": "投保情况", "displayType": "direct", "value": "客户自行购买保险" },
         { "blockKey": "leasebackReason", "label": "售后回租原因", "displayType": "direct", "value": "承租人缺进项票" },
         { "blockKey": "deptName", "label": "部门名称", "displayType": "direct", "value": "清洁能源二部" },

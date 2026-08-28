@@ -69,7 +69,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 }
 ```
 
-- 渲染格式：`姓名（工号）`；`workNo` 为空时仅展示 `name`
+- 渲染格式：仅展示 `name`；**不展示工号**（`workNo` 即使传入也忽略，L1 可不传）
 
 #### longText — 长文本
 
@@ -100,11 +100,10 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
       "value": "丹阳龙江钢铁有限公司"
     },
     {
-      "blockKey": "manager",
+      "blockKey": "managerName",
       "label": "项目经理",
-      "displayType": "person",
-      "name": "蒋忠宇",
-      "workNo": ""
+      "displayType": "direct",
+      "value": "蒋忠宇"
     }
   ]
 }
@@ -236,9 +235,10 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 
 | 条件 | 渲染值 |
 | ---- | ------ |
-| `name` 有值 + `workNo` 有值 | `姓名（工号）` |
-| `name` 有值 + `workNo` 为空 | `姓名` |
+| `name` 有值 | `姓名` |
 | `name` 为空 | `—` |
+
+> 工号（`workNo`）不参与 PDF 展示。基本信息模块中项目经理 / 项目协办人由 L1 以 `direct` 输出姓名。
 
 **数值格式（L1 已格式化后传入，L2 原样展示）：**
 
@@ -408,8 +408,8 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
         { "blockKey": "leaseCategry", "label": "融资形式", "displayType": "direct", "value": "融资租赁" },
         { "blockKey": "capitalUse", "label": "资金用途", "displayType": "direct", "value": "购置本次租赁物" },
         { "blockKey": "deptName", "label": "业务部门", "displayType": "direct", "value": "产业金融事业部" },
-        { "blockKey": "manager", "label": "项目经理", "displayType": "person", "name": "蒋忠宇", "workNo": "" },
-        { "blockKey": "custHelp", "label": "项目协办人", "displayType": "person", "name": "张三", "workNo": "001234" },
+        { "blockKey": "managerName", "label": "项目经理", "displayType": "direct", "value": "蒋忠宇" },
+        { "blockKey": "custHelpName", "label": "项目协办人", "displayType": "direct", "value": "张三" },
         { "blockKey": "projectSource", "label": "项目来源", "displayType": "direct", "value": "自主营销" },
         { "blockKey": "isOnetoone", "label": "是否单个报价", "displayType": "direct", "value": "是" },
         { "blockKey": "isInsure", "label": "是否投保", "displayType": "direct", "value": "是" },
@@ -501,7 +501,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 │  │丹阳龙江…  │融资租赁   │购置本次…  │产业金融… │ │
 │  ├──────────┼──────────┼──────────┼────────┤ │
 │  │项目经理：  │项目协办人： │项目来源：  │是否单个… │ │
-│  │蒋忠宇     │张三(001…) │自主营销   │是       │ │
+│  │蒋忠宇     │张三       │自主营销   │是       │ │
 │  └──────────┴──────────┴──────────┴────────┘ │
 │                                               │
 │  ● 报价信息                                   │
@@ -531,7 +531,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | displayType | 一句话 | 关键 HTML 结构 |
 | ----------- | ------ | -------------- |
 | `direct` | 字段名：字段值 | `span`(label) + `span`(value) |
-| `person` | 字段名：姓名（工号） | 同 direct，值格式特殊 |
+| `person` | 字段名：姓名 | 同 direct，仅渲染 `name` |
 | `longText` | 字段名 + 换行全文 | `div`(label) + `div`(value, pre-wrap) |
 | `group` | 蓝色圆点标题 + N 列栅格 | 标题 `div` + flex 栅格容器 |
 | `table` | 标准表格 + 可选合计行 | `table` > `thead` + `tbody` |
