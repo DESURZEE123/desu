@@ -127,13 +127,13 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | :--: | ----- | -------- | ----------- | -------- | ------ |
 | 1 | 客户名称 | `customerName` | `direct` | 全部 | 原样 |
 | 2 | 融资形式 | `leaseCategry` | `direct` | prjc-gld | 原样 |
-| 3 | 项目金额 | `projectAmount` | `direct` | 非 prjc-gld | 千分位 + 2 位小数 |
+| 3 | 项目金额(元) | `projectAmount` | `direct` | 非 prjc-gld | 千分位 + 2 位小数 |
 | 4 | 资金用途 | `capitalUse` | `direct` | 全部 | 原样 |
 | 5 | 业务部门 | `deptName` | `direct` | prjc-gld | 原样 |
 | 6 | 租赁方式 | `leaseMethod` | `direct` | 非 prjc-gld | 原样 |
 | 7 | 项目经理 | `managerName` | `direct` | 全部 | 仅姓名，不传工号 |
 | 8 | 项目协办人 | `custHelpName` | `direct` | 全部 | 仅姓名，不传工号 |
-| 9 | 项目来源 | `projectSource` | `direct` | 全部 | 原样 |
+| 9 | 业务信息来源 | `projectSource` | `direct` | 全部 | 原样 |
 | 10 | 是否单个报价 | `isOnetoone` | `direct` | prjc-gld | 原样 |
 | 11 | 是否投保 | `isInsure` | `direct` | prjc-gld | 原样 |
 | 12 | 项目绿色投向 | `greenIndustry` | `direct` | prjc-gld | 原样 |
@@ -282,9 +282,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       "columns": 4,
       "children": [
         { "blockKey": "customerName", "label": "客户名称", "displayType": "direct", "value": "张家港博佑光电科技有限公司" },
-        { "blockKey": "projectAmount", "label": "项目金额", "displayType": "direct", "value": "10,000.00" },
+        { "blockKey": "projectAmount", "label": "项目金额(元)", "displayType": "direct", "value": "10,000.00" },
         { "blockKey": "projectType", "label": "项目类型", "displayType": "direct", "value": "闪光租" },
-        { "blockKey": "projectSource", "label": "项目来源", "displayType": "direct", "value": "代销-厂商" },
+        { "blockKey": "projectSource", "label": "业务信息来源", "displayType": "direct", "value": "代销-厂商" },
         { "blockKey": "leaseMethod", "label": "租赁方式", "displayType": "direct", "value": "回租" },
         { "blockKey": "capitalUse", "label": "资金用途", "displayType": "direct", "value": "购置本次租赁物" },
         { "blockKey": "managerName", "label": "项目经理", "displayType": "direct", "value": "顾泽平" },
