@@ -1,0 +1,1764 @@
+{
+  "processInstanceId": null,
+  "oldPkBaseInfo": null,
+  "customerNo": "C120261046235",
+  "pkBaseInfo": "1533885813069914112",
+  "pkProjectCore": "0001AA10000001JI07XP",
+  "headInfo": {
+    "billStatus": 20,
+    "billStatusDesc": "暂存",
+    "projectType": "普通项目",
+    "customerName": "上海鹏峰宠物医院有限责任公司",
+    "projectName": "P2608030584",
+    "leaseMethod": "回租",
+    "projectAmount": 350000,
+    "breakPricingStatus": "无突破定价",
+    "pkBreakInfoCore": null
+  },
+  "retailProjectBaseInfo": {
+    "projectType": "普通项目",
+    "managerName": "黄淼鑫",
+    "managerWorkNo": "0679",
+    "customerName": "上海鹏峰宠物医院有限责任公司",
+    "identityType": "统一社会信用代码",
+    "identityNo": "91310112MA1GB3M015",
+    "deptName": "医疗健康部",
+    "deptCode": "08",
+    "projectName": "P2608030584",
+    "leaseMethod": "回租",
+    "capitalUse": null,
+    "dealerName": "上海智宠汇信息科技有限公司",
+    "vfbcCustomerRate": null,
+    "projectAmount": "350000.00",
+    "ifFinaCustCredit": "否",
+    "creditCustomer": "上海鹏峰宠物医院有限责任公司",
+    "creditOccupySum": "0.00",
+    "creditOccupySumSub": "0.00",
+    "customerRank": null,
+    "preCheckResult": null,
+    "contact": null,
+    "effectiveQuoteNum": 1,
+    "applicationChannel": null,
+    "isSubstanChange": "是",
+    "decisionRes": null,
+    "secDealerName": null,
+    "carBusinessType": null,
+    "reviewDept": "评审一部",
+    "cancelReason": null,
+    "siteSituationList": [],
+    "environmentAndSocialRisk": {
+      "exclusionBusinessResult": "否",
+      "policyRestrictResult": "否",
+      "operateLicenseResult": "是",
+      "offenceResult": "否",
+      "hiddenRiskResult": "否",
+      "assessResult": "低"
+    },
+    "retailProjectQuoteInfo": {
+      "unitPrice": "0.00",
+      "salePrice": "350000.00",
+      "nominalFinanceCash": "350000.00",
+      "factFinanceCash": "350047.00",
+      "leaseCashSum": "361896.00",
+      "corpusSum": "350000.00",
+      "leaseInterestSum": "11896.00",
+      "downPayment": "0.00",
+      "depositCash": "0.00",
+      "brokerageOutSum": "0.00",
+      "subsidyInSum": "0.00",
+      "premiumAmountSum": "47.00",
+      "otherRiskFund": null,
+      "nominalPrice": "100.00",
+      "generalIrr": "9.1359%",
+      "internalIrr": "9.1359%",
+      "corpusBalanceSum": "350000.00",
+      "sumCorpusBalanceSub": "350000.00",
+      "riskOpen": "350000.00"
+    },
+    "referenceYield": {
+      "projectIrr": "9.1359%",
+      "contIrrBanknote": null
+    },
+    "leaseInsurance": "符合公司保险政策，为设备购买财产一切险",
+    "fundUseDesc": null,
+    "projectDesc": null
+  },
+  "commonCollaborationHistoryModel": {
+    "leaseCollaborationHistoryList": null,
+    "leaseAmountTotal": null,
+    "guarantorCollaborationHistories": null,
+    "guarantorAmountTotal": null,
+    "updateTime": null,
+    "queryStatusEnum": null,
+    "pkQueryRecord": null,
+    "cooperateHistoryDesc": null,
+    "subjects": null,
+    "isRepeatOrderOk": null,
+    "repeatOrderSituation": null
+  },
+  "embodiment": {
+    "riskExposure": "350000.00",
+    "corpusBalance": "350000.00",
+    "rate": null,
+    "singleWattFinancingAmount": null,
+    "aggregateRiskExposure": null,
+    "lesseeAggregateRiskExposure": null,
+    "salePriceSum": "350000.00",
+    "advertisingInfoList": [
+      {
+        "pkCalCore": "0001AA10000001JI08MQ",
+        "quotName": "Q260803058401",
+        "rentTableType": "不规则报价",
+        "advertisingAmount": "350000.00",
+        "totalAmountEquipment": null,
+        "planCashLoan": null,
+        "advertisingDate": "2026-09-02",
+        "isAdjustingInterest": null,
+        "babRate": null,
+        "quotationRate": null,
+        "leaseMethod": "回租",
+        "leasingTerm": "10",
+        "isStartLease": null,
+        "paymentOrder": null,
+        "nominalPrice": "100.00",
+        "totalRent": "361896.00",
+        "downPaymentRent": null,
+        "marginRent": "0.00",
+        "rentDistribution": null,
+        "comprehensiveYield": "9.1359",
+        "internalYield": "9.1359",
+        "interestSubsidy": "0.00",
+        "paymentMethod": null,
+        "remark": null,
+        "leaseAdjustType": null,
+        "paymentTermList": [
+          {
+            "pkLoanPlan": "0001AA10000001K48YRB",
+            "pkLoanPlanCore": "0001AA10000001K48YRB",
+            "eventCode": "10101",
+            "number": "投放日",
+            "paymentMethod": null,
+            "plannedLaunchDate": "2026-09-02",
+            "amount": "350000.00",
+            "paymentTerm": null,
+            "paymentConditions": null,
+            "paymentRecipient": null,
+            "customerNo": null,
+            "ifInnerDeduct": "否",
+            "planCashCorpus": "350000.00",
+            "taxCash": "0.00",
+            "taxRate": null,
+            "billDateline": null,
+            "makeDateDraft": "",
+            "endDateDraft": "",
+            "ifBeginPlan": "是"
+          }
+        ],
+        "baseInfo": {
+          "rentTableType": null,
+          "quotName": null,
+          "finMode": null,
+          "taxMode": null,
+          "inoutTaxrate": null,
+          "financeClassify": null,
+          "leaseMethod": null,
+          "newSubject": null,
+          "planDateLoan": null,
+          "planCashLoan": null,
+          "factInitialCash": null,
+          "factInitialRatio": null,
+          "finName": null,
+          "plotName": null,
+          "dealerName": null,
+          "ifLowDownPayment": null
+        },
+        "downPaymentSetting": {
+          "downPaymentRatio": null,
+          "downPayment": null,
+          "factCashLoan": null,
+          "leaseCommencementDate": null,
+          "rentOrAmount": null,
+          "isStartLease": null,
+          "ifDownPayment": null,
+          "largeAmount": null
+        },
+        "upfrontFee": {
+          "srvFeeCash": null,
+          "srvFeePlanDate": null
+        },
+        "paymentPlan": {
+          "saleSum": null,
+          "nominallyFinancing": null,
+          "beginRealyFinancing": null,
+          "totalLeaseCash": null,
+          "totalCorpus": null,
+          "leaseInterestSum": null,
+          "downPayment": null,
+          "depositAmount": null,
+          "brokerageOut": null,
+          "interestSubsidy": null,
+          "premiumAmount": null
+        },
+        "otherPaymentInfo": {
+          "nominalPrice": null,
+          "brokerageIn": null,
+          "insuranceCalculationMethod": null
+        },
+        "insuranceSetting": {
+          "depositMethod": null,
+          "returnMethodDepos": null,
+          "depositRatio": null,
+          "depositCash": null,
+          "depositStartDate": null
+        },
+        "serviceExpense": {
+          "srvfeeMethodOut": null,
+          "srvfeeDateOutFt": null,
+          "srvfeeRatioOut": null,
+          "srvfeeCashOutFt": null,
+          "srvfeeCashOut": null,
+          "srvfeeTaxrateOut": null
+        },
+        "rentCollectSetting": {
+          "leaseTimes": null,
+          "leaseTimesDay": null,
+          "prepayOrNot": null,
+          "leaseFreq": null,
+          "leaseCalMethod": null,
+          "ifAutoAdjust": null,
+          "ifAdjust": null,
+          "ifTaxRateAdjust": null,
+          "repaymentInterval": null,
+          "planLeaseDate": null,
+          "quotedCalculationMethod": null,
+          "largeRepaymentMon": null,
+          "delayMethod": null,
+          "delayMonths": null,
+          "quotationRate": null,
+          "calDigit": null,
+          "fixedSmallPrincipal": null,
+          "firstLargeRepayment": null,
+          "largeRepaymentInterval": null,
+          "ruleName": null,
+          "fixedInterest": null,
+          "minGeneralRate": null,
+          "scProportion": null,
+          "largeRatio": null,
+          "largeAmount": null,
+          "invertedObject": null
+        },
+        "leaseInterestRate": {
+          "finalRate": null,
+          "interrate": null,
+          "calDigit": null
+        },
+        "internalRateDetail": {
+          "generalIrr": null,
+          "internalIrr": null,
+          "rentIrr": null,
+          "unsecuredPercentage": null,
+          "interestIrr": null,
+          "subsidyIrr": null
+        },
+        "referenceRate": {
+          "projectIrr": null,
+          "contIrrBanknote": null,
+          "xirr": null
+        },
+        "otherInfo": {
+          "leaseCashSum": null,
+          "totalDebt": null,
+          "netFinanceCash": null,
+          "ifCorpusMovedDown": null,
+          "projectDraftAmount": null
+        },
+        "deploymentPlan": null,
+        "ruleSetting": {
+          "ruleSettingDetailList": null
+        },
+        "depositPlan": {
+          "depositPlanDetailList": null
+        },
+        "serviceExpensePlan": {
+          "serviceExpenseList": null
+        },
+        "otherPlan": {
+          "otherPlanDetailList": [
+            {
+              "leaseTime": "1",
+              "type": "名义货价",
+              "planDate": "2027-07-02",
+              "amount": "100.00",
+              "leaseCash": "100.00",
+              "leaseCashCorpus": "94.34",
+              "leaseCashTax": "5.66",
+              "taxRate": null,
+              "memo": ""
+            }
+          ]
+        },
+        "rentPlan": {
+          "rentTotalAmount": "361896.00",
+          "principalTotalAmount": "350000.00",
+          "interestTotalAmount": "11896.00",
+          "rentPlanDetailList": [
+            {
+              "leaseTime": "1",
+              "eventCategory": "收租",
+              "planDate": "2026-09-02",
+              "rentAmount": "65158.00",
+              "principalAmount": "65158.00",
+              "interestAmount": "0.00",
+              "leaseCorpusNotaxFin": "65158.00",
+              "leaseInterestNotaxFin": "0.00",
+              "leaseCashNotaxFin": "65158.00",
+              "leaseCashTaxFin": "0.00",
+              "leaseCashNotax": "65158.00",
+              "leaseCorpusNotax": "65158.00"
+            },
+            {
+              "leaseTime": "2",
+              "eventCategory": "收租",
+              "planDate": "2026-10-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "27990.01",
+              "interestAmount": "2167.99",
+              "leaseCorpusNotaxFin": "27990.01",
+              "leaseInterestNotaxFin": "2045.27",
+              "leaseCashNotaxFin": "30035.28",
+              "leaseCashTaxFin": "122.72",
+              "leaseCashNotax": "30035.28",
+              "leaseCorpusNotax": "27990.01"
+            },
+            {
+              "leaseTime": "3",
+              "eventCategory": "收租",
+              "planDate": "2026-11-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "28203.05",
+              "interestAmount": "1954.95",
+              "leaseCorpusNotaxFin": "28203.05",
+              "leaseInterestNotaxFin": "1844.29",
+              "leaseCashNotaxFin": "30047.34",
+              "leaseCashTaxFin": "110.66",
+              "leaseCashNotax": "30047.34",
+              "leaseCorpusNotax": "28203.05"
+            },
+            {
+              "leaseTime": "4",
+              "eventCategory": "收租",
+              "planDate": "2026-12-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "28417.71",
+              "interestAmount": "1740.29",
+              "leaseCorpusNotaxFin": "28417.71",
+              "leaseInterestNotaxFin": "1641.78",
+              "leaseCashNotaxFin": "30059.49",
+              "leaseCashTaxFin": "98.51",
+              "leaseCashNotax": "30059.49",
+              "leaseCorpusNotax": "28417.71"
+            },
+            {
+              "leaseTime": "5",
+              "eventCategory": "收租",
+              "planDate": "2027-01-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "28634.00",
+              "interestAmount": "1524.00",
+              "leaseCorpusNotaxFin": "28634.00",
+              "leaseInterestNotaxFin": "1437.74",
+              "leaseCashNotaxFin": "30071.74",
+              "leaseCashTaxFin": "86.26",
+              "leaseCashNotax": "30071.74",
+              "leaseCorpusNotax": "28634.00"
+            },
+            {
+              "leaseTime": "6",
+              "eventCategory": "收租",
+              "planDate": "2027-02-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "28851.94",
+              "interestAmount": "1306.06",
+              "leaseCorpusNotaxFin": "28851.94",
+              "leaseInterestNotaxFin": "1232.13",
+              "leaseCashNotaxFin": "30084.07",
+              "leaseCashTaxFin": "73.93",
+              "leaseCashNotax": "30084.07",
+              "leaseCorpusNotax": "28851.94"
+            },
+            {
+              "leaseTime": "7",
+              "eventCategory": "收租",
+              "planDate": "2027-03-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "29071.54",
+              "interestAmount": "1086.46",
+              "leaseCorpusNotaxFin": "29071.54",
+              "leaseInterestNotaxFin": "1024.96",
+              "leaseCashNotaxFin": "30096.50",
+              "leaseCashTaxFin": "61.50",
+              "leaseCashNotax": "30096.50",
+              "leaseCorpusNotax": "29071.54"
+            },
+            {
+              "leaseTime": "8",
+              "eventCategory": "收租",
+              "planDate": "2027-04-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "29292.81",
+              "interestAmount": "865.19",
+              "leaseCorpusNotaxFin": "29292.81",
+              "leaseInterestNotaxFin": "816.22",
+              "leaseCashNotaxFin": "30109.03",
+              "leaseCashTaxFin": "48.97",
+              "leaseCashNotax": "30109.03",
+              "leaseCorpusNotax": "29292.81"
+            },
+            {
+              "leaseTime": "9",
+              "eventCategory": "收租",
+              "planDate": "2027-05-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "29515.76",
+              "interestAmount": "642.24",
+              "leaseCorpusNotaxFin": "29515.76",
+              "leaseInterestNotaxFin": "605.89",
+              "leaseCashNotaxFin": "30121.65",
+              "leaseCashTaxFin": "36.35",
+              "leaseCashNotax": "30121.65",
+              "leaseCorpusNotax": "29515.76"
+            },
+            {
+              "leaseTime": "10",
+              "eventCategory": "收租",
+              "planDate": "2027-06-02",
+              "rentAmount": "30158.00",
+              "principalAmount": "29740.41",
+              "interestAmount": "417.59",
+              "leaseCorpusNotaxFin": "29740.41",
+              "leaseInterestNotaxFin": "393.95",
+              "leaseCashNotaxFin": "30134.36",
+              "leaseCashTaxFin": "23.64",
+              "leaseCashNotax": "30134.36",
+              "leaseCorpusNotax": "29740.41"
+            },
+            {
+              "leaseTime": "11",
+              "eventCategory": "收租",
+              "planDate": "2027-07-02",
+              "rentAmount": "25316.00",
+              "principalAmount": "25124.77",
+              "interestAmount": "191.23",
+              "leaseCorpusNotaxFin": "25124.77",
+              "leaseInterestNotaxFin": "180.41",
+              "leaseCashNotaxFin": "25305.18",
+              "leaseCashTaxFin": "10.82",
+              "leaseCashNotax": "25305.18",
+              "leaseCorpusNotax": "25124.77"
+            }
+          ]
+        },
+        "brokerageExpense": null,
+        "subsidyIncome": null,
+        "insuranceRuleSetting": {
+          "ruleSettingDetails": [
+            {
+              "insuranceName": "【财产一切险1】医疗（大健康事业部）",
+              "typeOfInsurance": 37,
+              "pkCustomer": "0001AA100000000MC8LP",
+              "customerName": "华泰财产保险有限公司山西省分公司",
+              "paymentType": null,
+              "paymentMethod": null
+            }
+          ]
+        },
+        "insuranceSubTable": {
+          "insuranceSubTableDetails": [
+            {
+              "typeOfInsurance": "【财产一切险1】医疗（大健康事业部）",
+              "customerName": "华泰财产保险有限公司山西省分公司",
+              "type": "保险费支出",
+              "tradeDate": "2026-09-02",
+              "tradeDateEnd": "2027-07-02",
+              "payTimes": "10",
+              "premiumAmount": "47",
+              "noTaxAmount": "44.34",
+              "tax": "2.66",
+              "rentThing": "",
+              "pkRentThing": "",
+              "taxRate": null,
+              "eventCode": "保险支出",
+              "assetCode": "001"
+            }
+          ]
+        },
+        "retailLshldInfoList": [
+          {
+            "thingName": "GE-其它-其它",
+            "providerName": "通用电气医疗系统贸易发展（上海）有限公司",
+            "brandName": "GE",
+            "modelName": "其它",
+            "model": "GE其它",
+            "ifMainEngine": "配件",
+            "isRefMain": "是",
+            "salePrice": "350000.00",
+            "unitPrice": null,
+            "factoryNo": null,
+            "engineNum": null,
+            "carLicenseNo": null,
+            "deliveryAddress": "上海市闵行区莲花南路144号、146号、148号、130-136号1-2层",
+            "useAddress": null,
+            "nakedCarPrice": "350000.00",
+            "purchaseTax": null,
+            "insurancePrice": null,
+            "quotName": null,
+            "assetNumber": null,
+            "havePurchaseTax": "否",
+            "purchaseTaxRate": null,
+            "ifPurchaseInsurance": "否",
+            "insurancePriceRate": null,
+            "assets": [
+              {
+                "assetName": "OEC移动式X射线机",
+                "unitCost": "350000.00",
+                "assetNumber": 1,
+                "totalCost": "350000.00",
+                "assetCode": "001-01"
+              }
+            ]
+          }
+        ],
+        "creditEnhancementMeasureInfo": null
+      }
+    ],
+    "quotNameList": [],
+    "creditEnhancementMeasureInfo": {
+      "creditEnhancementMeasureList": []
+    },
+    "fundPaymentMethodAndReason": null,
+    "entrustedPaymentAndNotes": null,
+    "projectLeaseMethod": "回租"
+  },
+  "lshldModel": {
+    "dealer": {
+      "dealerName": "上海智宠汇信息科技有限公司",
+      "dealerCode": "C120250381396",
+      "isRepurchase": "是",
+      "documentCode": "91310116MAE54MP673",
+      "crdntlsType": "统一社会信用代码"
+    },
+    "retailLshldInfoList": [
+      {
+        "thingName": "GE-其它-其它",
+        "providerName": "通用电气医疗系统贸易发展（上海）有限公司",
+        "brandName": "GE",
+        "modelName": "其它",
+        "model": "GE其它",
+        "ifMainEngine": "配件",
+        "isRefMain": "是",
+        "salePrice": "350000.00",
+        "unitPrice": null,
+        "factoryNo": null,
+        "engineNum": null,
+        "carLicenseNo": null,
+        "deliveryAddress": "上海市闵行区莲花南路144号、146号、148号、130-136号1-2层",
+        "useAddress": null,
+        "nakedCarPrice": "350000.00",
+        "purchaseTax": null,
+        "insurancePrice": null,
+        "quotName": "Q260803058401",
+        "assetNumber": null,
+        "havePurchaseTax": "否",
+        "purchaseTaxRate": null,
+        "ifPurchaseInsurance": "否",
+        "insurancePriceRate": null,
+        "assets": [
+          {
+            "assetName": "OEC移动式X射线机",
+            "unitCost": "350000.00",
+            "assetNumber": 1,
+            "totalCost": "350000.00",
+            "assetCode": "001-01"
+          }
+        ]
+      }
+    ],
+    "judicialLitigationInfo": {
+      "caseTypeHighRiskList": [],
+      "caseTypeCommonList": [],
+      "judicialLitigationInfoDesc": null,
+      "updateTime": "2026-08-03 17:38:37",
+      "queryStatusEnum": 3,
+      "pkQueryRecord": "1533891859107692544"
+    },
+    "siLshldInfos": null,
+    "priceCheckNote": null
+  },
+  "commonCreditEnhancementMeasure": {
+    "creditEnhancementMeasureList": [
+      {
+        "quotName": "Q260803058401",
+        "creditEnhancementMeasureList": [
+          {
+            "pkCreditEnhancementMeasure": null,
+            "guaCustType": 0,
+            "guaranteeMethod": {
+              "typeCode": "AGRS0005",
+              "code": 10,
+              "desc": "经销商回购"
+            },
+            "guaranteeContType": null,
+            "customerName": "上海智宠汇信息科技有限公司",
+            "currtype": null,
+            "guaCustomerNo": "C120250381396",
+            "relationship": null,
+            "relationshipDesc": null,
+            "customerType": null,
+            "crdntlsType": "统一社会信用代码",
+            "documentCode": "91310116MAE54MP673",
+            "isPerfect": null,
+            "collateralType": null,
+            "mortgageAndPledgeType": null,
+            "mortgageAndPledgeClass": null,
+            "collateralList": [
+              {
+                "assetsName": "GE-其它-其它",
+                "estimateValue": "350000.00",
+                "currtype": null,
+                "isFirstOrder": null,
+                "assessMode": "内部评估",
+                "compensationNumber": "0.00",
+                "valuationCycle": "季度",
+                "debtor": null,
+                "locationVfbc": null,
+                "assetsNo1Vfbc": null,
+                "assetsNo": null,
+                "assetsNo2Vfbc": null,
+                "generalContractor": null,
+                "contCashPledge": null,
+                "contEndDate": null,
+                "confirmedRightFlag": null,
+                "pkLshldInfo": null,
+                "pkRentThing": null
+              }
+            ],
+            "shareholderList": null,
+            "shareholderTotal": null,
+            "contName": null,
+            "ifSubordinate": "否",
+            "reason": null,
+            "ifConditionalGuarantee": null,
+            "contAmount": "361996.00",
+            "guaranteeMeasures": null,
+            "remark": null,
+            "updateContAmount": null,
+            "guaranteeMethodCode": 10
+          }
+        ],
+        "guaranteeCompanyList": [
+          {
+            "companyBaseInfo": {
+              "customerName": "上海智宠汇信息科技有限公司",
+              "customerNo": "C120250381396",
+              "crdntlsCode": "91310116MAE54MP673",
+              "crdntlsType": "统一社会信用代码",
+              "estblshDate": "2024-11-15",
+              "rgstrdCapital": "277.77",
+              "factCapital": "200.00",
+              "legalRepresentativeCustomerName": "傅艳军",
+              "actControlsName": "傅艳军",
+              "employeeNum": 20,
+              "rgstrdAddress": "上海市上海市辖区嘉定区徐行镇新冠路599号1幢3层B区306室",
+              "mainBusiness": null,
+              "medicalInstitutionType": null,
+              "ownerShipForm": null,
+              "medicalInstitutionNature": null,
+              "operationMode": null,
+              "companyEvolution": null,
+              "pkIndustrySortLittle": {
+                "code": "5254",
+                "name": "医疗用品及器材零售",
+                "typeName": "INDUSTRY_CLASS",
+                "typeCode": "CSTS0017"
+              },
+              "customerType": [
+                {
+                  "code": "20",
+                  "name": "经销商",
+                  "typeName": "CUSTOMER_TYPE",
+                  "typeCode": "CSTS0006"
+                },
+                {
+                  "code": "14",
+                  "name": "担保客户",
+                  "typeName": "CUSTOMER_TYPE",
+                  "typeCode": "CSTS0006"
+                }
+              ]
+            },
+            "shareholderList": [
+              {
+                "shareholderName": "上海云沭数据有限公司",
+                "shareholderCapitalAmount": "50.00",
+                "holdStockRatio": "18.0000"
+              },
+              {
+                "shareholderName": "傅艳军",
+                "shareholderCapitalAmount": "150.00",
+                "holdStockRatio": "54.0000"
+              },
+              {
+                "shareholderName": "上海谱华森智能科技有限公司",
+                "shareholderCapitalAmount": "25.00",
+                "holdStockRatio": "9.0000"
+              },
+              {
+                "shareholderName": "湖北迅智供应链管理有限公司",
+                "shareholderCapitalAmount": "27.78",
+                "holdStockRatio": "10.0000"
+              },
+              {
+                "shareholderName": "上海圣宠聚科技合伙企业（有限合伙）",
+                "shareholderCapitalAmount": "25.00",
+                "holdStockRatio": "9.0000"
+              }
+            ],
+            "equipmentInfo": {
+              "medicalEquipmentNature": null,
+              "dentalChairNumber": null,
+              "petCageNumber": null,
+              "colorSorterNumber": null
+            },
+            "assetSize": {
+              "customerNo": null,
+              "rgstrdAddress": "上海市上海市辖区嘉定区徐行镇新冠路599号1幢3层B区306室",
+              "factoryOwnDetails": [],
+              "factoryRentDetails": [],
+              "equipmentList": [],
+              "ratio": null,
+              "incomeAndDebtScale": null
+            },
+            "collaborationHistoryModel": {
+              "leaseCollaborationHistoryList": [],
+              "leaseAmountTotal": null,
+              "guarantorCollaborationHistories": [],
+              "guarantorAmountTotal": null,
+              "updateTime": "2026-08-02",
+              "queryStatusEnum": 3,
+              "pkQueryRecord": null
+            },
+            "flowAnalysis": {
+              "monthlyCashFlowOverPastSixMonths": null,
+              "averageMonthlyIncome": null,
+              "businessDataAnalysisDesc": null
+            },
+            "loan": {
+              "creditInfo": {
+                "pkQueryRecord": "1533891859174801408",
+                "queryStatusEnum": 0,
+                "updateTime": "2026-08-03 17:38:37",
+                "queryTime": "2025-12-04",
+                "liabilityTotal": "0.00",
+                "overdueCash": null,
+                "class5StateNameNum": null,
+                "paymentAmount": null,
+                "paymentBalance": null,
+                "maxCreditAmount": null,
+                "loanTotal": null,
+                "amountNum": null,
+                "currentOverdueCash": null,
+                "currentCreditAmount": null,
+                "queryTime90Days": null,
+                "maxOverdueMonth": null,
+                "maxOverdueAmount": null,
+                "balanceDue": null,
+                "creditBlank": "是",
+                "overdueInterestNum": null,
+                "overdueInterestBalance": null,
+                "underRecoveryNum": null,
+                "underRecoveryBalance": null,
+                "borrowAccountBalance": "0.00",
+                "borrowAccountNum": null,
+                "fiveAccountNum": null,
+                "fiveAccountBalance": null,
+                "loanAccountNum": null,
+                "currentLoanAccountNum": null,
+                "maxConOverdueMonths": null,
+                "loanOverdueMonths": null,
+                "loanOverduePeriods": null,
+                "loanOverdueAmount": null,
+                "last3YearOverdueMonths": null,
+                "last3YearMaxOverdueAmount": null,
+                "last6MonthsAvgCreditUsage": null,
+                "creditMaxConOverdueMonths": null,
+                "creditCardOverdueMonths": null,
+                "creditCardOverduePeriods": null,
+                "creditCardOverdueAmount": null,
+                "last3YearsCcOverdueMonths": null,
+                "last3YearMaxCcOverdueAmount": null,
+                "nonMortAccountNum": null,
+                "nonMortAcctBalance": null,
+                "avgMonthlyRepayAmount": null,
+                "abnormalAcctLoan5Class": null,
+                "numGuarantorAccounts": null,
+                "frozenCcAccountNum": null,
+                "blockedCcAccountNum": null,
+                "bankBlockedCcNum": null,
+                "badDebtAccountNum": null
+              },
+              "loanDesc": null,
+              "zdinfo": {
+                "pkQueryRecord": "1533891858893783040",
+                "queryStatusEnum": 3,
+                "updateTime": "2026-08-03 17:38:41",
+                "registeredNum": null,
+                "registeringAmount": null,
+                "leaseNum": null,
+                "leaseAmount": null,
+                "zdDetailList": null
+              }
+            },
+            "judicialLitigationInfo": {
+              "caseTypeHighRiskList": [],
+              "caseTypeCommonList": [],
+              "judicialLitigationInfoDesc": null,
+              "updateTime": "2026-08-03 17:38:37",
+              "queryStatusEnum": 3,
+              "pkQueryRecord": "1533891859107692544"
+            },
+            "projectOperationInfo": {
+              "operationInfoList": [],
+              "operationDescription": null
+            },
+            "financialDataOfKeyAccount": {
+              "isNewCompany": null,
+              "collectFinancialFlag": null,
+              "financialStatementsOfKeyAccount": {
+                "sheetName": null,
+                "creditCode": "91310116MAE54MP673",
+                "customerNo": "C120250381396",
+                "fsDataSourceType": "税票授权采集",
+                "balanceSheet": [],
+                "profitSheet": [],
+                "financialIndex": []
+              },
+              "receiveAccountDetail": {
+                "ifCanVisible": "是",
+                "financialAnalysisDataList": []
+              },
+              "financialNotes": null,
+              "receiveAccountDesc": null
+            },
+            "controllerIntroduction": null,
+            "guaranteeContInfoList": [
+              {
+                "guaranteeContType": null,
+                "contName": null,
+                "planCash": "361996.00",
+                "currtype": null,
+                "guaranteeMeasures": null,
+                "ifSubordinate": "否",
+                "reason": null
+              }
+            ]
+          }
+        ],
+        "guaranteePersonList": []
+      }
+    ],
+    "quotNameList": [
+      "Q260803058401"
+    ]
+  },
+  "lesseeBaseInfo": {
+    "companyBaseInfo": {
+      "customerName": "上海鹏峰宠物医院有限责任公司",
+      "customerNo": "C120261046235",
+      "crdntlsCode": "91310112MA1GB3M015",
+      "crdntlsType": "统一社会信用代码",
+      "estblshDate": "2015-12-25",
+      "rgstrdCapital": "50.00",
+      "factCapital": "50.00",
+      "legalRepresentativeCustomerName": "李江",
+      "actControlsName": "李江",
+      "employeeNum": 105,
+      "rgstrdAddress": "上海市闵行区莲花南路144号、146号、148号、130-136号1-2层",
+      "mainBusiness": null,
+      "medicalInstitutionType": "专科",
+      "ownerShipForm": "民营",
+      "medicalInstitutionNature": "营利性",
+      "operationMode": "有限责任公司",
+      "companyEvolution": null,
+      "pkIndustrySortLittle": {
+        "code": "8222",
+        "name": "宠物医院服务",
+        "typeName": "INDUSTRY_CLASS",
+        "typeCode": "CSTS0017"
+      },
+      "customerType": [
+        {
+          "code": "1",
+          "name": "融资客户",
+          "typeName": "CUSTOMER_TYPE",
+          "typeCode": "CSTS0006"
+        }
+      ]
+    },
+    "shareholderList": [
+      {
+        "shareholderName": "上海安安宠物有限公司",
+        "shareholderCapitalAmount": "50.00",
+        "holdStockRatio": "100.0000"
+      }
+    ],
+    "equipmentInfo": {
+      "medicalEquipmentNature": "新增",
+      "dentalChairNumber": 0,
+      "petCageNumber": 60,
+      "colorSorterNumber": 0
+    },
+    "assetSize": {
+      "customerNo": null,
+      "rgstrdAddress": "上海市闵行区莲花南路144号、146号、148号、130-136号1-2层",
+      "factoryOwnDetails": null,
+      "factoryRentDetails": [
+        {
+          "pkCompanyAsset": "1542916540581886976",
+          "factoryType": 1,
+          "factoryArea": "1030.00",
+          "factoryRent": "189.00",
+          "landArea": null,
+          "landValue": null,
+          "landMortgaged": null,
+          "leaseEndDate": null,
+          "address": "上海市闵行区莲花南路144号、146号、148号、130-136号1-2层",
+          "haveLoan": null,
+          "haveDocument": null
+        }
+      ],
+      "equipmentList": [],
+      "ratio": null,
+      "incomeAndDebtScale": null
+    },
+    "collaborationHistoryModel": {
+      "leaseCollaborationHistoryList": [],
+      "leaseAmountTotal": null,
+      "guarantorCollaborationHistories": [],
+      "guarantorAmountTotal": null,
+      "updateTime": "2026-08-02",
+      "queryStatusEnum": 3,
+      "pkQueryRecord": null
+    },
+    "flowAnalysis": {
+      "monthlyCashFlowOverPastSixMonths": "1454.00",
+      "averageMonthlyIncome": "242.00",
+      "businessDataAnalysisDesc": "提供了医院收费账户近6个月的银行流水（2026.6.1-2026.6.30），其中支付平台深圳巨星和上海电银流入合计1155万元（2026年1月-2026年6月，支付平台每月收入分别为186万、115万、208万、191万、212万、243万，月均收入193万，除2月份受过年影响略低外，收入稳定），其中上海安安宠物有限公司汇入299万（门诊美团大众等线上团购收入先由平台汇入到总公司上海安安，上海安安再将这部分美团收入不定期拨付至对应门诊），综上门诊近6个月流水收入合计1454万元，月均收入合计242万元。现场查看了收费系统2026年2月-7月近6个月的数据，收入分别是231万、248万、267万、304万、244万、284万，收费系统收入合计1578万元，月均收入263万，与银行流水基本一致。\n\n因承租人需要设备发票，故走直转回模式，已提供购销合同，发票在投放后90个工作日内回收。"
+    },
+    "loan": {
+      "creditInfo": {
+        "pkQueryRecord": "1533891754704441344",
+        "queryStatusEnum": 0,
+        "updateTime": "2026-08-03 10:19:21",
+        "queryTime": "2026-07-22",
+        "liabilityTotal": "400.00",
+        "overdueCash": "0.00",
+        "class5StateNameNum": "0",
+        "paymentAmount": null,
+        "paymentBalance": null,
+        "maxCreditAmount": null,
+        "loanTotal": "400.00",
+        "amountNum": null,
+        "currentOverdueCash": null,
+        "currentCreditAmount": null,
+        "queryTime90Days": null,
+        "maxOverdueMonth": null,
+        "maxOverdueAmount": null,
+        "balanceDue": null,
+        "creditBlank": "否",
+        "overdueInterestNum": null,
+        "overdueInterestBalance": null,
+        "underRecoveryNum": null,
+        "underRecoveryBalance": null,
+        "borrowAccountBalance": "400.00",
+        "borrowAccountNum": 1,
+        "fiveAccountNum": 0,
+        "fiveAccountBalance": "0.00",
+        "loanAccountNum": null,
+        "currentLoanAccountNum": null,
+        "maxConOverdueMonths": null,
+        "loanOverdueMonths": null,
+        "loanOverduePeriods": null,
+        "loanOverdueAmount": null,
+        "last3YearOverdueMonths": null,
+        "last3YearMaxOverdueAmount": null,
+        "last6MonthsAvgCreditUsage": null,
+        "creditMaxConOverdueMonths": null,
+        "creditCardOverdueMonths": null,
+        "creditCardOverduePeriods": null,
+        "creditCardOverdueAmount": null,
+        "last3YearsCcOverdueMonths": null,
+        "last3YearMaxCcOverdueAmount": null,
+        "nonMortAccountNum": null,
+        "nonMortAcctBalance": null,
+        "avgMonthlyRepayAmount": null,
+        "abnormalAcctLoan5Class": null,
+        "numGuarantorAccounts": null,
+        "frozenCcAccountNum": null,
+        "blockedCcAccountNum": null,
+        "bankBlockedCcNum": null,
+        "badDebtAccountNum": null
+      },
+      "loanDesc": null,
+      "zdinfo": {
+        "pkQueryRecord": "1533886412095111168",
+        "queryStatusEnum": 0,
+        "updateTime": "2026-08-03 17:17:22",
+        "registeredNum": 1,
+        "registeringAmount": "712056.00",
+        "leaseNum": 1,
+        "leaseAmount": "712056.00",
+        "zdDetailList": [
+          {
+            "registrant": "君创国际融资租赁有限公司",
+            "registeredAmount": "712056.00",
+            "validityPeriod": "2029-07-22",
+            "registeredType": "初始登记",
+            "registeredTime": "2024-07-23 15:59:53",
+            "propertyValue": "712056",
+            "propertyDesc": "设备一批",
+            "registeredNo": "32989145004230747297",
+            "initialRegisteredNo": null,
+            "childList": null,
+            "businessType": "融资租赁",
+            "registeredPeriod": "60个月",
+            "debtor": "上海鹏峰宠物医院有限责任公司",
+            "pawnee": "君创国际融资租赁有限公司",
+            "fileList": [
+              {
+                "fileName": "32989145004230747297.pdf",
+                "filePath": "http://filetran.jsleasing.cn/zd-pre/PreToApp/zdRegister/2026/7/30/32989145004230747297/32989145004230747297.pdf"
+              },
+              {
+                "fileName": "租赁物清单.jpg",
+                "filePath": "http://filetran.jsleasing.cn/zd-pre/PreToApp/zdRegister/2026/7/30/32989145004230747297/租赁物清单.jpg"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "judicialLitigationInfo": {
+      "caseTypeHighRiskList": [],
+      "caseTypeCommonList": [
+        {
+          "caseType": "民事案件",
+          "caseNum": 2,
+          "pkQueryRecord": "1533886415128956928"
+        }
+      ],
+      "judicialLitigationInfoDesc": null,
+      "updateTime": "2026-08-03 17:16:59",
+      "queryStatusEnum": 0,
+      "pkQueryRecord": "1533886415128956928"
+    },
+    "projectOperationInfo": {
+      "operationInfoList": [],
+      "operationDescription": null
+    },
+    "financialDataOfKeyAccount": {
+      "isNewCompany": null,
+      "collectFinancialFlag": null,
+      "financialStatementsOfKeyAccount": {
+        "sheetName": null,
+        "creditCode": "91310112MA1GB3M015",
+        "customerNo": "C120261046235",
+        "fsDataSourceType": "税票授权采集",
+        "balanceSheet": [],
+        "profitSheet": [],
+        "financialIndex": []
+      },
+      "receiveAccountDetail": {
+        "ifCanVisible": "是",
+        "financialAnalysisDataList": []
+      },
+      "financialNotes": null,
+      "receiveAccountDesc": null
+    },
+    "controllerIntroduction": null,
+    "personBaseInfo": {
+      "customerName": null,
+      "customerNo": null,
+      "crdntlsType": null,
+      "documentCode": null,
+      "sex": null,
+      "maritalStatus": null,
+      "personYearIncome": null,
+      "familyYearIncome": null,
+      "nation": null,
+      "birthDate": null,
+      "age": null,
+      "crdntlsRgstrdAddress": null,
+      "serviceInformAdress": null,
+      "pkIndustrySort": null,
+      "pkIndustrySortBig": null,
+      "pkIndustrySortMiddle": null,
+      "pkIndustrySortLittle": null,
+      "industry": null,
+      "customerType": null,
+      "mobileNo": null,
+      "employeeStartYear": null,
+      "highestEdctn": null
+    }
+  },
+  "onlineDiligence": {
+    "opinionsVideo": "2026年7月30日我部客户经理黄淼鑫、陈小庆和评审陆骏对医院进行实地考察。实际成立于1995年，2015年被新瑞鹏宠物连锁收购，已持续经营31年，年诊疗收入约3000万，职工105人，其中兽医31人，笼位60笼，拟采购GE的C形臂（已供货）。场地是沿街两层铺面，租赁场地，建筑面积1030平方米，年租金189万。\n提供了医院收费账户近6个月的银行流水（2026.6.1-2026.6.30），其中支付平台深圳巨星和上海电银流入合计1155万元（2026年1月-2026年6月，支付平台每月收入分别为186万、115万、208万、191万、212万、243万，月均收入193万，除2月份受过年影响略低外，收入稳定），其中上海安安宠物有限公司汇入299万（门诊美团大众等线上团购收入先由平台汇入到总公司上海安安，上海安安再将这部分美团收入不定期拨付至对应门诊），综上门诊近6个月流水收入合计1454万元，月均收入合计242万元。现场查看了收费系统2026年2月-7月近6个月的数据，收入分别是231万、248万、267万、304万、244万、284万，收费系统收入合计1578万元，月均收入263万，与银行流水基本一致。医院内有GE螺旋CT、手术显微镜等高端设备。\n承租人征信显示负债400万，是上海银行流动资金贷款400万（期限2025.12.24-2026.12.15，该笔贷款为续贷，首次贷款日期是2023年，已续贷3次，属于政府基金担保贷款，由上海市中小微企业政策性融资担保基金管理中心提供担保）。\n上海地区新瑞鹏共72家宠物诊所，承租人鹏峰的营收排名第二，属于上海区域最头部的宠物医院之一。",
+    "videoDiligence": {
+      "status": "已提交",
+      "customerName": "上海鹏峰宠物医院有限责任公司",
+      "diligenceObjectNo": "C220261014431",
+      "diligenceObjectName": "李江",
+      "customerNo": "C120261046235",
+      "customerType": "承租人",
+      "relationship": null,
+      "leaseRelationDesc": "法定代表人非实控人、实际控制人",
+      "phoneNum": "18938881210",
+      "meetInfoList": [
+        {
+          "meetId": "1534148605282095104",
+          "diligenceObjectNo": "C220261014431",
+          "diligenceObjectName": "李江",
+          "diligenceTime": null,
+          "duration": null,
+          "operatorName": "黄淼鑫",
+          "operatorNo": null,
+          "meetStatus": "结束",
+          "customerMeetingLink": "https://wxmpurl.cn/QH1kIPxS9Xc",
+          "videoAddress": null,
+          "meetButton": {
+            "ifCanShareLink": false,
+            "ifCanEnterMeet": false,
+            "ifCanViewDetail": false
+          }
+        }
+      ],
+      "videoDiligenceButton": {
+        "ifCanCreateMeet": false,
+        "ifCanUpdateDiligenceObject": false
+      }
+    }
+  },
+  "liabilityAnalysis": null,
+  "revenueAnalysis": null,
+  "projectChange": null,
+  "projectSummary": null,
+  "attachmentList": [
+    {
+      "pkFile": "0001AA10000001K490LY",
+      "fileName": "法定代表人身份证（更新）.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-04-20/0001AA10000001K490LZ/%B7%A8%B6%A8%B4%FA%B1%ED%C8%CB%C9%ED%B7%DD%D6%A4%A3%A8%B8%FC%D0%C2%A3%A9.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490M0",
+      "fileName": "公司章程.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-12-18/0001AA10000001K490M1/%B9%AB%CB%BE%D5%C2%B3%CC.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490M2",
+      "fileName": "2025.7变更章程.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-12-18/0001AA10000001K490M3/2025.7%B1%E4%B8%FC%D5%C2%B3%CC.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490M4",
+      "fileName": "营业执照.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-10-27/0001AA10000001K490M5/%D3%AA%D2%B5%D6%B4%D5%D5.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490M6",
+      "fileName": "法定代表人身份证.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-10-27/0001AA10000001K490M7/%B7%A8%B6%A8%B4%FA%B1%ED%C8%CB%C9%ED%B7%DD%D6%A4.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490M8",
+      "fileName": "授权函-上海智宠汇.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-10-27/0001AA10000001K490M9/%CA%DA%C8%A8%BA%AF-%C9%CF%BA%A3%D6%C7%B3%E8%BB%E3.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MA",
+      "fileName": "智宠汇器械许可证、二类备案.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-10-27/0001AA10000001K490MB/%D6%C7%B3%E8%BB%E3%C6%F7%D0%B5%D0%ED%BF%C9%D6%A4%A1%A2%B6%FE%C0%E0%B1%B8%B0%B8.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MC",
+      "fileName": "授权委托书.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-10-27/0001AA10000001K490MD/%CA%DA%C8%A8%CE%AF%CD%D0%CA%E9.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490ME",
+      "fileName": "营业执照（2025.7）.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2025-10-27/0001AA10000001K490MF/%D3%AA%D2%B5%D6%B4%D5%D5%A3%A82025.7%A3%A9.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MG",
+      "fileName": "法定代表人身份证.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-08-18/0001AA10000001K490MH/%B7%A8%B6%A8%B4%FA%B1%ED%C8%CB%C9%ED%B7%DD%D6%A4.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MI",
+      "fileName": "营业执照.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-08-18/0001AA10000001K490MJ/%D3%AA%D2%B5%D6%B4%D5%D5.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MK",
+      "fileName": "动物诊疗许可证.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-08-18/0001AA10000001K490ML/%B6%AF%CE%EF%D5%EF%C1%C6%D0%ED%BF%C9%D6%A4.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MM",
+      "fileName": "宠物医疗设备采购合同（智宠汇-鹏峰）OEC9900.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-08-28/0001AA10000001K490MN/%B3%E8%CE%EF%D2%BD%C1%C6%C9%E8%B1%B8%B2%C9%B9%BA%BA%CF%CD%AC%A3%A8%D6%C7%B3%E8%BB%E3-%C5%F4%B7%E5%A3%A9OEC9900.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MO",
+      "fileName": "章程修正案（2026.6）.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-08-05/0001AA10000001K490MP/%D5%C2%B3%CC%D0%DE%D5%FD%B0%B8%A3%A82026.6%A3%A9.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490MQ",
+      "fileName": "智宠汇营业执照260715.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath//2026-08-05/0001AA10000001K490MR/%D6%C7%B3%E8%BB%E3%D3%AA%D2%B5%D6%B4%D5%D5260715.pdf",
+      "attachmentSource": "系统同步",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001K490NE",
+      "fileName": "上海智宠汇信息科技有限公司-担保客户-2026081841-预审报告.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath/ylsprojectattachment/2026-08-18/0001AA10000001JU8ITL/%C9%CF%BA%A3%D6%C7%B3%E8%BB%E3%D0%C5%CF%A2%BF%C6%BC%BC%D3%D0%CF%DE%B9%AB%CB%BE-%B5%A3%B1%A3%BF%CD%BB%A7-2026081841-%D4%A4%C9%F3%B1%A8%B8%E6.pdf",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX006006",
+        "name": "客户预审报告",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-28"
+    },
+    {
+      "pkFile": "0001AA10000001JI1XKD",
+      "fileName": "现场照片.zip",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath/ylsprojectattachment/2026-08-03/0001AA10000001JI1XKE/%CF%D6%B3%A1%D5%D5%C6%AC.zip",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024001",
+        "name": "其它",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-03"
+    },
+    {
+      "pkFile": "0001AA10000001JI1XKF",
+      "fileName": "银行流水.zip",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath/ylsprojectattachment/2026-08-03/0001AA10000001JI1XKG/%D2%F8%D0%D0%C1%F7%CB%AE.zip",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX004012",
+        "name": "银行流水",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-03"
+    },
+    {
+      "pkFile": "0001AA10000001JI0JMG",
+      "fileName": "上海鹏峰宠物医院有限责任公司-融资客户-2026080318-预审报告.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath/ylsprojectattachment/2026-08-03/0001AA10000001JI0JL8/%C9%CF%BA%A3%C5%F4%B7%E5%B3%E8%CE%EF%D2%BD%D4%BA%D3%D0%CF%DE%D4%F0%C8%CE%B9%AB%CB%BE-%C8%DA%D7%CA%BF%CD%BB%A7-2026080318-%D4%A4%C9%F3%B1%A8%B8%E6.pdf",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX006006",
+        "name": "客户预审报告",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-03"
+    },
+    {
+      "pkFile": "0001AA10000001JI0C7P",
+      "fileName": "上海鹏峰宠物医院有限责任公司-客户资信结构化报告-20260803171251.pdf",
+      "filePath": "http://filetran.jsleasing.cn/cps/2026-08-03/1533885375517601792/上海鹏峰宠物医院有限责任公司-客户资信结构化报告-20260803171251.pdf",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024003",
+        "name": "征信附件",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-03"
+    },
+    {
+      "pkFile": "0001AA10000001JI0C7Q",
+      "fileName": "承租人-上海鹏峰宠物医院有限责任公司-20260803171250-征信授权文件-01.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath/ylsprojectattachment/2026-08-03/0001AA10000001JI0C7R/%B3%D0%D7%E2%C8%CB-%C9%CF%BA%A3%C5%F4%B7%E5%B3%E8%CE%EF%D2%BD%D4%BA%D3%D0%CF%DE%D4%F0%C8%CE%B9%AB%CB%BE-20260803171250-%D5%F7%D0%C5%CA%DA%C8%A8%CE%C4%BC%FE-01.pdf",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX024003",
+        "name": "征信附件",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-03"
+    },
+    {
+      "pkFile": "0001AA10000001JI0JM1",
+      "fileName": "上海智宠汇信息科技有限公司-担保客户-2026080317-预审报告.pdf",
+      "filePath": "http://filetran.jsleasing.cn/core-nas/filepath/ylsprojectattachment/2026-08-03/0001AA10000001JI0JLA/%C9%CF%BA%A3%D6%C7%B3%E8%BB%E3%D0%C5%CF%A2%BF%C6%BC%BC%D3%D0%CF%DE%B9%AB%CB%BE-%B5%A3%B1%A3%BF%CD%BB%A7-2026080317-%D4%A4%C9%F3%B1%A8%B8%E6.pdf",
+      "attachmentSource": "系统上传",
+      "uploadUserId": null,
+      "documentDir": {
+        "code": "YX006006",
+        "name": "客户预审报告",
+        "typeName": "DCMNT_CLS_CD",
+        "typeCode": "PUBS0003"
+      },
+      "uploadTime": "2026-08-03"
+    }
+  ],
+  "version": 7,
+  "uniqueKey": "1533885813078560768",
+  "createTime": "2026-08-03 17:14:36",
+  "baseButton": {
+    "ifCanAdd": false,
+    "ifCanEdit": true,
+    "ifCanSubmit": false,
+    "ifCanDelete": false,
+    "ifCanAudit": false,
+    "ifCanAuditLog": true,
+    "ifCanEnabled": false,
+    "ifCanCancel": false,
+    "ifCanSave": false,
+    "ifCanStartChange": false,
+    "ifCanBreakPrice": false,
+    "ifCanFile": false,
+    "ifCanSupplementUploadFile": false,
+    "ifCanEditStatus": true,
+    "ifInvalidate": false,
+    "canAddActuary": false,
+    "canAddIrregular": false,
+    "canAssociateQuot": false,
+    "canAddQuot": false,
+    "canTransfer": false,
+    "canRollBack": false,
+    "supportClaim": false
+  },
+  "customerType": "单位客户",
+  "submitMethod": 0,
+  "creditEnhancementMeasure": {
+    "quotName": "Q260803058401",
+    "creditEnhancementMeasureList": [
+      {
+        "pkCreditEnhancementMeasure": null,
+        "guaCustType": 0,
+        "guaranteeMethod": {
+          "typeCode": "AGRS0005",
+          "code": 10,
+          "desc": "经销商回购"
+        },
+        "guaranteeContType": null,
+        "customerName": "上海智宠汇信息科技有限公司",
+        "currtype": null,
+        "guaCustomerNo": "C120250381396",
+        "relationship": null,
+        "relationshipDesc": null,
+        "customerType": null,
+        "crdntlsType": "统一社会信用代码",
+        "documentCode": "91310116MAE54MP673",
+        "isPerfect": null,
+        "collateralType": null,
+        "mortgageAndPledgeType": null,
+        "mortgageAndPledgeClass": null,
+        "collateralList": [
+          {
+            "assetsName": "GE-其它-其它",
+            "estimateValue": "350000.00",
+            "currtype": null,
+            "isFirstOrder": null,
+            "assessMode": "内部评估",
+            "compensationNumber": "0.00",
+            "valuationCycle": "季度",
+            "debtor": null,
+            "locationVfbc": null,
+            "assetsNo1Vfbc": null,
+            "assetsNo": null,
+            "assetsNo2Vfbc": null,
+            "generalContractor": null,
+            "contCashPledge": null,
+            "contEndDate": null,
+            "confirmedRightFlag": null,
+            "pkLshldInfo": null,
+            "pkRentThing": null
+          }
+        ],
+        "shareholderList": null,
+        "shareholderTotal": null,
+        "contName": null,
+        "ifSubordinate": "否",
+        "reason": null,
+        "ifConditionalGuarantee": null,
+        "contAmount": "361996.00",
+        "guaranteeMeasures": null,
+        "remark": null,
+        "updateContAmount": null,
+        "guaranteeMethodCode": 10
+      }
+    ],
+    "guaranteeCompanyList": [
+      {
+        "companyBaseInfo": {
+          "customerName": "上海智宠汇信息科技有限公司",
+          "customerNo": "C120250381396",
+          "crdntlsCode": "91310116MAE54MP673",
+          "crdntlsType": "统一社会信用代码",
+          "estblshDate": "2024-11-15",
+          "rgstrdCapital": "277.77",
+          "factCapital": "200.00",
+          "legalRepresentativeCustomerName": "傅艳军",
+          "actControlsName": "傅艳军",
+          "employeeNum": 20,
+          "rgstrdAddress": "上海市上海市辖区嘉定区徐行镇新冠路599号1幢3层B区306室",
+          "mainBusiness": null,
+          "medicalInstitutionType": null,
+          "ownerShipForm": null,
+          "medicalInstitutionNature": null,
+          "operationMode": null,
+          "companyEvolution": null,
+          "pkIndustrySortLittle": {
+            "code": "5254",
+            "name": "医疗用品及器材零售",
+            "typeName": "INDUSTRY_CLASS",
+            "typeCode": "CSTS0017"
+          },
+          "customerType": [
+            {
+              "code": "20",
+              "name": "经销商",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ]
+        },
+        "shareholderList": [
+          {
+            "shareholderName": "上海云沭数据有限公司",
+            "shareholderCapitalAmount": "50.00",
+            "holdStockRatio": "18.0000"
+          },
+          {
+            "shareholderName": "傅艳军",
+            "shareholderCapitalAmount": "150.00",
+            "holdStockRatio": "54.0000"
+          },
+          {
+            "shareholderName": "上海谱华森智能科技有限公司",
+            "shareholderCapitalAmount": "25.00",
+            "holdStockRatio": "9.0000"
+          },
+          {
+            "shareholderName": "湖北迅智供应链管理有限公司",
+            "shareholderCapitalAmount": "27.78",
+            "holdStockRatio": "10.0000"
+          },
+          {
+            "shareholderName": "上海圣宠聚科技合伙企业（有限合伙）",
+            "shareholderCapitalAmount": "25.00",
+            "holdStockRatio": "9.0000"
+          }
+        ],
+        "equipmentInfo": {
+          "medicalEquipmentNature": null,
+          "dentalChairNumber": null,
+          "petCageNumber": null,
+          "colorSorterNumber": null
+        },
+        "assetSize": {
+          "customerNo": null,
+          "rgstrdAddress": "上海市上海市辖区嘉定区徐行镇新冠路599号1幢3层B区306室",
+          "factoryOwnDetails": [],
+          "factoryRentDetails": [],
+          "equipmentList": [],
+          "ratio": null,
+          "incomeAndDebtScale": null
+        },
+        "collaborationHistoryModel": {
+          "leaseCollaborationHistoryList": [],
+          "leaseAmountTotal": null,
+          "guarantorCollaborationHistories": [],
+          "guarantorAmountTotal": null,
+          "updateTime": "2026-08-02",
+          "queryStatusEnum": 3,
+          "pkQueryRecord": null
+        },
+        "flowAnalysis": {
+          "monthlyCashFlowOverPastSixMonths": null,
+          "averageMonthlyIncome": null,
+          "businessDataAnalysisDesc": null
+        },
+        "loan": {
+          "creditInfo": {
+            "pkQueryRecord": "1533891859174801408",
+            "queryStatusEnum": 0,
+            "updateTime": "2026-08-03 17:38:37",
+            "queryTime": "2025-12-04",
+            "liabilityTotal": "0.00",
+            "overdueCash": null,
+            "class5StateNameNum": null,
+            "paymentAmount": null,
+            "paymentBalance": null,
+            "maxCreditAmount": null,
+            "loanTotal": null,
+            "amountNum": null,
+            "currentOverdueCash": null,
+            "currentCreditAmount": null,
+            "queryTime90Days": null,
+            "maxOverdueMonth": null,
+            "maxOverdueAmount": null,
+            "balanceDue": null,
+            "creditBlank": "是",
+            "overdueInterestNum": null,
+            "overdueInterestBalance": null,
+            "underRecoveryNum": null,
+            "underRecoveryBalance": null,
+            "borrowAccountBalance": "0.00",
+            "borrowAccountNum": null,
+            "fiveAccountNum": null,
+            "fiveAccountBalance": null,
+            "loanAccountNum": null,
+            "currentLoanAccountNum": null,
+            "maxConOverdueMonths": null,
+            "loanOverdueMonths": null,
+            "loanOverduePeriods": null,
+            "loanOverdueAmount": null,
+            "last3YearOverdueMonths": null,
+            "last3YearMaxOverdueAmount": null,
+            "last6MonthsAvgCreditUsage": null,
+            "creditMaxConOverdueMonths": null,
+            "creditCardOverdueMonths": null,
+            "creditCardOverduePeriods": null,
+            "creditCardOverdueAmount": null,
+            "last3YearsCcOverdueMonths": null,
+            "last3YearMaxCcOverdueAmount": null,
+            "nonMortAccountNum": null,
+            "nonMortAcctBalance": null,
+            "avgMonthlyRepayAmount": null,
+            "abnormalAcctLoan5Class": null,
+            "numGuarantorAccounts": null,
+            "frozenCcAccountNum": null,
+            "blockedCcAccountNum": null,
+            "bankBlockedCcNum": null,
+            "badDebtAccountNum": null
+          },
+          "loanDesc": null,
+          "zdinfo": {
+            "pkQueryRecord": "1533891858893783040",
+            "queryStatusEnum": 3,
+            "updateTime": "2026-08-03 17:38:41",
+            "registeredNum": null,
+            "registeringAmount": null,
+            "leaseNum": null,
+            "leaseAmount": null,
+            "zdDetailList": null
+          }
+        },
+        "judicialLitigationInfo": {
+          "caseTypeHighRiskList": [],
+          "caseTypeCommonList": [],
+          "judicialLitigationInfoDesc": null,
+          "updateTime": "2026-08-03 17:38:37",
+          "queryStatusEnum": 3,
+          "pkQueryRecord": "1533891859107692544"
+        },
+        "projectOperationInfo": {
+          "operationInfoList": [],
+          "operationDescription": null
+        },
+        "financialDataOfKeyAccount": {
+          "isNewCompany": null,
+          "collectFinancialFlag": null,
+          "financialStatementsOfKeyAccount": {
+            "sheetName": null,
+            "creditCode": "91310116MAE54MP673",
+            "customerNo": "C120250381396",
+            "fsDataSourceType": "税票授权采集",
+            "balanceSheet": [],
+            "profitSheet": [],
+            "financialIndex": []
+          },
+          "receiveAccountDetail": {
+            "ifCanVisible": "是",
+            "financialAnalysisDataList": []
+          },
+          "financialNotes": null,
+          "receiveAccountDesc": null
+        },
+        "controllerIntroduction": null,
+        "guaranteeContInfoList": [
+          {
+            "guaranteeContType": null,
+            "contName": null,
+            "planCash": "361996.00",
+            "currtype": null,
+            "guaranteeMeasures": null,
+            "ifSubordinate": "否",
+            "reason": null
+          }
+        ]
+      }
+    ],
+    "guaranteePersonList": []
+  },
+  "primaryKey": "1533885813069914112",
+  "add": false
+}
