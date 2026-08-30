@@ -108,7 +108,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 1 | `projectBaseInfo` | 项目基本信息 | `group` | 全部 |
 | 2 | `quoteInfo` | 报价信息 | `group` | 仅 prjc-gld |
 | 3 | `referenceYield` | 参考收益率 | `group` | 仅 prjc-gld |
-| 4 | `environmentAndSocialRisk` | 环境与社会风险评估 | `group` | prjc-flr / prjc-slb / prjc-drs / prjc-PEP / prjc-si |
+| 4 | `environmentAndSocialRisk` | 环境与社会风险评估 | `table` | prjc-flr / prjc-slb / prjc-drs / prjc-PEP / prjc-si |
 | 5 | `companyBaseInfo` | 项目基本情况 | `longText` | prjc-flr / prjc-slb / prjc-drs / prjc-PEP / prjc-si |
 | 6 | `filingStatusInfo` | 项目备案情况 | 混合（见 §7.5） | 仅 prjc-flr |
 | 7 | `siteSituation` | 现场考察情况 | `longText` | prjc-flr / prjc-drs / prjc-si |
@@ -182,18 +182,30 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 3 | SOFR类型 | `quoteInfo.sofrType` | `direct` | 原样 | 航运事业部 |
 | 4 | margin | `quoteInfo.margin` | `direct` | 5 位小数 + `%` | 航运事业部 |
 
-### 7.4 环境与社会风险评估（group · columns: 2）
+### 7.4 环境与社会风险评估（table）
 
 数据来源：`projectBaseInfo.environmentAndSocialRisk`
 
-| label | 接口字段 | displayType |
-| ----- | -------- | ----------- |
-| 是否禁入业务 | `exclusionBusinessResult` | `direct` |
-| 是否政策限制 | `policyRestrictResult` | `direct` |
-| 是否取得经营许可 | `operateLicenseResult` | `direct` |
-| 是否违法违规 | `offenceResult` | `direct` |
-| 是否存在隐患风险 | `hiddenRiskResult` | `direct` |
-| 评估结果 | `assessResult` | `direct` |
+接口为扁平对象，L1 按固定行序展开为 **指标 / 结果** 两列表格（对齐页面截图）。
+
+| 列 label | key | 说明 |
+| -------- | --- | ---- |
+| 指标 | `indicator` | 固定中文文案（见下行序表） |
+| 结果 | `result` | 取对应接口字段原值 |
+
+- `showIndex`: `false`
+- `emptyText`: `暂无评估信息`
+
+**行序与字段映射：**
+
+| 顺序 | 指标（`indicator`） | 接口字段 → `result` |
+| :--: | ------------------- | ------------------- |
+| 1 | 拟承租人经营活动是否涉及业务排除清单 | `exclusionBusinessResult` |
+| 2 | 所属行业是否为国家产业政策、行业准入政策限制的行业 | `policyRestrictResult` |
+| 3 | 是否取得主管部门颁发的特定行业的许可经营证明 | `operateLicenseResult` |
+| 4 | 是否存在国家或省级主管部门认定的重大环境、安全生产违法违规行为 | `offenceResult` |
+| 5 | 租赁物是否存在环境和社会风险隐患（易燃易爆物、危险化学品、有毒有害物等） | `hiddenRiskResult` |
+| 6 | 评估结论（高、中、低） | `assessResult` |
 
 ### 7.5 项目备案情况（仅 prjc-flr）
 
@@ -318,16 +330,21 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
     {
       "blockKey": "environmentAndSocialRisk",
       "label": "环境与社会风险评估",
-      "displayType": "group",
-      "columns": 2,
-      "children": [
-        { "blockKey": "exclusionBusinessResult", "label": "是否禁入业务", "displayType": "direct", "value": "否" },
-        { "blockKey": "policyRestrictResult", "label": "是否政策限制", "displayType": "direct", "value": "否" },
-        { "blockKey": "operateLicenseResult", "label": "是否取得经营许可", "displayType": "direct", "value": "是" },
-        { "blockKey": "offenceResult", "label": "是否违法违规", "displayType": "direct", "value": "否" },
-        { "blockKey": "hiddenRiskResult", "label": "是否存在隐患风险", "displayType": "direct", "value": "否" },
-        { "blockKey": "assessResult", "label": "评估结果", "displayType": "direct", "value": "中" }
-      ]
+      "displayType": "table",
+      "showIndex": false,
+      "columns": [
+        { "key": "indicator", "label": "指标" },
+        { "key": "result", "label": "结果" }
+      ],
+      "rows": [
+        { "indicator": "拟承租人经营活动是否涉及业务排除清单", "result": "否" },
+        { "indicator": "所属行业是否为国家产业政策、行业准入政策限制的行业", "result": "否" },
+        { "indicator": "是否取得主管部门颁发的特定行业的许可经营证明", "result": "是" },
+        { "indicator": "是否存在国家或省级主管部门认定的重大环境、安全生产违法违规行为", "result": "否" },
+        { "indicator": "租赁物是否存在环境和社会风险隐患（易燃易爆物、危险化学品、有毒有害物等）", "result": "否" },
+        { "indicator": "评估结论（高、中、低）", "result": "低" }
+      ],
+      "emptyText": "暂无评估信息"
     },
     {
       "blockKey": "selfUseElectricityPrice",
