@@ -155,6 +155,14 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `summary` | object | 合计行；无合计时不传 |
 | `emptyText` | string | `rows` 为空时的占位文案，默认「暂无数据」 |
 
+**列数与布局（L2 自动判定，L1 无需传 layout）：**
+
+| `columns.length` | 布局 | 说明 |
+| :--------------: | ---- | ---- |
+| ≤ 8 | 标准单行表 | 1 行表头 + 每条数据 1 行 `tr` |
+| > 8 | 叠行宽表 | 2 行表头 + 每条数据 2 行 `tr`；见 §5.5.1 |
+| > 16 | 叠行宽表 · 分段 | 按每段最多 16 列拆成多个叠行子表，同 block 内顺序排列 |
+
 #### empty — 空状态
 
 ```json
@@ -173,14 +181,15 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | displayType | 适用场景 | 根容器 class | 样式章节 |
 | ----------- | -------- | ------------ | -------- |
 | （模块级） | 模块顶栏 + 内容区 | `report-module` | §5.1 |
-| `direct` | 文本 / 数值 / 枚举单值 | `report-kv` | §5.3 |
-| `person` | 人员参照 | `report-kv` | §5.3 |
-| `longText` | 长文本说明 | `report-longtext` | §5.4 |
-| `group` | 分组多字段区域 | `report-group` | §5.5 |
-| `table` | 列表 / 明细 / 合计 | `report-table-block` | §5.6 |
-| `empty` | 无数据占位 | `report-empty` | §5.7 |
+| `direct` | 文本 / 数值 / 枚举单值 | `report-kv` | §5.2 |
+| `person` | 人员参照 | `report-kv` | §5.2 |
+| `longText` | 长文本说明 | `report-longtext` | §5.3 |
+| `group` | 分组多字段区域 | `report-group` | §5.4 |
+| `table` | 列表 / 明细 / 合计（≤8 列） | `report-table-block` | §5.5 |
+| `table`（`columns.length > 8`） | 叠行宽表 | `report-table report-table--stacked` | §5.5.1 |
+| `empty` | 无数据占位 | `report-empty` | §5.6 |
 
-> 同一业务块拆分为多个子表时（如合作历史「合同信息 / 收益与逾期」），子表标题使用 `report-table-subtitle`（§5.6），共用外层 `report-section-title`。
+> **列数规则**：`columns.length ≤ 8` 走标准单行表格（§5.5）；`> 8` 走叠行表格（§5.5.1），同一逻辑记录占 2 行，序号列 `rowspan="2"`。不再使用「拆成多个独立 table + 灰色小标题」的宽表方案。
 
 ---
 
@@ -193,13 +202,12 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `--color-primary` | `#1677FF` | 分组标题、强调色 |
 | `--color-title-bg` | `#E8F3FF` | 模块顶栏背景 |
 | `--color-text` | `#1D2129` | 字段值 |
-| `--color-label` | `#86909C` | 字段名、子表标题 |
+| `--color-label` | `#86909C` | 字段名 |
 | `--color-border` | `#E5E6EB` | 表格边框、分隔线 |
 | `--color-table-head-bg` | `#F7F8FA` | 表头背景 |
 | `--color-table-summary-bg` | `#FAFBFC` | 合计行背景 |
 | `--font-size-base` | `14px` | 正文 |
 | `--font-size-module` | `16px` | 模块标题 |
-| `--font-size-subtitle` | `13px` | 子表灰色小标题 |
 | `--font-size-group` | `14px` | 分组标题 |
 | `--line-height` | `22px` | 行高 |
 
@@ -308,15 +316,6 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   .report-grid__cell--w-100 { width: 100%; }
 
   /* ===== table — 表格 ===== */
-  .report-table-subtitle {
-    color: #86909C;
-    font-size: 13px;
-    margin-bottom: 8px;
-  }
-  .report-table-subtitle--spaced {
-    margin-top: 16px;
-    margin-bottom: 8px;
-  }
   .report-table {
     width: 100%;
     border-collapse: collapse;
@@ -362,6 +361,51 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
     border-radius: 4px;
   }
 
+  /* ===== table — 叠行宽表（columns > 8） ===== */
+  .report-table--stacked thead tr {
+    background: #F7F8FA;
+  }
+  .report-table--stacked .report-table__head-row--bottom th {
+    border-top: none;
+    font-weight: 600;
+  }
+  .report-table--stacked .report-table__stack-label {
+    display: block;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 20px;
+  }
+  .report-table--stacked .report-table__stack-value {
+    display: block;
+    color: #1D2129;
+    line-height: 20px;
+    word-break: break-all;
+  }
+  .report-table--stacked .report-table__data-row--top td {
+    border-bottom: none;
+    vertical-align: bottom;
+  }
+  .report-table--stacked .report-table__data-row--bottom td {
+    vertical-align: top;
+  }
+  .report-table--stacked .report-table__record-divider td {
+    border-bottom: 2px solid #E5E6EB;
+  }
+  .report-table--stacked .report-table__summary-row--top td {
+    border-bottom: none;
+    background: #FAFBFC;
+  }
+  .report-table--stacked .report-table__summary-row--bottom td {
+    background: #FAFBFC;
+  }
+  .report-table--stacked .report-table__index-cell {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table--stacked + .report-table--stacked {
+    margin-top: 16px;
+  }
+
   /* ===== empty — 空状态 ===== */
   .report-empty__placeholder {
     padding: 24px;
@@ -382,10 +426,11 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `direct` / `person` | 字段名 + 值 | `report-kv` / `report-kv__label` / `report-kv__value` |
 | `longText` | 标签 + 全文 | `report-longtext` / `report-longtext__label` / `report-longtext__value` |
 | `group` | 圆点标题 + 栅格 | `report-block` + `report-section-title` + `report-grid` + `report-grid__cell--w-*` |
-| `table` | 圆点标题 + 表格 | `report-table-block` + `report-section-title` + `report-table` |
-| `table` 子表标题 | 灰色小标题 | `report-table-subtitle` / `report-table-subtitle--spaced` |
+| `table` | 圆点标题 + 表格 | `report-table-block` + `report-table` |
+| `table`（>8 列） | 叠行宽表 | `report-table report-table--stacked` + `report-table__head-row--*` / `report-table__data-row--*` |
 | `table` 空数据 | 虚线占位 | `report-table-empty` |
-| `table` 合计行 | tbody 末行 | `report-table__summary-row` / `report-table__cell--strong` |
+| `table` 合计行（≤8 列） | tbody 末行 | `report-table__summary-row` / `report-table__cell--strong` |
+| `table` 合计行（>8 列） | tbody 末 2 行 | `report-table__summary-row--top` / `--bottom` |
 | `empty` | 圆点标题 + 占位 | `report-empty` + `report-empty__placeholder` |
 
 **栅格列宽 class 映射：**
@@ -499,7 +544,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 - `children` 按数组顺序从左到右、从上到下填充栅格
 - `longText` 子项使用 `report-grid__cell--w-100`
 
-### 5.5 表格（table）
+### 5.5 表格（table · 标准单行 · columns ≤ 8）
 
 ```html
 <div class="report-block report-table-block">
@@ -512,7 +557,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
       <tr>
         <th>序号</th>
         <th>项目名称</th>
-        <!-- 其余 columns -->
+        <!-- 其余 columns（columns 数组 ≤ 8；showIndex 序号列另计） -->
       </tr>
     </thead>
     <tbody>
@@ -530,33 +575,99 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 </div>
 ```
 
-**宽表拆分子表**（合作历史等场景）：
-
-```html
-<div class="report-block report-table-block">
-  <div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">承租人、关联方、担保人作为承租人情况</span>
-  </div>
-  <div class="report-table-subtitle">合同信息</div>
-  <table class="report-table"><!-- 子表 A --></table>
-  <div class="report-table-subtitle report-table-subtitle--spaced">收益与逾期</div>
-  <table class="report-table"><!-- 子表 B --></table>
-</div>
-```
-
-**表格规则：**
+**标准单行表格规则：**
 
 | 规则 | 说明 |
 | ---- | ---- |
+| 触发条件 | `columns.length ≤ 8` |
 | 结构 | 必须包含 `thead` + `tbody`，合计行放在 `tbody` 最后一行 |
-| 序号列 | `showIndex: true` 时，首列为自增序号（从 1 开始） |
+| 序号列 | `showIndex: true` 时，首列为自增序号（从 1 开始）；**不计入** 8 列上限 |
 | 表头 | 取 `columns[].label`，**不输出** `columns[].key` |
 | 数据行 | `rows` 中每个对象对应一行 `tr`，按 `columns[].key` 取值 |
 | 合计行 | `summary` 存在时渲染；`summary.index` 默认为「合计 --」；数值列加 `report-table__cell--strong` |
 | 空数据 | `rows` 为空时，不渲染 `table`，改为 `report-table-empty` |
 | 对齐 | 按 §4.3 映射附加 align class |
 | 图片单元格 | 使用 `<img class="report-table__img" …>` |
+
+### 5.5.1 表格（table · 叠行宽表 · columns > 8）
+
+当逻辑列超过 8 列时，L2 **不**拆成多个独立 `table`，而是在**同一个** `report-table-block` 内渲染叠行宽表：表头 2 行、每条数据 2 行，逻辑列按数组顺序**两两配对**叠放在同一物理列的上下行（参考征信类宽表样式）。
+
+**列配对规则：**
+
+```text
+物理列 1：columns[0] 上行 / columns[1] 下行
+物理列 2：columns[2] 上行 / columns[3] 下行
+…
+末列仅 1 个逻辑列时：仅填上行，下行展示「—」
+```
+
+**物理列上限与分段：**
+
+| 条件 | 处理 |
+| ---- | ---- |
+| 9 ≤ columns.length ≤ 16 | 单个 `report-table--stacked` |
+| columns.length > 16 | 按每段最多 16 列切分，同 block 内输出多个 `report-table--stacked`，**不加**灰色小标题 |
+
+**HTML 结构（节选 · 4 逻辑列示例）：**
+
+```html
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">贷款信息</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top">
+        <th rowspan="2">序号</th>
+        <th><span class="report-table__stack-label">授信机构</span></th>
+        <th><span class="report-table__stack-label">贷款类型</span></th>
+      </tr>
+      <tr class="report-table__head-row--bottom">
+        <th><span class="report-table__stack-label">余额</span></th>
+        <th><span class="report-table__stack-label">当前逾期金额</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top">
+        <td rowspan="2" class="report-table__index-cell">1</td>
+        <td><span class="report-table__stack-value">B5202</span></td>
+        <td><span class="report-table__stack-value">C1 个人经营性贷款</span></td>
+      </tr>
+      <tr class="report-table__data-row--bottom report-table__record-divider">
+        <td><span class="report-table__stack-value">700</span></td>
+        <td><span class="report-table__stack-value">0</span></td>
+      </tr>
+      <!-- 合计行（有 summary 时） -->
+      <tr class="report-table__summary-row--top">
+        <td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td>
+        <td><span class="report-table__stack-value">—</span></td>
+        <td><span class="report-table__stack-value">—</span></td>
+      </tr>
+      <tr class="report-table__summary-row--bottom report-table__record-divider">
+        <td><span class="report-table__stack-value report-table__cell--strong">700</span></td>
+        <td><span class="report-table__stack-value">—</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+**叠行宽表规则：**
+
+| 规则 | 说明 |
+| ---- | ---- |
+| 触发条件 | `columns.length > 8` |
+| 表格 class | `report-table report-table--stacked` |
+| 表头 | 2 行：上行放奇数位逻辑列 label，下行放偶数位；`showIndex: true` 时序号 th `rowspan="2"` |
+| 数据行 | 每条记录 2 行：上行 `report-table__data-row--top`，下行 `report-table__data-row--bottom report-table__record-divider` |
+| 序号 | `showIndex: true` 时 td `rowspan="2"` + `report-table__index-cell`，垂直居中 |
+| 记录分隔 | 仅在下沿行（`report-table__record-divider`）加粗底边框，同一记录上下两行之间无额外分隔线 |
+| 合计行 | 有 `summary` 时同样占 2 行，class 用 `report-table__summary-row--top` / `--bottom`；`summary.index` 占序号列且 `rowspan="2"` |
+| 空数据 / 对齐 / 图片 | 同 §5.5 |
+
+> L1 仍输出**一个** `displayType: "table"` block 及完整 `columns` / `rows`；列拆分与叠行由 L2 按本节规则自动完成。
 
 ### 5.6 空状态（empty）
 
@@ -587,7 +698,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   │           ├─ direct / person  → §5.2
   │           ├─ longText         → §5.3
   │           ├─ group            → §5.4（递归渲染 children）
-  │           ├─ table            → §5.5
+  │           ├─ table            → §5.5（≤8 列）或 §5.5.1（>8 列）
   │           └─ empty            → §5.6
   │
   └─ 4. 闭合容器，输出 HTML 片段
@@ -761,5 +872,6 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `person` | 字段名：姓名 | 同 `direct` |
 | `longText` | 字段名 + 换行全文 | `report-longtext` / `report-longtext__label` / `report-longtext__value` |
 | `group` | 蓝色圆点标题 + N 列栅格 | `report-group` + `report-section-title` + `report-grid` |
-| `table` | 标准表格 + 可选合计行 | `report-table-block` + `report-table` |
+| `table` | 标准表格 + 可选合计行 | `report-table-block` + `report-table`（≤8 列） |
+| `table` | 叠行宽表（>8 列） | `report-table report-table--stacked` + 双行 thead/tbody |
 | `empty` | 虚线框 + 居中占位文案 | `report-empty` + `report-empty__placeholder` |

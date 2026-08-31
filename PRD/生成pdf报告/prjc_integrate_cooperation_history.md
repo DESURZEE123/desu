@@ -112,25 +112,23 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 顺序 | blockKey | label | displayType | 适用系统 |
 | :--: | -------- | ----- | ----------- | -------- |
-| 1a | `leaseCollaborationHistoryList_contract` | 见 §5 表头文案 · 合同信息 | `table` | prjc-slb / prjc-drs / prjc-PEP / prjc-si |
-| 1b | `leaseCollaborationHistoryList_yieldOverdue` | （同组）收益与逾期 | `table` | 同上 |
-| 2a | `guarantorCollaborationHistories_contract` | 见 §5 表头文案 · 合同信息 | `table` | 同上 |
-| 2b | `guarantorCollaborationHistories_yieldOverdue` | （同组）收益与逾期 | `table` | 同上 |
+| 1 | `leaseCollaborationHistoryList` | 见 §5 表头文案 · 作为承租人情况 | `table` | prjc-slb / prjc-drs / prjc-PEP / prjc-si |
+| 2 | `guarantorCollaborationHistories` | 见 §5 表头文案 · 作为担保人情况 | `table` | 同上 |
 | 3 | `cooperateHistoryDesc` | 合作历史说明 | `longText` | 有合作历史数据时 |
+
+> 每个 table block 输出**完整列**（合同 + 收益与逾期字段合并为一张表）。列数超过 8 时由 L2（`prjc_style_render.md` §5.5.1）自动叠行展示，L1 **不**拆表、**不**传 layout 参数。
 
 ---
 
 ## 七、字段映射与 displayType 规则
 
-### 7.1 作为承租人情况（table · 宽表拆分）
+### 7.1 作为承租人情况（table）
 
 数据来源：`commonCollaborationHistoryModel.leaseCollaborationHistoryList`
 
 **默认 label（prjc-slb / prjc-drs）：** `承租人、关联方、担保人作为承租人情况`
 
-> PDF 列过多时，同一业务块输出为 **2 个上下排列的 table**（共用同一 `label` 分组标题，子表用灰色小标题区分）。行序、序号一致，便于对照。
-
-**子表 A — 合同信息**（`blockKey`: `leaseCollaborationHistoryList_contract`）
+**blockKey：** `leaseCollaborationHistoryList`
 
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
@@ -138,43 +136,31 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 客户角色 | `customerRoleEnum` | 原样（已为中文则直接展示） |
 | 租赁方式(实际) | `leaseMethodFact` | 原样 |
 | 合同名称 | `contName` | 原样 |
+| 内部收益率(%) | `irr` | 数值原样；已带 `%` 则不再追加 |
+| 综合收益率(%) | `cmprhnsvIrr` | 同上 |
 | 合同金额(元) | `contCashPledge` | 千分位 + 2 位小数 |
 | 剩余本金(元) | `corpusBalancePledge` | 千分位 + 2 位小数 |
 | 当前逾期金额(元) | `curOverdueAmount` | 千分位 + 2 位小数 |
 | 合同起租日 | `leaseBeginDate` | 原样 |
 | 合同到期日 | `contEndDate` | 原样 |
-
-- `showIndex`: `true`
-- `summary`：取 `leaseAmountTotal`（合计仅落在本子表）
-  - 首列：`合计`
-  - `contCashPledge` / `corpusBalancePledge` / `curOverdueAmount`：汇总值
-  - 其余列：`—`
-
-**子表 B — 收益与逾期**（`blockKey`: `leaseCollaborationHistoryList_yieldOverdue`）
-
-| 列 label | key | 格式化 |
-| -------- | --- | ------ |
-| 客户名称 | `customerName` | 原样（关联键，与子表 A 同行对应） |
-| 合同名称 | `contName` | 原样 |
-| 内部收益率(%) | `irr` | 数值原样；已带 `%` 则不再追加 |
-| 综合收益率(%) | `cmprhnsvIrr` | 同上 |
 | 当前逾期天数 | `curOverdueDays` | 原样 |
 | 历史最大逾期天数 | `historyOverdueDays` | 原样 |
 | 历史逾期次数 | `historyOverdueTimes` | 原样 |
 
 - `showIndex`: `true`
-- 无合计行
-- `emptyText`: 与子表 A 相同（`暂无合作历史数据`；两表皆空时 `所有客户均无合作历史数据`）
+- `summary`：取 `leaseAmountTotal`
+  - 首列：`合计`
+  - `contCashPledge` / `corpusBalancePledge` / `curOverdueAmount`：汇总值
+  - 其余列：`—`
+- `emptyText`：`暂无合作历史数据`；两表皆空时 `所有客户均无合作历史数据`
 
-### 7.2 作为担保人情况（table · 宽表拆分）
+### 7.2 作为担保人情况（table）
 
 数据来源：`commonCollaborationHistoryModel.guarantorCollaborationHistories`
 
 **默认 label（prjc-slb / prjc-drs）：** `承租人、关联方、担保人作为担保人情况`
 
-同样拆成 **合同信息** + **收益与逾期** 两子表。
-
-**子表 A — 合同信息**（`blockKey`: `guarantorCollaborationHistories_contract`）
+**blockKey：** `guarantorCollaborationHistories`
 
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
@@ -182,24 +168,21 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 客户角色 | `customerRoleEnum` | 原样 |
 | 担保方式 | `guaranteeMethod` | 原样；多种担保方式已用 `；` 分隔则直接展示 |
 | 合同名称 | `contName` | 原样 |
+| 内部收益率(%) | `irr` | 数值原样；已带 `%` 则不再追加 |
+| 综合收益率(%) | `cmprhnsvIrr` | 同上 |
 | 租赁方式(实际) | `leaseMethodFact` | 原样 |
 | 合同金额(元) | `contCashPledge` | 千分位 + 2 位小数 |
 | 剩余本金(元) | `corpusBalancePledge` | 千分位 + 2 位小数 |
 | 当前逾期金额(元) | `curOverdueAmount` | 千分位 + 2 位小数 |
 | 合同起租日 | `leaseBeginDate` | 原样 |
 | 合同到期日 | `contEndDate` | 原样 |
+| 当前逾期天数 | `curOverdueDays` | 原样 |
+| 历史最大逾期天数 | `historyOverdueDays` | 原样 |
+| 历史逾期次数 | `historyOverdueTimes` | 原样 |
 
 - `showIndex`: `true`
-- `summary`：取 `guarantorAmountTotal`（规则同 §7.1 子表 A）
-
-**子表 B — 收益与逾期**（`blockKey`: `guarantorCollaborationHistories_yieldOverdue`）
-
-列与 §7.1 子表 B 相同（客户名称、合同名称、IRR、综合收益率、三类逾期指标）。
-
-- `showIndex`: `true`
-- 无合计行
-
-> L2 渲染：分组蓝点标题只出一次；两子表上方各加灰色小标题「合同信息」「收益与逾期」。
+- `summary`：取 `guarantorAmountTotal`（规则同 §7.1）
+- `emptyText`：同 §7.1
 
 ### 7.3 合作历史说明（longText）
 
@@ -315,9 +298,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 2. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 3. 空值统一填 `—`，不输出 `null` 或空字符串
 4. 不传当前尽调系统不需要的 block / 字段
-5. `blocks` 内顺序严格按第六节表格排列
+5. `blocks` 内顺序严格按第六节表格排列（承租人表 → 担保人表 → 说明）
 6. `prjc-flr` 不输出本模块
 7. 不输出知识图谱、筛选主体、更新按钮等页面交互能力
+8. 宽表不拆 block；14～15 列完整输出于单个 `table`，叠行由 L2 处理
 
 ---
 
