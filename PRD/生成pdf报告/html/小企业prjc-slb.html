@@ -1,172 +1,816 @@
-<div class="report-module" data-module-key="project_base_info" style="margin-bottom: 24px; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;">
-  <!-- 模块顶栏 -->
-  <div style="background: #E8F3FF; padding: 10px 16px; font-size: 16px; font-weight: 600; color: #1D2129; border-radius: 4px 4px 0 0;">基本信息</div>
-  <!-- 模块内容区 -->
-  <div style="padding: 16px; border: 1px solid #E5E6EB; border-top: none; border-radius: 0 0 4px 4px;">
+<!--
+  数据源：mock.json
+  系统：prjc-slb
+  L0：prjc_integrate_report
+  L1：cooperation_history → project_base_info
+  L2：prjc_style_render（class + §4.2 固定 CSS）
+-->
 
-    <!-- 项目基本信息 group · 4列 -->
-    <div style="margin-bottom: 20px;">
-      <div style="display: flex; align-items: center; margin-bottom: 12px;">
-        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #1677FF; margin-right: 8px;"></span>
-        <span style="font-size: 14px; font-weight: 600; color: #1677FF;">项目基本信息</span>
+<style>
+  /* ===== 报告根容器（可选，包裹全部模块） ===== */
+  .report-root {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+
+  /* ===== 模块容器 ===== */
+  .report-module {
+    margin-bottom: 24px;
+  }
+
+  .report-module__header {
+    background: #E8F3FF;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D2129;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .report-module__body {
+    padding: 16px;
+    border: 1px solid #E5E6EB;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* ===== 通用 block 间距 ===== */
+  .report-block {
+    margin-bottom: 20px;
+  }
+
+  /* ===== 分组 / 表格 / 空状态 — 蓝色圆点标题 ===== */
+  .report-section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .report-section-title__dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1677FF;
+    margin-right: 8px;
+  }
+
+  .report-section-title__text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+  }
+
+  /* ===== direct / person — 键值对 ===== */
+  .report-kv {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .report-kv__label {
+    color: #86909C;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .report-kv__value {
+    color: #1D2129;
+    font-weight: 500;
+    word-break: break-all;
+  }
+
+  /* ===== longText — 长文本 ===== */
+  .report-longtext {
+    margin-bottom: 16px;
+  }
+
+  .report-longtext__label {
+    color: #86909C;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .report-longtext__value {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  /* ===== group — 分组栅格 ===== */
+  .report-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .report-grid__cell {
+    padding-right: 16px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+  }
+
+  .report-grid__cell--w-25 {
+    width: 25%;
+  }
+
+  .report-grid__cell--w-33 {
+    width: 33.33%;
+  }
+
+  .report-grid__cell--w-50 {
+    width: 50%;
+  }
+
+  .report-grid__cell--w-100 {
+    width: 100%;
+  }
+
+  /* ===== table — 表格 ===== */
+  .report-table-subtitle {
+    color: #86909C;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .report-table-subtitle--spaced {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .report-table thead tr {
+    background: #F7F8FA;
+  }
+
+  .report-table th,
+  .report-table td {
+    padding: 10px 12px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+  }
+
+  .report-table th {
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .report-table__summary-row {
+    background: #FAFBFC;
+  }
+
+  .report-table__cell--strong {
+    font-weight: 600;
+  }
+
+  .report-table__cell--align-center {
+    text-align: center;
+  }
+
+  .report-table__cell--align-right {
+    text-align: right;
+  }
+
+  .report-table__img {
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+  }
+
+  .report-table-empty {
+    padding: 24px;
+    text-align: center;
+    color: #86909C;
+    font-size: 14px;
+    border: 1px dashed #E5E6EB;
+    border-radius: 4px;
+  }
+
+  /* ===== empty — 空状态 ===== */
+  .report-empty__placeholder {
+    padding: 24px;
+    text-align: center;
+    color: #86909C;
+    font-size: 14px;
+    border: 1px dashed #E5E6EB;
+    border-radius: 4px;
+  }
+</style>
+
+<div class="report-root">
+  <div class="report-module" data-module-key="cooperation_history">
+    <div class="report-module__header">合作历史</div>
+    <div class="report-module__body">
+      <div class="report-block report-table-block">
+        <div class="report-section-title"><span class="report-section-title__dot"></span><span
+            class="report-section-title__text">承租人、关联方、担保人作为承租人情况</span></div>
+        <div class="report-table-subtitle">合同信息</div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>客户名称</th>
+              <th>客户角色</th>
+              <th>租赁方式(实际)</th>
+              <th>合同名称</th>
+              <th>合同金额(元)</th>
+              <th>剩余本金(元)</th>
+              <th>当前逾期金额(元)</th>
+              <th>合同起租日</th>
+              <th>合同到期日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL24C02L011200-01</td>
+              <td>1,000,000.00</td>
+              <td>436,685.70</td>
+              <td>0.00</td>
+              <td>2024-04-03</td>
+              <td>2026-04-02</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL23C01L004346-01</td>
+              <td>1,776,000.00</td>
+              <td>540,016.00</td>
+              <td>0.00</td>
+              <td>2023-03-14</td>
+              <td>2026-03-14</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL23C01L008065-01</td>
+              <td>1,776,000.00</td>
+              <td>591,924.00</td>
+              <td>0.00</td>
+              <td>2023-04-20</td>
+              <td>2026-04-18</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL23C01L011330-01</td>
+              <td>1,776,000.00</td>
+              <td>694,542.70</td>
+              <td>0.00</td>
+              <td>2023-06-20</td>
+              <td>2026-06-20</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL22C01L070990-01</td>
+              <td>1,102,500.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2022-11-18</td>
+              <td>2024-11-18</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL24C02L031652-01</td>
+              <td>2,545,600.00</td>
+              <td>1,535,438.35</td>
+              <td>0.00</td>
+              <td>2024-07-18</td>
+              <td>2026-07-18</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>扬州市扬浚水利疏浚工程有限责任公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL25C01L007707-01</td>
+              <td>6,176,000.00</td>
+              <td>5,719,983.00</td>
+              <td>0.00</td>
+              <td>2025-02-11</td>
+              <td>2028-02-11</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>扬州市扬浚水利疏浚工程有限责任公司</td>
+              <td>承租方</td>
+              <td>直转回</td>
+              <td>JFL24C01L015951-01</td>
+              <td>4,200,000.00</td>
+              <td>2,809,055.00</td>
+              <td>0.00</td>
+              <td>2024-05-08</td>
+              <td>2027-05-08</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>太和县中医院</td>
+              <td>承租方</td>
+              <td>回租</td>
+              <td>苏租[2016]租赁字第788号</td>
+              <td>200,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2016-11-09</td>
+              <td>2021-09-07</td>
+            </tr>
+            <tr class="report-table__summary-row">
+              <td class="report-table__cell--strong">合计</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td class="report-table__cell--strong">220,352,100.00</td>
+              <td class="report-table__cell--strong">12,327,644.75</td>
+              <td class="report-table__cell--strong">0.00</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="report-table-subtitle report-table-subtitle--spaced">收益与逾期</div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>客户名称</th>
+              <th>合同名称</th>
+              <th>内部收益率(%)</th>
+              <th>综合收益率(%)</th>
+              <th>当前逾期天数</th>
+              <th>历史最大逾期天数</th>
+              <th>历史逾期次数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>JFL24C02L011200-01</td>
+              <td>8.2128</td>
+              <td>8.2128</td>
+              <td>0</td>
+              <td>2</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>JFL23C01L004346-01</td>
+              <td>8.5850</td>
+              <td>8.5850</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>JFL23C01L008065-01</td>
+              <td>8.5850</td>
+              <td>8.5850</td>
+              <td>0</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>JFL23C01L011330-01</td>
+              <td>8.5850</td>
+              <td>8.5850</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>JFL22C01L070990-01</td>
+              <td>8.5753</td>
+              <td>8.5753</td>
+              <td>0</td>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>云南吕国亮商贸有限公司</td>
+              <td>JFL24C02L031652-01</td>
+              <td>8.2089</td>
+              <td>8.2089</td>
+              <td>0</td>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>扬州市扬浚水利疏浚工程有限责任公司</td>
+              <td>JFL25C01L007707-01</td>
+              <td>8.6009</td>
+              <td>8.6009</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>扬州市扬浚水利疏浚工程有限责任公司</td>
+              <td>JFL24C01L015951-01</td>
+              <td>8.7701</td>
+              <td>8.7701</td>
+              <td>0</td>
+              <td>1</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>太和县中医院</td>
+              <td>苏租[2016]租赁字第788号</td>
+              <td>6.4950</td>
+              <td>6.4950</td>
+              <td>0</td>
+              <td>4</td>
+              <td>2</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div style="display: flex; flex-wrap: wrap;">
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">客户名称：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">苏州精实电子科技有限公司</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">项目金额：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">10,000.00</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">资金用途：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">购置本次租赁物</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">租赁方式：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">回租</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">项目经理：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">郭玲玲（0699）</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">项目协办人：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">张益光（0139）</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">项目来源：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">渠道商推单</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">项目类型：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">区域线</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">投保情况：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">不购买保险</span>
-          </div>
-        </div>
-        <div style="width: 25%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">售后回租原因：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">其他</span>
-          </div>
-        </div>
-        <!-- longText 子项占满整行 -->
-        <div style="width: 100%; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="color: #86909C; font-size: 14px; margin-bottom: 8px;">租赁物保险：</div>
-          <div style="color: #1D2129; font-size: 14px; line-height: 22px; white-space: pre-wrap; word-break: break-all;">符合公司保险政策，为设备购买财产一切险</div>
-        </div>
-        <div style="width: 100%; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="color: #86909C; font-size: 14px; margin-bottom: 8px;">售后回租原因说明：</div>
-          <div style="color: #1D2129; font-size: 14px; line-height: 22px; white-space: pre-wrap; word-break: break-all;">原因说明</div>
-        </div>
+      <div class="report-block report-table-block">
+        <div class="report-section-title"><span class="report-section-title__dot"></span><span
+            class="report-section-title__text">承租人、关联方、担保人作为担保人情况</span></div>
+        <div class="report-table-subtitle">合同信息</div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>客户名称</th>
+              <th>客户角色</th>
+              <th>担保方式</th>
+              <th>合同名称</th>
+              <th>租赁方式(实际)</th>
+              <th>合同金额(元)</th>
+              <th>剩余本金(元)</th>
+              <th>当前逾期金额(元)</th>
+              <th>合同起租日</th>
+              <th>合同到期日</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL23C01L000485-01</td>
+              <td>直租</td>
+              <td>120,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2023-01-13</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL22C01L062466-01</td>
+              <td>直租</td>
+              <td>120,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2022-09-23</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL23C01L018999-01</td>
+              <td>直租</td>
+              <td>110,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2023-07-25</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL22C01L062127-01</td>
+              <td>回租</td>
+              <td>100,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2022-09-19</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL22C01L068233-01</td>
+              <td>直租</td>
+              <td>100,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2022-10-27</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL22C01L066493-01</td>
+              <td>直租</td>
+              <td>100,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2022-10-11</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>承租方</td>
+              <td>质押担保</td>
+              <td>JFL23C01L008615-01</td>
+              <td>直租</td>
+              <td>110,000,000.00</td>
+              <td>0.00</td>
+              <td>0.00</td>
+              <td>2023-04-21</td>
+              <td>2024-04-10</td>
+            </tr>
+            <tr class="report-table__summary-row">
+              <td class="report-table__cell--strong">合计</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td class="report-table__cell--strong">760,000,000.00</td>
+              <td class="report-table__cell--strong">0.00</td>
+              <td class="report-table__cell--strong">0.00</td>
+              <td>—</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="report-table-subtitle report-table-subtitle--spaced">收益与逾期</div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>客户名称</th>
+              <th>合同名称</th>
+              <th>内部收益率(%)</th>
+              <th>综合收益率(%)</th>
+              <th>当前逾期天数</th>
+              <th>历史最大逾期天数</th>
+              <th>历史逾期次数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL23C01L000485-01</td>
+              <td>5.1284</td>
+              <td>5.2087</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL22C01L062466-01</td>
+              <td>5.2889</td>
+              <td>5.3301</td>
+              <td>0</td>
+              <td>4</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL23C01L018999-01</td>
+              <td>5.0200</td>
+              <td>5.2468</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL22C01L062127-01</td>
+              <td>5.0679</td>
+              <td>5.1709</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL22C01L068233-01</td>
+              <td>4.9416</td>
+              <td>4.9744</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL22C01L066493-01</td>
+              <td>5.1592</td>
+              <td>5.1707</td>
+              <td>0</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>太原晋飚新能源有限公司</td>
+              <td>JFL23C01L008615-01</td>
+              <td>5.0681</td>
+              <td>5.1875</td>
+              <td>0</td>
+              <td>2</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="report-block report-longtext">
+        <div class="report-longtext__label">合作历史说明：</div>
+        <div class="report-longtext__value">—</div>
       </div>
     </div>
+  </div>
 
-    <!-- 环境与社会风险评估 group · 2列 -->
-    <div style="margin-bottom: 20px;">
-      <div style="display: flex; align-items: center; margin-bottom: 12px;">
-        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #1677FF; margin-right: 8px;"></span>
-        <span style="font-size: 14px; font-weight: 600; color: #1677FF;">环境与社会风险评估</span>
+  <div class="report-module" data-module-key="project_base_info">
+    <div class="report-module__header">基本信息</div>
+    <div class="report-module__body">
+      <div class="report-block report-group">
+        <div class="report-section-title"><span class="report-section-title__dot"></span><span
+            class="report-section-title__text">项目基本信息</span></div>
+        <div class="report-grid">
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">客户名称：</span><span
+                class="report-kv__value">苏州精实电子科技有限公司</span></div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">项目金额(元)：</span><span
+                class="report-kv__value">10,000.00</span></div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">资金用途：</span><span
+                class="report-kv__value">购置本次租赁物</span></div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">租赁方式：</span><span class="report-kv__value">回租</span>
+            </div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">项目经理：</span><span class="report-kv__value">郭玲玲</span>
+            </div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">项目协办人：</span><span class="report-kv__value">张益光</span>
+            </div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">业务信息来源：</span><span
+                class="report-kv__value">渠道商推单</span></div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">项目类型：</span><span class="report-kv__value">区域线</span>
+            </div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">投保情况：</span><span
+                class="report-kv__value">不购买保险</span></div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-25">
+            <div class="report-kv"><span class="report-kv__label">售后回租原因：</span><span class="report-kv__value">其他</span>
+            </div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-100">
+            <div class="report-longtext">
+              <div class="report-longtext__label">租赁物保险：</div>
+              <div class="report-longtext__value">符合公司保险政策，为设备购买财产一切险</div>
+            </div>
+          </div>
+          <div class="report-grid__cell report-grid__cell--w-100">
+            <div class="report-longtext">
+              <div class="report-longtext__label">售后回租原因说明：</div>
+              <div class="report-longtext__value">原因说明</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="display: flex; flex-wrap: wrap;">
-        <div style="width: 50%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">是否禁入业务：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">否</span>
-          </div>
-        </div>
-        <div style="width: 50%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">是否政策限制：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">否</span>
-          </div>
-        </div>
-        <div style="width: 50%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">是否取得经营许可：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">是</span>
-          </div>
-        </div>
-        <div style="width: 50%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">是否违法违规：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">否</span>
-          </div>
-        </div>
-        <div style="width: 50%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">是否存在隐患风险：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">否</span>
-          </div>
-        </div>
-        <div style="width: 50%; padding-right: 16px; box-sizing: border-box; margin-bottom: 12px;">
-          <div style="display: flex; font-size: 14px; line-height: 22px;">
-            <span style="color: #86909C; white-space: nowrap; flex-shrink: 0;">评估结果：</span>
-            <span style="color: #1D2129; font-weight: 500; word-break: break-all;">低</span>
-          </div>
-        </div>
+      <div class="report-block report-table-block">
+        <div class="report-section-title"><span class="report-section-title__dot"></span><span
+            class="report-section-title__text">环境与社会风险评估</span></div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>指标</th>
+              <th>结果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>拟承租人经营活动是否涉及业务排除清单</td>
+              <td>否</td>
+            </tr>
+            <tr>
+              <td>所属行业是否为国家产业政策、行业准入政策限制的行业</td>
+              <td>否</td>
+            </tr>
+            <tr>
+              <td>是否取得主管部门颁发的特定行业的许可经营证明</td>
+              <td>是</td>
+            </tr>
+            <tr>
+              <td>是否存在国家或省级主管部门认定的重大环境、安全生产违法违规行为</td>
+              <td>否</td>
+            </tr>
+            <tr>
+              <td>租赁物是否存在环境和社会风险隐患（易燃易爆物、危险化学品、有毒有害物等）</td>
+              <td>否</td>
+            </tr>
+            <tr>
+              <td>评估结论（高、中、低）</td>
+              <td>低</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="report-block report-longtext">
+        <div class="report-section-title"><span class="report-section-title__dot"></span><span
+            class="report-section-title__text">项目基本情况</span></div>
+        <div class="report-longtext__value">45656</div>
+      </div>
+      <div class="report-block report-table-block">
+        <div class="report-section-title"><span class="report-section-title__dot"></span><span
+            class="report-section-title__text">现场尽调情况</span></div>
+        <table class="report-table">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>尽调人员</th>
+              <th>尽调地址</th>
+              <th>尽调日期</th>
+              <th>尽调内容</th>
+              <th>附件</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>马成斌</td>
+              <td>中国浙江省杭州市淳安县千岛湖镇南山一路92号134679879816165133</td>
+              <td>2024-04-10</td>
+              <td>拜访杭州威马直营店，了解经营情况、网约车市场情况及逾期超期情况</td>
+              <td><img class="report-table__img"
+                  src="http://172.16.251.101/hujin/zlz/photoAlbum/2024/04/25/0636/20240425091241313869.jpg" alt="尽调照片">
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <!-- 项目基本情况 longText -->
-    <div style="margin-bottom: 20px;">
-      <div style="display: flex; align-items: center; margin-bottom: 12px;">
-        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #1677FF; margin-right: 8px;"></span>
-        <span style="font-size: 14px; font-weight: 600; color: #1677FF;">项目基本情况</span>
-      </div>
-      <div style="color: #1D2129; font-size: 14px; line-height: 22px; white-space: pre-wrap; word-break: break-all;">45656</div>
-    </div>
-
-    <!-- 现场尽调情况 table -->
-    <div style="margin-bottom: 20px;">
-      <div style="display: flex; align-items: center; margin-bottom: 12px;">
-        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #1677FF; margin-right: 8px;"></span>
-        <span style="font-size: 14px; font-weight: 600; color: #1677FF;">现场尽调情况</span>
-      </div>
-      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-        <thead>
-          <tr style="background: #F7F8FA;">
-            <th style="padding: 10px 12px; border: 1px solid #E5E6EB; text-align: left; font-weight: 600; color: #1D2129;">序号</th>
-            <th style="padding: 10px 12px; border: 1px solid #E5E6EB; text-align: left; font-weight: 600; color: #1D2129;">尽调人员</th>
-            <th style="padding: 10px 12px; border: 1px solid #E5E6EB; text-align: left; font-weight: 600; color: #1D2129;">尽调地址</th>
-            <th style="padding: 10px 12px; border: 1px solid #E5E6EB; text-align: left; font-weight: 600; color: #1D2129;">尽调日期</th>
-            <th style="padding: 10px 12px; border: 1px solid #E5E6EB; text-align: left; font-weight: 600; color: #1D2129;">尽调内容</th>
-            <th style="padding: 10px 12px; border: 1px solid #E5E6EB; text-align: left; font-weight: 600; color: #1D2129;">附件</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding: 10px 12px; border: 1px solid #E5E6EB; color: #1D2129; word-break: break-all;">1</td>
-            <td style="padding: 10px 12px; border: 1px solid #E5E6EB; color: #1D2129; word-break: break-all;">马成斌（0112）</td>
-            <td style="padding: 10px 12px; border: 1px solid #E5E6EB; color: #1D2129; word-break: break-all;">中国浙江省杭州市淳安县千岛湖镇南山一路92号134679879816165133</td>
-            <td style="padding: 10px 12px; border: 1px solid #E5E6EB; color: #1D2129; word-break: break-all;">2024-04-10</td>
-            <td style="padding: 10px 12px; border: 1px solid #E5E6EB; color: #1D2129; word-break: break-all;">拜访杭州威马直营店，了解经营情况、网约车市场情况及逾期超期情况</td>
-            <td style="padding: 10px 12px; border: 1px solid #E5E6EB; color: #1D2129; word-break: break-all;"><img src="http://172.16.251.101/hujin/zlz/photoAlbum/2024-04-25-0636-20240425091241313869.jpg" alt="尽调照片" style="max-width: 120px; max-height: 120px; display: block;"></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
   </div>
 </div>
