@@ -84,14 +84,90 @@
     "projectDesc": null
   },
   "commonCollaborationHistoryModel": {
-    "leaseCollaborationHistoryList": null,
-    "leaseAmountTotal": null,
-    "guarantorCollaborationHistories": null,
-    "guarantorAmountTotal": null,
-    "updateTime": null,
-    "queryStatusEnum": null,
-    "pkQueryRecord": null,
-    "cooperateHistoryDesc": null,
+    "leaseCollaborationHistoryList": [
+      {
+        "customerName": "上海鹏峰宠物医院有限责任公司",
+        "customerRoleEnum": "承租人",
+        "leaseMethodFact": "回租",
+        "contName": "鹏峰宠物医院回租合同2023",
+        "irr": "8.5200",
+        "cmprhnsvIrr": "8.8600",
+        "contCashPledge": "500000.00",
+        "corpusBalancePledge": "180000.00",
+        "curOverdueAmount": "0.00",
+        "leaseBeginDate": "2023-06-15",
+        "contEndDate": "2026-06-14",
+        "curOverdueDays": "0",
+        "historyOverdueDays": "3",
+        "historyOverdueTimes": "1"
+      },
+      {
+        "customerName": "上海智宠汇信息科技有限公司",
+        "customerRoleEnum": "关联企业",
+        "leaseMethodFact": "直租",
+        "contName": "智宠汇设备直租合同2024",
+        "irr": "7.9800",
+        "cmprhnsvIrr": "8.2100",
+        "contCashPledge": "300000.00",
+        "corpusBalancePledge": "220000.00",
+        "curOverdueAmount": "0.00",
+        "leaseBeginDate": "2024-03-01",
+        "contEndDate": "2027-02-28",
+        "curOverdueDays": "0",
+        "historyOverdueDays": "0",
+        "historyOverdueTimes": "0"
+      }
+    ],
+    "leaseAmountTotal": {
+      "contCashPledge": "800000.00",
+      "corpusBalancePledge": "400000.00",
+      "curOverdueAmount": "0.00"
+    },
+    "guarantorCollaborationHistories": [
+      {
+        "customerName": "张明华",
+        "customerRoleEnum": "担保人",
+        "guaranteeMethod": "连带责任保证",
+        "contName": "安安宠物门诊融资租赁合同2022",
+        "irr": "9.1200",
+        "cmprhnsvIrr": "9.3500",
+        "leaseMethodFact": "回租",
+        "contCashPledge": "450000.00",
+        "corpusBalancePledge": "95000.00",
+        "curOverdueAmount": "0.00",
+        "leaseBeginDate": "2022-09-20",
+        "contEndDate": "2025-09-19",
+        "curOverdueDays": "0",
+        "historyOverdueDays": "5",
+        "historyOverdueTimes": "2"
+      },
+      {
+        "customerName": "上海鹏峰宠物医院有限责任公司",
+        "customerRoleEnum": "承租人",
+        "guaranteeMethod": "保证担保；抵押担保",
+        "contName": "同业门诊设备租赁合同2024",
+        "irr": "8.0500",
+        "cmprhnsvIrr": "8.4000",
+        "leaseMethodFact": "直租",
+        "contCashPledge": "280000.00",
+        "corpusBalancePledge": "160000.00",
+        "curOverdueAmount": "0.00",
+        "leaseBeginDate": "2024-01-10",
+        "contEndDate": "2027-01-09",
+        "curOverdueDays": "0",
+        "historyOverdueDays": "0",
+        "historyOverdueTimes": "0"
+      }
+    ],
+    "guarantorAmountTotal": {
+      "contCashPledge": "730000.00",
+      "corpusBalancePledge": "255000.00",
+      "curOverdueAmount": "0.00"
+    },
+    "updateTime": "2026-08-28",
+    "queryStatusEnum": 0,
+    "pkQueryRecord": "mock-cooperation-history-001",
+    "cooperateHistoryDesc": "承租人及关联方在我司历史合作记录良好，剩余本金合计40万元，当前无逾期；担保人张明华历史存在短暂逾期已结清。本次项目风险可控。",
     "subjects": null,
     "isRepeatOrderOk": null,
     "repeatOrderSituation": null
