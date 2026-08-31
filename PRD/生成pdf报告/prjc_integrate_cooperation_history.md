@@ -1,10 +1,11 @@
 # 合作历史 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**待定**（页面顺序上位于「项目基本信息」之前；L0 排序以本字段为准，落地时与 `project_base_info` 一并确认）  
+> 模块索引：**1**（与 `project_base_info` 同级 L1，调度顺序在其前）  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
-> 业务对照：`尽调系统/项目审批/1.合作历史.md`
+> 业务对照：`尽调系统/项目审批/1.合作历史.md`  
+> **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
 
 ---
 
@@ -35,7 +36,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | 待定（建议：页面序在基本信息前） |
+| `moduleIndex` | `1` |
 | `moduleKey` | `cooperation_history` |
 | `moduleName` | `合作历史` |
 
@@ -235,7 +236,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 0,
+  "moduleIndex": 1,
   "moduleName": "合作历史",
   "moduleKey": "cooperation_history",
   "blocks": [
@@ -324,7 +325,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 项 | 说明 |
 | -- | ---- |
-| `moduleIndex` 最终值 | 与 L0、`project_base_info` 排序一并确认 |
 | `prjc-si` 经营情况列 / 数据更新时间 / 翻单字段 | 按项目类型条件补齐 |
 | `prjc-gld` / `prjc-hdr` | 系统差异与字段范围待补充 |
 | 收益率精度 | 若业务要求统一补齐小数位，再在 §8 固化 |
