@@ -163,31 +163,38 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 **showIndex：** `true`  
 **emptyText：** `暂无企业借款数据`
 
-| 顺序 | 列 label | key | 格式化 |
-| :--: | -------- | --- | ------ |
-| 1 | 借款主体 | `borrowingEntity` | 见下方「借款主体展示」 |
-| 2 | 主体角色 | `principalRole` | `principalRole[]` 用 `、` 拼接；空 → `—` |
-| 3 | 租赁借款余额合计(元) | `leaseLoanTotal` | 金额 |
-| 4 | 非租赁借款余额合计(元) | `nonLeaseLoanTotal` | 金额 |
-| 5 | 业务类型 | `businessType` | 原样 |
-| 6 | 机构编码 | `institutionalCode` | 原样 |
-| 7 | 授信机构 | `creditInstitutional` | 原样 |
-| 8 | 借款金额(元) | `loanAmount` | 金额 |
-| 9 | 余额(元) | `balance` | 金额 |
-| 10 | 起始日期 | `startDate` | 原样 |
-| 11 | 截止日期 | `deadline` | 原样 |
-| 12 | 担保方式 | `guaranteeMethod` | 原样 |
-| 13 | 抵押类型 | `mortgageType` | 原样 |
-| 14 | 五级分类 | `fiveLevel` | 原样（PDF 不做色标，文案透传） |
-| 15 | 当前逾期月份 | `curOverdueMonth` | 原样 |
-| 16 | 数据来源 | `querySource` | 原样 |
-| 17 | 是否与征信重复 | `repeat` | 原样；空 → `—` |
+| 顺序 | 列 label | key | 格式化 | 叠行列属性 |
+| :--: | -------- | --- | ------ | ---------- |
+| 1 | 借款主体 | `borrowingEntity` | 仅主体名称；征信日期走 `subKey` | `stackSpan` + `mergeSame`；`subKey: queryTime` |
+| 2 | 主体角色 | `principalRole` | `principalRole[]` 用 `、` 拼接；空 → `—` | `stackSpan` + `mergeSame` |
+| 3 | 租赁借款余额合计(元) | `leaseLoanTotal` | 金额 | `stackSpan` + `mergeSame` |
+| 4 | 非租赁借款余额合计(元) | `nonLeaseLoanTotal` | 金额 | `stackSpan` + `mergeSame` |
+| 5 | 业务类型 | `businessType` | 原样 | 配对叠放 |
+| 6 | 机构编码 | `institutionalCode` | 原样 | 配对叠放 |
+| 7 | 授信机构 | `creditInstitutional` | 原样 | 配对叠放 |
+| 8 | 借款金额(元) | `loanAmount` | 金额 | 配对叠放 |
+| 9 | 余额(元) | `balance` | 金额 | 配对叠放 |
+| 10 | 起始日期 | `startDate` | 原样 | 配对叠放 |
+| 11 | 截止日期 | `deadline` | 原样 | 配对叠放 |
+| 12 | 担保方式 | `guaranteeMethod` | 原样 | 配对叠放 |
+| 13 | 抵押类型 | `mortgageType` | 原样 | 配对叠放 |
+| 14 | 五级分类 | `fiveLevel` | 原样（PDF 不做色标，文案透传） | 配对叠放 |
+| 15 | 当前逾期月份 | `curOverdueMonth` | 原样 | 配对叠放 |
+| 16 | 数据来源 | `querySource` | 原样 | 配对叠放 |
+| 17 | 是否与征信重复 | `repeat` | 原样；空 → `—` | 配对叠放（与其他配对列同表，**不得**单独拆表） |
 
 **借款主体展示：**
 
-- 有 `queryTime`（trim 后非空）：`{borrowingEntity}（征信查询日期: {queryTime}）`
-- 否则：仅 `borrowingEntity`
-- 同一主体多行：每行均输出完整主体文案及该行自带的合计字段（接口已按行冗余；页面 rowspan 合并，PDF 叠行表重复展示可接受）
+- `borrowingEntity` 字段只填主体名称（用于 `mergeSame` 比较）
+- `queryTime` trim 后非空时由 L2 按 `subKey` 渲染为副行：`（征信查询日期: {queryTime}）`
+- 同一主体多行：L1 每行仍写入相同的 `borrowingEntity` / `principalRole` / 租赁与非租赁合计；L2 按 `mergeSame` 合并单元格（`rowspan = 记录数 × 2`）
+- 序号列**不合并**，每条借款明细各自编号
+
+**列定义示例：**
+
+```json
+{ "key": "borrowingEntity", "label": "借款主体", "stackSpan": true, "mergeSame": true, "subKey": "queryTime" }
+```
 
 **不输出列：** `isWhite` / `loanOrigTypeName` / `customerNo` / 主键类字段
 
@@ -212,21 +219,21 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 **showIndex：** `true`  
 **emptyText：** `暂无个人借款数据`
 
-| 顺序 | 列 label | key | 格式化 |
-| :--: | -------- | --- | ------ |
-| 1 | 借款主体 | `borrowingEntity` | 同 §7.3 借款主体展示规则（拼 `queryTime`） |
-| 2 | 业务大类 | `businessCategory` | 原样 |
-| 3 | 担保方式 | `guaranteeMethod` | 原样 |
-| 4 | 账户数量 | `accountNum` | 原样（数字转字符串） |
-| 5 | 借款金额(元) | `loanAmount` | 金额 |
-| 6 | 余额(元) | `balance` | 金额 |
-| 7 | 累计逾期月数 | `overdueMonths` | 原样 |
-| 8 | 当前逾期账户数 | `overdueAccountNum` | 原样 |
-| 9 | 最长逾期月数 | `maxOverdueMonths` | 原样 |
-| 10 | 最大逾期金额(元) | `maxOverdueAmount` | 金额 |
-| 11 | 近一个月到期金额(元) | `balanceDue` | 金额（label 对齐页面截图） |
-| 12 | 近三个月被其他机构查询贷款审批及担保资格的次数 | `queryTimes` | 原样 |
-| 13 | 数据来源 | `querySource` | 原样 |
+| 顺序 | 列 label | key | 格式化 | 叠行列属性 |
+| :--: | -------- | --- | ------ | ---------- |
+| 1 | 借款主体 | `borrowingEntity` | 仅主体名称；日期走 `subKey` | `stackSpan` + `mergeSame`；`subKey: queryTime` |
+| 2 | 业务大类 | `businessCategory` | 原样 | 配对叠放 |
+| 3 | 担保方式 | `guaranteeMethod` | 原样 | 配对叠放 |
+| 4 | 账户数量 | `accountNum` | 原样（数字转字符串） | 配对叠放 |
+| 5 | 借款金额(元) | `loanAmount` | 金额 | 配对叠放 |
+| 6 | 余额(元) | `balance` | 金额 | 配对叠放 |
+| 7 | 累计逾期月数 | `overdueMonths` | 原样 | 配对叠放 |
+| 8 | 当前逾期账户数 | `overdueAccountNum` | 原样 | 配对叠放 |
+| 9 | 最长逾期月数 | `maxOverdueMonths` | 原样 | 配对叠放 |
+| 10 | 最大逾期金额(元) | `maxOverdueAmount` | 金额 | 配对叠放 |
+| 11 | 近一个月到期金额(元) | `balanceDue` | 金额（label 对齐页面截图） | 配对叠放 |
+| 12 | 近三个月被其他机构查询贷款审批及担保资格的次数 | `queryTimes` | 原样 | 配对叠放 |
+| 13 | 数据来源 | `querySource` | 原样 | 配对叠放 |
 
 **不输出：** `isBadAccount` / `maxCreditAmount` / `isWhite` / `principalRole` / `customerNo`（个人表截图无主体角色列）
 
@@ -251,19 +258,19 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 **showIndex：** `true`  
 **emptyText：** `暂无对外担保数据`
 
-| 顺序 | 列 label | key | 格式化 |
-| :--: | -------- | --- | ------ |
-| 1 | 担保主体 | `borrowingEntity` | 同 §7.3 借款主体展示（拼 `queryTime`） |
-| 2 | 主体角色 | `principalRole` | 数组 `、` 拼接 |
-| 3 | 被担保主体 | `guaranteedEntity` | 原样；空串 → `—` |
-| 4 | 业务类型 | `businessType` | 原样 |
-| 5 | 余额(元) | `balance` | 金额 |
-| 6 | 起始日期 | `startDate` | 原样 |
-| 7 | 截止日期 | `deadline` | 原样 |
-| 8 | 五级分类 | `fiveLevel` | 原样 |
-| 9 | 当前逾期月数 | `curOverdueMonth` | 原样 |
-| 10 | 是否存在对应借款 | `loanExists` | 原样（对齐业务 PRD；勿改成「对外借款」） |
-| 11 | 数据来源 | `querySource` | 原样 |
+| 顺序 | 列 label | key | 格式化 | 叠行列属性 |
+| :--: | -------- | --- | ------ | ---------- |
+| 1 | 担保主体 | `borrowingEntity` | 仅主体名称；日期走 `subKey` | `stackSpan` + `mergeSame`；`subKey: queryTime` |
+| 2 | 主体角色 | `principalRole` | 数组 `、` 拼接 | `stackSpan` + `mergeSame` |
+| 3 | 被担保主体 | `guaranteedEntity` | 原样；空串 → `—` | 配对叠放 |
+| 4 | 业务类型 | `businessType` | 原样 | 配对叠放 |
+| 5 | 余额(元) | `balance` | 金额 | 配对叠放 |
+| 6 | 起始日期 | `startDate` | 原样 | 配对叠放 |
+| 7 | 截止日期 | `deadline` | 原样 | 配对叠放 |
+| 8 | 五级分类 | `fiveLevel` | 原样 | 配对叠放 |
+| 9 | 当前逾期月数 | `curOverdueMonth` | 原样 | 配对叠放 |
+| 10 | 是否存在对应借款 | `loanExists` | 原样（对齐业务 PRD；勿改成「对外借款」） | 配对叠放 |
+| 11 | 数据来源 | `querySource` | 原样 | 配对叠放 |
 
 **不输出：** `paymentAmount` / `customerNo` / 主键
 
@@ -512,14 +519,15 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 4. 空值统一填 `—`
 5. 不适用系统 / `liabilityAnalysis` 缺失时：**整模块不输出**
 6. `blocks` 顺序严格按第六节
-7. 宽表完整输出全部列，**不**拆成多张业务表；叠行由 L2 处理
+7. 宽表完整输出全部列于**单个** table block；叠行由 L2 处理（`stackSpan` 跨行固定列 + 其余配对；**不**按 16 列拆表）
 8. 不输出筛选、更新、新增删除等交互控件
 
 ---
 
 ## 十一、与 L2 协作约定
 
-1. 本模块展示类型：`direct`、`group`（仅标题）、`table`（含 `summary`，列数 > 8 走叠行）、`longText`
-2. 企业借款 / 个人借款 / 对外担保均为宽表，适用 `prjc_style_render.md` §5.5.1
-3. 五级分类、主体角色在 PDF 中为纯文本；若后续要做色标，由 L2 扩展 `cellType`，本 Skill 仍只传中文值
-4. `loanSituationTitle` 的空 `children` group 只渲染小节标题
+1. 本模块展示类型：`direct`、`group`（仅标题）、`table`（含 `summary` / `stackSpan` / `mergeSame` / `subKey`）、`longText`
+2. 企业借款 / 个人借款 / 对外担保均为宽表，适用 `prjc_style_render.md` §5.5.1（单表叠行，物理列不封顶）
+3. 借款主体 / 担保主体 / 主体角色 / 租赁与非租赁合计：`stackSpan + mergeSame`；征信日期用 `subKey: queryTime`
+4. 五级分类、主体角色在 PDF 中为纯文本；若后续要做色标，由 L2 扩展 `cellType`，本 Skill 仍只传中文值
+5. `loanSituationTitle` 的空 `children` group 只渲染小节标题

@@ -154,25 +154,28 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `columns` | array | 列定义，`key` 对应 `rows` / `summary` 中的字段 |
 | `columns[].align` | string | `left`（默认）/ `center` / `right` |
 | `columns[].mergeSame` | boolean | 为 `true` 时，对该列连续相同的非空值做 `rowspan` 合并（见下方说明） |
+| `columns[].stackSpan` | boolean | 仅叠行宽表有效：为 `true` 时该列**不参与两两配对**，单独占一物理列且 `rowspan="2"`（跨上下两行） |
+| `columns[].subKey` | string | 可选；同单元格副文案字段（如征信查询日期），渲染为主值下方一行 |
 | `rows` | array | 数据行 |
 | `summary` | object | 合计行；无合计时不传 |
 | `emptyText` | string | `rows` 为空时的占位文案，默认「暂无数据」 |
 
-**`mergeSame` 合并规则（标准单行表）：**
+**`mergeSame` 合并规则：**
 
-1. 仅当 `columns[].mergeSame === true` 时生效；叠行宽表（`columns.length > 8`）暂不支持，忽略该标记
-2. 自上而下扫描该列：连续相同且非空（非 `—` / 非空串）的单元格合并为一个 `td`，设置 `rowspan=N`
-3. 被合并的后续行**不再输出**该列 `td`
-4. 值变为不同、或为空占位 `—` 时，结束上一组合并并重新起算
-5. 典型场景：重点指标「评估项目」列（盈利能力 / 运营能力 / 偿债能力 / 发展能力）
+1. 仅当 `columns[].mergeSame === true` 时生效
+2. 自上而下扫描该列：连续相同且非空（非 `—` / 非空串）的单元格合并为一个 `td`
+3. **标准单行表**：`rowspan = 连续行数 N`
+4. **叠行宽表**：仅对 `stackSpan: true` 的列生效；`rowspan = N × 2`（每条逻辑记录占 2 个 `tr`）；配对叠放列**不**做 mergeSame
+5. 被合并的后续行**不再输出**该列 `td`
+6. 值变为不同、或为空占位 `—` 时，结束上一组合并并重新起算
+7. 典型场景：重点指标「评估项目」；刚性负债「借款主体 / 担保主体 / 主体角色」等
 
 **列数与布局（L2 自动判定，L1 无需传 layout）：**
 
 | `columns.length` | 布局 | 说明 |
 | :--------------: | ---- | ---- |
 | ≤ 8 | 标准单行表 | 1 行表头 + 每条数据 1 行 `tr` |
-| > 8 | 叠行宽表 | 2 行表头 + 每条数据 2 行 `tr`；见 §5.5.1 |
-| > 16 | 叠行宽表 · 分段 | 按每段最多 16 列拆成多个叠行子表，同 block 内顺序排列 |
+| > 8 | 叠行宽表 | 2 行表头 + 每条数据 2 行 `tr`；见 §5.5.1；**单表输出，不按 16 列强制分段** |
 
 #### empty — 空状态
 
@@ -261,7 +264,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `measureList` | 增信措施卡片列表 | `report-measure-list` | §5.7 |
 | `analysisList` | AI 分析结果（结论 Markdown） | `report-analysis-list` | §5.8 |
 
-> **列数规则**：`columns.length ≤ 8` 走标准单行表格（§5.5）；`> 8` 走叠行表格（§5.5.1），同一逻辑记录占 2 行，序号列 `rowspan="2"`。不再使用「拆成多个独立 table + 灰色小标题」的宽表方案。
+> **列数规则**：`columns.length ≤ 8` 走标准单行表格（§5.5）；`> 8` 走叠行表格（§5.5.1），同一逻辑记录占 2 行。叠行时物理列数**不**限制为最多 8 列，**不**因超过 16 逻辑列再拆成多张子表。
 
 ---
 
@@ -481,6 +484,26 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   }
   .report-table--stacked .report-table__index-cell {
     vertical-align: middle;
+    text-align: center;
+  }
+  .report-table td[rowspan]:not(.report-table__index-cell) {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table--stacked .report-table__span-cell {
+    vertical-align: middle !important;
+    text-align: center;
+  }
+  .report-table td[rowspan]:not(.report-table__index-cell) {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table__entity-sub {
+    display: block;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
     text-align: center;
   }
   .report-table--stacked + .report-table--stacked {
@@ -907,67 +930,56 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 
 ### 5.5.1 表格（table · 叠行宽表 · columns > 8）
 
-当逻辑列超过 8 列时，L2 **不**拆成多个独立 `table`，而是在**同一个** `report-table-block` 内渲染叠行宽表：表头 2 行、每条数据 2 行，逻辑列按数组顺序**两两配对**叠放在同一物理列的上下行（参考征信类宽表样式）。
+当逻辑列超过 8 列时，L2 在**同一个** `report-table-block` 内渲染**一张**叠行宽表（表头 2 行、每条数据 2 行）。**禁止**因列过多再拆成多个子表（避免末列如「是否与征信重复」单独成表）。
 
-**列配对规则：**
+**列布局规则：**
+
+1. 将 `columns` 分为两类（保持原数组相对顺序）：
+   - **跨行固定列**（`stackSpan: true`）：单独占一物理列，表头 / 单元格均 `rowspan="2"`
+   - **配对叠放列**（其余）：按出现顺序**两两配对**为物理列（上行 / 下行）
+2. 配对时**不限制**物理列上限（可超过 8）；末列落单时上行填该列、下行填「—」
+3. `showIndex: true` 时序号列为最左跨行固定列（不计入 `columns.length`）
 
 ```text
-物理列 1：columns[0] 上行 / columns[1] 下行
-物理列 2：columns[2] 上行 / columns[3] 下行
-…
-末列仅 1 个逻辑列时：仅填上行，下行展示「—」
+示例（含 stackSpan）：
+序号(跨行) | 借款主体(跨行) | 主体角色(跨行) | 业务类型↑/机构编码↓ | 授信机构↑/借款金额↓ | … | 是否与征信重复↑/—↓
 ```
 
-**物理列上限与分段：**
-
-| 条件 | 处理 |
-| ---- | ---- |
-| 9 ≤ columns.length ≤ 16 | 单个 `report-table--stacked` |
-| columns.length > 16 | 按每段最多 16 列切分，同 block 内输出多个 `report-table--stacked`，**不加**灰色小标题 |
-
-**HTML 结构（节选 · 4 逻辑列示例）：**
+**HTML 结构（节选 · 含跨行固定列）：**
 
 ```html
-<div class="report-block report-table-block">
-  <div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">贷款信息</span>
-  </div>
-  <table class="report-table report-table--stacked">
-    <thead>
-      <tr class="report-table__head-row--top">
-        <th rowspan="2">序号</th>
-        <th><span class="report-table__stack-label">授信机构</span></th>
-        <th><span class="report-table__stack-label">贷款类型</span></th>
-      </tr>
-      <tr class="report-table__head-row--bottom">
-        <th><span class="report-table__stack-label">余额</span></th>
-        <th><span class="report-table__stack-label">当前逾期金额</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="report-table__data-row--top">
-        <td rowspan="2" class="report-table__index-cell">1</td>
-        <td><span class="report-table__stack-value">B5202</span></td>
-        <td><span class="report-table__stack-value">C1 个人经营性贷款</span></td>
-      </tr>
-      <tr class="report-table__data-row--bottom report-table__record-divider">
-        <td><span class="report-table__stack-value">700</span></td>
-        <td><span class="report-table__stack-value">0</span></td>
-      </tr>
-      <!-- 合计行（有 summary 时） -->
-      <tr class="report-table__summary-row--top">
-        <td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td>
-        <td><span class="report-table__stack-value">—</span></td>
-        <td><span class="report-table__stack-value">—</span></td>
-      </tr>
-      <tr class="report-table__summary-row--bottom report-table__record-divider">
-        <td><span class="report-table__stack-value report-table__cell--strong">700</span></td>
-        <td><span class="report-table__stack-value">—</span></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="report-table report-table--stacked">
+  <thead>
+    <tr class="report-table__head-row--top">
+      <th rowspan="2">序号</th>
+      <th rowspan="2">借款主体</th>
+      <th rowspan="2">主体角色</th>
+      <th><span class="report-table__stack-label">业务类型</span></th>
+      <th><span class="report-table__stack-label">授信机构</span></th>
+    </tr>
+    <tr class="report-table__head-row--bottom">
+      <th><span class="report-table__stack-label">机构编码</span></th>
+      <th><span class="report-table__stack-label">借款金额(元)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="report-table__data-row--top">
+      <td rowspan="2" class="report-table__index-cell">1</td>
+      <td rowspan="4" class="report-table__span-cell">
+        连云港惟美数智家居科技有限公司
+        <span class="report-table__entity-sub">（征信查询日期: 2024-08-27）</span>
+      </td>
+      <td rowspan="4" class="report-table__span-cell">承租人</td>
+      <td><span class="report-table__stack-value">融资型租赁</span></td>
+      <td><span class="report-table__stack-value">—</span></td>
+    </tr>
+    <tr class="report-table__data-row--bottom report-table__record-divider">
+      <td><span class="report-table__stack-value">本机构</span></td>
+      <td><span class="report-table__stack-value">2,628,700.00</span></td>
+    </tr>
+    <!-- 同主体第 2 条：不再输出已合并的借款主体 / 主体角色 td；序号仍为 2 -->
+  </tbody>
+</table>
 ```
 
 **叠行宽表规则：**
@@ -976,14 +988,15 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | ---- | ---- |
 | 触发条件 | `columns.length > 8` |
 | 表格 class | `report-table report-table--stacked` |
-| 表头 | 2 行：上行放奇数位逻辑列 label，下行放偶数位；`showIndex: true` 时序号 th `rowspan="2"` |
-| 数据行 | 每条记录 2 行：上行 `report-table__data-row--top`，下行 `report-table__data-row--bottom report-table__record-divider` |
-| 序号 | `showIndex: true` 时 td `rowspan="2"` + `report-table__index-cell`，垂直居中 |
-| 记录分隔 | 仅在下沿行（`report-table__record-divider`）加粗底边框，同一记录上下两行之间无额外分隔线 |
-| 合计行 | 有 `summary` 时同样占 2 行，class 用 `report-table__summary-row--top` / `--bottom`；`summary.index` 占序号列且 `rowspan="2"` |
+| 单表输出 | 无论列数多少，同一 block **只输出一张**叠行表 |
+| 跨行固定列 | `stackSpan: true`：th/td `rowspan="2"`（单条记录）；若同时 `mergeSame`，则 `rowspan = 连续相同记录数 × 2`；内容**水平+垂直居中**（`report-table__span-cell`） |
+| 配对叠放列 | 非 `stackSpan` 列两两配对；物理列数不封顶 |
+| 副文案 | 有 `subKey` 时，主值下方追加 `report-table__entity-sub`（如征信查询日期） |
+| 序号 | `showIndex: true` 时每条记录仍各自编号，`rowspan="2"`，**不**与主体合并 |
+| 合计行 | 有 `summary` 时占 2 行；跨行固定列在合计行输出对应值或 `—`（`rowspan="2"`） |
 | 空数据 / 对齐 / 图片 | 同 §5.5 |
 
-> L1 仍输出**一个** `displayType: "table"` block 及完整 `columns` / `rows`；列拆分与叠行由 L2 按本节规则自动完成。
+> L1 仍输出**一个** `displayType: "table"` block 及完整 `columns` / `rows`；叠行、跨行固定列与合并由 L2 完成。
 
 ### 5.6 空状态（empty）
 
