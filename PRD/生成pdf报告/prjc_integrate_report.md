@@ -16,6 +16,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 ├─ Step 1 · 功能整合 （按模块，同级并行资源）
 │    ├─ 合作历史 · 功能整合资源（prjc_integrate_cooperation_history）
 │    ├─ 项目基本信息 · 功能整合资源（prjc_integrate_project_base_info）
+│    ├─ 实施方案 · 功能整合资源（prjc_integrate_implementation_plan）
 │    └─ …（后续扩展模块）
 │
 └─ Step 2 · 统一规范样式
@@ -47,7 +48,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 1. 若数据完整且模块明确，进入 Step 1，按模块依次下发对应功能整合资源；
 2. 若数据缺失，记录缺失字段，下发时告知各模块资源以「—」占位，**不中断**生成流程；
-3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：合作历史、项目基本信息）。
+3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：合作历史、项目基本信息、实施方案）。
 
 ### 二、Step 1 · 下发功能整合资源
 
@@ -66,9 +67,10 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | :--: | ---- | -------- | ---- | ----------- | ---- |
 | 1 | 合作历史 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | `cooperation_history` | 详见该资源文档；`prjc-flr` 整模块不输出 |
 | 2 | 项目基本信息 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | `project_base_info` | 详见该资源文档 |
+| 3 | 实施方案 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | `implementation_plan` | 详见该资源文档 |
 | — | 其他模块 | — | — | — | 后续扩展 |
 
-> 调度顺序对齐页面：合作历史 → 项目基本信息。汇总 HTML 时按此顺序拼接各模块片段。
+> 调度顺序对齐页面：合作历史 → 项目基本信息 → 实施方案。汇总 HTML 时按此顺序拼接各模块片段。
 
 ### 三、Step 2 · 下发样式资源
 
@@ -100,6 +102,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 报告自动生成 PDF 模块（总体架构 / 下发控制） | `prjc_integrate_report` | L0 | 已编写 |
 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | L1 | 已编写 |
 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | L1 | 已编写 |
+| 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | L1 | 已编写 |
 | 统一规范样式 | `prjc_style_render` | L2 | 已编写 |
 
 ---
@@ -124,7 +127,7 @@ Step 1 功能整合资源输出给 Step 2 样式资源的结构化数据格式�
 }
 ```
 
-- `moduleIndex`：供 L0 排序拼接；合作历史先于项目基本信息
+- `moduleIndex`：供 L0 排序拼接；合作历史 → 项目基本信息 → 实施方案
 - `displayType`：展示类型标注，决定 L2 走哪个样式分支
 - L1 只负责填充业务语义与展示类型，**不包含 HTML 标签**
 - L2 根据 `displayType` 选择固定样式模板，生成 HTML 片段

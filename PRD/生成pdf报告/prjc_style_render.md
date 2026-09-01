@@ -116,6 +116,8 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `children` | array | 子数据块，支持 `direct` / `person` / `longText` |
 
 > 对应页面效果：蓝色圆点 + 分组标题（如「项目基本信息」「报价信息」「参考收益率」），下方 4 列栅格排列键值对。
+>
+> **仅标题分组**：`children` 为空数组时，只渲染 `report-section-title`，不输出栅格（用于实施方案报价名称 `quotName` 等分隔标题）。
 
 #### table — 表格展示
 
@@ -543,6 +545,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 
 - `children` 按数组顺序从左到右、从上到下填充栅格
 - `longText` 子项使用 `report-grid__cell--w-100`
+- `children` 为空或不传时：只输出小节标题，不输出 `.report-grid`
 
 ### 5.5 表格（table · 标准单行 · columns ≤ 8）
 
