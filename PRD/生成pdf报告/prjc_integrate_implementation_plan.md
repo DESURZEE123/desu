@@ -121,7 +121,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 - `advertisingInfoList` 为 `null` / `[]`：仍输出风险敞口汇总（有值则展示，无值 `—`）；不输出报价子块，可追加 `empty` block，`emptyText: 暂无关联报价`
 - 单表为空：该表走对应 `emptyText`，其余块正常输出
-- 增信措施列表为空：输出 table，`emptyText: 暂无增信措施`
+- 增信措施列表为空：输出 `measureList`，`emptyText: 暂无增信措施`
 
 ---
 
@@ -141,7 +141,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 8 | `otherPlan_{i}` | `其他收支计划` | `table` | 同上 |
 | 9 | `insuranceRule_{i}` | `保险规则设置` | `table` | prjc-drs |
 | 10 | `insurance_{i}` | `保险` | `table` | prjc-drs |
-| 11 | `creditEnhancement_{i}` | `增信措施` | `table` | 非 prjc-flr |
+| 11 | `creditEnhancement_{i}` | `增信措施` | `measureList` | 非 prjc-flr |
 
 > `{i}` 为报价在 `advertisingInfoList` 中的下标（从 0 起）。多报价时按列表顺序完整重复 2～11。
 
@@ -333,7 +333,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 - 列数 > 8 时由 L2 自动叠行，L1 不拆表
 - 仅 `prjc-drs` 输出；空表走 `emptyText: 暂无保险数据`
 
-### 7.10 增信措施（table）
+### 7.10 增信措施（measureList · 卡片列表）
+
+对齐页面「增信措施」卡片样式：每条措施一张卡，含担保方式色标、客户身份行；抵押/质押额外展开属性行 + 担保物明细表。
 
 数据来源（按优先级）：
 
@@ -342,18 +344,152 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 3. `creditEnhancementMeasure.creditEnhancementMeasureList`（若带 `quotName` 则按报价过滤）
 
 **blockKey：** `creditEnhancement_{i}`  
-**label：** `增信措施`
+**label：** `增信措施`  
+**displayType：** `measureList`  
+**emptyText：** `暂无增信措施`
 
-| 列 label | key | 格式化 |
-| -------- | --- | ------ |
-| 担保方式 | `guaranteeMethod` | 取对象 `desc`；若已是字符串则原样 |
+#### 7.10.1 卡片主字段（每条 `items[]`）
+
+| 字段 | key / 规则 | 格式化 |
+| ---- | ---------- | ------ |
+| 担保方式文案 | `guaranteeMethod` | 取对象 `desc`；已是字符串则原样 |
+| 担保方式色调 | `guaranteeTone` | 见下表；L2 按此渲染标签色 |
 | 客户名称 | `customerName` | 原样 |
+| 关系标签 | `relationship` | 原样；空则不传（不渲染绿色关系 tag） |
 | 证件类型 | `crdntlsType` | 原样 |
 | 证件代码 | `documentCode` | 原样 |
 
-- `showIndex`: `false`
-- `emptyText`: `暂无增信措施`
-- PDF **仅输出列表摘要**（对齐页面卡片行：担保方式标签 + 客户名称 + 证件信息）；不展开担保人/担保企业详情、抵押物明细、知识图谱等交互内容
+**`guaranteeTone` 映射（按 `guaranteeMethod.code` / 文案）：**
+
+| 担保方式 | code | `guaranteeTone` | 标签色（L2） |
+| -------- | :--: | --------------- | ------------ |
+| 保证担保 | 1 | `guarantee` | 橙 `#FF7D00` |
+| 抵押担保 | 3 | `mortgage` | 蓝 `#3491FA` |
+| 质押担保 | 5 | `pledge` | 浅橙 `#FF9A2E` |
+| 其他 / 未知 | — | `default` | 灰 `#86909C` |
+
+> 有 `desc` 无 `code` 时按文案包含「保证 / 抵押 / 质押」匹配；均无法匹配则 `default`。
+
+#### 7.10.2 抵押 / 质押属性行（`attrs`）
+
+仅当担保方式为 **抵押担保** 或 **质押担保** 时输出 `attrs`（保证担保不传）：
+
+| 列 label | key | 格式化 |
+| -------- | --- | ------ |
+| 抵押物类别 | `collateralType` | 原样；空 → `—` |
+| 抵质押物类型 | `mortgageAndPledgeType` | 原样；空 → `—` |
+| 抵质押物分类 | `mortgageAndPledgeClass` | 原样；空 → `—` |
+
+```json
+"attrs": [
+  { "label": "抵押物类别", "value": "其他" },
+  { "label": "抵质押物类型", "value": "动产" },
+  { "label": "抵质押物分类", "value": "4.3.1车辆" }
+]
+```
+
+#### 7.10.3 担保物明细（`collateral`）
+
+仅当 `collateralList` 非空时输出；结构复用 table Schema（由 L2 在卡片内渲染；列数 > 8 自动叠行）：
+
+| 列 label | key | 格式化 |
+| -------- | --- | ------ |
+| 担保物名称 | `assetsName` | 原样 |
+| 所在地 | `locationVfbc` | 原样 |
+| 车牌号/不动产面积 | `assetsNo1Vfbc` | 原样 |
+| 机身号/不动产单元号 | `assetsNo` | 原样 |
+| 租赁物唯一识别码/抵质押证书编号 | `assetsNo2Vfbc` | 原样 |
+| 担保物估值(元) | `estimateValue` | 千分位 + 2 位小数 |
+| 币种 | `currtype` | 原样 |
+| 第三方质押债务人 | `debtor` | 原样 |
+| 是否第一顺位 | `isFirstOrder` | 原样 |
+| 评估方式 | `assessMode` | 原样 |
+| 优先受偿权数额 | `compensationNumber` | 千分位 + 2 位小数（已是文案则原样） |
+| 估值周期 | `valuationCycle` | 原样 |
+
+- `collateral.label`: `担保物`
+- `collateral.showIndex`: `true`
+- **全部列**默认左对齐（不传 `align`，或统一 `align: "left"`）；表头与单元格对齐一致
+- L2 用 `.report-measure-card__collateral .report-table th/td { text-align: left }` 兜底
+- `collateralList` 为空 / null：不传 `collateral` 字段（保证担保天然无此块）
+
+#### 7.10.4 输出示例
+
+```json
+{
+  "blockKey": "creditEnhancement_0",
+  "label": "增信措施",
+  "displayType": "measureList",
+  "emptyText": "暂无增信措施",
+  "items": [
+    {
+      "guaranteeMethod": "保证担保",
+      "guaranteeTone": "guarantee",
+      "customerName": "江阴绮星水泥有限公司",
+      "crdntlsType": "统一社会信用代码",
+      "documentCode": "91320281142225264B"
+    },
+    {
+      "guaranteeMethod": "保证担保",
+      "guaranteeTone": "guarantee",
+      "customerName": "肖令权",
+      "relationship": "实控人父母",
+      "crdntlsType": "居民身份证",
+      "documentCode": "51222219750923425X"
+    },
+    {
+      "guaranteeMethod": "抵押担保",
+      "guaranteeTone": "mortgage",
+      "customerName": "肖令权",
+      "relationship": "实控人父母",
+      "crdntlsType": "居民身份证",
+      "documentCode": "51222219750923425X",
+      "attrs": [
+        { "label": "抵押物类别", "value": "其他" },
+        { "label": "抵质押物类型", "value": "动产" },
+        { "label": "抵质押物分类", "value": "4.3.1车辆" }
+      ],
+      "collateral": {
+        "label": "担保物",
+        "showIndex": true,
+        "columns": [
+          { "key": "assetsName", "label": "担保物名称" , "align": "right" },
+          { "key": "locationVfbc", "label": "所在地" , "align": "right" },
+          { "key": "assetsNo1Vfbc", "label": "车牌号/不动产面积" , "align": "right" },
+          { "key": "assetsNo", "label": "机身号/不动产单元号" , "align": "right" },
+          { "key": "assetsNo2Vfbc", "label": "租赁物唯一识别码/抵质押证书编号" , "align": "right" },
+          { "key": "estimateValue", "label": "担保物估值(元)", "align": "right" },
+          { "key": "currtype", "label": "币种" , "align": "right" },
+          { "key": "debtor", "label": "第三方质押债务人" , "align": "right" },
+          { "key": "isFirstOrder", "label": "是否第一顺位" , "align": "right" },
+          { "key": "assessMode", "label": "评估方式" , "align": "right" },
+          { "key": "compensationNumber", "label": "优先受偿权数额", "align": "right" },
+          { "key": "valuationCycle", "label": "估值周期" , "align": "right" }
+        ],
+        "rows": [
+          {
+            "assetsName": "1",
+            "locationVfbc": "3",
+            "assetsNo1Vfbc": "4",
+            "assetsNo": "5",
+            "assetsNo2Vfbc": "6",
+            "estimateValue": "2.00",
+            "currtype": "人民币",
+            "debtor": "7",
+            "isFirstOrder": "第一顺位",
+            "assessMode": "内部评估",
+            "compensationNumber": "0.00",
+            "valuationCycle": "季度"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+**PDF 不输出：** 知识图谱入口、编辑/删除、担保人详情弹层等页面交互。
+
 - `prjc-flr` 不输出本块
 
 ---
@@ -542,23 +678,118 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
     {
       "blockKey": "creditEnhancement_0",
       "label": "增信措施",
-      "displayType": "table",
-      "showIndex": false,
-      "columns": [
-        { "key": "guaranteeMethod", "label": "担保方式" },
-        { "key": "customerName", "label": "客户名称" },
-        { "key": "crdntlsType", "label": "证件类型" },
-        { "key": "documentCode", "label": "证件代码" }
-      ],
-      "rows": [
+      "displayType": "measureList",
+      "emptyText": "暂无增信措施",
+      "items": [
         {
           "guaranteeMethod": "保证担保",
-          "customerName": "上海汇德实业有限公司",
+          "guaranteeTone": "guarantee",
+          "customerName": "江阴绮星水泥有限公司",
           "crdntlsType": "统一社会信用代码",
-          "documentCode": "91310117607835944Q"
+          "documentCode": "91320281142225264B"
+        },
+        {
+          "guaranteeMethod": "保证担保",
+          "guaranteeTone": "guarantee",
+          "customerName": "肖令权",
+          "relationship": "实控人父母",
+          "crdntlsType": "居民身份证",
+          "documentCode": "51222219750923425X"
+        },
+        {
+          "guaranteeMethod": "抵押担保",
+          "guaranteeTone": "mortgage",
+          "customerName": "肖令权",
+          "relationship": "实控人父母",
+          "crdntlsType": "居民身份证",
+          "documentCode": "51222219750923425X",
+          "attrs": [
+            { "label": "抵押物类别", "value": "其他" },
+            { "label": "抵质押物类型", "value": "动产" },
+            { "label": "抵质押物分类", "value": "4.3.1车辆" }
+          ],
+          "collateral": {
+            "label": "担保物",
+            "showIndex": true,
+            "columns": [
+              { "key": "assetsName", "label": "担保物名称" , "align": "right" },
+              { "key": "locationVfbc", "label": "所在地" , "align": "right" },
+              { "key": "assetsNo1Vfbc", "label": "车牌号/不动产面积" , "align": "right" },
+              { "key": "assetsNo", "label": "机身号/不动产单元号" , "align": "right" },
+              { "key": "assetsNo2Vfbc", "label": "租赁物唯一识别码/抵质押证书编号" , "align": "right" },
+              { "key": "estimateValue", "label": "担保物估值(元)", "align": "right" },
+              { "key": "currtype", "label": "币种" , "align": "right" },
+              { "key": "debtor", "label": "第三方质押债务人" , "align": "right" },
+              { "key": "isFirstOrder", "label": "是否第一顺位" , "align": "right" },
+              { "key": "assessMode", "label": "评估方式" , "align": "right" },
+              { "key": "compensationNumber", "label": "优先受偿权数额", "align": "right" },
+              { "key": "valuationCycle", "label": "估值周期" , "align": "right" }
+            ],
+            "rows": [
+              {
+                "assetsName": "1",
+                "locationVfbc": "3",
+                "assetsNo1Vfbc": "4",
+                "assetsNo": "5",
+                "assetsNo2Vfbc": "6",
+                "estimateValue": "2.00",
+                "currtype": "人民币",
+                "debtor": "7",
+                "isFirstOrder": "第一顺位",
+                "assessMode": "内部评估",
+                "compensationNumber": "0.00",
+                "valuationCycle": "季度"
+              }
+            ]
+          }
+        },
+        {
+          "guaranteeMethod": "质押担保",
+          "guaranteeTone": "pledge",
+          "customerName": "江阴绮星水泥有限公司",
+          "crdntlsType": "统一社会信用代码",
+          "documentCode": "91320281142225264B",
+          "attrs": [
+            { "label": "抵押物类别", "value": "—" },
+            { "label": "抵质押物类型", "value": "动产" },
+            { "label": "抵质押物分类", "value": "4.3.1车辆" }
+          ],
+          "collateral": {
+            "label": "担保物",
+            "showIndex": true,
+            "columns": [
+              { "key": "assetsName", "label": "担保物名称" , "align": "right" },
+              { "key": "locationVfbc", "label": "所在地" , "align": "right" },
+              { "key": "assetsNo1Vfbc", "label": "车牌号/不动产面积" , "align": "right" },
+              { "key": "assetsNo", "label": "机身号/不动产单元号" , "align": "right" },
+              { "key": "assetsNo2Vfbc", "label": "租赁物唯一识别码/抵质押证书编号" , "align": "right" },
+              { "key": "estimateValue", "label": "担保物估值(元)", "align": "right" },
+              { "key": "currtype", "label": "币种" , "align": "right" },
+              { "key": "debtor", "label": "第三方质押债务人" , "align": "right" },
+              { "key": "isFirstOrder", "label": "是否第一顺位" , "align": "right" },
+              { "key": "assessMode", "label": "评估方式" , "align": "right" },
+              { "key": "compensationNumber", "label": "优先受偿权数额", "align": "right" },
+              { "key": "valuationCycle", "label": "估值周期" , "align": "right" }
+            ],
+            "rows": [
+              {
+                "assetsName": "1",
+                "locationVfbc": "2",
+                "assetsNo1Vfbc": "3",
+                "assetsNo": "4",
+                "assetsNo2Vfbc": "5",
+                "estimateValue": "6.00",
+                "currtype": "人民币",
+                "debtor": "7",
+                "isFirstOrder": "第一顺位",
+                "assessMode": "内部评估",
+                "compensationNumber": "0.00",
+                "valuationCycle": "季度"
+              }
+            ]
+          }
         }
-      ],
-      "emptyText": "暂无增信措施"
+      ]
     }
   ]
 }
@@ -575,8 +806,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 5. `blocks` 内顺序严格按第六节表格排列；多报价按 `advertisingInfoList` 顺序展开
 6. 页面 Tab（租金 / 保证金 / 其他收支）在 PDF 中全部展开，不模拟 Tab
 7. 不输出关联报价、取消关联、编辑、保存、付款条件选择等页面交互能力
-8. 增信措施仅输出列表摘要，不展开担保人/企业详情与抵押物明细
-9. 宽表不拆 block；列数 > 8 时由 L2 叠行处理
+8. 增信措施按页面卡片样式输出（`measureList`）：担保方式色标 + 客户身份行 + 关系标签；抵押/质押展开属性行与担保物表；不输出知识图谱等交互入口
+9. 宽表不拆 block；列数 > 8 时由 L2 叠行处理（含卡片内担保物表）
 
 ---
 
@@ -586,6 +817,5 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | -- | ---- |
 | `prjc-si` 零售 / 大单风险敞口字段差异 | 按项目类型条件收窄 §7.1 字段 |
 | `prjc-gld` / `prjc-hdr` | 系统差异与字段范围待补充 |
-| 增信措施标签色 | 页面按担保方式着色；若 L2 增加 `tag` / `measureList` 样式，可改为非表格展示 |
 | 投放信息 5 列栅格 | 页面约 5 列；当前 PDF 统一 4 列，若需像素级对齐再扩展 L2 `columns: 5` |
 | 付款方式空值 | 若入参仅有 `eventCode` 无中文，是否做 10101/10102 映射待业务确认（默认不转换） |

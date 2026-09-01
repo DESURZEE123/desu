@@ -176,6 +176,39 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 }
 ```
 
+#### measureList — 增信措施卡片列表
+
+```json
+{
+  "blockKey": "creditEnhancement_0",
+  "label": "增信措施",
+  "displayType": "measureList",
+  "emptyText": "暂无增信措施",
+  "items": [
+    {
+      "guaranteeMethod": "保证担保",
+      "guaranteeTone": "guarantee",
+      "customerName": "江阴绮星水泥有限公司",
+      "crdntlsType": "统一社会信用代码",
+      "documentCode": "91320281142225264B"
+    }
+  ]
+}
+```
+
+| 扩展字段 | 类型 | 说明 |
+| -------- | ---- | ---- |
+| `items` | array | 措施卡片列表，按接口顺序 |
+| `emptyText` | string | `items` 为空时占位文案，默认「暂无增信措施」 |
+| `items[].guaranteeMethod` | string | 担保方式文案（标签文字） |
+| `items[].guaranteeTone` | string | `guarantee` / `mortgage` / `pledge` / `default`，决定标签色 |
+| `items[].customerName` | string | 客户名称 |
+| `items[].relationship` | string | 关系标签（如「实控人父母」）；空则不渲染 |
+| `items[].crdntlsType` | string | 证件类型 |
+| `items[].documentCode` | string | 证件代码 |
+| `items[].attrs` | array | 可选；抵押/质押属性行 `{ label, value }[]` |
+| `items[].collateral` | object | 可选；担保物子表，结构同 `table`（`label` / `showIndex` / `columns` / `rows`） |
+
 ---
 
 ## 三、displayType 分发规则
@@ -190,6 +223,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `table` | 列表 / 明细 / 合计（≤8 列） | `report-table-block` | §5.5 |
 | `table`（`columns.length > 8`） | 叠行宽表 | `report-table report-table--stacked` | §5.5.1 |
 | `empty` | 无数据占位 | `report-empty` | §5.6 |
+| `measureList` | 增信措施卡片列表 | `report-measure-list` | §5.7 |
 
 > **列数规则**：`columns.length ≤ 8` 走标准单行表格（§5.5）；`> 8` 走叠行表格（§5.5.1），同一逻辑记录占 2 行，序号列 `rowspan="2"`。不再使用「拆成多个独立 table + 灰色小标题」的宽表方案。
 
@@ -212,6 +246,13 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `--font-size-module` | `16px` | 模块标题 |
 | `--font-size-group` | `14px` | 分组标题 |
 | `--line-height` | `22px` | 行高 |
+| `--color-tag-guarantee` | `#FF7D00` | 保证担保标签 |
+| `--color-tag-mortgage` | `#3491FA` | 抵押担保标签 |
+| `--color-tag-pledge` | `#FF9A2E` | 质押担保标签 |
+| `--color-tag-default` | `#86909C` | 其他担保方式标签 |
+| `--color-rel-tag` | `#00B42A` | 关系标签边框/文字 |
+| `--color-rel-tag-bg` | `#E8FFEA` | 关系标签背景 |
+| `--color-measure-card-bg` | `#F7F9FC` | 增信措施卡片背景 |
 
 ### 4.2 固定样式表（L2 唯一 CSS 来源）
 
@@ -417,6 +458,106 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
     border: 1px dashed #E5E6EB;
     border-radius: 4px;
   }
+
+  /* ===== measureList — 增信措施卡片 ===== */
+  .report-measure-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .report-measure-card {
+    background: #F7F9FC;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-measure-card__head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    line-height: 22px;
+  }
+  .report-measure-card__tag {
+    display: inline-block;
+    padding: 0 8px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .report-measure-card__tag--guarantee { background: #FF7D00; }
+  .report-measure-card__tag--mortgage { background: #3491FA; }
+  .report-measure-card__tag--pledge { background: #FF9A2E; }
+  .report-measure-card__tag--default { background: #86909C; }
+  .report-measure-card__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1677FF;
+  }
+  .report-measure-card__rel {
+    display: inline-block;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 18px;
+    border: 1px solid #00B42A;
+    border-radius: 2px;
+    background: #E8FFEA;
+    color: #00B42A;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .report-measure-card__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+  .report-measure-card__attrs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 8px 24px;
+  }
+  .report-measure-card__attr {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-measure-card__attr-label {
+    color: #86909C;
+    white-space: nowrap;
+  }
+  .report-measure-card__attr-value {
+    color: #1D2129;
+    font-weight: 500;
+  }
+  .report-measure-card__collateral {
+    margin-top: 12px;
+  }
+  .report-measure-card__collateral-title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    margin-bottom: 8px;
+  }
+  .report-measure-card__collateral-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1D2129;
+    margin-right: 8px;
+  }
+  /* 担保物表：表头与单元格统一左对齐 */
+  .report-measure-card__collateral .report-table th,
+  .report-measure-card__collateral .report-table td {
+    text-align: left;
+  }
 </style>
 ```
 
@@ -434,6 +575,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `table` 合计行（≤8 列） | tbody 末行 | `report-table__summary-row` / `report-table__cell--strong` |
 | `table` 合计行（>8 列） | tbody 末 2 行 | `report-table__summary-row--top` / `--bottom` |
 | `empty` | 圆点标题 + 占位 | `report-empty` + `report-empty__placeholder` |
+| `measureList` | 圆点标题 + 卡片列表 | `report-measure-list` + `report-measure-card` |
 
 **栅格列宽 class 映射：**
 
@@ -684,6 +826,64 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 </div>
 ```
 
+### 5.7 增信措施卡片列表（measureList）
+
+```html
+<div class="report-block report-measure-list">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">增信措施</span>
+  </div>
+  <div class="report-measure-list__items">
+    <!-- 保证担保 · 企业 -->
+    <div class="report-measure-card">
+      <div class="report-measure-card__head">
+        <span class="report-measure-card__tag report-measure-card__tag--guarantee">保证担保</span>
+        <span class="report-measure-card__name">江阴绮星水泥有限公司</span>
+        <span class="report-measure-card__id">统一社会信用代码：91320281142225264B</span>
+      </div>
+    </div>
+    <!-- 保证担保 · 个人 + 关系标签 -->
+    <div class="report-measure-card">
+      <div class="report-measure-card__head">
+        <span class="report-measure-card__tag report-measure-card__tag--guarantee">保证担保</span>
+        <span class="report-measure-card__name">肖令权</span>
+        <span class="report-measure-card__rel">实控人父母</span>
+        <span class="report-measure-card__id">居民身份证：51222219750923425X</span>
+      </div>
+    </div>
+    <!-- 抵押 / 质押：属性行 + 担保物表（列数 > 8 走叠行） -->
+    <div class="report-measure-card">
+      <div class="report-measure-card__head">…</div>
+      <div class="report-measure-card__attrs">
+        <div class="report-measure-card__attr">
+          <span class="report-measure-card__attr-label">抵押物类别：</span>
+          <span class="report-measure-card__attr-value">其他</span>
+        </div>
+        <!-- 其余 attrs … -->
+      </div>
+      <div class="report-measure-card__collateral">
+        <div class="report-measure-card__collateral-title">担保物</div>
+        <table class="report-table report-table--stacked">…</table>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+**measureList 规则：**
+
+| 规则 | 说明 |
+| ---- | ---- |
+| 标题 | 有 `label` 时输出 `report-section-title` |
+| 空数据 | `items` 为空 / 不传时，输出 `report-table-empty`（文案取 `emptyText`） |
+| 担保方式标签 | `guaranteeTone` → `report-measure-card__tag--{tone}`；缺省 `default` |
+| 关系标签 | 仅当 `relationship` 有值时输出 `report-measure-card__rel` |
+| 证件行 | 渲染为 `{crdntlsType}：{documentCode}`；任一空则该段用 `—` |
+| 属性行 | 有 `attrs` 时输出；按数组顺序横向换行 |
+| 担保物表 | 有 `collateral` 时输出；内部表格渲染规则同 §5.5 / §5.5.1；**表头与单元格统一左对齐**（CSS：`.report-measure-card__collateral .report-table th, td { text-align: left }`） |
+| 禁止 | **不输出**企业/个人 icon、SVG、知识图谱、编辑、删除等交互控件 |
+
 ---
 
 ## 六、渲染流程
@@ -702,7 +902,8 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   │           ├─ longText         → §5.3
   │           ├─ group            → §5.4（递归渲染 children）
   │           ├─ table            → §5.5（≤8 列）或 §5.5.1（>8 列）
-  │           └─ empty            → §5.6
+  │           ├─ empty            → §5.6
+  │           └─ measureList      → §5.7
   │
   └─ 4. 闭合容器，输出 HTML 片段
 ```
@@ -878,3 +1079,4 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `table` | 标准表格 + 可选合计行 | `report-table-block` + `report-table`（≤8 列） |
 | `table` | 叠行宽表（>8 列） | `report-table report-table--stacked` + 双行 thead/tbody |
 | `empty` | 虚线框 + 居中占位文案 | `report-empty` + `report-empty__placeholder` |
+| `measureList` | 增信措施色标卡片 + 可选担保物表 | `report-measure-list` + `report-measure-card` |

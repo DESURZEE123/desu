@@ -76,6 +76,103 @@
     padding: 24px; text-align: center; color: #86909C; font-size: 14px;
     border: 1px dashed #E5E6EB; border-radius: 4px;
   }
+  .report-measure-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .report-measure-card {
+    background: #F7F9FC;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-measure-card__head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    line-height: 22px;
+  }
+  .report-measure-card__tag {
+    display: inline-block;
+    padding: 0 8px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .report-measure-card__tag--guarantee { background: #FF7D00; }
+  .report-measure-card__tag--mortgage { background: #3491FA; }
+  .report-measure-card__tag--pledge { background: #FF9A2E; }
+  .report-measure-card__tag--default { background: #86909C; }
+  .report-measure-card__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1677FF;
+  }
+  .report-measure-card__rel {
+    display: inline-block;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 18px;
+    border: 1px solid #00B42A;
+    border-radius: 2px;
+    background: #E8FFEA;
+    color: #00B42A;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .report-measure-card__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+  .report-measure-card__attrs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 8px 24px;
+  }
+  .report-measure-card__attr {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-measure-card__attr-label {
+    color: #86909C;
+    white-space: nowrap;
+  }
+  .report-measure-card__attr-value {
+    color: #1D2129;
+    font-weight: 500;
+  }
+  .report-measure-card__collateral {
+    margin-top: 12px;
+  }
+  .report-measure-card__collateral-title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    margin-bottom: 8px;
+  }
+  .report-measure-card__collateral-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1D2129;
+    margin-right: 8px;
+  }
+  .report-measure-card__collateral .report-table th,
+  .report-measure-card__collateral .report-table td {
+    text-align: left;
+  }
 </style>
 
 
@@ -209,25 +306,25 @@
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">预测风险敞口(元)：</span>
-        <span class="report-kv__value">9,800.00</span>
+        <span class="report-kv__value">228,562.00</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">预测风险敞口/设备原值(%)：</span>
-        <span class="report-kv__value">24.5000</span>
+        <span class="report-kv__value">2285.6200</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">承租人累计风险敞口(元)：</span>
-        <span class="report-kv__value">13,862,560.87</span>
+        <span class="report-kv__value">-1,937,728.16</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">承租人及关联方累计风险敞口(元)：</span>
-        <span class="report-kv__value">13,862,560.87</span>
+        <span class="report-kv__value">-1,917,728.16</span>
       </div>
     </div>
   </div>
@@ -235,7 +332,7 @@
 <div class="report-block report-group">
 <div class="report-section-title">
   <span class="report-section-title__dot"></span>
-  <span class="report-section-title__text">20260810回租1</span>
+  <span class="report-section-title__text">精算05130913</span>
 </div>
 </div>
 <div class="report-block report-group">
@@ -247,13 +344,13 @@
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">投放金额(元)：</span>
-        <span class="report-kv__value">10,000.00</span>
+        <span class="report-kv__value">250,000.00</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">租金总额(元)：</span>
-        <span class="report-kv__value">10,164.00</span>
+        <span class="report-kv__value">255,756.00</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
@@ -265,13 +362,13 @@
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">贴息金额(元)：</span>
-        <span class="report-kv__value">300.00</span>
+        <span class="report-kv__value">—</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">保证金金额(元)：</span>
-        <span class="report-kv__value">200.00</span>
+        <span class="report-kv__value">125.00</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
@@ -283,25 +380,25 @@
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">综合收益率(%)：</span>
-        <span class="report-kv__value">10.8263</span>
+        <span class="report-kv__value">5.0784</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">内部收益率(%)：</span>
-        <span class="report-kv__value">10.4321</span>
+        <span class="report-kv__value">5.0734</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">租金分配IRR(%)：</span>
-        <span class="report-kv__value">3.0102</span>
+        <span class="report-kv__value">4.9893</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">报价利率(%)：</span>
-        <span class="report-kv__value">3.0000</span>
+        <span class="report-kv__value">5.0000</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
@@ -325,13 +422,13 @@
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">先付后付标识：</span>
-        <span class="report-kv__value">后付</span>
+        <span class="report-kv__value">先付</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
       <div class="report-kv">
         <span class="report-kv__label">投放日期：</span>
-        <span class="report-kv__value">2026-08-10</span>
+        <span class="report-kv__value">2026-05-14</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-25">
@@ -354,7 +451,7 @@
   <span class="report-section-title__text">付款条件及笔数</span>
 </div>
 <table class="report-table"><thead><tr><th>序号</th><th>期数展示</th><th>付款方式</th><th>是否内扣</th><th>计划投放日期</th><th class="report-table__cell--align-right">金额(元)</th><th>付款条件</th><th>付款对象</th></tr></thead><tbody>
-<tr><td>1</td><td>投放日</td><td>网银</td><td>否</td><td>2026-08-10</td><td class="report-table__cell--align-right">10,000.00</td><td>融资租赁合同已生效</td><td>苏州精实电子科技有限公司</td></tr>
+<tr><td>1</td><td>投放日</td><td>网银</td><td>否</td><td>2026-05-14</td><td class="report-table__cell--align-right">250,000.00</td><td>收到担保人同意担保的相关决议;收到承租人同意售后回租的相关决议</td><td>连云港惟美数智家居科技有限公司</td></tr>
 </tbody></table>
 </div>
 <div class="report-block report-group">
@@ -366,64 +463,137 @@
 <div class="report-grid__cell report-grid__cell--w-33">
       <div class="report-kv">
         <span class="report-kv__label">租金总额(元)：</span>
-        <span class="report-kv__value">10,164.00</span>
+        <span class="report-kv__value">255,756.00</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-33">
       <div class="report-kv">
         <span class="report-kv__label">本金总额(元)：</span>
-        <span class="report-kv__value">10,000.00</span>
+        <span class="report-kv__value">250,000.00</span>
       </div>
     </div>
 <div class="report-grid__cell report-grid__cell--w-33">
       <div class="report-kv">
         <span class="report-kv__label">利息总额(元)：</span>
-        <span class="report-kv__value">164.00</span>
+        <span class="report-kv__value">5,756.00</span>
       </div>
     </div>
   </div>
 </div>
 <div class="report-block report-table-block">
 <table class="report-table"><thead><tr><th>期数</th><th>事件类别</th><th>计划收取日期</th><th class="report-table__cell--align-right">租金(元)</th><th class="report-table__cell--align-right">利息(元)</th><th class="report-table__cell--align-right">本金(元)</th></tr></thead><tbody>
-<tr><td>1</td><td>收租</td><td>2026-09-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">25.00</td><td class="report-table__cell--align-right">822.00</td></tr>
-<tr><td>2</td><td>收租</td><td>2026-10-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">23.00</td><td class="report-table__cell--align-right">824.00</td></tr>
-<tr><td>3</td><td>收租</td><td>2026-11-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">21.00</td><td class="report-table__cell--align-right">826.00</td></tr>
-<tr><td>4</td><td>收租</td><td>2026-12-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">19.00</td><td class="report-table__cell--align-right">828.00</td></tr>
-<tr><td>5</td><td>收租</td><td>2027-01-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">17.00</td><td class="report-table__cell--align-right">830.00</td></tr>
-<tr><td>6</td><td>收租</td><td>2027-02-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">15.00</td><td class="report-table__cell--align-right">832.00</td></tr>
-<tr><td>7</td><td>收租</td><td>2027-03-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">13.00</td><td class="report-table__cell--align-right">834.00</td></tr>
-<tr><td>8</td><td>收租</td><td>2027-04-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">11.00</td><td class="report-table__cell--align-right">836.00</td></tr>
-<tr><td>9</td><td>收租</td><td>2027-05-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">8.00</td><td class="report-table__cell--align-right">839.00</td></tr>
-<tr><td>10</td><td>收租</td><td>2027-06-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">6.00</td><td class="report-table__cell--align-right">841.00</td></tr>
-<tr><td>11</td><td>收租</td><td>2027-07-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">4.00</td><td class="report-table__cell--align-right">843.00</td></tr>
-<tr><td>12</td><td>收租</td><td>2027-08-10</td><td class="report-table__cell--align-right">847.00</td><td class="report-table__cell--align-right">2.00</td><td class="report-table__cell--align-right">845.00</td></tr>
-</tbody></table></div>
+<tr><td>1</td><td>收租</td><td>2026-05-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">21,313.00</td></tr>
+<tr><td>2</td><td>收租</td><td>2026-06-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">953.00</td><td class="report-table__cell--align-right">20,360.00</td></tr>
+<tr><td>3</td><td>收租</td><td>2026-07-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">868.00</td><td class="report-table__cell--align-right">20,445.00</td></tr>
+<tr><td>4</td><td>收租</td><td>2026-08-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">783.00</td><td class="report-table__cell--align-right">20,530.00</td></tr>
+<tr><td>5</td><td>收租</td><td>2026-09-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">697.00</td><td class="report-table__cell--align-right">20,616.00</td></tr>
+<tr><td>6</td><td>收租</td><td>2026-10-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">611.00</td><td class="report-table__cell--align-right">20,702.00</td></tr>
+<tr><td>7</td><td>收租</td><td>2026-11-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">525.00</td><td class="report-table__cell--align-right">20,788.00</td></tr>
+<tr><td>8</td><td>收租</td><td>2026-12-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">438.00</td><td class="report-table__cell--align-right">20,875.00</td></tr>
+<tr><td>9</td><td>收租</td><td>2027-01-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">351.00</td><td class="report-table__cell--align-right">20,962.00</td></tr>
+<tr><td>10</td><td>收租</td><td>2027-02-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">264.00</td><td class="report-table__cell--align-right">21,049.00</td></tr>
+<tr><td>11</td><td>收租</td><td>2027-03-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">176.00</td><td class="report-table__cell--align-right">21,137.00</td></tr>
+<tr><td>12</td><td>收租</td><td>2027-04-14</td><td class="report-table__cell--align-right">21,313.00</td><td class="report-table__cell--align-right">90.00</td><td class="report-table__cell--align-right">21,223.00</td></tr>
+</tbody></table>
+</div>
 <div class="report-block report-table-block">
 <div class="report-section-title">
   <span class="report-section-title__dot"></span>
   <span class="report-section-title__text">保证金计划</span>
 </div>
 <table class="report-table"><thead><tr><th>期数</th><th>事件类别</th><th>还款日期</th><th class="report-table__cell--align-right">应收金额(元)</th></tr></thead><tbody>
-<tr><td>1</td><td>收取保证金</td><td>2026-08-10</td><td class="report-table__cell--align-right">200.00</td></tr>
-<tr><td>1</td><td>保证金冲抵</td><td>2027-08-10</td><td class="report-table__cell--align-right">200.00</td></tr>
-</tbody></table></div>
+<tr><td>1</td><td>收取保证金</td><td>2026-05-14</td><td class="report-table__cell--align-right">125.00</td></tr>
+<tr><td>1</td><td>保证金冲抵</td><td>2027-04-14</td><td class="report-table__cell--align-right">125.00</td></tr>
+</tbody></table>
+</div>
 <div class="report-block report-table-block">
 <div class="report-section-title">
   <span class="report-section-title__dot"></span>
   <span class="report-section-title__text">其他收支计划</span>
 </div>
 <table class="report-table"><thead><tr><th>期数</th><th>还款类型</th><th>还款日期</th><th class="report-table__cell--align-right">金额(元)</th></tr></thead><tbody>
-<tr><td>1</td><td>名义货价</td><td>2027-08-10</td><td class="report-table__cell--align-right">100.00</td></tr>
-<tr><td>1</td><td>贴息</td><td>2026-08-11</td><td class="report-table__cell--align-right">300.00</td></tr>
-</tbody></table></div>
-<div class="report-block report-table-block">
+<tr><td>1</td><td>名义货价</td><td>2027-04-14</td><td class="report-table__cell--align-right">100.00</td></tr>
+</tbody></table>
+</div>
+<div class="report-block report-measure-list">
 <div class="report-section-title">
   <span class="report-section-title__dot"></span>
   <span class="report-section-title__text">增信措施</span>
 </div>
-<table class="report-table"><thead><tr><th>担保方式</th><th>客户名称</th><th>证件类型</th><th>证件代码</th></tr></thead><tbody>
-<tr><td>保证担保</td><td>上海汇德实业有限公司</td><td>统一社会信用代码</td><td>91310117607835944Q</td></tr>
+<div class="report-measure-list__items">
+<div class="report-measure-card">
+  <div class="report-measure-card__head">
+    <span class="report-measure-card__tag report-measure-card__tag--guarantee">保证担保</span>
+    <span class="report-measure-card__name">江阴绮星水泥有限公司</span>
+    <span class="report-measure-card__id">统一社会信用代码：91320281142225264B</span>
+  </div>
+</div>
+<div class="report-measure-card">
+  <div class="report-measure-card__head">
+    <span class="report-measure-card__tag report-measure-card__tag--guarantee">保证担保</span>
+    <span class="report-measure-card__name">肖令权</span>
+    <span class="report-measure-card__rel">实控人父母</span>
+    <span class="report-measure-card__id">居民身份证：51222219750923425X</span>
+  </div>
+</div>
+<div class="report-measure-card">
+  <div class="report-measure-card__head">
+    <span class="report-measure-card__tag report-measure-card__tag--mortgage">抵押担保</span>
+    <span class="report-measure-card__name">肖令权</span>
+    <span class="report-measure-card__rel">实控人父母</span>
+    <span class="report-measure-card__id">居民身份证：51222219750923425X</span>
+  </div>
+  <div class="report-measure-card__attrs">
+    <div class="report-measure-card__attr">
+      <span class="report-measure-card__attr-label">抵押物类别：</span>
+      <span class="report-measure-card__attr-value">其他</span>
+    </div>
+    <div class="report-measure-card__attr">
+      <span class="report-measure-card__attr-label">抵质押物类型：</span>
+      <span class="report-measure-card__attr-value">动产</span>
+    </div>
+    <div class="report-measure-card__attr">
+      <span class="report-measure-card__attr-label">抵质押物分类：</span>
+      <span class="report-measure-card__attr-value">4.3.1车辆</span>
+    </div>
+  </div>
+  <div class="report-measure-card__collateral">
+    <div class="report-measure-card__collateral-title">担保物</div>
+<table class="report-table report-table--stacked"><thead><tr class="report-table__head-row--top"><th  rowspan="2">序号</th><th ><span class="report-table__stack-label">担保物名称</span></th><th ><span class="report-table__stack-label">车牌号/不动产面积</span></th><th ><span class="report-table__stack-label">租赁物唯一识别码/抵质押证书编号</span></th><th ><span class="report-table__stack-label">币种</span></th><th ><span class="report-table__stack-label">是否第一顺位</span></th><th ><span class="report-table__stack-label">优先受偿权数额</span></th></tr><tr class="report-table__head-row--bottom"><th ><span class="report-table__stack-label">所在地</span></th><th ><span class="report-table__stack-label">机身号/不动产单元号</span></th><th ><span class="report-table__stack-label">担保物估值(元)</span></th><th ><span class="report-table__stack-label">第三方质押债务人</span></th><th ><span class="report-table__stack-label">评估方式</span></th><th ><span class="report-table__stack-label">估值周期</span></th></tr></thead><tbody>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td ><span class="report-table__stack-value">1</span></td><td ><span class="report-table__stack-value">4</span></td><td ><span class="report-table__stack-value">6</span></td><td ><span class="report-table__stack-value">人民币</span></td><td ><span class="report-table__stack-value">第一顺位</span></td><td ><span class="report-table__stack-value">0.00</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td ><span class="report-table__stack-value">3</span></td><td ><span class="report-table__stack-value">5</span></td><td ><span class="report-table__stack-value">2.00</span></td><td ><span class="report-table__stack-value">7</span></td><td ><span class="report-table__stack-value">内部评估</span></td><td ><span class="report-table__stack-value">季度</span></td></tr>
 </tbody></table>
+  </div>
+</div>
+<div class="report-measure-card">
+  <div class="report-measure-card__head">
+    <span class="report-measure-card__tag report-measure-card__tag--pledge">质押担保</span>
+    <span class="report-measure-card__name">江阴绮星水泥有限公司</span>
+    <span class="report-measure-card__id">统一社会信用代码：91320281142225264B</span>
+  </div>
+  <div class="report-measure-card__attrs">
+    <div class="report-measure-card__attr">
+      <span class="report-measure-card__attr-label">抵押物类别：</span>
+      <span class="report-measure-card__attr-value">—</span>
+    </div>
+    <div class="report-measure-card__attr">
+      <span class="report-measure-card__attr-label">抵质押物类型：</span>
+      <span class="report-measure-card__attr-value">动产</span>
+    </div>
+    <div class="report-measure-card__attr">
+      <span class="report-measure-card__attr-label">抵质押物分类：</span>
+      <span class="report-measure-card__attr-value">4.3.1车辆</span>
+    </div>
+  </div>
+  <div class="report-measure-card__collateral">
+    <div class="report-measure-card__collateral-title">担保物</div>
+<table class="report-table report-table--stacked"><thead><tr class="report-table__head-row--top"><th  rowspan="2">序号</th><th ><span class="report-table__stack-label">担保物名称</span></th><th ><span class="report-table__stack-label">车牌号/不动产面积</span></th><th ><span class="report-table__stack-label">租赁物唯一识别码/抵质押证书编号</span></th><th ><span class="report-table__stack-label">币种</span></th><th ><span class="report-table__stack-label">是否第一顺位</span></th><th ><span class="report-table__stack-label">优先受偿权数额</span></th></tr><tr class="report-table__head-row--bottom"><th ><span class="report-table__stack-label">所在地</span></th><th ><span class="report-table__stack-label">机身号/不动产单元号</span></th><th ><span class="report-table__stack-label">担保物估值(元)</span></th><th ><span class="report-table__stack-label">第三方质押债务人</span></th><th ><span class="report-table__stack-label">评估方式</span></th><th ><span class="report-table__stack-label">估值周期</span></th></tr></thead><tbody>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td ><span class="report-table__stack-value">1</span></td><td ><span class="report-table__stack-value">3</span></td><td ><span class="report-table__stack-value">5</span></td><td ><span class="report-table__stack-value">人民币</span></td><td ><span class="report-table__stack-value">第一顺位</span></td><td ><span class="report-table__stack-value">0.00</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td ><span class="report-table__stack-value">2</span></td><td ><span class="report-table__stack-value">4</span></td><td ><span class="report-table__stack-value">6.00</span></td><td ><span class="report-table__stack-value">7</span></td><td ><span class="report-table__stack-value">内部评估</span></td><td ><span class="report-table__stack-value">季度</span></td></tr>
+</tbody></table>
+  </div>
+</div>
+</div>
 </div>
   </div>
 </div>

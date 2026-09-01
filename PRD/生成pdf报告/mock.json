@@ -529,5 +529,688 @@
     "subjects": null,
     "isRepeatOrderOk": null,
     "repeatOrderSituation": null
+  },
+  "embodiment": {
+    "riskExposure": "228562.00",
+    "corpusBalance": null,
+    "rate": "2285.6200",
+    "singleWattFinancingAmount": null,
+    "aggregateRiskExposure": "-1917728.16",
+    "lesseeAggregateRiskExposure": "-1937728.16",
+    "salePriceSum": null,
+    "advertisingInfoList": [
+      {
+        "pkCalCore": "0001AA100000013GKCT9",
+        "quotName": "精算05130913",
+        "rentTableType": "精算报价",
+        "advertisingAmount": "250000.00",
+        "totalAmountEquipment": "250000.00",
+        "planCashLoan": "250000.00",
+        "advertisingDate": "2026-05-14",
+        "isAdjustingInterest": "否",
+        "babRate": null,
+        "quotationRate": "5.0000",
+        "leaseMethod": "回租",
+        "leasingTerm": "12",
+        "isStartLease": "否",
+        "paymentOrder": "先付",
+        "nominalPrice": "100.00",
+        "totalRent": "255756.00",
+        "downPaymentRent": "0.00",
+        "marginRent": "125.00",
+        "rentDistribution": "4.9893",
+        "comprehensiveYield": "5.0784",
+        "internalYield": "5.0734",
+        "interestSubsidy": null,
+        "paymentMethod": null,
+        "remark": null,
+        "leaseAdjustType": "租金",
+        "paymentTermList": [
+          {
+            "pkLoanPlan": "1544290228624805632",
+            "pkLoanPlanCore": "0001AA100000013GKDL3",
+            "eventCode": "10101",
+            "number": "投放日",
+            "paymentMethod": "网银",
+            "plannedLaunchDate": "2026-05-14",
+            "amount": "250000.00",
+            "paymentTerm": "收到担保人同意担保的相关决议;收到承租人同意售后回租的相关决议",
+            "paymentConditions": [
+              {
+                "paramCode": "zt-0030",
+                "paramName": "收到担保人同意担保的相关决议"
+              },
+              {
+                "paramCode": "zt-0012",
+                "paramName": "收到承租人同意售后回租的相关决议"
+              }
+            ],
+            "paymentRecipient": "连云港惟美数智家居科技有限公司",
+            "customerNo": "C120240028608",
+            "ifInnerDeduct": "否",
+            "planCashCorpus": null,
+            "taxCash": null,
+            "taxRate": null,
+            "billDateline": null,
+            "makeDateDraft": null,
+            "endDateDraft": null,
+            "ifBeginPlan": "是"
+          }
+        ],
+        "baseInfo": {
+          "rentTableType": "精算报价",
+          "quotName": "精算05130913",
+          "finMode": null,
+          "taxMode": "增值税",
+          "inoutTaxrate": null,
+          "financeClassify": "有形动产",
+          "leaseMethod": "回租",
+          "newSubject": null,
+          "planDateLoan": "2026-05-14",
+          "planCashLoan": "250000.00",
+          "factInitialCash": null,
+          "factInitialRatio": null,
+          "finName": null,
+          "plotName": null,
+          "dealerName": null,
+          "ifLowDownPayment": null
+        },
+        "downPaymentSetting": {
+          "downPaymentRatio": "0.0000",
+          "downPayment": "0.00",
+          "factCashLoan": "250000.00",
+          "leaseCommencementDate": null,
+          "rentOrAmount": null,
+          "isStartLease": "否",
+          "ifDownPayment": null,
+          "largeAmount": null
+        },
+        "upfrontFee": {
+          "srvFeeCash": null,
+          "srvFeePlanDate": null
+        },
+        "paymentPlan": {
+          "saleSum": null,
+          "nominallyFinancing": null,
+          "beginRealyFinancing": null,
+          "totalLeaseCash": "255756.00",
+          "totalCorpus": "250000.00",
+          "leaseInterestSum": null,
+          "downPayment": "0.00",
+          "depositAmount": "125.00",
+          "brokerageOut": null,
+          "interestSubsidy": null,
+          "premiumAmount": null
+        },
+        "otherPaymentInfo": {
+          "nominalPrice": "100.00",
+          "brokerageIn": "0.00",
+          "insuranceCalculationMethod": null
+        },
+        "insuranceSetting": {
+          "depositMethod": "一次性收取",
+          "returnMethodDepos": "冲抵租金",
+          "depositRatio": "0.0500",
+          "depositCash": "125.00",
+          "depositStartDate": "2026-05-14"
+        },
+        "serviceExpense": {
+          "srvfeeMethodOut": "一次性支出",
+          "srvfeeDateOutFt": "2026-05-14",
+          "srvfeeRatioOut": "0.0000",
+          "srvfeeCashOutFt": "0.00",
+          "srvfeeCashOut": "0.00",
+          "srvfeeTaxrateOut": null
+        },
+        "rentCollectSetting": {
+          "leaseTimes": "12",
+          "leaseTimesDay": null,
+          "prepayOrNot": "先付",
+          "leaseFreq": null,
+          "leaseCalMethod": null,
+          "ifAutoAdjust": "否",
+          "ifAdjust": "否",
+          "ifTaxRateAdjust": null,
+          "repaymentInterval": null,
+          "planLeaseDate": null,
+          "quotedCalculationMethod": null,
+          "largeRepaymentMon": null,
+          "delayMethod": null,
+          "delayMonths": null,
+          "quotationRate": "5.0000",
+          "calDigit": "元",
+          "fixedSmallPrincipal": null,
+          "firstLargeRepayment": null,
+          "largeRepaymentInterval": null,
+          "ruleName": null,
+          "fixedInterest": null,
+          "minGeneralRate": null,
+          "scProportion": null,
+          "largeRatio": null,
+          "largeAmount": null,
+          "invertedObject": null
+        },
+        "leaseInterestRate": {
+          "finalRate": "5.0000",
+          "interrate": "4.3500",
+          "calDigit": "元"
+        },
+        "internalRateDetail": {
+          "generalIrr": "5.0784",
+          "internalIrr": "5.0734",
+          "rentIrr": "4.9893",
+          "unsecuredPercentage": null,
+          "interestIrr": null,
+          "subsidyIrr": null
+        },
+        "referenceRate": {
+          "projectIrr": "5.0784",
+          "contIrrBanknote": null,
+          "xirr": "5.1812"
+        },
+        "otherInfo": {
+          "leaseCashSum": "255756.00",
+          "totalDebt": "255856.00",
+          "netFinanceCash": "249875.00",
+          "ifCorpusMovedDown": "否",
+          "projectDraftAmount": null
+        },
+        "deploymentPlan": {
+          "deploymentPlanDetailList": [
+            {
+              "pkLoanPlan": "1544290228624805632",
+              "pkLoanPlanCore": "0001AA100000013GKDL3",
+              "leaseTime": "投放日",
+              "planDate": "2026-05-14",
+              "leaseCash": "250000.00",
+              "payMethodLoan": "网银",
+              "billDateline": null,
+              "planCashCorpus": null,
+              "taxCash": null,
+              "taxRate": null,
+              "makeDateDraft": null,
+              "endDateDraft": null,
+              "ifBeginPlan": "是",
+              "innerEventType": "投放（网银）",
+              "ifInnerDeduct": "否"
+            }
+          ]
+        },
+        "ruleSetting": {
+          "ruleSettingDetailList": [
+            {
+              "leaseTime": "1",
+              "leaseFreq": "月",
+              "leaseCalMethod": "等额租金",
+              "leaseCash": null
+            }
+          ]
+        },
+        "depositPlan": {
+          "depositPlanDetailList": [
+            {
+              "leaseTime": "1",
+              "eventName": "收取保证金",
+              "planDate": "2026-05-14",
+              "amount": "125.00"
+            },
+            {
+              "leaseTime": "1",
+              "eventName": "保证金冲抵",
+              "planDate": "2027-04-14",
+              "amount": "125.00"
+            }
+          ]
+        },
+        "serviceExpensePlan": {
+          "serviceExpenseList": null
+        },
+        "otherPlan": {
+          "otherPlanDetailList": [
+            {
+              "leaseTime": "1",
+              "type": "名义货价",
+              "planDate": "2027-04-14",
+              "amount": "100.00",
+              "leaseCash": "100.00",
+              "leaseCashCorpus": "94.34",
+              "leaseCashTax": "5.66",
+              "taxRate": null,
+              "memo": null
+            }
+          ]
+        },
+        "rentPlan": {
+          "rentTotalAmount": "255756.00",
+          "principalTotalAmount": "250000.00",
+          "interestTotalAmount": "5756.00",
+          "rentPlanDetailList": [
+            {
+              "leaseTime": "1",
+              "eventCategory": "收租",
+              "planDate": "2026-05-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "21313.00",
+              "interestAmount": "0.00",
+              "leaseCorpusNotaxFin": "21313.00",
+              "leaseInterestNotaxFin": "0.00",
+              "leaseCashNotaxFin": "21313.00",
+              "leaseCashTaxFin": "0.00",
+              "leaseCashNotax": "21313.00",
+              "leaseCorpusNotax": "21313.00"
+            },
+            {
+              "leaseTime": "2",
+              "eventCategory": "收租",
+              "planDate": "2026-06-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20360.00",
+              "interestAmount": "953.00",
+              "leaseCorpusNotaxFin": "20360.00",
+              "leaseInterestNotaxFin": "899.06",
+              "leaseCashNotaxFin": "21259.06",
+              "leaseCashTaxFin": "53.94",
+              "leaseCashNotax": "21259.06",
+              "leaseCorpusNotax": "20360.00"
+            },
+            {
+              "leaseTime": "3",
+              "eventCategory": "收租",
+              "planDate": "2026-07-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20445.00",
+              "interestAmount": "868.00",
+              "leaseCorpusNotaxFin": "20445.00",
+              "leaseInterestNotaxFin": "818.87",
+              "leaseCashNotaxFin": "21263.87",
+              "leaseCashTaxFin": "49.13",
+              "leaseCashNotax": "21263.87",
+              "leaseCorpusNotax": "20445.00"
+            },
+            {
+              "leaseTime": "4",
+              "eventCategory": "收租",
+              "planDate": "2026-08-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20530.00",
+              "interestAmount": "783.00",
+              "leaseCorpusNotaxFin": "20530.00",
+              "leaseInterestNotaxFin": "738.68",
+              "leaseCashNotaxFin": "21268.68",
+              "leaseCashTaxFin": "44.32",
+              "leaseCashNotax": "21268.68",
+              "leaseCorpusNotax": "20530.00"
+            },
+            {
+              "leaseTime": "5",
+              "eventCategory": "收租",
+              "planDate": "2026-09-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20616.00",
+              "interestAmount": "697.00",
+              "leaseCorpusNotaxFin": "20616.00",
+              "leaseInterestNotaxFin": "657.55",
+              "leaseCashNotaxFin": "21273.55",
+              "leaseCashTaxFin": "39.45",
+              "leaseCashNotax": "21273.55",
+              "leaseCorpusNotax": "20616.00"
+            },
+            {
+              "leaseTime": "6",
+              "eventCategory": "收租",
+              "planDate": "2026-10-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20702.00",
+              "interestAmount": "611.00",
+              "leaseCorpusNotaxFin": "20702.00",
+              "leaseInterestNotaxFin": "576.42",
+              "leaseCashNotaxFin": "21278.42",
+              "leaseCashTaxFin": "34.58",
+              "leaseCashNotax": "21278.42",
+              "leaseCorpusNotax": "20702.00"
+            },
+            {
+              "leaseTime": "7",
+              "eventCategory": "收租",
+              "planDate": "2026-11-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20788.00",
+              "interestAmount": "525.00",
+              "leaseCorpusNotaxFin": "20788.00",
+              "leaseInterestNotaxFin": "495.28",
+              "leaseCashNotaxFin": "21283.28",
+              "leaseCashTaxFin": "29.72",
+              "leaseCashNotax": "21283.28",
+              "leaseCorpusNotax": "20788.00"
+            },
+            {
+              "leaseTime": "8",
+              "eventCategory": "收租",
+              "planDate": "2026-12-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20875.00",
+              "interestAmount": "438.00",
+              "leaseCorpusNotaxFin": "20875.00",
+              "leaseInterestNotaxFin": "413.21",
+              "leaseCashNotaxFin": "21288.21",
+              "leaseCashTaxFin": "24.79",
+              "leaseCashNotax": "21288.21",
+              "leaseCorpusNotax": "20875.00"
+            },
+            {
+              "leaseTime": "9",
+              "eventCategory": "收租",
+              "planDate": "2027-01-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "20962.00",
+              "interestAmount": "351.00",
+              "leaseCorpusNotaxFin": "20962.00",
+              "leaseInterestNotaxFin": "331.13",
+              "leaseCashNotaxFin": "21293.13",
+              "leaseCashTaxFin": "19.87",
+              "leaseCashNotax": "21293.13",
+              "leaseCorpusNotax": "20962.00"
+            },
+            {
+              "leaseTime": "10",
+              "eventCategory": "收租",
+              "planDate": "2027-02-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "21049.00",
+              "interestAmount": "264.00",
+              "leaseCorpusNotaxFin": "21049.00",
+              "leaseInterestNotaxFin": "249.06",
+              "leaseCashNotaxFin": "21298.06",
+              "leaseCashTaxFin": "14.94",
+              "leaseCashNotax": "21298.06",
+              "leaseCorpusNotax": "21049.00"
+            },
+            {
+              "leaseTime": "11",
+              "eventCategory": "收租",
+              "planDate": "2027-03-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "21137.00",
+              "interestAmount": "176.00",
+              "leaseCorpusNotaxFin": "21137.00",
+              "leaseInterestNotaxFin": "166.04",
+              "leaseCashNotaxFin": "21303.04",
+              "leaseCashTaxFin": "9.96",
+              "leaseCashNotax": "21303.04",
+              "leaseCorpusNotax": "21137.00"
+            },
+            {
+              "leaseTime": "12",
+              "eventCategory": "收租",
+              "planDate": "2027-04-14",
+              "rentAmount": "21313.00",
+              "principalAmount": "21223.00",
+              "interestAmount": "90.00",
+              "leaseCorpusNotaxFin": "21223.00",
+              "leaseInterestNotaxFin": "84.91",
+              "leaseCashNotaxFin": "21307.91",
+              "leaseCashTaxFin": "5.09",
+              "leaseCashNotax": "21307.91",
+              "leaseCorpusNotax": "21223.00"
+            }
+          ]
+        },
+        "brokerageExpense": null,
+        "subsidyIncome": null,
+        "insuranceRuleSetting": {
+          "ruleSettingDetails": null
+        },
+        "insuranceSubTable": {
+          "insuranceSubTableDetails": null
+        },
+        "retailLshldInfoList": null,
+        "creditEnhancementMeasureInfo": null
+      }
+    ],
+    "quotNameList": [
+      "精算05130913"
+    ],
+    "creditEnhancementMeasureInfo": {
+      "creditEnhancementMeasureList": [
+        {
+          "pkCreditEnhancementMeasure": null,
+          "guaCustType": 0,
+          "guaranteeMethod": {
+            "typeCode": "AGRS0005",
+            "code": 1,
+            "desc": "保证担保"
+          },
+          "guaranteeContType": null,
+          "customerName": "江阴绮星水泥有限公司",
+          "currtype": "人民币",
+          "guaCustomerNo": "120227165000",
+          "relationship": null,
+          "relationshipDesc": null,
+          "customerType": [
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "crdntlsType": "统一社会信用代码",
+          "documentCode": "91320281142225264B",
+          "isPerfect": null,
+          "collateralType": null,
+          "mortgageAndPledgeType": null,
+          "mortgageAndPledgeClass": null,
+          "collateralList": null,
+          "shareholderList": null,
+          "shareholderTotal": null,
+          "contName": null,
+          "ifSubordinate": null,
+          "reason": null,
+          "ifConditionalGuarantee": null,
+          "contAmount": "255856.00",
+          "guaranteeMeasures": null,
+          "remark": null,
+          "updateContAmount": null,
+          "guaranteeMethodCode": 1
+        },
+        {
+          "pkCreditEnhancementMeasure": null,
+          "guaCustType": 1,
+          "guaranteeMethod": {
+            "typeCode": "AGRS0005",
+            "code": 1,
+            "desc": "保证担保"
+          },
+          "guaranteeContType": null,
+          "customerName": "肖令权",
+          "currtype": "人民币",
+          "guaCustomerNo": "C220260004521",
+          "relationship": "实控人父母",
+          "relationshipDesc": null,
+          "customerType": [
+            {
+              "code": "1",
+              "name": "融资客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "31",
+              "name": "意向客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "crdntlsType": "居民身份证",
+          "documentCode": "51222219750923425X",
+          "isPerfect": null,
+          "collateralType": null,
+          "mortgageAndPledgeType": null,
+          "mortgageAndPledgeClass": null,
+          "collateralList": null,
+          "shareholderList": null,
+          "shareholderTotal": null,
+          "contName": null,
+          "ifSubordinate": null,
+          "reason": null,
+          "ifConditionalGuarantee": null,
+          "contAmount": "255856.00",
+          "guaranteeMeasures": null,
+          "remark": null,
+          "updateContAmount": null,
+          "guaranteeMethodCode": 1
+        },
+        {
+          "pkCreditEnhancementMeasure": null,
+          "guaCustType": 1,
+          "guaranteeMethod": {
+            "typeCode": "AGRS0005",
+            "code": 3,
+            "desc": "抵押担保"
+          },
+          "guaranteeContType": null,
+          "customerName": "肖令权",
+          "currtype": "人民币",
+          "guaCustomerNo": "C220260004521",
+          "relationship": "实控人父母",
+          "relationshipDesc": null,
+          "customerType": [
+            {
+              "code": "1",
+              "name": "融资客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "31",
+              "name": "意向客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "crdntlsType": "居民身份证",
+          "documentCode": "51222219750923425X",
+          "isPerfect": null,
+          "collateralType": "其他",
+          "mortgageAndPledgeType": "动产",
+          "mortgageAndPledgeClass": "4.3.1车辆",
+          "collateralList": [
+            {
+              "assetsName": "1",
+              "estimateValue": "2.00",
+              "currtype": "人民币",
+              "isFirstOrder": "第一顺位",
+              "assessMode": "内部评估",
+              "compensationNumber": "0.00",
+              "valuationCycle": "季度",
+              "debtor": "7",
+              "locationVfbc": "3",
+              "assetsNo1Vfbc": "4",
+              "assetsNo": "5",
+              "assetsNo2Vfbc": "6",
+              "generalContractor": null,
+              "contCashPledge": null,
+              "contEndDate": null,
+              "confirmedRightFlag": null,
+              "pkLshldInfo": null,
+              "pkRentThing": null
+            }
+          ],
+          "shareholderList": null,
+          "shareholderTotal": null,
+          "contName": null,
+          "ifSubordinate": null,
+          "reason": null,
+          "ifConditionalGuarantee": null,
+          "contAmount": "255856.00",
+          "guaranteeMeasures": null,
+          "remark": null,
+          "updateContAmount": null,
+          "guaranteeMethodCode": 3
+        },
+        {
+          "pkCreditEnhancementMeasure": null,
+          "guaCustType": 0,
+          "guaranteeMethod": {
+            "typeCode": "AGRS0005",
+            "code": 5,
+            "desc": "质押担保"
+          },
+          "guaranteeContType": null,
+          "customerName": "江阴绮星水泥有限公司",
+          "currtype": "人民币",
+          "guaCustomerNo": "120227165000",
+          "relationship": null,
+          "relationshipDesc": null,
+          "customerType": [
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "crdntlsType": "统一社会信用代码",
+          "documentCode": "91320281142225264B",
+          "isPerfect": null,
+          "collateralType": null,
+          "mortgageAndPledgeType": "动产",
+          "mortgageAndPledgeClass": "4.3.1车辆",
+          "collateralList": [
+            {
+              "assetsName": "1",
+              "estimateValue": "6.00",
+              "currtype": "人民币",
+              "isFirstOrder": "第一顺位",
+              "assessMode": "内部评估",
+              "compensationNumber": "0.00",
+              "valuationCycle": "季度",
+              "debtor": "7",
+              "locationVfbc": "2",
+              "assetsNo1Vfbc": "3",
+              "assetsNo": "4",
+              "assetsNo2Vfbc": "5",
+              "generalContractor": null,
+              "contCashPledge": null,
+              "contEndDate": null,
+              "confirmedRightFlag": null,
+              "pkLshldInfo": null,
+              "pkRentThing": null
+            }
+          ],
+          "shareholderList": null,
+          "shareholderTotal": null,
+          "contName": null,
+          "ifSubordinate": null,
+          "reason": null,
+          "ifConditionalGuarantee": null,
+          "contAmount": "255856.00",
+          "guaranteeMeasures": null,
+          "remark": null,
+          "updateContAmount": null,
+          "guaranteeMethodCode": 5
+        }
+      ]
+    },
+    "fundPaymentMethodAndReason": null,
+    "entrustedPaymentAndNotes": null,
+    "advertisingInfoAddList": [],
+    "advertisingInfoDeleteList": [],
+    "canAssociateQuot": false,
+    "canAddActuary": false,
+    "canAddIrregular": false,
+    "projectLeaseMethod": "回租"
   }
 }
