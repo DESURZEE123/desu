@@ -1371,5 +1371,907 @@
       }
     ],
     "haveData": true
+  },
+  "liabilityAnalysis": {
+    "updateTime": "2026-09-01 08:54:51",
+    "pkQueryRecord": "1544269260207548928",
+    "loanSituation": {
+      "companyLoanList": [
+        {
+          "pkCompanyBorrow": "1544269295469062656",
+          "dataIdentifier": "1544269295469062657",
+          "businessType": "融资型租赁",
+          "institutionalCode": "本机构",
+          "creditInstitutional": null,
+          "loanAmount": "2628700.00",
+          "balance": "2249200.00",
+          "deadline": "2027-03-16",
+          "startDate": "2024-04-16",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-08-27         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "其他",
+          "borrowingEntity": "连云港惟美数智家居科技有限公司",
+          "principalRole": [
+            "承租人"
+          ],
+          "customerNo": "C120240028608",
+          "leaseLoanTotal": 4005800,
+          "nonLeaseLoanTotal": 0,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269295469062658",
+          "dataIdentifier": "1544269295469062659",
+          "businessType": "融资型租赁",
+          "institutionalCode": "本机构",
+          "creditInstitutional": null,
+          "loanAmount": "2070000.00",
+          "balance": "1756600.00",
+          "deadline": "2027-03-16",
+          "startDate": "2024-04-16",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-08-27         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "其他",
+          "borrowingEntity": "连云港惟美数智家居科技有限公司",
+          "principalRole": [
+            "承租人"
+          ],
+          "customerNo": "C120240028608",
+          "leaseLoanTotal": 4005800,
+          "nonLeaseLoanTotal": 0,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269298610596356",
+          "dataIdentifier": "1544269298610596357",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B5820(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "700000.00",
+          "balance": "700000.00",
+          "deadline": "2025-02-26",
+          "startDate": "2024-02-27",
+          "guaranteeMethod": "抵押",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-10-25         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "江阴绮星水泥有限公司",
+          "principalRole": [
+            "担保人"
+          ],
+          "customerNo": "120227165000",
+          "leaseLoanTotal": 0,
+          "nonLeaseLoanTotal": 27928600,
+          "mortgageType": "厂房抵押"
+        },
+        {
+          "pkCompanyBorrow": "1544269298610596354",
+          "dataIdentifier": "1544269298610596355",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B5820(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "8300000.00",
+          "balance": "8300000.00",
+          "deadline": "2025-08-11",
+          "startDate": "2024-08-12",
+          "guaranteeMethod": "抵押",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-10-25         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "江阴绮星水泥有限公司",
+          "principalRole": [
+            "担保人"
+          ],
+          "customerNo": "120227165000",
+          "leaseLoanTotal": 0,
+          "nonLeaseLoanTotal": 27928600,
+          "mortgageType": "自住房抵押"
+        },
+        {
+          "pkCompanyBorrow": "1544269298610596352",
+          "dataIdentifier": "1544269298610596353",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B5820(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "17000000.00",
+          "balance": "17000000.00",
+          "deadline": "2027-08-12",
+          "startDate": "2024-08-13",
+          "guaranteeMethod": "抵押",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-10-25         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "江阴绮星水泥有限公司",
+          "principalRole": [
+            "担保人"
+          ],
+          "customerNo": "120227165000",
+          "leaseLoanTotal": 0,
+          "nonLeaseLoanTotal": 27928600,
+          "mortgageType": "厂房抵押"
+        },
+        {
+          "pkCompanyBorrow": "1544269298610596358",
+          "dataIdentifier": "1544269298610596359",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B6817(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "1928600.00",
+          "balance": "1928600.00",
+          "deadline": "2026-03-25",
+          "startDate": "2024-03-25",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-10-25         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "江阴绮星水泥有限公司",
+          "principalRole": [
+            "担保人"
+          ],
+          "customerNo": "120227165000",
+          "leaseLoanTotal": 0,
+          "nonLeaseLoanTotal": 27928600,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282248",
+          "dataIdentifier": "1544269294718282249",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B1329(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "2000000.00",
+          "balance": "2000000.00",
+          "deadline": "2024-09-21",
+          "startDate": "2023-09-22",
+          "guaranteeMethod": "组合",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": "自住房抵押"
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282250",
+          "dataIdentifier": "1544269294718282251",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B1329(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "900000.00",
+          "balance": "900000.00",
+          "deadline": "2024-12-06",
+          "startDate": "2023-12-07",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282252",
+          "dataIdentifier": "1544269294718282253",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "B6921(商业银行)",
+          "creditInstitutional": null,
+          "loanAmount": "1293800.00",
+          "balance": "1134200.00",
+          "deadline": "2026-07-25",
+          "startDate": "2018-11-07",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282246",
+          "dataIdentifier": "1544269294718282247",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "G7761(信托公司)",
+          "creditInstitutional": null,
+          "loanAmount": "180000.00",
+          "balance": "37500.00",
+          "deadline": "2025-01-25",
+          "startDate": "2023-01-30",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282244",
+          "dataIdentifier": "1544269294718282245",
+          "businessType": "流动资金贷款",
+          "institutionalCode": "G7761(信托公司)",
+          "creditInstitutional": null,
+          "loanAmount": "150000.00",
+          "balance": "118800.00",
+          "deadline": "2026-03-25",
+          "startDate": "2024-03-26",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "新增",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282242",
+          "dataIdentifier": "1544269294718282243",
+          "businessType": "融资型租赁",
+          "institutionalCode": "H6762(融资租赁公司)",
+          "creditInstitutional": null,
+          "loanAmount": "595800.00",
+          "balance": "359700.00",
+          "deadline": "2025-12-17",
+          "startDate": "2024-01-17",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "其他",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": null
+        },
+        {
+          "pkCompanyBorrow": "1544269294718282240",
+          "dataIdentifier": "1544269294718282241",
+          "businessType": "融资型租赁",
+          "institutionalCode": "H6762(融资租赁公司)",
+          "creditInstitutional": null,
+          "loanAmount": "680000.00",
+          "balance": "390100.00",
+          "deadline": "2025-12-25",
+          "startDate": "2023-12-25",
+          "guaranteeMethod": "保证",
+          "fiveLevel": "正常",
+          "curOverdueMonth": "0",
+          "querySource": "征信查询",
+          "repeat": null,
+          "queryTime": "2024-09-10         ",
+          "isWhite": "否",
+          "loanOrigTypeName": "其他",
+          "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+          "principalRole": [
+            "关联方"
+          ],
+          "customerNo": "120229983000",
+          "leaseLoanTotal": 749800,
+          "nonLeaseLoanTotal": 4190500,
+          "mortgageType": null
+        }
+      ],
+      "companyLoanTotal": {
+        "loanAmount": "38426900.00",
+        "balance": "36874700.00"
+      },
+      "personLoanList": [
+        {
+          "pkPersonalBorrow": null,
+          "guaranteeMethod": null,
+          "accountNum": null,
+          "loanAmount": null,
+          "balance": null,
+          "overdueMonths": null,
+          "overdueAccountNum": null,
+          "maxOverdueMonths": null,
+          "maxOverdueAmount": null,
+          "balanceDue": null,
+          "queryTimes": 0,
+          "querySource": "征信查询",
+          "isBadAccount": "否",
+          "businessCategory": "被追偿",
+          "maxCreditAmount": 5000,
+          "queryTime": "2025-06-29         ",
+          "isWhite": "否",
+          "borrowingEntity": "肖令权",
+          "customerNo": "C220260004521",
+          "principalRole": [
+            "担保人"
+          ]
+        },
+        {
+          "pkPersonalBorrow": null,
+          "guaranteeMethod": "信用及保证",
+          "accountNum": 9,
+          "loanAmount": "144900.00",
+          "balance": "20503.00",
+          "overdueMonths": 0,
+          "overdueAccountNum": 0,
+          "maxOverdueMonths": 0,
+          "maxOverdueAmount": "0.00",
+          "balanceDue": "0.00",
+          "queryTimes": 0,
+          "querySource": "征信查询",
+          "isBadAccount": "否",
+          "businessCategory": "贷款(非房贷)",
+          "maxCreditAmount": 5000,
+          "queryTime": "2025-06-29         ",
+          "isWhite": "否",
+          "borrowingEntity": "肖令权",
+          "customerNo": "C220260004521",
+          "principalRole": [
+            "担保人"
+          ]
+        },
+        {
+          "pkPersonalBorrow": null,
+          "guaranteeMethod": "信用及保证",
+          "accountNum": 1,
+          "loanAmount": "5000.00",
+          "balance": "3428.00",
+          "overdueMonths": 3,
+          "overdueAccountNum": 0,
+          "maxOverdueMonths": 1,
+          "maxOverdueAmount": "714.00",
+          "balanceDue": "579.00",
+          "queryTimes": 0,
+          "querySource": "征信查询",
+          "isBadAccount": "否",
+          "businessCategory": "贷记卡",
+          "maxCreditAmount": 5000,
+          "queryTime": "2025-06-29         ",
+          "isWhite": "否",
+          "borrowingEntity": "肖令权",
+          "customerNo": "C220260004521",
+          "principalRole": [
+            "担保人"
+          ]
+        }
+      ],
+      "personLoanTotal": {
+        "loanAmount": "149900.00",
+        "balance": "23931.00",
+        "maxOverdueAmount": "714.00",
+        "balanceDue": "579.00"
+      },
+      "personBorrowDetailList": [
+        {
+          "pkPersonCreditDetail": "1544269271020464640",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 23400,
+          "balance": 15688,
+          "deadline": "2026.02.05",
+          "startDate": "2025.02.05",
+          "businessOrg": "商业银行\"FE\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464641",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 9400,
+          "balance": null,
+          "deadline": "--",
+          "startDate": "2023.04.19",
+          "businessOrg": "消费金融公司\"VI\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464642",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 2000,
+          "balance": 1342,
+          "deadline": "2026.02.20",
+          "startDate": "2025.02.20",
+          "businessOrg": "商业银行\"ZX\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464643",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 49000,
+          "balance": 0,
+          "deadline": "2029.02.22",
+          "startDate": "2023.02.22",
+          "businessOrg": "商业银行\"KO\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464644",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 21100,
+          "balance": 0,
+          "deadline": "2028.03.26",
+          "startDate": "2023.03.26",
+          "businessOrg": "小额贷款公司\"YU\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464645",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 3400,
+          "balance": 0,
+          "deadline": "长期",
+          "startDate": "2024.08.29",
+          "businessOrg": "小额贷款公司\"BI\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464646",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 6100,
+          "balance": 3473,
+          "deadline": "2025.09.21",
+          "startDate": "2025.02.02",
+          "businessOrg": "消费金融公司\"IM\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464647",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 21100,
+          "balance": null,
+          "deadline": "--",
+          "startDate": "2023.06.11",
+          "businessOrg": "商业银行\"DG\""
+        },
+        {
+          "pkPersonCreditDetail": "1544269271020464648",
+          "borrowingEntity": "肖令权",
+          "loanAmount": 9400,
+          "balance": null,
+          "deadline": "--",
+          "startDate": "2023.07.31",
+          "businessOrg": "商业银行\"TM\""
+        }
+      ]
+    },
+    "externalGuaranteeSituationList": [
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": null,
+        "balance": "0.00",
+        "paymentAmount": "0.00",
+        "deadline": null,
+        "startDate": null,
+        "fiveLevel": null,
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-08-27         ",
+        "borrowingEntity": "连云港惟美数智家居科技有限公司",
+        "customerNo": "C120240028608",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "承租人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "0.00",
+        "paymentAmount": "10000000.00",
+        "deadline": "2023-11-23",
+        "startDate": "2022-11-24",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "0.00",
+        "paymentAmount": "10000000.00",
+        "deadline": "2024-04-25",
+        "startDate": "2023-04-27",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "0.00",
+        "paymentAmount": "10000000.00",
+        "deadline": "2024-09-25",
+        "startDate": "2023-09-27",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "178500.00",
+        "paymentAmount": "5600000.00",
+        "deadline": "2024-11-09",
+        "startDate": "2022-12-09",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "2780000.00",
+        "paymentAmount": "7780000.00",
+        "deadline": "2024-12-10",
+        "startDate": "2023-12-18",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "5000000.00",
+        "paymentAmount": "7780000.00",
+        "deadline": "2024-12-17",
+        "startDate": "2023-12-18",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "4500000.00",
+        "paymentAmount": "10000000.00",
+        "deadline": "2025-04-20",
+        "startDate": "2024-04-25",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "10000000.00",
+        "paymentAmount": "10000000.00",
+        "deadline": "2025-09-18",
+        "startDate": "2024-09-19",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "1955200.00",
+        "paymentAmount": "4000000.00",
+        "deadline": "2025-10-07",
+        "startDate": "2024-02-07",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "2838400.00",
+        "paymentAmount": "7196000.00",
+        "deadline": "2025-11-11",
+        "startDate": "2022-11-11",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "1946200.00",
+        "paymentAmount": "4934000.00",
+        "deadline": "2025-11-11",
+        "startDate": "2022-11-11",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "流动资金贷款",
+        "balance": "5500000.00",
+        "paymentAmount": "10000000.00",
+        "deadline": "2026-04-25",
+        "startDate": "2023-04-27",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "4063500.00",
+        "paymentAmount": "5000000.00",
+        "deadline": "2026-04-25",
+        "startDate": "2024-04-25",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "5414900.00",
+        "paymentAmount": "6000000.00",
+        "deadline": "2026-08-05",
+        "startDate": "2024-08-26",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-10-25         ",
+        "borrowingEntity": "江阴绮星水泥有限公司",
+        "customerNo": "120227165000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": null,
+        "balance": null,
+        "paymentAmount": null,
+        "deadline": null,
+        "startDate": null,
+        "fiveLevel": null,
+        "curOverdueMonth": null,
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2025-06-29         ",
+        "borrowingEntity": "肖令权",
+        "customerNo": "C220260004521",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "担保人"
+        ]
+      },
+      {
+        "pkGuaranteeInfo": null,
+        "businessType": "融资型租赁",
+        "balance": "427200.00",
+        "paymentAmount": "720000.00",
+        "deadline": "2025-12-25",
+        "startDate": "2023-12-25",
+        "fiveLevel": "正常",
+        "curOverdueMonth": "0",
+        "loanExists": "否",
+        "querySource": "征信查询",
+        "queryTime": "2024-09-10         ",
+        "borrowingEntity": "苏州工业园区昌源工贸有限公司",
+        "customerNo": "120229983000",
+        "guaranteedEntity": "",
+        "principalRole": [
+          "关联方"
+        ]
+      }
+    ],
+    "amountTotal": "44603900.00",
+    "associateLiabilityInfo": {
+      "relatedRigidLiabilityInfoList": []
+    },
+    "liabilityStatement": "负债说明1",
+    "queryStatusEnum": 0,
+    "loanBalance": null,
+    "personBorrowIndexList": [
+      {
+        "customerNo": "C220260004521",
+        "borrowAccountOverdue": null,
+        "repayAccountOverdue": null,
+        "class5Zr": null,
+        "class5Dk": null,
+        "lastBorrowOverdueMonths": 0,
+        "class5GzNum": 0,
+        "reportNo": "2025062909114894384731"
+      }
+    ],
+    "companyBorrowIndexList": [
+      {
+        "customerNo": "120229983000",
+        "borrowAccountOverdue": null,
+        "repayAccountOverdue": null,
+        "class5d": null,
+        "class5Zr": null,
+        "class5Db": null,
+        "lastBorrowAccountOverdue": null,
+        "reportNo": "2024091010572186783311"
+      },
+      {
+        "customerNo": "C120240028608",
+        "borrowAccountOverdue": null,
+        "repayAccountOverdue": null,
+        "class5d": null,
+        "class5Zr": null,
+        "class5Db": null,
+        "lastBorrowAccountOverdue": null,
+        "reportNo": "2024082715274930581810"
+      },
+      {
+        "customerNo": "120227165000",
+        "borrowAccountOverdue": null,
+        "repayAccountOverdue": null,
+        "class5d": null,
+        "class5Zr": null,
+        "class5Db": null,
+        "lastBorrowAccountOverdue": null,
+        "reportNo": "2024102510461669081871"
+      }
+    ]
   }
 }
