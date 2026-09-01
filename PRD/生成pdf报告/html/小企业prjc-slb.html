@@ -173,6 +173,131 @@
   .report-measure-card__collateral .report-table td {
     text-align: left;
   }
+
+  /* ===== analysisList — AI 分析结果 ===== */
+  .report-analysis-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .report-analysis-item__entity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .report-analysis-item__entity-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #1677FF;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .report-analysis-item__entity-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+    line-height: 22px;
+  }
+  .report-analysis-item__conclusion {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-analysis-item__empty {
+    color: #86909C;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-md {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    word-break: break-all;
+  }
+  .report-md > *:first-child { margin-top: 0; }
+  .report-md > *:last-child { margin-bottom: 0; }
+  .report-md h1,
+  .report-md h2,
+  .report-md h3,
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 {
+    color: #1D2129;
+    font-weight: 600;
+    margin: 12px 0 8px;
+    line-height: 24px;
+  }
+  .report-md h1 { font-size: 16px; }
+  .report-md h2 { font-size: 15px; }
+  .report-md h3,
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 { font-size: 14px; }
+  .report-md p { margin: 0 0 8px; }
+  .report-md ul,
+  .report-md ol {
+    margin: 0 0 8px;
+    padding-left: 1.5em;
+  }
+  .report-md li { margin-bottom: 4px; }
+  .report-md li > ul,
+  .report-md li > ol {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+  .report-md strong { font-weight: 600; }
+  .report-md em { font-style: italic; }
+  .report-md blockquote {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-left: 3px solid #E5E6EB;
+    color: #4E5969;
+    background: #FAFBFC;
+  }
+  .report-md hr {
+    border: none;
+    border-top: 1px solid #E5E6EB;
+    margin: 12px 0;
+  }
+  .report-md code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: #F2F3F5;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+  .report-md pre {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  .report-md pre code {
+    background: none;
+    padding: 0;
+  }
+  .report-md table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 8px 0 12px;
+  }
+  .report-md th,
+  .report-md td {
+    padding: 8px 10px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+    text-align: left;
+  }
+  .report-md th {
+    background: #F7F8FA;
+    font-weight: 600;
+  }
 </style>
 
 
@@ -598,4 +723,103 @@
   </div>
 </div>
 
+<div class="report-module" data-module-key="analysis_results">
+  <div class="report-module__header">AI分析结果</div>
+  <div class="report-module__body">
+    <div class="report-block report-analysis-list">
+      <div class="report-section-title">
+        <span class="report-section-title__dot"></span>
+        <span class="report-section-title__text">项目流水分析</span>
+      </div>
+      <div class="report-analysis-list__items">
+        <div class="report-analysis-item">
+          <div class="report-analysis-item__conclusion">
+            <div class="report-md"><p><strong>流水分析结论：</strong> 该承租人仅提供工商银行1个月流水（2024.01.05-2024.01.29），数据质量较低，尽调可靠性存疑。日均余额215.17万元，项目最大租金2.13万元，租金覆盖能力正常；月均偿贷占经营性流入仅5.72%，偿债压力较小。<strong>但存在以下核心风险：</strong>（1）<strong>数据时长严重不足</strong>，仅1个月流水无法反映完整经营周期，水电能源、租金、人力成本、纳税支出均为零，经营真实性存疑；（2）<strong>大额异常流出</strong>，向临泉泉河医院有限公司一次性流出250.00万元，占流出总额99.04%，被标记为大额整数交易需关注对手方，且该笔流出远超月均流入（42.13万元），存在资金挪用或非经营性占用风险；（3）流入高度依赖单一来源，临泉县财政国库支付中心占比88.65%。综合评定：<strong>数据基础薄弱，经营真实性无法验证，建议补充至少6个月流水后重新评估。</strong></p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="report-block report-analysis-list">
+      <div class="report-section-title">
+        <span class="report-section-title__dot"></span>
+        <span class="report-section-title__text">项目司法分析</span>
+      </div>
+      <div class="report-analysis-list__items">
+        <div class="report-analysis-item">
+          <div class="report-analysis-item__entity">
+            <span class="report-analysis-item__entity-dot"></span>
+            <span class="report-analysis-item__entity-name">苏州工业园区昌源工贸有限公司</span>
+          </div>
+          <div class="report-analysis-item__conclusion">
+            <div class="report-analysis-item__empty">—</div>
+          </div>
+        </div>
+        <div class="report-analysis-item">
+          <div class="report-analysis-item__entity">
+            <span class="report-analysis-item__entity-dot"></span>
+            <span class="report-analysis-item__entity-name">肖令权</span>
+          </div>
+          <div class="report-analysis-item__conclusion">
+            <div class="report-md"><h2>模块七：综合评分与建议</h2>
+<ul>
+<li><strong>综合评分</strong>：低风险</li>
+<li><strong>风险等级</strong>：低风险</li>
+<li><strong>风险结论</strong>：该客户无任何司法涉诉记录，包括原告案件、被告案件、被执行人、失信被执行人、限高及破产记录均为零。查询状态为"无数据"，表明该客户在司法系统中未检索到相关案件信息，整体司法涉诉风险极低。</li>
+<li><strong>风控建议</strong>：<br />
+  1. 当前无司法涉诉风险，可正常开展业务合作；<br />
+  2. 建议定期复查询证，以及时发现潜在司法风险变化；<br />
+  3. 结合其他风控维度（如征信、经营状况等）综合评估客户整体风险水平。</li>
+</ul></div>
+          </div>
+        </div>
+        <div class="report-analysis-item">
+          <div class="report-analysis-item__entity">
+            <span class="report-analysis-item__entity-dot"></span>
+            <span class="report-analysis-item__entity-name">江阴绮星水泥有限公司</span>
+          </div>
+          <div class="report-analysis-item__conclusion">
+            <div class="report-md"><h2>模块七：综合评分与建议</h2>
+<h3>风险等级: 高风险</h3>
+<h3>评分依据</h3>
+<ul>
+<li>存在2件被执行人记录(均已结案)，触发"仅被执行"条件</li>
+<li>无失信被执行人记录、无限高记录、无破产记录</li>
+<li>无在诉被告案件</li>
+<li>无未执行金额明确标注</li>
+</ul>
+<h3>风险结论</h3>
+<p>客户存在2件被执行人记录(均为2022年财产保全执行案件，均已结案)，无失信被执行人记录。客户同时作为原告追讨货款(保全金额约1700万元，对手方为江苏广宇建设集团有限公司)，显示其经营中存在大额应收账款回收困难的问题。所有案件均已结案，无在诉案件，整体风险偏高但可控。客户在2022年集中出现4起被告案件(均与江阴市胜力特新型建材有限公司相关)，反映其曾面临短期集中纠纷，但目前已全部结案。</p>
+<h3>风控建议</h3>
+<ol>
+<li><strong>核实被执行人案件结案情况</strong>: 确认(2022)苏0281执保3475号和(2022)苏0281执保3491号案件是否已完全履行义务，了解保全完毕和部分保全的具体执行情况</li>
+<li><strong>持续监控被执行人记录</strong>: 定期查询是否出现新的被执行人或失信被执行人记录，一旦出现应立即预警</li>
+<li><strong>关注原告案件执行进展</strong>: 重点跟踪保全金额约1700万元的案件(2024)苏0281财保7007号的后续执行情况，评估应收账款回收可能性</li>
+<li><strong>评估客户经营状况</strong>: 结合客户作为原告追讨大额货款和曾作为被执行人的情况，综合评估其当前现金流和偿债能力</li>
+<li><strong>定期更新司法涉诉信息</strong>: 建议每季度更新一次司法涉诉信息，关注案件动态变化</li>
+</ol></div>
+          </div>
+        </div>
+        <div class="report-analysis-item">
+          <div class="report-analysis-item__entity">
+            <span class="report-analysis-item__entity-dot"></span>
+            <span class="report-analysis-item__entity-name">连云港惟美数智家居科技有限公司</span>
+          </div>
+          <div class="report-analysis-item__conclusion">
+            <div class="report-md"><h2>模块七：综合评分与建议</h2>
+<ul>
+<li><strong>综合评分</strong>：无风险</li>
+<li><strong>风险等级</strong>：低风险</li>
+<li><strong>风险结论</strong>：该客户（C120240028608）经司法涉诉信息查询，查询状态为"无数据"，无任何作为原告、被告、被执行人、失信被执行人的司法涉诉记录。无被执行/失信/限高/破产记录，无在诉被告案件，近2年案件数量为0件（&lt;3件），符合低风险判定标准。客户整体信用状况良好，未发现司法涉诉相关风险点。</li>
+<li><strong>风控建议</strong>：<br />
+  1. 该客户当前无司法涉诉风险，建议维持正常业务合作<br />
+  2. 建议定期（如每季度或每半年）复查司法涉诉信息，以及时发现潜在风险<br />
+  3. 关注客户经营状况变化，如出现异常可提高司法查询频次<br />
+  4. 评分基于剔除风险中性案件后的保留清单，当前保留清单为空，无风险案件需重点关注</li>
+</ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

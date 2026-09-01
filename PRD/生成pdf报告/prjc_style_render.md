@@ -209,6 +209,32 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `items[].attrs` | array | 可选；抵押/质押属性行 `{ label, value }[]` |
 | `items[].collateral` | object | 可选；担保物子表，结构同 `table`（`label` / `showIndex` / `columns` / `rows`） |
 
+#### analysisList — AI 分析结果列表
+
+```json
+{
+  "blockKey": "judicial_analysis",
+  "label": "项目司法分析",
+  "displayType": "analysisList",
+  "emptyText": "暂无分析结果",
+  "items": [
+    {
+      "customerName": "肖令权",
+      "conclusion": "## 模块七：综合评分与建议\n\n- **综合评分**：低风险"
+    }
+  ]
+}
+```
+
+| 扩展字段 | 类型 | 说明 |
+| -------- | ---- | ---- |
+| `items` | array | 分析结果条目，按数组顺序 |
+| `emptyText` | string | `items` 为空时占位文案，默认「暂无分析结果」 |
+| `items[].customerName` | string \| null | 有值时渲染蓝色方点 + 实体标题；空则跳过标题行 |
+| `items[].conclusion` | string \| null | 分析结论，**Markdown 原文**；空则结论区展示「—」 |
+
+> L2 须将 `conclusion` 从 Markdown 转为 HTML（见 §5.8.1），写入 `report-md` 容器。**不展示** `analysisDetail`。
+
 ---
 
 ## 三、displayType 分发规则
@@ -224,6 +250,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `table`（`columns.length > 8`） | 叠行宽表 | `report-table report-table--stacked` | §5.5.1 |
 | `empty` | 无数据占位 | `report-empty` | §5.6 |
 | `measureList` | 增信措施卡片列表 | `report-measure-list` | §5.7 |
+| `analysisList` | AI 分析结果（结论 Markdown） | `report-analysis-list` | §5.8 |
 
 > **列数规则**：`columns.length ≤ 8` 走标准单行表格（§5.5）；`> 8` 走叠行表格（§5.5.1），同一逻辑记录占 2 行，序号列 `rowspan="2"`。不再使用「拆成多个独立 table + 灰色小标题」的宽表方案。
 
@@ -253,6 +280,8 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `--color-rel-tag` | `#00B42A` | 关系标签边框/文字 |
 | `--color-rel-tag-bg` | `#E8FFEA` | 关系标签背景 |
 | `--color-measure-card-bg` | `#F7F9FC` | 增信措施卡片背景 |
+| `--color-analysis-card-bg` | `#F7F8FA` | AI 分析结论卡片背景 |
+| `--color-analysis-entity` | `#1677FF` | AI 分析实体标题 |
 
 ### 4.2 固定样式表（L2 唯一 CSS 来源）
 
@@ -558,6 +587,137 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   .report-measure-card__collateral .report-table td {
     text-align: left;
   }
+
+  /* ===== analysisList — AI 分析结果 ===== */
+  .report-analysis-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .report-analysis-item__entity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .report-analysis-item__entity-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #1677FF;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .report-analysis-item__entity-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+    line-height: 22px;
+  }
+  .report-analysis-item__conclusion {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-analysis-item__empty {
+    color: #86909C;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  /* ===== Markdown 渲染容器 ===== */
+  .report-md {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    word-break: break-all;
+  }
+  .report-md > *:first-child { margin-top: 0; }
+  .report-md > *:last-child { margin-bottom: 0; }
+  .report-md h1,
+  .report-md h2,
+  .report-md h3,
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 {
+    color: #1D2129;
+    font-weight: 600;
+    margin: 12px 0 8px;
+    line-height: 24px;
+  }
+  .report-md h1 { font-size: 16px; }
+  .report-md h2 { font-size: 15px; }
+  .report-md h3 { font-size: 14px; }
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 { font-size: 14px; }
+  .report-md p {
+    margin: 0 0 8px;
+  }
+  .report-md ul,
+  .report-md ol {
+    margin: 0 0 8px;
+    padding-left: 1.5em;
+  }
+  .report-md li {
+    margin-bottom: 4px;
+  }
+  .report-md li > ul,
+  .report-md li > ol {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+  .report-md strong { font-weight: 600; }
+  .report-md em { font-style: italic; }
+  .report-md blockquote {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-left: 3px solid #E5E6EB;
+    color: #4E5969;
+    background: #FAFBFC;
+  }
+  .report-md hr {
+    border: none;
+    border-top: 1px solid #E5E6EB;
+    margin: 12px 0;
+  }
+  .report-md code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: #F2F3F5;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+  .report-md pre {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  .report-md pre code {
+    background: none;
+    padding: 0;
+  }
+  .report-md table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 8px 0 12px;
+  }
+  .report-md th,
+  .report-md td {
+    padding: 8px 10px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+    text-align: left;
+  }
+  .report-md th {
+    background: #F7F8FA;
+    font-weight: 600;
+  }
 </style>
 ```
 
@@ -576,6 +736,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `table` 合计行（>8 列） | tbody 末 2 行 | `report-table__summary-row--top` / `--bottom` |
 | `empty` | 圆点标题 + 占位 | `report-empty` + `report-empty__placeholder` |
 | `measureList` | 圆点标题 + 卡片列表 | `report-measure-list` + `report-measure-card` |
+| `analysisList` | 圆点标题 + 实体项 + Markdown | `report-analysis-list` + `report-analysis-item` + `report-md` |
 
 **栅格列宽 class 映射：**
 
@@ -884,6 +1045,90 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | 担保物表 | 有 `collateral` 时输出；内部表格渲染规则同 §5.5 / §5.5.1；**表头与单元格统一左对齐**（CSS：`.report-measure-card__collateral .report-table th, td { text-align: left }`） |
 | 禁止 | **不输出**企业/个人 icon、SVG、知识图谱、编辑、删除等交互控件 |
 
+### 5.8 AI 分析结果列表（analysisList）
+
+```html
+<div class="report-block report-analysis-list">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">项目司法分析</span>
+  </div>
+  <div class="report-analysis-list__items">
+
+    <!-- 有客户名称 -->
+    <div class="report-analysis-item">
+      <div class="report-analysis-item__entity">
+        <span class="report-analysis-item__entity-dot"></span>
+        <span class="report-analysis-item__entity-name">肖令权</span>
+      </div>
+      <div class="report-analysis-item__conclusion">
+        <div class="report-md">
+          <h2>模块七：综合评分与建议</h2>
+          <ul>
+            <li><strong>综合评分</strong>：低风险</li>
+            <li><strong>风险等级</strong>：低风险</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 无客户名称（如项目流水分析） -->
+    <div class="report-analysis-item">
+      <div class="report-analysis-item__conclusion">
+        <div class="report-md">
+          <p><strong>流水分析结论：</strong>该承租人仅提供……</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 结论为空 -->
+    <div class="report-analysis-item">
+      <div class="report-analysis-item__entity">…</div>
+      <div class="report-analysis-item__conclusion">
+        <div class="report-analysis-item__empty">—</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+```
+
+**analysisList 规则：**
+
+| 规则 | 说明 |
+| ---- | ---- |
+| 分组标题 | 始终输出 `report-section-title`，文案取 `label` |
+| 空列表 | `items` 为空时输出 `report-table-empty`（文案取 `emptyText`） |
+| 实体标题 | 仅当 `customerName` 非空时输出蓝色方点 + 名称 |
+| 结论区 | 始终输出 `report-analysis-item__conclusion` 灰底卡片；有 Markdown 则渲染进 `report-md`，否则「—」 |
+| 详情 | **不展示** `analysisDetail`；**禁止**输出「查看详情」链接、折叠、弹窗等交互控件 |
+| Markdown | 见 §5.8.1 |
+
+### 5.8.1 Markdown → HTML 转换规则
+
+L2 将 `conclusion` 的 Markdown 原文转为 HTML，包裹在 `<div class="report-md">` 内：
+
+| Markdown | HTML |
+| -------- | ---- |
+| `#` ~ `######` | `h1` ~ `h6` |
+| 段落 | `p` |
+| `-` / `*` / `1.` 列表 | `ul` / `ol` + `li` |
+| `**text**` / `__text__` | `strong` |
+| `*text*` / `_text_` | `em` |
+| `` `code` `` | `code` |
+| 围栏代码块 | `pre` > `code` |
+| `>` 引用 | `blockquote` |
+| `---` | `hr` |
+| GFM 表格 | `table` > `thead` / `tbody` > `tr` > `th` / `td` |
+| 裸链接 | 转义为文本（PDF 不做外链跳转） |
+
+**安全与约束：**
+
+1. 输出纯语义标签，**禁止**内联 `style`、`script`、事件属性
+2. HTML 特殊字符须转义（`<` `>` `&` `"`），避免注入
+3. 不保留原始 Markdown 源码到 HTML 文本节点
+4. 表格样式使用 `.report-md table`（§4.2），**不**改用 `report-table` class（避免与业务表规则混淆）
+
 ---
 
 ## 六、渲染流程
@@ -903,7 +1148,8 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   │           ├─ group            → §5.4（递归渲染 children）
   │           ├─ table            → §5.5（≤8 列）或 §5.5.1（>8 列）
   │           ├─ empty            → §5.6
-  │           └─ measureList      → §5.7
+  │           ├─ measureList      → §5.7
+  │           └─ analysisList     → §5.8（Markdown → §5.8.1）
   │
   └─ 4. 闭合容器，输出 HTML 片段
 ```
@@ -1080,3 +1326,4 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `table` | 叠行宽表（>8 列） | `report-table report-table--stacked` + 双行 thead/tbody |
 | `empty` | 虚线框 + 居中占位文案 | `report-empty` + `report-empty__placeholder` |
 | `measureList` | 增信措施色标卡片 + 可选担保物表 | `report-measure-list` + `report-measure-card` |
+| `analysisList` | AI 分析分组 + 结论 Markdown | `report-analysis-list` + `report-analysis-item` + `report-md` |
