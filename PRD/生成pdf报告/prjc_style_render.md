@@ -153,9 +153,18 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `showIndex` | boolean | 是否展示序号列，默认 `false` |
 | `columns` | array | 列定义，`key` 对应 `rows` / `summary` 中的字段 |
 | `columns[].align` | string | `left`（默认）/ `center` / `right` |
+| `columns[].mergeSame` | boolean | 为 `true` 时，对该列连续相同的非空值做 `rowspan` 合并（见下方说明） |
 | `rows` | array | 数据行 |
 | `summary` | object | 合计行；无合计时不传 |
 | `emptyText` | string | `rows` 为空时的占位文案，默认「暂无数据」 |
+
+**`mergeSame` 合并规则（标准单行表）：**
+
+1. 仅当 `columns[].mergeSame === true` 时生效；叠行宽表（`columns.length > 8`）暂不支持，忽略该标记
+2. 自上而下扫描该列：连续相同且非空（非 `—` / 非空串）的单元格合并为一个 `td`，设置 `rowspan=N`
+3. 被合并的后续行**不再输出**该列 `td`
+4. 值变为不同、或为空占位 `—` 时，结束上一组合并并重新起算
+5. 典型场景：重点指标「评估项目」列（盈利能力 / 运营能力 / 偿债能力 / 发展能力）
 
 **列数与布局（L2 自动判定，L1 无需传 layout）：**
 
@@ -890,6 +899,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | 序号列 | `showIndex: true` 时，首列为自增序号（从 1 开始）；**不计入** 8 列上限 |
 | 表头 | 取 `columns[].label`，**不输出** `columns[].key` |
 | 数据行 | `rows` 中每个对象对应一行 `tr`，按 `columns[].key` 取值 |
+| 同值合并 | `columns[].mergeSame === true` 时，对该列连续相同非空值输出 `rowspan`（见 §2.3）；垂直居中可用默认 `td` 对齐 |
 | 合计行 | `summary` 存在时渲染；`summary.index` 默认为「合计 --」；数值列加 `report-table__cell--strong` |
 | 空数据 | `rows` 为空时，不渲染 `table`，改为 `report-table-empty` |
 | 对齐 | 按 §4.3 映射附加 align class |

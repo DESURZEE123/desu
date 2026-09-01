@@ -1279,5 +1279,97 @@
       "createTime": "2026-09-01 08:48:46",
       "updateTime": "2026-09-01 08:49:41"
     }
-  ]
+  ],
+  "keyIndicators": {
+    "yoyRevenueGrowthRate": "0.0000",
+    "generalProvisionRatio": "0.0000",
+    "elementList": [
+      {
+        "equivalentName": "承租人、担保人东莞市捷宏激光科技有限公司抵押类负债占比(%)",
+        "equivalentValue": "0.0000"
+      },
+      {
+        "equivalentName": "担保人江阴绮星水泥有限公司抵押类负债占比(%)",
+        "equivalentValue": "93.0945"
+      },
+      {
+        "equivalentName": "担保人苏州工业园区昌源工贸有限公司抵押类负债占比(%)",
+        "equivalentValue": "0.0000"
+      }
+    ],
+    "lesseeAndGuarantorsMortgageLiabilityRatio": "31.0315",
+    "dailyAverageBalanceToIncomeRatio": "0.0000",
+    "externalGuaranteeToIncomeRatio": "0.0000",
+    "cashCoverageRatio": "108.4952",
+    "fsDataSourceType": null,
+    "financialIndicatorList": [
+      {
+        "year": "202312",
+        "dataType": "合并",
+        "fsDataSourceType": null,
+        "grossProfitMargin": "3.6000",
+        "returnOnAssets": null,
+        "netProfitMargin": "0.1100",
+        "returnOnEquity": null,
+        "inventoryTurnover": null,
+        "accountsReceivableTurnover": null,
+        "totalAssetTurnover": null,
+        "debtToAssetRatio": "74.9900",
+        "quickRatio": "1.14",
+        "currentRatio": "1.23",
+        "loanDependence": "206.4400",
+        "cashFlowToCurrentLiabilitiesRatio": null,
+        "cashSalesRatio": null,
+        "liquidationValueRatio": null,
+        "operatingRevenueGrowthRateFinancial": null,
+        "capitalAccumulationRate": null,
+        "totalAssetGrowthRate": null
+      },
+      {
+        "year": "202412",
+        "dataType": "合并",
+        "fsDataSourceType": null,
+        "grossProfitMargin": "6.5700",
+        "returnOnAssets": "3.5000",
+        "netProfitMargin": "3.3400",
+        "returnOnEquity": "14.0500",
+        "inventoryTurnover": "98.25",
+        "accountsReceivableTurnover": "11.66",
+        "totalAssetTurnover": "1.05",
+        "debtToAssetRatio": "75.2400",
+        "quickRatio": "1.13",
+        "currentRatio": "1.23",
+        "loanDependence": "202.4700",
+        "cashFlowToCurrentLiabilitiesRatio": null,
+        "cashSalesRatio": null,
+        "liquidationValueRatio": null,
+        "operatingRevenueGrowthRateFinancial": "12.5300",
+        "capitalAccumulationRate": "15.1100",
+        "totalAssetGrowthRate": "16.2700"
+      },
+      {
+        "year": "202509",
+        "dataType": "合并",
+        "fsDataSourceType": null,
+        "grossProfitMargin": "6.5300",
+        "returnOnAssets": null,
+        "netProfitMargin": "1.3700",
+        "returnOnEquity": null,
+        "inventoryTurnover": null,
+        "accountsReceivableTurnover": null,
+        "totalAssetTurnover": null,
+        "debtToAssetRatio": "81.3700",
+        "quickRatio": "1.25",
+        "currentRatio": "1.31",
+        "loanDependence": "322.8100",
+        "cashFlowToCurrentLiabilitiesRatio": null,
+        "cashSalesRatio": null,
+        "liquidationValueRatio": null,
+        "operatingRevenueGrowthRateFinancial": null,
+        "capitalAccumulationRate": null,
+        "totalAssetGrowthRate": null
+      }
+    ],
+    "haveData": true
+  }
 }

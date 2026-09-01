@@ -18,6 +18,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 │    ├─ 项目基本信息 · 功能整合资源（prjc_integrate_project_base_info）
 │    ├─ 实施方案 · 功能整合资源（prjc_integrate_implementation_plan）
 │    ├─ AI分析结果 · 功能整合资源（prjc_integrate_analysis_results）
+│    ├─ 重点指标 · 功能整合资源（prjc_integrate_key_indicators）
 │    └─ …（后续扩展模块）
 │
 └─ Step 2 · 统一规范样式
@@ -49,7 +50,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 1. 若数据完整且模块明确，进入 Step 1，按模块依次下发对应功能整合资源；
 2. 若数据缺失，记录缺失字段，下发时告知各模块资源以「—」占位，**不中断**生成流程；
-3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：合作历史、项目基本信息、实施方案、AI分析结果）。
+3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：合作历史、项目基本信息、实施方案、AI分析结果、重点指标）。
 
 ### 二、Step 1 · 下发功能整合资源
 
@@ -70,9 +71,10 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 2 | 项目基本信息 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | `project_base_info` | 详见该资源文档 |
 | 3 | 实施方案 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | `implementation_plan` | 详见该资源文档 |
 | 4 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 详见该资源文档；仅展示 `analysisConclusion` |
+| 5 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 详见该资源文档；`prjc-flr` / `prjc-si` 整模块不输出 |
 | — | 其他模块 | — | — | — | 后续扩展 |
 
-> 调度顺序对齐页面：合作历史 → 项目基本信息 → 实施方案 → AI分析结果。汇总 HTML 时按此顺序拼接各模块片段。
+> 调度顺序：合作历史 → 项目基本信息 → 实施方案 → AI分析结果 → 重点指标。汇总 HTML 时按此顺序拼接各模块片段。
 
 ### 三、Step 2 · 下发样式资源
 
@@ -106,6 +108,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | L1 | 已编写 |
 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | L1 | 已编写 |
 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | L1 | 已编写 |
+| 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | L1 | 已编写 |
 | 统一规范样式 | `prjc_style_render` | L2 | 已编写 |
 
 ---
@@ -130,7 +133,7 @@ Step 1 功能整合资源输出给 Step 2 样式资源的结构化数据格式�
 }
 ```
 
-- `moduleIndex`：供 L0 排序拼接；合作历史 → 项目基本信息 → 实施方案 → AI分析结果
+- `moduleIndex`：供 L0 排序拼接；合作历史 → 项目基本信息 → 实施方案 → AI分析结果 → 重点指标
 - `displayType`：展示类型标注，决定 L2 走哪个样式分支
 - L1 只负责填充业务语义与展示类型，**不包含 HTML 标签**
 - L2 根据 `displayType` 选择固定样式模板，生成 HTML 片段
