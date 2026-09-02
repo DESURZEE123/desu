@@ -3536,5 +3536,226 @@
       "businessDataAnalysisDesc": "1、拟承租人及拟担保企业收支明细做如下说明：\na、拟承租人及拟担保企业按2026年1-6月平均销售开票计算，每月收入分别为893万元、476万元，其中原材料成本在7成为625万元、334万元；\nb、拟承租人与拟担保企业有员工117、77人，拟承租人平均月薪9000元/人、拟担保企业7000元/人，平均每月工资在100万元、58万元左右；\nc、拟承租人与拟担保企业水电物业平均为35、15万元/月；\nd、拟承租人本次拟与我司申请授信金额500万元、24期，平均每月还款23万元；\ne、拟承租人目前有银行借款共计5000万元，平均利息按4%计算，每月利息共计20万元、拟担保企业目前有银行借款共计5400万元，平均利息按4%计算，每月利息共计21.6万元；\nf、拟承租人与拟担保企业平均每月租赁还款分别为43万元、68万元；\ng、其他开支平均80、42万元/月；\n\n2、拟承租人上海一可包装制品有限公司2023年-2025年12月开票营收分别为10619万元、10902万元、10389万元；\n拟承租人2025年12月科目余额如下：\na、应收账款余额4141万元，其中较大额的有：力试（上海）科学仪器有限公司466万元（厂房租客）、安徽乐美顺新材料有限公司268万元、上海星之蓝玻璃机械有限公司259万元、浙江优全护理用品科技有限公司230万元、上海顺都印刷有限公司220万元；\nb、应付账款余额3547万元，其中较大额的有：安徽诗雅韵新材料有限公司528万元、上海佳旺薄膜有限公司497万元、上海宏塔塑业有限公司395万元、辽宁博泽印刷油墨有限公司300万元、上海松江新颜化工油漆有限公司247万元、上海三景制版有限公司232万元；\nc、其他应收账款余额4810万元，主要为：上海一可包装股份有限公司3540万元、松岩机电（上海）有限公司1960万元、上海一可新材料科技股份有限公司219万元（以上几家为雍总其他几家关联公司，无实质运营）；\nd、其他应付账款余额8086万元，主要为：嘉兴市高宝印刷股份有限公司7631万元（拟担保企业，据雍总口述，该账目为财务做账不规范产生，实际为收购嘉兴高宝时，通过将嘉兴高宝抵押至银行获得5000万元，另嘉兴高宝账上现金1000多万元，6000多万元通过一可包装股份转给原股东，实际应为一可包装股份应付6000余万元）；\ne、库存商品6149万元，主要为：原材料1676万元、在产品2012万元、库存商品2460万元；（据雍总口述，存货增加主要是早期存在少量不开票收入，累计大概有3000多万到雍总个人账户，后雍总又借给公司，为消除该借款选择通过增资方式，实际存货在3000多万）\n\n3、拟担保企业嘉兴市高宝印刷股份有限公司2023年-2025年12月开票营收分别为5043万元、6329万元、7164万元；\n拟担保企业2025年12月科目余额如下：\na、应收账款余额4008万元，其中较大额的有：上海一可包装制品有限公司1612万元、松岩机电（上海）有限公司862万元、上海一可包装股份有限公司363万元、安徽诗雅韵新材料有限公司279万元、上海丰毅印务有限公司251万元、安徽乐美顺新材料有限公司249万元；\nb、应付账款815万元，其中较大额的有：嘉兴市荣晟包装材料有限公司65万元；\nc、嘉兴高宝中登有供应商嘉兴申丰包装科技股份有限公司登记抵押一台价值1296万元高宝印刷机，经与客户了解系早年购买印刷机等设备共计花费3000万元，因投资较大有挤占供应商款项，账期拉长，该供应商考虑欠款时间较长且金额较大800多万元，故而要求抵押一台设备，目前剩200万元左右为正常3-4个月账期应付余额；\n\n"
     },
     "operateAnalysisByCustomer": []
+  },
+  "lesseeBaseInfo": {
+    "companyPublicInfo": {
+      "pkCompanyPublicInfo": null,
+      "baseInfo": {
+        "customerName": "昆山东卓精密电子科技有限公司",
+        "customerNo": "120202244000",
+        "crdntlsCode": "91320583302263439E",
+        "crdntlsType": "统一社会信用代码",
+        "estblshDate": "2014-06-19",
+        "rgstrdCapital": "1500.00",
+        "rgstrdAddress": "昆山市玉山镇成明路68号",
+        "pkIndustrySortLittle": {
+          "code": "2929",
+          "name": "塑料零件及其他塑料制品制造",
+          "typeName": "INDUSTRY_CLASS",
+          "typeCode": "CSTS0017"
+        },
+        "employeeNum": 100,
+        "mainBusiness": "电子产品科技领域内的技术研发、技术咨询、技术服务；塑料制品的生产、销售；电子元器件、电子产品及配件、通讯设备（不含卫星电视广播地面接收设备）、机电设备、五金机电、金属制品的生产、制造、销售；精密模具、自动化设备的设计、研发、制造、加工及销售；货物及技术的进出口业务。（依法须经批准的项目，经相关部门批准后方可开展经营活动）",
+        "companyEvolution": "电子产品科技领域内的技术研发、技术咨询、技术服务；塑料制品的生产、销售；电子元器件、电子产品及配件、通讯设备（不含卫星电视广播地面接收设备）、机电设备、五金机电、金属制品的生产、制造、销售；精密模具、自动化设备的设计、研发、制造、加工及销售；货物及技术的进出口业务。（依法须经批准的项目，经相关部门批准后方可开展经营活动）",
+        "legalRepresentativeCustomerName": "陈洪虎",
+        "actControlsName": "陈洪虎",
+        "customerType": [
+          {
+            "code": "1",
+            "name": "融资客户",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          },
+          {
+            "code": "14",
+            "name": "担保客户",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          }
+        ],
+        "serviceInformAdress": "江苏省苏州市昆山市玉山镇成明路68号",
+        "personActControlList": [
+          "2202038747000"
+        ],
+        "rgstrdProvinceName": "江苏省",
+        "factCapital": "300.00"
+      },
+      "industryLicenseList": [
+        {
+          "specCrdntlsName": "排污许可证",
+          "specCrdntlsCode": "91341721675859323G001P",
+          "expirationDate": "2028-04-22"
+        },
+        {
+          "specCrdntlsName": "农药生产许可证",
+          "specCrdntlsCode": "农药生许（皖）0071",
+          "expirationDate": "2029-01-28"
+        },
+        {
+          "specCrdntlsName": "农药经营许可证",
+          "specCrdntlsCode": "农药经许（皖）34172120045",
+          "expirationDate": "2028-12-10"
+        }
+      ],
+      "shareholderList": [
+        {
+          "shareholderName": "测试",
+          "shareholderCapitalAmount": "1000.00",
+          "holdStockRatio": "10.0000"
+        }
+      ],
+      "shareholderTotal": {
+        "shareholderCapitalAmount": "1000.00",
+        "holdStockRatio": "10.0000"
+      },
+      "controllerIntroduction": "测试",
+      "guaranteeCompanySituation": null,
+      "judicialLitigationInfo": {
+        "caseTypeHighRiskList": [
+          {
+            "caseType": "被执行人",
+            "caseNum": 80,
+            "pkQueryRecord": "1511306760458809344"
+          },
+          {
+            "caseType": "强制清算与破产案件",
+            "caseNum": 4,
+            "pkQueryRecord": "1511306760458809344"
+          },
+          {
+            "caseType": "限制高消费",
+            "caseNum": 1,
+            "pkQueryRecord": "1511306760458809344"
+          }
+        ],
+        "caseTypeCommonList": [
+          {
+            "caseType": "民事案件",
+            "caseNum": 105,
+            "pkQueryRecord": "1511306760458809344"
+          },
+          {
+            "caseType": "非诉保全审查",
+            "caseNum": 1,
+            "pkQueryRecord": "1511306760458809344"
+          },
+          {
+            "caseType": "执行案件",
+            "caseNum": 83,
+            "pkQueryRecord": "1511306760458809344"
+          }
+        ],
+        "judicialLitigationInfoDesc": "案号：(2022)皖0811民初177号\n案由：合同、准合同纠纷,合同纠纷,追偿权纠纷\n原告： 安庆市融资担保集团有限公司\n第三人： 安徽金瑞禾农化有限公司\n被告： 黄**、吴**、汪**、王**、宇顺高科种业股份有限公司、安徽兴隆化工有限公司、安徽省安庆市兴隆化工有限责任公司\n起诉标的：716,260.23元\n2022-03-16准予撤诉\n发生原因：安徽金瑞禾农化有限公司资金链断裂，拖欠担保公司担保费，宇顺高科种业股份有限公司、安徽兴隆化工有限公司、安徽省安庆市兴隆化工有限责任公司作为担保方被起诉。\n目前状态：宇顺高科种业股份有限公司、安徽省安庆市兴隆化工有限责任公司，各支付一半担保费，案件已结清。\n案号：(2026)苏0411民初157号\n案由：与公司、证券、保险、票据等有关的民事纠纷,与公司有关的纠纷,股东出资纠纷\n原告： 安徽兴隆化工有限公司\n第三人： 江苏驰云环境科技有限公司\n被告： 何**、曹**、杨**\n法院：常州市新北区人民法院\n起诉标的：1,598,640元\n发生原因：江苏驰云环境科技有限公司是拟承租的设备供应商，设备质量有问题，原股东退股，遂起诉原股东。\n目前状态：等待开庭",
+        "updateTime": "2026-06-02 09:53:30",
+        "queryStatusEnum": 0,
+        "pkQueryRecord": "1511306760458809344"
+      },
+      "assetSize": {
+        "customerNo": null,
+        "rgstrdAddress": null,
+        "factoryOwnDetails": [],
+        "factoryRentDetails": [],
+        "equipmentList": [],
+        "ratio": null,
+        "incomeAndDebtScale": null
+      },
+      "equityPenetrationList": [],
+      "financialAnalysisList": [],
+      "financialAnalysisDesc": null,
+      "loan": {
+        "creditInfo": null,
+        "loanDesc": null,
+        "zdinfo": null
+      },
+      "projectOperationInfo": {
+        "operationInfoList": [],
+        "operationDescription": null
+      },
+      "financialDataOfKeyAccount": {
+        "isNewCompany": null,
+        "collectFinancialFlag": null,
+        "financialStatementsOfKeyAccount": {
+          "sheetName": null,
+          "creditCode": "91320583302263439E",
+          "customerNo": "120202244000",
+          "fsDataSourceType": "税票授权采集",
+          "balanceSheet": [],
+          "profitSheet": [],
+          "financialIndex": []
+        },
+        "receiveAccountDetail": {
+          "ifCanVisible": "是",
+          "financialAnalysisDataList": []
+        },
+        "financialNotes": null,
+        "receiveAccountDesc": null
+      },
+      "relatedEnterpriseDesc": null,
+      "assetStatusDesc": null,
+      "existingContractAnalysis": {
+        "collectContractFlag": null,
+        "contractStatusInfoList": null,
+        "contractStatusDesc": null
+      }
+    },
+    "productionAndSaleSituation": {
+      "productionAndSaleSituationDesc": null,
+      "desc": null,
+      "downstreamCustomerDesc": null,
+      "mainProductList": null,
+      "mainProductTotal": null,
+      "downstreamCustomerList": null,
+      "downstreamCustomerSaleAmountTotal": null,
+      "downstreamCustomerRatioTotal": null,
+      "useElectricityModelList": null
+    },
+    "collaborationHistoryModel": {
+      "leaseCollaborationHistoryList": [
+        {
+          "leaseMethod": "回租",
+          "leaseMethodFact": "回租",
+          "guaranteeMethod": null,
+          "guaranteeMethodList": null,
+          "contName": "JFL20C01L030450-01",
+          "contCashPledge": "2000000.00",
+          "curOverdueAmount": "644019.44",
+          "corpusBalancePledge": "614079.44",
+          "curOverdueDays": 1253,
+          "historyOverdueDays": 1253,
+          "historyOverdueTimes": 3,
+          "contEndDate": "2022-01-04",
+          "leaseBeginDate": "2020-05-26",
+          "customerName": "昆山东卓精密电子科技有限公司",
+          "customerRoleEnumList": [
+            "承租方"
+          ],
+          "customerRoleEnum": "承租方",
+          "irr": "10.9320",
+          "cmprhnsvIrr": "12.4163",
+          "customerRole": null,
+          "customerNo": "120202244000",
+          "businessStatus": null
+        }
+      ],
+      "leaseAmountTotal": {
+        "contCashPledge": "2000000.00",
+        "riskExposure": "614079.44",
+        "curOverdueAmount": "644019.44"
+      },
+      "guarantorCollaborationHistories": [],
+      "guarantorAmountTotal": {
+        "contCashPledge": null,
+        "riskExposure": null,
+        "curOverdueAmount": null
+      },
+      "updateTime": "2026-06-01",
+      "queryStatusEnum": 0,
+      "pkQueryRecord": null
+    },
+    "ongoingConstructionProject": {
+      "projectDetailList": null,
+      "haveOngoingConstructionProject": "否",
+      "statusReportOnOngoingProjects": null
+    }
   }
 }
