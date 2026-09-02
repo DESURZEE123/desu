@@ -11,24 +11,9 @@
 
 ## 一、Skill Role（技能角色）
 
-本 Skill 从用户传入参数中提取 `commonCollaborationHistoryModel`（及同构子对象），按尽调系统类型筛选字段、映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
+本 Skill 从用户传入参数中提取 `commonCollaborationHistoryModel`（及同构子对象），按**小企业（`prjc-slb`）**页面字段范围映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
 
 AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不做业务分析、不做筛选主体计算、不渲染知识图谱、不做 HTML 渲染。
-
-**尽调系统类型对照**
-
-| 中文   | 英文类型       |
-| ---- | ---------- |
-| 闪光租  | `prjc-flr` |
-| 小企业  | `prjc-slb` |
-| 厂商租赁 | `prjc-drs` |
-| 环卫   | `prjc-si`  |
-| 通用大单 | `prjc-gld` |
-| 大健康  | `prjc-hdr` |
-
-<!-- | 印包 | `prjc-PEP` | -->
-
-> 编码规则：`prjc-{小写系统码}`。印包（`prjc-PEP`）暂不在本节对照表启用，文中涉及印包的模块规则保持不变。
 
 ---
 
@@ -46,16 +31,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 来源路径 | 说明 |
 | -------- | ---- |
-| `projectAttribute` | 尽调系统类型（`prjc-*`），决定字段展示范围与表头文案 |
 | `commonCollaborationHistoryModel` | 模块主数据对象（项目级合作历史） |
 | `commonCollaborationHistoryModel.leaseCollaborationHistoryList` | 作为承租人情况列表 |
 | `commonCollaborationHistoryModel.leaseAmountTotal` | 作为承租人情况 · 合计 |
 | `commonCollaborationHistoryModel.guarantorCollaborationHistories` | 作为担保人情况列表 |
 | `commonCollaborationHistoryModel.guarantorAmountTotal` | 作为担保人情况 · 合计 |
 | `commonCollaborationHistoryModel.cooperateHistoryDesc` | 合作历史说明 |
-| `commonCollaborationHistoryModel.updateTime` | 数据更新时间（环卫等场景用，本节 PDF 首版可选） |
-| `commonCollaborationHistoryModel.isRepeatOrderOk` | 是否符合翻单要求（环卫大单回租条件字段） |
-| `commonCollaborationHistoryModel.repeatOrderSituation` | 翻单情况（环卫大单回租条件字段） |
 
 > 承租人 / 担保人模块内嵌的 `collaborationHistoryModel` **不**作为本模块主数据源；PDF「合作历史」大模块仅取项目级 `commonCollaborationHistoryModel`。
 
@@ -64,40 +45,29 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ## 四、整合流程
 
 ```text
-1. 读取 projectAttribute，确定尽调系统类型
-2. 若系统为 prjc-flr：本模块整段不输出（闪光租无独立合作历史模块）
-3. 从 commonCollaborationHistoryModel 提取字段
-4. 按尽调系统差异过滤 / 改表头（见第五节）
-5. 按分组顺序组装 blocks（见第六节）
-6. 为每个字段标注 displayType 并格式化展示值
-7. 输出结构化 JSON → 交由 L2 渲染
+1. 从 commonCollaborationHistoryModel 提取字段
+2. 按固定 blocks 顺序组装（见第六节）
+3. 为每个字段标注 displayType 并格式化展示值
+4. 输出结构化 JSON → 交由 L2 渲染
 ```
 
 ---
 
-## 五、尽调系统差异约束
+## 五、输出规则
 
-| 分组 / 字段 | prjc-flr | prjc-slb | prjc-drs | prjc-PEP | prjc-si | prjc-gld | prjc-hdr |
-| ----------- | :----: | :----: | :------: | :--: | :--: | :------: | :------: |
-| 合作历史模块整体 | — | ✅ | ✅ | ✅ | ✅ | 待补充 | 待补充 |
-| 作为承租人情况表 | — | ✅ | ✅ | ✅ | ✅ | 待补充 | — |
-| 作为担保人情况表 | — | ✅ | ✅ | ✅ | ✅ | 待补充 | — |
-| 合作历史说明 | — | ✅ | ✅ | ✅ | 条件 | 待补充 | — |
-| 经营情况列 | — | — | — | — | 条件 | — | — |
-| 翻单字段 | — | — | — | — | 条件 | — | — |
-| 知识图谱 | — | — | — | — | — | — | — |
+**固定 blocks：**
 
-**条件展示规则：**
+| block | label | displayType |
+| ----- | ----- | ----------- |
+| `leaseCollaborationHistoryList` | `承租人、关联方、担保人作为承租人情况` | `table` |
+| `guarantorCollaborationHistories` | `承租人、关联方、担保人作为担保人情况` | `table` |
+| `cooperateHistoryDesc` | `合作历史说明` | `longText`（有合作历史数据时） |
 
-- `prjc-flr`（闪光租）：**无独立合作历史模块**，合作历史展示在承租人信息 / 增信措施中，本 Skill **整模块不输出**
-- 表头文案：
-  - `prjc-slb` / `prjc-drs`：`承租人、关联方、担保人作为承租人情况` / `承租人、关联方、担保人作为担保人情况`（对齐页面截图）
-  - `prjc-PEP`：`承租人、担保人作为承租方的情况` / `承租人、担保人作为担保方情况`（不含关联方）
-  - `prjc-si`：默认 `承租人关联方作为承租方` / `承租人及关联方作为担保人情况`；细分项目类型差异见业务 PRD，本节 PDF 首版按通用两表 + 说明输出，经营情况 / 翻单等扩展字段标「待补充」
+**展示规则：**
+
 - `合作历史说明`：两表任一有数据时输出；两表皆空时不输出该 block
 - `知识图谱`：交互可视化，**PDF 不输出**
 - `筛选主体` / `更新合作历史`：页面操作，**PDF 不输出**（PDF 使用入参中已落库的全量列表，不做前端筛选）
-- `prjc-gld` / `prjc-hdr`：本节模块差异待补充，当前 PDF 模块暂不输出或按后续补齐规则输出
 
 **空数据规则：**
 
@@ -110,11 +80,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 模块内 `blocks` 按以下顺序输出（与页面展示顺序一致）：
 
-| 顺序 | blockKey | label | displayType | 适用系统 |
-| :--: | -------- | ----- | ----------- | -------- |
-| 1 | `leaseCollaborationHistoryList` | 见 §5 表头文案 · 作为承租人情况 | `table` | prjc-slb / prjc-drs / prjc-PEP / prjc-si |
-| 2 | `guarantorCollaborationHistories` | 见 §5 表头文案 · 作为担保人情况 | `table` | 同上 |
-| 3 | `cooperateHistoryDesc` | 合作历史说明 | `longText` | 有合作历史数据时 |
+| 顺序 | blockKey | label | displayType |
+| :--: | -------- | ----- | ----------- |
+| 1 | `leaseCollaborationHistoryList` | `承租人、关联方、担保人作为承租人情况` | `table` |
+| 2 | `guarantorCollaborationHistories` | `承租人、关联方、担保人作为担保人情况` | `table` |
+| 3 | `cooperateHistoryDesc` | `合作历史说明` | `longText` |
 
 > 每个 table block 输出**完整列**（合同 + 收益与逾期字段合并为一张表）。列数超过 8 时由 L2（`prjc_style_render.md` §5.5.1）自动叠行展示，L1 **不**拆表、**不**传 layout 参数。
 
@@ -126,7 +96,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 数据来源：`commonCollaborationHistoryModel.leaseCollaborationHistoryList`
 
-**默认 label（prjc-slb / prjc-drs）：** `承租人、关联方、担保人作为承租人情况`
+**label：** `承租人、关联方、担保人作为承租人情况`
 
 **blockKey：** `leaseCollaborationHistoryList`
 
@@ -158,7 +128,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 数据来源：`commonCollaborationHistoryModel.guarantorCollaborationHistories`
 
-**默认 label（prjc-slb / prjc-drs）：** `承租人、关联方、担保人作为担保人情况`
+**label：** `承租人、关联方、担保人作为担保人情况`
 
 **blockKey：** `guarantorCollaborationHistories`
 
@@ -215,7 +185,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ---
 
-## 九、输出示例（prjc-slb）
+## 九、输出示例
 
 ```json
 {
@@ -297,18 +267,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 1. 输出 JSON，**不包含 HTML 标签**
 2. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 3. 空值统一填 `—`，不输出 `null` 或空字符串
-4. 不传当前尽调系统不需要的 block / 字段
-5. `blocks` 内顺序严格按第六节表格排列（承租人表 → 担保人表 → 说明）
-6. `prjc-flr` 不输出本模块
-7. 不输出知识图谱、筛选主体、更新按钮等页面交互能力
-8. 宽表不拆 block；14～15 列完整输出于单个 `table`，叠行由 L2 处理
-
----
-
-## 十一、待补充
-
-| 项 | 说明 |
-| -- | ---- |
-| `prjc-si` 经营情况列 / 数据更新时间 / 翻单字段 | 按项目类型条件补齐 |
-| `prjc-gld` / `prjc-hdr` | 系统差异与字段范围待补充 |
-| 收益率精度 | 若业务要求统一补齐小数位，再在 §8 固化 |
+4. `blocks` 内顺序严格按第六节表格排列（承租人表 → 担保人表 → 说明）
+5. 不输出知识图谱、筛选主体、更新按钮等页面交互能力
+6. 宽表不拆 block；14～15 列完整输出于单个 `table`，叠行由 L2 处理

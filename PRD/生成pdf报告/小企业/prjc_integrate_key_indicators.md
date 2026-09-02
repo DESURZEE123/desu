@@ -11,26 +11,11 @@
 
 ## 一、Skill Role（技能角色）
 
-本 Skill 从用户传入参数中提取 `keyIndicators`，按尽调系统类型筛选字段、映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
+本 Skill 从用户传入参数中提取 `keyIndicators`，按**小企业（`prjc-slb`）**页面字段范围映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
 
 AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不做指标计算、不调用税票接口、不做 HTML 渲染。
 
 页面为「顶部重点指标栅格 + 承租人近 3 年主要财务指标表」；PDF 按同一顺序全部展开输出。系统中每行展示 **3** 个指标，PDF 对齐为 `columns: 3`。
-
-**尽调系统类型对照**
-
-| 中文   | 英文类型       |
-| ---- | ---------- |
-| 闪光租  | `prjc-flr` |
-| 小企业  | `prjc-slb` |
-| 厂商租赁 | `prjc-drs` |
-| 环卫   | `prjc-si`  |
-| 通用大单 | `prjc-gld` |
-| 大健康  | `prjc-hdr` |
-
-<!-- | 印包 | `prjc-PEP` | -->
-
-> 编码规则：`prjc-{小写系统码}`。印包（`prjc-PEP`）暂不在本节对照表启用，文中涉及印包的模块规则保持不变。
 
 ---
 
@@ -48,7 +33,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 来源路径 | 说明 |
 | -------- | ---- |
-| `projectAttribute` | 尽调系统类型（`prjc-*`），决定模块是否输出 |
 | `keyIndicators` | 模块主数据对象 |
 | `keyIndicators.yoyRevenueGrowthRate` | 近一年收入同期增长率(%) |
 | `keyIndicators.generalProvisionRatio` | 营授比(%)（字段名历史遗留，展示名以页面为准） |
@@ -72,29 +56,17 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ## 四、整合流程
 
 ```text
-1. 读取 projectAttribute，确定尽调系统类型
-2. 若不在适用系统内：整模块不输出
-3. 若 keyIndicators 为 null / 缺失：整模块不输出
-4. 组装顶部重点指标 group（见 §7.1），含 elementList 动态项
-5. 按 financialIndicatorList 生成年份列，按固定行序展开财务指标表（见 §7.2）
-6. 空值规范化为「—」；数值原样透传（不追加 %）
-7. 输出 moduleIndex=6 的结构化 JSON → 交由 L2 渲染
+1. 若 keyIndicators 为 null / 缺失：整模块不输出
+2. 组装顶部重点指标 group（见 §7.1），含 elementList 动态项
+3. 按 financialIndicatorList 生成年份列，按固定行序展开财务指标表（见 §7.2）
+4. 空值规范化为「—」；数值原样透传（不追加 %）
+5. 输出 moduleIndex=6 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
 
-## 五、尽调系统差异约束
+## 五、输出规则
 
-| 分组 / 字段 | prjc-flr | prjc-slb | prjc-drs | prjc-PEP | prjc-si | prjc-gld | prjc-hdr |
-| ----------- | :----: | :----: | :------: | :--: | :--: | :------: | :------: |
-| 重点指标模块整体 | — | ✅ | ✅ | ✅ | — | 待补充 | 待补充 |
-| 顶部重点指标栅格 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-| 承租人近3年主要财务指标 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-
-**条件展示规则：**
-
-- 适用系统对齐业务侧「小企业 / 厂商租赁 / 印包」刚性负债 + 经营数据链路；`prjc-flr` / `prjc-si` 本模块**整段不输出**
-- `prjc-gld` / `prjc-hdr`：本节模块差异待补充，当前 PDF 模块暂不输出
 - `elementList`：有几条输出几条；`null` / `[]` 时跳过动态项，其余固定指标仍输出
 - `haveData === false` 或 `financialIndicatorList` 为 `null` / `[]`：仍输出顶部指标；财务表输出 `table` + `emptyText`，不省略 block
 - `netProfitMargin`：入参可有该字段，但页面 / 业务 PRD **不展示**，L1 **不提取、不输出**
@@ -104,10 +76,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ## 六、blocks 组装顺序
 
-| 顺序 | blockKey | label | displayType | 适用系统 |
-| :--: | -------- | ----- | ----------- | -------- |
-| 1 | `keyMetrics` | （不传 label） | `group` | prjc-slb / prjc-drs / prjc-PEP |
-| 2 | `financialIndicatorList` | `承租人近3年主要财务指标` | `table` | 同上 |
+| 顺序 | blockKey | label | displayType |
+| :--: | -------- | ----- | ----------- |
+| 1 | `keyMetrics` | （不传 label） | `group` |
+| 2 | `financialIndicatorList` | `承租人近3年主要财务指标` | `table` |
 
 > 顶部指标为模块顶栏下的指标行，**无**蓝色小节标题（对齐页面截图与实施方案 `riskSummary`）。
 
@@ -258,7 +230,7 @@ L1 按下行序**展开为行**；每行从各年份对象取对应接口字段�
 
 ---
 
-## 九、输出示例（prjc-slb · 对齐 mock.json）
+## 九、输出示例
 
 ```json
 {
@@ -326,7 +298,7 @@ L1 按下行序**展开为行**；每行从各年份对象取对应接口字段�
 2. 输出 JSON，**不包含 HTML 标签**
 3. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 4. 空值统一填 `—`，不输出 `null` 或空字符串（`analysisList` 类除外；本模块无此类型）
-5. 不适用尽调系统 / `keyIndicators` 缺失时：**整模块不输出**
+5. `keyIndicators` 缺失时：**整模块不输出**
 6. `blocks` 内顺序严格按第六节表格排列
 7. 不计算、不改写指标；`elementList` 名称完整透传
 8. 财务表「评估项目」列通过 `mergeSame: true` 交由 L2 做单元格合并；L1 仍按行重复写入 `category` 文案

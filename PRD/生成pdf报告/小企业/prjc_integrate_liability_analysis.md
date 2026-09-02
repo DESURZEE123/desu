@@ -11,26 +11,13 @@
 
 ## 一、Skill Role（技能角色）
 
-本 Skill 从用户传入参数中提取 `liabilityAnalysis`，按尽调系统类型筛选字段、映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
+本 Skill 从用户传入参数中提取 `liabilityAnalysis`，按**小企业（`prjc-slb`）**页面字段范围映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
 
 AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 displayType 标注**，不调用征信/中登接口、不筛选主体、不做 HTML 渲染。
 
 页面为「更新时间 + 借款情况（企业借款 / 个人借款）+ 对外担保情况 + 负债说明」；PDF **按顺序全部展开**（无 Tab / 折叠 / 筛选交互）。宽表（列数 > 8）由 L2 自动叠行，L1 不拆表。
 
-**尽调系统类型对照**
-
-| 中文   | 英文类型       |
-| ---- | ---------- |
-| 闪光租  | `prjc-flr` |
-| 小企业  | `prjc-slb` |
-| 厂商租赁 | `prjc-drs` |
-| 环卫   | `prjc-si`  |
-| 通用大单 | `prjc-gld` |
-| 大健康  | `prjc-hdr` |
-
-<!-- | 印包 | `prjc-PEP` | -->
-
-> 编码规则：`prjc-{小写系统码}`。印包（`prjc-PEP`）暂不在本节对照表启用，文中涉及印包的模块规则保持不变。业务 PRD 适用范围为「小企业、厂商租赁、印包」。
+> 若 `liabilityAnalysis` 为 null / 缺失，整模块不输出。
 
 ---
 
@@ -48,7 +35,6 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 | 来源路径 | 说明 |
 | -------- | ---- |
-| `projectAttribute` | 尽调系统类型（`prjc-*`），决定模块是否输出 |
 | `liabilityAnalysis` | 模块主数据对象 |
 | `liabilityAnalysis.updateTime` | 征信、中登数据更新时间 |
 | `liabilityAnalysis.loanSituation.companyLoanList[]` | 企业借款明细 |
@@ -70,42 +56,25 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 | `loanSituation.personBorrowDetailList` | 个人借款明细子表，页面主表「个人借款」用汇总行 `personLoanList`，PDF 对齐主表 |
 | `customerNo` / 各类主键 | 仅数据匹配 |
 
-> PDF **不输出**「更新刚性负债数据」「筛选主体」「新增 / 删除」等页面操作。
-
 ---
 
 ## 四、整合流程
 
 ```text
-1. 读取 projectAttribute，确定尽调系统类型
-2. 若不在适用系统内：整模块不输出
-3. 若 liabilityAnalysis 为 null / 缺失：整模块不输出
-4. 输出更新时间 direct（有 updateTime 时）
-5. 输出「借款情况」分组标题
-6. 组装企业借款 table（含 summary）
-7. 组装个人借款 table（含 summary）
-8. 组装对外担保情况 table（含 summary）
-9. 组装负债说明 longText（有值时）
-10. 输出 moduleIndex=5 的结构化 JSON → 交由 L2 渲染
+1. 若 liabilityAnalysis 为 null / 缺失：整模块不输出
+2. 输出更新时间 direct（有 updateTime 时）
+3. 输出「借款情况」分组标题
+4. 组装企业借款 table（含 summary）
+5. 组装个人借款 table（含 summary）
+6. 组装对外担保情况 table（含 summary）
+7. 组装负债说明 longText（有值时）
+8. 输出 moduleIndex=5 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
 
-## 五、尽调系统差异约束
+## 五、输出规则
 
-| 分组 / 字段 | prjc-flr | prjc-slb | prjc-drs | prjc-PEP | prjc-si | prjc-gld | prjc-hdr |
-| ----------- | :----: | :----: | :------: | :--: | :--: | :------: | :------: |
-| 刚性负债分析模块整体 | — | ✅ | ✅ | ✅ | — | 待补充 | 待补充 |
-| 更新时间 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-| 企业借款 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-| 个人借款 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-| 对外担保情况 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-| 负债说明 | — | ✅ | ✅ | ✅ | — | 待补充 | — |
-
-**条件展示规则：**
-
-- 适用系统对齐业务侧「小企业 / 厂商租赁 / 印包」；`prjc-flr` / `prjc-si` **整模块不输出**
-- `prjc-gld` / `prjc-hdr`：差异待补充，当前暂不输出
 - `updateTime` 为空：不输出该 direct block
 - 各表 `null` / `[]`：仍输出对应 `table` block，走 `emptyText`
 - `liabilityStatement` 为空 / null：不输出负债说明 block
@@ -309,7 +278,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 ---
 
-## 九、输出示例（prjc-slb · 节选，对齐 mock.json）
+## 九、输出示例
 
 ```json
 {
@@ -517,7 +486,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 2. 输出 JSON，**不包含 HTML 标签**
 3. 字段名使用中文 `label`；英文字段名仅用于取值匹配
 4. 空值统一填 `—`
-5. 不适用系统 / `liabilityAnalysis` 缺失时：**整模块不输出**
+5. `liabilityAnalysis` 缺失时：**整模块不输出**
 6. `blocks` 顺序严格按第六节
 7. 宽表完整输出全部列于**单个** table block；叠行由 L2 处理（`stackSpan` 跨行固定列 + 其余配对；**不**按 16 列拆表）
 8. 不输出筛选、更新、新增删除等交互控件

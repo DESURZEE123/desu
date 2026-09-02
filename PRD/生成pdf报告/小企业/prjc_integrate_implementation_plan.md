@@ -11,26 +11,11 @@
 
 ## 一、Skill Role（技能角色）
 
-本 Skill 从用户传入参数中提取 `embodiment`（及同构报价 / 增信子对象），按尽调系统类型筛选字段、映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
+本 Skill 从用户传入参数中提取 `embodiment`（及同构报价 / 增信子对象），按**小企业（`prjc-slb`）**页面字段范围映射中文展示名、标注 `displayType`，输出符合 prjc_style_render.md Schema 的结构化 JSON。
 
 AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不做业务分析、不计算风险敞口、不做 HTML 渲染。
 
 页面为 Tab 的「租金计划表 / 保证金计划 / 其他收支计划」在 PDF 中**按顺序全部展开**输出（无 Tab 交互）。
-
-**尽调系统类型对照**
-
-| 中文   | 英文类型       |
-| ---- | ---------- |
-| 闪光租  | `prjc-flr` |
-| 小企业  | `prjc-slb` |
-| 厂商租赁 | `prjc-drs` |
-| 环卫   | `prjc-si`  |
-| 通用大单 | `prjc-gld` |
-| 大健康  | `prjc-hdr` |
-
-<!-- | 印包 | `prjc-PEP` | -->
-
-> 编码规则：`prjc-{小写系统码}`。印包（`prjc-PEP`）暂不在本节对照表启用，文中涉及印包的模块规则保持不变。
 
 ---
 
@@ -48,20 +33,16 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 来源路径 | 说明 |
 | -------- | ---- |
-| `projectAttribute` | 尽调系统类型（`prjc-*`），决定字段展示范围 |
 | `embodiment` | 模块主数据对象 |
 | `embodiment.riskExposure` | 预测风险敞口(元) |
 | `embodiment.rate` | 预测风险敞口/设备原值(%) |
 | `embodiment.lesseeAggregateRiskExposure` | 承租人累计风险敞口(元) |
 | `embodiment.aggregateRiskExposure` | 承租人及关联方累计风险敞口(元) |
-| `embodiment.singleWattFinancingAmount` | 单瓦融资额(元)（闪光租） |
 | `embodiment.advertisingInfoList[]` | 报价方案列表（投放信息 / 付款条件 / 各类计划） |
 | `embodiment.advertisingInfoList[].paymentTermList` | 付款条件及笔数 |
 | `embodiment.advertisingInfoList[].rentPlan` | 租金计划表（含汇总 + 明细） |
 | `embodiment.advertisingInfoList[].depositPlan` | 保证金计划 |
 | `embodiment.advertisingInfoList[].otherPlan` | 其他收支计划 |
-| `embodiment.advertisingInfoList[].insuranceRuleSetting` | 保险规则设置（厂商租赁） |
-| `embodiment.advertisingInfoList[].insuranceSubTable` | 保险明细（厂商租赁） |
 | `commonCreditEnhancementMeasure.creditEnhancementMeasureList[]` | 按 `quotName` 匹配的增信措施（优先） |
 | `embodiment.creditEnhancementMeasureInfo` | 实施方案内嵌增信措施（次选） |
 | `creditEnhancementMeasure` | 顶层增信措施（兜底） |
@@ -73,49 +54,32 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ## 四、整合流程
 
 ```text
-1. 读取 projectAttribute，确定尽调系统类型
-2. 从 embodiment 提取风险敞口汇总字段
-3. 遍历 advertisingInfoList，按尽调系统差异过滤子块（见第五节）
-4. 按分组顺序组装 blocks（见第六节）
-5. 为每个字段标注 displayType 并格式化展示值
-6. 输出 moduleIndex=3 的结构化 JSON → 交由 L2 渲染
+1. 从 embodiment 提取风险敞口汇总字段
+2. 遍历 advertisingInfoList，组装各报价子块
+3. 按固定 blocks 顺序输出（见第六节）
+4. 为每个字段标注 displayType 并格式化展示值
+5. 输出 moduleIndex=3 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
 
-## 五、尽调系统差异约束
+## 五、输出规则
 
-| 分组 / 字段 | prjc-flr | prjc-slb | prjc-drs | prjc-PEP | prjc-si | prjc-gld | prjc-hdr |
-| ----------- | :----: | :----: | :------: | :--: | :--: | :------: | :------: |
-| 风险敞口汇总 | 条件 | ✅ | ✅ | ✅ | 条件 | 待补充 | 待补充 |
-| 单瓦融资额 | ✅ | — | — | — | — | — | — |
-| 报价方案（quotName 分组） | ✅ | ✅ | ✅ | ✅ | ✅ | 待补充 | 待补充 |
-| 投放信息 | ✅ | ✅ | ✅ | ✅ | ✅ | 待补充 | 待补充 |
-| 贴息金额 / 银票收益率 | — | ✅ | ✅ | ✅ | ✅ | — | — |
-| 是否调息 | — | 条件 | ✅ | ✅ | — | — | — |
-| 支付方式 / 备注 | — | — | — | — | ✅ | — | — |
-| 付款条件及笔数 | ✅ | ✅ | ✅ | ✅ | ✅ | 待补充 | 待补充 |
-| 租金计划表 | ✅ | ✅ | ✅ | ✅ | ✅ | 待补充 | 待补充 |
-| 保证金计划 | — | ✅ | ✅ | ✅ | — | — | — |
-| 其他收支计划 | — | ✅ | ✅ | ✅ | — | — | — |
-| 保险规则设置 / 保险 | — | — | ✅ | — | — | — | — |
-| 增信措施 | — | ✅ | ✅ | ✅ | ✅ | 待补充 | 待补充 |
+**固定输出范围（对齐小企业页面）：**
 
-**条件展示规则：**
-
-- **风险敞口汇总**
-  - `prjc-slb` / `prjc-drs` / `prjc-PEP`：输出 4 项（预测风险敞口、预测风险敞口/设备原值、承租人累计、承租人及关联方累计）
-  - `prjc-flr`：删除「承租人及关联方累计风险敞口」；增加「单瓦融资额(元)」；保留预测风险敞口、预测风险敞口/设备原值、承租人累计风险敞口
-  - `prjc-si` 零售：删除预测风险敞口、预测风险敞口/设备原值、承租人及关联方累计；保留承租人累计（具体细分以业务 PRD 为准，PDF 首版按通用 4 项输出，差异标「待补充」时可收窄）
-  - `prjc-si` 大单：删除承租人累计风险敞口
-- **投放信息 · 贴息金额 / 银票收益率**：仅小企业、厂商租赁、印包、环卫展示；闪光租不输出
-- **投放信息 · 是否调息**：厂商租赁 / 闪光租 / 印包展示；小企业截图有该字段时按页面输出（`prjc-slb` ✅）；环卫不输出
-- **投放信息 · 支付方式 / 备注**：仅环卫展示
-- **保证金计划 / 其他收支计划**：闪光租、环卫不输出
-- **保险规则设置 / 保险**：仅厂商租赁展示
-- **增信措施**：闪光租不输出
-- **关联报价 / 取消关联 / 编辑 / 保存** 等页面操作：PDF **不输出**
-- `prjc-gld` / `prjc-hdr`：本节模块差异待补充，当前 PDF 模块暂不输出或按后续补齐规则输出
+| 分组 / 字段 | 是否输出 |
+| ----------- | :------: |
+| 风险敞口汇总（4 项） | ✅ |
+| 报价方案（`quotName` 分组） | ✅ |
+| 投放信息（含贴息、银票收益率、是否调息） | ✅ |
+| 付款条件及笔数 | ✅ |
+| 租金计划表（汇总 + 明细） | ✅ |
+| 保证金计划 | ✅ |
+| 其他收支计划 | ✅ |
+| 增信措施 | ✅ |
+| 保险规则 / 保险 | — |
+| 单瓦融资额 | — |
+| 支付方式 / 备注（环卫专属） | — |
 
 **空数据规则：**
 
@@ -123,27 +87,27 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 - 单表为空：该表走对应 `emptyText`，其余块正常输出
 - 增信措施列表为空：输出 `measureList`，`emptyText: 暂无增信措施`
 
+**页面交互不输出：** 关联报价 / 取消关联 / 编辑 / 保存、知识图谱等
+
 ---
 
 ## 六、blocks 组装顺序
 
 模块内 `blocks` 按以下顺序输出（与页面展示顺序一致；多报价时对每个报价重复 2～8）：
 
-| 顺序 | blockKey | label | displayType | 适用系统 |
-| :--: | -------- | ----- | ----------- | -------- |
-| 1 | `riskSummary` | （无标题 / 可不传 label） | `group` | 见 §5 |
-| 2 | `quoteTitle_{i}` | `{quotName}` | `group`（仅标题，`children` 可为空） | 有报价时 |
-| 3 | `loanInfo_{i}` | `投放信息` | `group` | 有报价时 |
-| 4 | `paymentTermList_{i}` | `付款条件及笔数` | `table` | 有报价时 |
-| 5 | `rentPlanSummary_{i}` | `租金计划表` | `group` | 有报价时 |
-| 6 | `rentPlanDetail_{i}` | （不传 label，紧接上块） | `table` | 有报价时 |
-| 7 | `depositPlan_{i}` | `保证金计划` | `table` | prjc-slb / prjc-drs / prjc-PEP |
-| 8 | `otherPlan_{i}` | `其他收支计划` | `table` | 同上 |
-| 9 | `insuranceRule_{i}` | `保险规则设置` | `table` | prjc-drs |
-| 10 | `insurance_{i}` | `保险` | `table` | prjc-drs |
-| 11 | `creditEnhancement_{i}` | `增信措施` | `measureList` | 非 prjc-flr |
+| 顺序 | blockKey | label | displayType |
+| :--: | -------- | ----- | ----------- |
+| 1 | `riskSummary` | （无标题 / 可不传 label） | `group` |
+| 2 | `quoteTitle_{i}` | `{quotName}` | `group`（仅标题，`children` 可为空） |
+| 3 | `loanInfo_{i}` | `投放信息` | `group` |
+| 4 | `paymentTermList_{i}` | `付款条件及笔数` | `table` |
+| 5 | `rentPlanSummary_{i}` | `租金计划表` | `group` |
+| 6 | `rentPlanDetail_{i}` | （不传 label，紧接上块） | `table` |
+| 7 | `depositPlan_{i}` | `保证金计划` | `table` |
+| 8 | `otherPlan_{i}` | `其他收支计划` | `table` |
+| 9 | `creditEnhancement_{i}` | `增信措施` | `measureList` |
 
-> `{i}` 为报价在 `advertisingInfoList` 中的下标（从 0 起）。多报价时按列表顺序完整重复 2～11。
+> `{i}` 为报价在 `advertisingInfoList` 中的下标（从 0 起）。多报价时按列表顺序完整重复 2～9。
 
 ---
 
@@ -154,16 +118,15 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 数据来源：`embodiment` 顶层字段
 
 **blockKey：** `riskSummary`  
-**columns：** `4`（闪光租含单瓦融资额时仍用 4 列栅格）  
+**columns：** `4`  
 **label：** 不传（页面为顶栏指标行，无蓝色小节标题）
 
-| 列 label | key | 格式化 | 适用 |
-| -------- | --- | ------ | ---- |
-| 预测风险敞口(元) | `riskExposure` | 千分位 + 2 位小数 | 默认 |
-| 预测风险敞口/设备原值(%) | `rate` | 原样；纯数字保留接口精度（如 `24.5000`） | 默认 |
-| 承租人累计风险敞口(元) | `lesseeAggregateRiskExposure` | 千分位 + 2 位小数 | 见 §5 |
-| 承租人及关联方累计风险敞口(元) | `aggregateRiskExposure` | 千分位 + 2 位小数 | 见 §5 |
-| 单瓦融资额(元) | `singleWattFinancingAmount` | 千分位 + 2 位小数 | 仅 prjc-flr |
+| 列 label | key | 格式化 |
+| -------- | --- | ------ |
+| 预测风险敞口(元) | `riskExposure` | 千分位 + 2 位小数 |
+| 预测风险敞口/设备原值(%) | `rate` | 原样；纯数字保留接口精度（如 `24.5000`） |
+| 承租人累计风险敞口(元) | `lesseeAggregateRiskExposure` | 千分位 + 2 位小数 |
+| 承租人及关联方累计风险敞口(元) | `aggregateRiskExposure` | 千分位 + 2 位小数 |
 
 ```json
 {
@@ -223,10 +186,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 投放日期 | `advertisingDate` | 原样 |
 | 银票收益率(%) | `babRate` | 原样；空可回退 `referenceRate.contIrrBanknote` |
 | 是否调息 | `isAdjustingInterest` | 原样 |
-| 支付方式 | `paymentMethod` | 原样（仅环卫） |
-| 备注 | `remark` | 原样（仅环卫） |
-
-- 不传当前系统不需要的字段（见 §5）
 
 ### 7.4 付款条件及笔数（table）
 
@@ -299,7 +258,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 - `showIndex`: `false`
 - `emptyText`: `暂无保证金计划`
-- 仅 prjc-slb / prjc-drs / prjc-PEP 输出
 
 ### 7.8 其他收支计划（table）
 
@@ -317,23 +275,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 - `showIndex`: `false`
 - `emptyText`: `暂无其他收支计划`
-- 仅 prjc-slb / prjc-drs / prjc-PEP 输出
 
-### 7.9 保险规则设置 / 保险（table · 厂商租赁）
-
-数据来源：
-
-- `insuranceRuleSetting.ruleSettingDetails`
-- `insuranceSubTable.insuranceSubTableDetails`
-
-**保险规则设置列：** 保险险种(`insuranceName`) / 保险公司(`customerName`) / 支付类型(`paymentType`) / 支付方式(`paymentMethod`)
-
-**保险列：** 保险险种(`typeOfInsurance`) / 保险公司(`customerName`) / 收支类型(`type`) / 交易日期(`tradeDate`) / 购买到期日期(`tradeDateEnd`) / 购买期限(月)(`payTimes`) / 保险费金额(元)(`premiumAmount`) / 不含税金额(`noTaxAmount`) / 税额(`tax`) / 税率(`taxRate`) / 租赁物名称(`rentThing`)
-
-- 列数 > 8 时由 L2 自动叠行，L1 不拆表
-- 仅 `prjc-drs` 输出；空表走 `emptyText: 暂无保险数据`
-
-### 7.10 增信措施（measureList · 卡片列表）
+### 7.9 增信措施（measureList · 卡片列表）
 
 对齐页面「增信措施」卡片样式：每条措施一张卡，含担保方式色标、客户身份行；抵押/质押额外展开属性行 + 担保物明细表。
 
@@ -348,7 +291,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 **displayType：** `measureList`  
 **emptyText：** `暂无增信措施`
 
-#### 7.10.1 卡片主字段（每条 `items[]`）
+#### 7.9.1 卡片主字段（每条 `items[]`）
 
 | 字段 | key / 规则 | 格式化 |
 | ---- | ---------- | ------ |
@@ -370,7 +313,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 > 有 `desc` 无 `code` 时按文案包含「保证 / 抵押 / 质押」匹配；均无法匹配则 `default`。
 
-#### 7.10.2 抵押 / 质押属性行（`attrs`）
+#### 7.9.2 抵押 / 质押属性行（`attrs`）
 
 仅当担保方式为 **抵押担保** 或 **质押担保** 时输出 `attrs`（保证担保不传）：
 
@@ -388,7 +331,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ]
 ```
 
-#### 7.10.3 担保物明细（`collateral`）
+#### 7.9.3 担保物明细（`collateral`）
 
 仅当 `collateralList` 非空时输出；结构复用 table Schema（由 L2 在卡片内渲染；列数 > 8 自动叠行）：
 
@@ -413,7 +356,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 - L2 用 `.report-measure-card__collateral .report-table th/td { text-align: left }` 兜底
 - `collateralList` 为空 / null：不传 `collateral` 字段（保证担保天然无此块）
 
-#### 7.10.4 输出示例
+#### 7.9.4 输出示例
 
 ```json
 {
@@ -490,8 +433,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 **PDF 不输出：** 知识图谱入口、编辑/删除、担保人详情弹层等页面交互。
 
-- `prjc-flr` 不输出本块
-
 ---
 
 ## 八、空值与格式化规则
@@ -508,7 +449,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ---
 
-## 九、输出示例（prjc-slb · 单报价）
+## 九、输出示例
 
 ```json
 {
@@ -802,20 +743,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 1. 输出 JSON，**不包含 HTML 标签**
 2. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 3. 空值统一填 `—`，不输出 `null` 或空字符串
-4. 不传当前尽调系统不需要的 block / 字段
-5. `blocks` 内顺序严格按第六节表格排列；多报价按 `advertisingInfoList` 顺序展开
-6. 页面 Tab（租金 / 保证金 / 其他收支）在 PDF 中全部展开，不模拟 Tab
-7. 不输出关联报价、取消关联、编辑、保存、付款条件选择等页面交互能力
-8. 增信措施按页面卡片样式输出（`measureList`）：担保方式色标 + 客户身份行 + 关系标签；抵押/质押展开属性行与担保物表；不输出知识图谱等交互入口
-9. 宽表不拆 block；列数 > 8 时由 L2 叠行处理（含卡片内担保物表）
-
----
-
-## 十一、待补充
-
-| 项 | 说明 |
-| -- | ---- |
-| `prjc-si` 零售 / 大单风险敞口字段差异 | 按项目类型条件收窄 §7.1 字段 |
-| `prjc-gld` / `prjc-hdr` | 系统差异与字段范围待补充 |
-| 投放信息 5 列栅格 | 页面约 5 列；当前 PDF 统一 4 列，若需像素级对齐再扩展 L2 `columns: 5` |
-| 付款方式空值 | 若入参仅有 `eventCode` 无中文，是否做 10101/10102 映射待业务确认（默认不转换） |
+4. `blocks` 内顺序严格按第六节表格排列；多报价按 `advertisingInfoList` 顺序展开
+5. 页面 Tab（租金 / 保证金 / 其他收支）在 PDF 中全部展开，不模拟 Tab
+6. 不输出关联报价、取消关联、编辑、保存、付款条件选择等页面交互能力
+7. 增信措施按页面卡片样式输出（`measureList`）：担保方式色标 + 客户身份行 + 关系标签；抵押/质押展开属性行与担保物表；不输出知识图谱等交互入口
+8. 宽表不拆 block；列数 > 8 时由 L2 叠行处理（含卡片内担保物表）
