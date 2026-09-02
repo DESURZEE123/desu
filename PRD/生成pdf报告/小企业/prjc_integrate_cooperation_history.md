@@ -1,7 +1,7 @@
 # 合作历史 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**1**（与 `project_base_info` 同级 L1，调度顺序在其前）  
+> 模块索引：**2**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > 业务对照：`尽调系统/项目审批/1.合作历史.md`  
@@ -21,7 +21,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `1` |
+| `moduleIndex` | `2` |
 | `moduleKey` | `cooperation_history` |
 | `moduleName` | `合作历史` |
 
@@ -189,7 +189,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 1,
+  "moduleIndex": 2,
   "moduleName": "合作历史",
   "moduleKey": "cooperation_history",
   "blocks": [
