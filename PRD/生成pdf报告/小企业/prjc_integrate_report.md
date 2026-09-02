@@ -26,6 +26,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 │    ├─ 经营数据分析 · 功能整合资源（prjc_integrate_revenue_analysis）
 │    ├─ 刚性负债分析 · 功能整合资源（prjc_integrate_liability_analysis）
 │    ├─ 重点指标 · 功能整合资源（prjc_integrate_key_indicators）
+│    ├─ 重点科目财务报表 · 功能整合资源（prjc_integrate_key_account_financials）
 │    ├─ AI分析结果 · 功能整合资源（prjc_integrate_analysis_results）
 │    └─ 附件信息 · 功能整合资源（prjc_integrate_attachments）
 │
@@ -88,8 +89,9 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 10 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 已编写 |
 | 11 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 已编写 |
 | 12 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 已编写 |
-| 13 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 已编写 |
-| 14 | 附件信息 | 附件信息 · 功能整合 | `prjc_integrate_attachments` | `attachments` | 已编写 |
+| 13 | 重点科目财务报表 | 重点科目财务报表 · 功能整合 | `prjc_integrate_key_account_financials` | `key_account_financials` | 已编写 |
+| 14 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 已编写 |
+| 15 | 附件信息 | 附件信息 · 功能整合 | `prjc_integrate_attachments` | `attachments` | 已编写 |
 
 > 汇总 HTML 时按 `moduleIndex` 升序拼接各模块片段。
 
@@ -133,6 +135,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | L1 | 已编写 |
 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | L1 | 已编写 |
 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | L1 | 已编写 |
+| 重点科目财务报表 · 功能整合 | `prjc_integrate_key_account_financials` | L1 | 已编写 |
 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | L1 | 已编写 |
 | 附件信息 · 功能整合 | `prjc_integrate_attachments` | L1 | 已编写 |
 | 统一规范样式 | `prjc_style_render` | L2 | 已编写 |

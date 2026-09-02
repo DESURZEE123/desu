@@ -617,6 +617,103 @@
     color: #86909C;
     line-height: 20px;
   }
+  .report-fs-subject-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0 12px;
+    padding: 10px 12px;
+    background: #F2F3F5;
+    border-radius: 4px;
+  }
+  .report-fs-subject-header__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+  }
+  .report-fs-subject-header__source {
+    font-size: 12px;
+    color: #86909C;
+  }
+  .report-fs-table-block {
+    margin-bottom: 16px;
+  }
+  .report-fs-table-block__caption {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .report-fs-table-block__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+  }
+  .report-fs-table-block__unit {
+    font-size: 12px;
+    color: #86909C;
+  }
+  .report-fs-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 12px;
+  }
+  .report-fs-table th,
+  .report-fs-table td {
+    border-bottom: 1px solid #E5E6EB;
+    padding: 8px 10px;
+    vertical-align: middle;
+  }
+  .report-fs-table thead th {
+    background: #F2F3F5;
+    font-weight: 600;
+    color: #1D2129;
+    text-align: left;
+  }
+  .report-fs-table thead th.report-fs-table__period {
+    text-align: right;
+  }
+  .report-fs-table__period-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .report-fs-table__data-type {
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 2px;
+    background: #F53F3F;
+    color: #FFFFFF;
+    font-size: 11px;
+    line-height: 18px;
+    font-weight: 500;
+  }
+  .report-fs-table__account {
+    color: #1D2129;
+  }
+  .report-fs-table__account--l3 {
+    padding-left: 28px;
+  }
+  .report-fs-table__value {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: #1D2129;
+  }
+  .report-fs-table__row--l1 td {
+    background: #FFECE8;
+    font-weight: 600;
+  }
+  .report-fs-table__row--l2 td {
+    background: #FFF7E8;
+    font-weight: 600;
+  }
+  .report-fs-table__row--l3:nth-child(even) td {
+    background: #FAFBFC;
+  }
 
 </style>
 <div class="report-root">
@@ -1198,6 +1295,418 @@ c、嘉兴高宝中登有供应商嘉兴申丰包装科技股份有限公司登�
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">承租人近3年主要财务指标</span>
   </div><table class="report-table"><thead><tr><th class="">评估项目</th><th class="">财务指标</th><th class="">202312 合并</th><th class="">202412 合并</th><th class="">202509 合并</th></tr></thead><tbody><tr><td class="" rowspan="3">盈利能力</td><td class="">销售毛利率(%)</td><td class="">3.6000</td><td class="">6.5700</td><td class="">6.5300</td></tr><tr><td class="">ROA 资产净利率(%)</td><td class="">—</td><td class="">3.5000</td><td class="">—</td></tr><tr><td class="">ROE 净资产收益率(%)</td><td class="">—</td><td class="">14.0500</td><td class="">—</td></tr><tr><td class="" rowspan="3">运营能力</td><td class="">存货周转率</td><td class="">—</td><td class="">98.25</td><td class="">—</td></tr><tr><td class="">应收账款周转率</td><td class="">—</td><td class="">11.66</td><td class="">—</td></tr><tr><td class="">总资产周转率</td><td class="">—</td><td class="">1.05</td><td class="">—</td></tr><tr><td class="" rowspan="7">偿债能力</td><td class="">资产负债率(%)</td><td class="">74.9900</td><td class="">75.2400</td><td class="">81.3700</td></tr><tr><td class="">速动比率</td><td class="">1.14</td><td class="">1.13</td><td class="">1.25</td></tr><tr><td class="">流动比率</td><td class="">1.23</td><td class="">1.23</td><td class="">1.31</td></tr><tr><td class="">借款依存度(%)</td><td class="">206.4400</td><td class="">202.4700</td><td class="">322.8100</td></tr><tr><td class="">现金流动负债比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="">销售现金比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="">清算价值比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="" rowspan="3">发展能力</td><td class="">营业增长率(%) [财报数据]</td><td class="">—</td><td class="">12.5300</td><td class="">—</td></tr><tr><td class="">资本积累率(%)</td><td class="">—</td><td class="">15.1100</td><td class="">—</td></tr><tr><td class="">总资产增长率(%)</td><td class="">—</td><td class="">16.2700</td><td class="">—</td></tr></tbody></table></div></div>
+  </div><div class="report-module" data-module-key="key_account_financials">
+    <div class="report-module__header">
+      <span>重点科目财务报表</span>
+      
+    </div>
+    <div class="report-module__body"><div class="report-block">
+    <div class="report-fs-subject-header">
+      <span class="report-fs-subject-header__title">承租人芜湖华翔印务包装有限公司重点科目财务报表</span>
+      <span class="report-fs-subject-header__source">数据来源：税票授权采集</span>
+    </div>
+  </div><div class="report-block report-fs-table-block">
+    <div class="report-fs-table-block__caption">
+    <span class="report-fs-table-block__title">资产负债表</span>
+    <span class="report-fs-table-block__unit">单位：元</span>
+  </div>
+    <table class="report-fs-table"><thead><tr>
+    <th>科目名称</th>
+    <th class="report-fs-table__period"><span class="report-fs-table__period-label">202312<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202412<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202512<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202606<span class="report-fs-table__data-type">单体</span></span></th>
+  </tr></thead><tbody><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">一、资产合计</td>
+      <td class="report-fs-table__value">256,305,567.03</td><td class="report-fs-table__value">269,270,210.06</td><td class="report-fs-table__value">245,217,475.16</td><td class="report-fs-table__value">243,588,146.93</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">1、流动资产合计</td>
+      <td class="report-fs-table__value">133,065,222.10</td><td class="report-fs-table__value">155,192,914.41</td><td class="report-fs-table__value">131,990,546.79</td><td class="report-fs-table__value">135,270,458.68</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">货币资金</td>
+      <td class="report-fs-table__value">4,175,656.46</td><td class="report-fs-table__value">5,459,054.79</td><td class="report-fs-table__value">4,541,225.48</td><td class="report-fs-table__value">2,200,977.50</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">短期投资</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收票据</td>
+      <td class="report-fs-table__value">265,159.55</td><td class="report-fs-table__value">1,763,064.82</td><td class="report-fs-table__value">5,615,086.46</td><td class="report-fs-table__value">3,291,680.24</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收账款</td>
+      <td class="report-fs-table__value">60,823,692.91</td><td class="report-fs-table__value">62,758,937.03</td><td class="report-fs-table__value">57,221,023.43</td><td class="report-fs-table__value">68,104,810.77</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">预付款项</td>
+      <td class="report-fs-table__value">10,309,578.12</td><td class="report-fs-table__value">8,937,300.85</td><td class="report-fs-table__value">2,573,631.26</td><td class="report-fs-table__value">1,150,883.88</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收股利</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收利息</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他应收款</td>
+      <td class="report-fs-table__value">8,193,121.90</td><td class="report-fs-table__value">7,548,121.90</td><td class="report-fs-table__value">201,843.70</td><td class="report-fs-table__value">81,843.70</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">存货</td>
+      <td class="report-fs-table__value">49,298,013.16</td><td class="report-fs-table__value">68,726,435.02</td><td class="report-fs-table__value">61,837,736.46</td><td class="report-fs-table__value">60,440,262.59</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他流动资产</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">2、非流动资产合计</td>
+      <td class="report-fs-table__value">123,240,344.93</td><td class="report-fs-table__value">114,077,295.65</td><td class="report-fs-table__value">113,226,928.37</td><td class="report-fs-table__value">108,317,688.25</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期债权投资</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期股权投资</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">固定资产原价</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：累计折旧</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">固定资产账面价值</td>
+      <td class="report-fs-table__value">81,836,389.34</td><td class="report-fs-table__value">104,618,880.95</td><td class="report-fs-table__value">103,981,563.83</td><td class="report-fs-table__value">99,178,848.79</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">在建工程</td>
+      <td class="report-fs-table__value">31,732,490.73</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">生产性生物资产</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">无形资产</td>
+      <td class="report-fs-table__value">9,671,464.86</td><td class="report-fs-table__value">9,458,414.70</td><td class="report-fs-table__value">9,245,364.54</td><td class="report-fs-table__value">9,138,839.46</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期待摊费用</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">使用权资产</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他非流动资产</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">二、负债合计</td>
+      <td class="report-fs-table__value">213,475,880.73</td><td class="report-fs-table__value">210,278,180.15</td><td class="report-fs-table__value">207,636,789.04</td><td class="report-fs-table__value">218,270,667.79</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">1、流动负债合计</td>
+      <td class="report-fs-table__value">172,918,604.68</td><td class="report-fs-table__value">197,373,265.20</td><td class="report-fs-table__value">189,946,499.52</td><td class="report-fs-table__value">193,173,750.02</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">短期借款</td>
+      <td class="report-fs-table__value">66,600,000.00</td><td class="report-fs-table__value">73,100,000.00</td><td class="report-fs-table__value">100,600,000.00</td><td class="report-fs-table__value">99,600,000.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付票据</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付账款</td>
+      <td class="report-fs-table__value">49,703,299.90</td><td class="report-fs-table__value">67,649,167.07</td><td class="report-fs-table__value">45,856,188.26</td><td class="report-fs-table__value">49,073,368.68</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">预收账款</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付职工薪酬</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应交税费</td>
+      <td class="report-fs-table__value">-4,216,026.90</td><td class="report-fs-table__value">-1,010,852.46</td><td class="report-fs-table__value">210,550.82</td><td class="report-fs-table__value">-305,930.23</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付利息</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付利润</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他应付款</td>
+      <td class="report-fs-table__value">60,831,331.68</td><td class="report-fs-table__value">57,634,950.59</td><td class="report-fs-table__value">43,279,760.44</td><td class="report-fs-table__value">44,806,311.57</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他流动负债</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">2、非流动负债合计</td>
+      <td class="report-fs-table__value">40,557,276.05</td><td class="report-fs-table__value">12,904,914.95</td><td class="report-fs-table__value">17,690,289.52</td><td class="report-fs-table__value">25,096,917.77</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期借款</td>
+      <td class="report-fs-table__value">40,557,276.05</td><td class="report-fs-table__value">12,904,914.95</td><td class="report-fs-table__value">17,690,289.52</td><td class="report-fs-table__value">25,096,917.77</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期应付款</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">递延收益</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">租赁负债</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他非流动负债</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">三、所有者权益(或股东权益)合计</td>
+      <td class="report-fs-table__value">42,829,686.30</td><td class="report-fs-table__value">58,992,029.91</td><td class="report-fs-table__value">37,580,686.12</td><td class="report-fs-table__value">25,317,479.14</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">实收资本(或股本)</td>
+      <td class="report-fs-table__value">60,000,000.00</td><td class="report-fs-table__value">80,000,000.00</td><td class="report-fs-table__value">80,000,000.00</td><td class="report-fs-table__value">80,000,000.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">资本公积</td>
+      <td class="report-fs-table__value">293,000.00</td><td class="report-fs-table__value">293,000.00</td><td class="report-fs-table__value">293,000.00</td><td class="report-fs-table__value">293,000.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">盈余公积</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">未分配利润</td>
+      <td class="report-fs-table__value">-17,463,313.70</td><td class="report-fs-table__value">-21,300,970.09</td><td class="report-fs-table__value">-42,712,313.88</td><td class="report-fs-table__value">-54,975,520.86</td>
+    </tr></tbody></table>
+  </div><div class="report-block report-fs-table-block">
+    <div class="report-fs-table-block__caption">
+    <span class="report-fs-table-block__title">利润表</span>
+    <span class="report-fs-table-block__unit">单位：元</span>
+  </div>
+    <table class="report-fs-table"><thead><tr>
+    <th>科目名称</th>
+    <th class="report-fs-table__period"><span class="report-fs-table__period-label">202312<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202412<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202512<span class="report-fs-table__data-type">单体</span></span></th>
+  </tr></thead><tbody><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">一、营业收入</td>
+      <td class="report-fs-table__value">436,918,557.93</td><td class="report-fs-table__value">445,353,918.74</td><td class="report-fs-table__value">465,466,403.76</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：营业成本</td>
+      <td class="report-fs-table__value">414,095,522.05</td><td class="report-fs-table__value">419,265,805.87</td><td class="report-fs-table__value">445,400,257.41</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">营业税金及附加</td>
+      <td class="report-fs-table__value">1,400,832.37</td><td class="report-fs-table__value">1,306,201.63</td><td class="report-fs-table__value">1,715,190.46</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">销售费用</td>
+      <td class="report-fs-table__value">20,459,921.41</td><td class="report-fs-table__value">8,688,455.26</td><td class="report-fs-table__value">16,413,753.83</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">管理费用</td>
+      <td class="report-fs-table__value">3,013,503.49</td><td class="report-fs-table__value">3,524,087.87</td><td class="report-fs-table__value">3,885,610.87</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">财务费用</td>
+      <td class="report-fs-table__value">6,830,728.57</td><td class="report-fs-table__value">5,613,480.53</td><td class="report-fs-table__value">5,149,728.94</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">二、营业利润</td>
+      <td class="report-fs-table__value">-24,553,976.95</td><td class="report-fs-table__value">-7,856,960.27</td><td class="report-fs-table__value">-23,447,730.68</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">加：营业外收入</td>
+      <td class="report-fs-table__value">759,277.30</td><td class="report-fs-table__value">4,508,603.18</td><td class="report-fs-table__value">4,142,134.53</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：营业外支出</td>
+      <td class="report-fs-table__value">694,931.03</td><td class="report-fs-table__value">498,614.30</td><td class="report-fs-table__value">1,666,310.99</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">三、利润总额</td>
+      <td class="report-fs-table__value">-24,489,630.68</td><td class="report-fs-table__value">-3,846,971.39</td><td class="report-fs-table__value">-20,971,907.14</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：所得税费用</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">四、净利润</td>
+      <td class="report-fs-table__value">-24,489,630.68</td><td class="report-fs-table__value">-3,846,971.39</td><td class="report-fs-table__value">-20,971,907.14</td>
+    </tr></tbody></table>
+  </div><div class="report-block">
+    <div class="report-fs-subject-header">
+      <span class="report-fs-subject-header__title">关联方芜湖繁彩印务包装有限公司重点科目财务报表</span>
+      <span class="report-fs-subject-header__source">数据来源：税票授权采集</span>
+    </div>
+  </div><div class="report-block report-fs-table-block">
+    <div class="report-fs-table-block__caption">
+    <span class="report-fs-table-block__title">资产负债表</span>
+    <span class="report-fs-table-block__unit">单位：元</span>
+  </div>
+    <table class="report-fs-table"><thead><tr>
+    <th>科目名称</th>
+    <th class="report-fs-table__period"><span class="report-fs-table__period-label">202312<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202412<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202512<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202606<span class="report-fs-table__data-type">单体</span></span></th>
+  </tr></thead><tbody><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">一、资产合计</td>
+      <td class="report-fs-table__value">28,418,249.63</td><td class="report-fs-table__value">28,057,620.46</td><td class="report-fs-table__value">27,192,678.59</td><td class="report-fs-table__value">25,367,788.33</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">1、流动资产合计</td>
+      <td class="report-fs-table__value">25,343,574.76</td><td class="report-fs-table__value">25,323,058.88</td><td class="report-fs-table__value">24,777,285.22</td><td class="report-fs-table__value">23,108,387.86</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">货币资金</td>
+      <td class="report-fs-table__value">29,517.56</td><td class="report-fs-table__value">22,688.75</td><td class="report-fs-table__value">26,760.99</td><td class="report-fs-table__value">40,361.06</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">短期投资</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收票据</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收账款</td>
+      <td class="report-fs-table__value">319,177.81</td><td class="report-fs-table__value">3,049,168.91</td><td class="report-fs-table__value">2,769,991.73</td><td class="report-fs-table__value">3,507,817.97</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">预付款项</td>
+      <td class="report-fs-table__value">10,157,118.50</td><td class="report-fs-table__value">16,364,717.49</td><td class="report-fs-table__value">14,921,958.29</td><td class="report-fs-table__value">15,732,813.25</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收股利</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应收利息</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他应收款</td>
+      <td class="report-fs-table__value">288,498.50</td><td class="report-fs-table__value">13,200.00</td><td class="report-fs-table__value">13,200.00</td><td class="report-fs-table__value">13,200.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">存货</td>
+      <td class="report-fs-table__value">14,549,262.39</td><td class="report-fs-table__value">5,873,283.73</td><td class="report-fs-table__value">7,045,374.21</td><td class="report-fs-table__value">3,814,195.58</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他流动资产</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">2、非流动资产合计</td>
+      <td class="report-fs-table__value">3,074,674.87</td><td class="report-fs-table__value">2,734,561.58</td><td class="report-fs-table__value">2,415,393.37</td><td class="report-fs-table__value">2,259,400.47</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期债权投资</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期股权投资</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">固定资产原价</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：累计折旧</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">固定资产账面价值</td>
+      <td class="report-fs-table__value">2,711,337.96</td><td class="report-fs-table__value">2,379,466.75</td><td class="report-fs-table__value">2,068,540.62</td><td class="report-fs-table__value">1,918,042.44</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">在建工程</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">生产性生物资产</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">无形资产</td>
+      <td class="report-fs-table__value">363,336.91</td><td class="report-fs-table__value">355,094.83</td><td class="report-fs-table__value">346,852.75</td><td class="report-fs-table__value">341,358.03</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期待摊费用</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">使用权资产</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他非流动资产</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">二、负债合计</td>
+      <td class="report-fs-table__value">25,681,117.72</td><td class="report-fs-table__value">25,151,999.27</td><td class="report-fs-table__value">23,915,401.67</td><td class="report-fs-table__value">18,393,108.21</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">1、流动负债合计</td>
+      <td class="report-fs-table__value">25,681,117.72</td><td class="report-fs-table__value">25,151,999.27</td><td class="report-fs-table__value">23,915,401.67</td><td class="report-fs-table__value">18,393,108.21</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">短期借款</td>
+      <td class="report-fs-table__value">9,597,500.00</td><td class="report-fs-table__value">8,000,000.00</td><td class="report-fs-table__value">8,000,000.00</td><td class="report-fs-table__value">8,000,000.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付票据</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">6,000,000.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付账款</td>
+      <td class="report-fs-table__value">750,993.81</td><td class="report-fs-table__value">725,967.00</td><td class="report-fs-table__value">844,131.25</td><td class="report-fs-table__value">592,452.11</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">预收账款</td>
+      <td class="report-fs-table__value">484,762.00</td><td class="report-fs-table__value">466,761.95</td><td class="report-fs-table__value">106,762.02</td><td class="report-fs-table__value">447,202.45</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付职工薪酬</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">228,890.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应交税费</td>
+      <td class="report-fs-table__value">-1,570,555.78</td><td class="report-fs-table__value">-400,543.33</td><td class="report-fs-table__value">-502,098.55</td><td class="report-fs-table__value">-184,077.24</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付利息</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">应付利润</td>
+      <td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td><td class="report-fs-table__value">—</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他应付款</td>
+      <td class="report-fs-table__value">16,418,417.69</td><td class="report-fs-table__value">16,130,923.65</td><td class="report-fs-table__value">9,466,606.95</td><td class="report-fs-table__value">9,537,530.89</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他流动负债</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l2">
+      <td class="report-fs-table__account">2、非流动负债合计</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期借款</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">长期应付款</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">递延收益</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">租赁负债</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">其他非流动负债</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">三、所有者权益(或股东权益)合计</td>
+      <td class="report-fs-table__value">2,737,131.91</td><td class="report-fs-table__value">2,905,621.19</td><td class="report-fs-table__value">3,277,276.92</td><td class="report-fs-table__value">6,974,680.12</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">实收资本(或股本)</td>
+      <td class="report-fs-table__value">1,600,000.00</td><td class="report-fs-table__value">1,600,000.00</td><td class="report-fs-table__value">1,600,000.00</td><td class="report-fs-table__value">6,000,000.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">资本公积</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">盈余公积</td>
+      <td class="report-fs-table__value">37,744.06</td><td class="report-fs-table__value">37,744.06</td><td class="report-fs-table__value">37,744.06</td><td class="report-fs-table__value">37,744.06</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">未分配利润</td>
+      <td class="report-fs-table__value">1,099,387.85</td><td class="report-fs-table__value">1,267,877.13</td><td class="report-fs-table__value">1,639,532.86</td><td class="report-fs-table__value">936,936.06</td>
+    </tr></tbody></table>
+  </div><div class="report-block report-fs-table-block">
+    <div class="report-fs-table-block__caption">
+    <span class="report-fs-table-block__title">利润表</span>
+    <span class="report-fs-table-block__unit">单位：元</span>
+  </div>
+    <table class="report-fs-table"><thead><tr>
+    <th>科目名称</th>
+    <th class="report-fs-table__period"><span class="report-fs-table__period-label">202312<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202412<span class="report-fs-table__data-type">单体</span></span></th><th class="report-fs-table__period"><span class="report-fs-table__period-label">202512<span class="report-fs-table__data-type">单体</span></span></th>
+  </tr></thead><tbody><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">一、营业收入</td>
+      <td class="report-fs-table__value">11,539,751.82</td><td class="report-fs-table__value">11,848,038.98</td><td class="report-fs-table__value">13,206,097.84</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：营业成本</td>
+      <td class="report-fs-table__value">11,321,608.92</td><td class="report-fs-table__value">11,145,475.98</td><td class="report-fs-table__value">12,391,977.19</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">营业税金及附加</td>
+      <td class="report-fs-table__value">143,475.78</td><td class="report-fs-table__value">94,306.53</td><td class="report-fs-table__value">133,879.36</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">销售费用</td>
+      <td class="report-fs-table__value">549,248.98</td><td class="report-fs-table__value">183,267.87</td><td class="report-fs-table__value">496,135.60</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">管理费用</td>
+      <td class="report-fs-table__value">902,525.85</td><td class="report-fs-table__value">707,546.28</td><td class="report-fs-table__value">353,551.87</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">财务费用</td>
+      <td class="report-fs-table__value">570,647.79</td><td class="report-fs-table__value">462,932.60</td><td class="report-fs-table__value">295,979.55</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">二、营业利润</td>
+      <td class="report-fs-table__value">-1,947,755.50</td><td class="report-fs-table__value">-745,490.28</td><td class="report-fs-table__value">-465,425.73</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">加：营业外收入</td>
+      <td class="report-fs-table__value">1,805,700.67</td><td class="report-fs-table__value">2,001,527.44</td><td class="report-fs-table__value">2,017,915.80</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：营业外支出</td>
+      <td class="report-fs-table__value">1,284,619.02</td><td class="report-fs-table__value">1,071,689.94</td><td class="report-fs-table__value">1,148,002.46</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">三、利润总额</td>
+      <td class="report-fs-table__value">-1,426,673.85</td><td class="report-fs-table__value">184,347.22</td><td class="report-fs-table__value">404,487.61</td>
+    </tr><tr class="report-fs-table__row--l3">
+      <td class="report-fs-table__account report-fs-table__account--l3">减：所得税费用</td>
+      <td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td><td class="report-fs-table__value">0.00</td>
+    </tr><tr class="report-fs-table__row--l1">
+      <td class="report-fs-table__account">四、净利润</td>
+      <td class="report-fs-table__value">-1,426,673.85</td><td class="report-fs-table__value">184,347.22</td><td class="report-fs-table__value">404,487.61</td>
+    </tr></tbody></table>
+  </div><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">财务说明：</div>
+    <div class="report-longtext__value">1、拟承租人2023年营业收入4.37亿元，2024年营业收入4.45亿元，2025年营业收入4.65亿元，近3年收入稳步增长，主要是产能释放及新客户拓展，但受销售价格下滑影响增速放缓。另外拟承租人废纸收入均入私账，综合来算，拟承租人的实际净利润（含废纸收入，未扣除折旧）在6%较为合理。
+2、拟承租人近三年负债增加较多，主要是应收账款增加及屯原材料所致。
+3、通过查验客户内账，截至2026年6月，拟承租人实际应收账款余额为1.46亿元，账期稳定在3-4个月；存货余额为1.30亿元，大部分是产成品；应付账款余额为490万元，账期很短。
+4、繁彩印务应收账款主要是历史合作客户未回款，一直挂账未核销。</div>
+  </div></div></div>
   </div><div class="report-module" data-module-key="analysis_results">
     <div class="report-module__header">
       <span>AI分析结果</span>

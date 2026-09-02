@@ -1,7 +1,7 @@
 # 附件信息 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**14**  
+> 模块索引：**15**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > 业务对照：`尽调系统/项目审批/附件信息.md`  
@@ -25,7 +25,7 @@ AI 在本层**仅负责字段提取、分类归组与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `14` |
+| `moduleIndex` | `15` |
 | `moduleKey` | `attachments` |
 | `moduleName` | `附件信息` |
 
@@ -72,7 +72,7 @@ AI 在本层**仅负责字段提取、分类归组与 displayType 标注**，不
 2. 遍历 attachmentList，按 documentDir.name 归入对应分区
 3. 每个分区始终输出（无文件时 files=[]）
 4. 分区内文件按入参顺序保留
-5. 输出 moduleIndex=14 的结构化 JSON → 交由 L2 渲染
+5. 输出 moduleIndex=15 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -124,7 +124,7 @@ AI 在本层**仅负责字段提取、分类归组与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 14,
+  "moduleIndex": 15,
   "moduleName": "附件信息",
   "moduleKey": "attachments",
   "blocks": [
