@@ -3757,5 +3757,169 @@
       "haveOngoingConstructionProject": "否",
       "statusReportOnOngoingProjects": null
     }
+  },
+  "associateCompany": {
+    "associatedCompanySynopsisList": [
+      {
+        "pkCustomerStkhldr": null,
+        "customerName": "北京鑫鑫印刷有限公司",
+        "customerNo": "C120240098896",
+        "crdntlsCode": "911101147921218971",
+        "crdntlsType": "统一社会信用代码",
+        "isGuarantor": "否",
+        "relationTypes": [
+          "同一实际控制人"
+        ],
+        "otherDesc": null
+      },
+      {
+        "pkCustomerStkhldr": null,
+        "customerName": "苏州宜飞美福进口汽车有限公司",
+        "customerNo": "C120250546632",
+        "crdntlsCode": "91320507346114611U",
+        "crdntlsType": "统一社会信用代码",
+        "isGuarantor": "是",
+        "relationTypes": [
+          "同一实际控制人"
+        ],
+        "otherDesc": null
+      }
+    ],
+    "associatedCompanyList": [
+      {
+        "pkCompanyPublicInfo": null,
+        "baseInfo": {
+          "customerName": "北京鑫鑫印刷有限公司",
+          "customerNo": "C120240098896",
+          "crdntlsCode": "911101147921218971",
+          "crdntlsType": "统一社会信用代码",
+          "estblshDate": "2006-08-15",
+          "rgstrdCapital": "50.00",
+          "rgstrdAddress": "北京市北京市辖区昌平区沙河镇巩华城大街西侧2幢-1号",
+          "pkIndustrySortLittle": null,
+          "employeeNum": null,
+          "mainBusiness": "其他印刷品印刷（限在外埠从事印刷活动）。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）",
+          "companyEvolution": "其他印刷品印刷（限在外埠从事印刷活动）。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）",
+          "legalRepresentativeCustomerName": null,
+          "actControlsName": null,
+          "customerType": [
+            {
+              "code": "31",
+              "name": "意向客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "serviceInformAdress": "北京市北京市辖区昌平区沙河镇巩华城大街西侧2幢-1号",
+          "personActControlList": [],
+          "rgstrdProvinceName": "北京市",
+          "factCapital": null
+        },
+        "industryLicenseList": [],
+        "shareholderList": [
+          {
+            "shareholderName": "李风俭",
+            "shareholderCapitalAmount": "35.00",
+            "holdStockRatio": "70.0000"
+          },
+          {
+            "shareholderName": "史玉红",
+            "shareholderCapitalAmount": "15.00",
+            "holdStockRatio": "30.0000"
+          }
+        ],
+        "shareholderTotal": {
+          "shareholderCapitalAmount": "50.00",
+          "holdStockRatio": "100.0000"
+        },
+        "controllerIntroduction": "实控人及股东情况介绍",
+        "guaranteeCompanySituation": null,
+        "judicialLitigationInfo": {
+          "caseTypeHighRiskList": [
+            {
+              "caseType": "被执行人",
+              "caseNum": 1,
+              "pkQueryRecord": "1362375705021153280"
+            }
+          ],
+          "caseTypeCommonList": [
+            {
+              "caseType": "民事案件",
+              "caseNum": 1,
+              "pkQueryRecord": "1362375705021153280"
+            },
+            {
+              "caseType": "执行案件",
+              "caseNum": 3,
+              "pkQueryRecord": "1362375705021153280"
+            }
+          ],
+          "judicialLitigationInfoDesc": null,
+          "updateTime": "2025-04-17 10:34:39",
+          "queryStatusEnum": 0,
+          "pkQueryRecord": "1362375705021153280"
+        },
+        "assetSize": {
+          "customerNo": null,
+          "rgstrdAddress": null,
+          "factoryOwnDetails": [],
+          "factoryRentDetails": [],
+          "equipmentList": [],
+          "ratio": null,
+          "incomeAndDebtScale": null
+        },
+        "equityPenetrationList": [],
+        "financialAnalysisList": [],
+        "financialAnalysisDesc": null,
+        "loan": {
+          "creditInfo": null,
+          "loanDesc": null,
+          "zdinfo": null
+        },
+        "projectOperationInfo": {
+          "operationInfoList": [],
+          "operationDescription": null
+        },
+        "financialDataOfKeyAccount": {
+          "isNewCompany": null,
+          "collectFinancialFlag": null,
+          "financialStatementsOfKeyAccount": {
+            "sheetName": null,
+            "creditCode": "911101147921218971",
+            "customerNo": "C120240098896",
+            "fsDataSourceType": "税票授权采集",
+            "balanceSheet": [],
+            "profitSheet": [],
+            "financialIndex": []
+          },
+          "receiveAccountDetail": {
+            "ifCanVisible": "是",
+            "financialAnalysisDataList": []
+          },
+          "financialNotes": null,
+          "receiveAccountDesc": null
+        },
+        "relatedEnterpriseDesc": null,
+        "assetStatusDesc": null,
+        "existingContractAnalysis": {
+          "collectContractFlag": null,
+          "contractStatusInfoList": null,
+          "contractStatusDesc": null
+        },
+        "relationTypes": [
+          "同一实际控制人"
+        ],
+        "otherDesc": null,
+        "collaborationHistoryModel": {
+          "leaseCollaborationHistoryList": [],
+          "leaseAmountTotal": null,
+          "guarantorCollaborationHistories": [],
+          "guarantorAmountTotal": null,
+          "updateTime": "2026-06-01",
+          "queryStatusEnum": 3,
+          "pkQueryRecord": null
+        }
+      }
+    ]
   }
 }
