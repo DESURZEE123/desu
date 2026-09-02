@@ -1,0 +1,17 @@
+{
+  "name": "prjc-html-to-pdf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "将尽调报告 HTML 片段转换为 PDF",
+  "type": "module",
+  "bin": {
+    "html-to-pdf": "./html-to-pdf.mjs"
+  },
+  "scripts": {
+    "pdf": "node html-to-pdf.mjs",
+    "pdf:all": "node html-to-pdf.mjs --all"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  }
+}
