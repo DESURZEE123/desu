@@ -2290,5 +2290,1251 @@
     "status": 0,
     "queryTime": "2026-06-02 10:19:07",
     "pkRecord": "1511313209069502464"
+  },
+  "revenueAnalysis": {
+    "subjectInfoList": [
+      {
+        "subjectName": "上海一可包装制品有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120227572000",
+        "creditCode": "91310116695784760P",
+        "siIncomeVerifiUnit": null,
+        "siIncomeVerifiRemark": null
+      },
+      {
+        "subjectName": "嘉兴市高宝印刷股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "C120240132025",
+        "creditCode": "91330402146512156Y",
+        "siIncomeVerifiUnit": null,
+        "siIncomeVerifiRemark": null
+      }
+    ],
+    "assetSize": {
+      "factoryList": [
+        {
+          "pkCompanyAsset": "1544658987724913664",
+          "factoryType": 0,
+          "factoryArea": "18293.59",
+          "factoryRent": null,
+          "landArea": "21153.80",
+          "landValue": "6000.00",
+          "landMortgaged": "是",
+          "leaseEndDate": null,
+          "address": "上海市金山区金山工业区金流路199号",
+          "haveLoan": null,
+          "haveDocument": "是",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000"
+        },
+        {
+          "pkCompanyAsset": "1544658987724913665",
+          "factoryType": 0,
+          "factoryArea": "12011.89",
+          "factoryRent": null,
+          "landArea": "13453.20",
+          "landValue": "4500.00",
+          "landMortgaged": "是",
+          "leaseEndDate": null,
+          "address": "嘉兴市南湖区新丰镇新荷路东1-3幢",
+          "haveLoan": null,
+          "haveDocument": "是",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025"
+        }
+      ],
+      "factoryDesc": "1、拟承租人厂房挂在松岩机电（上海）有限公司（无经营仅作为厂房持有者）名下，实际使用为拟承租人及对外出租一部分（年租金260万），土地31.7亩，厂房面积18293.59平方米；\n2、拟担保企业嘉兴市高宝印刷股份有限公司，有土地20.2亩，厂房面积12,011.89平方米；",
+      "ratioDesc": "1、拟承租人上海一可包装制品有限公司主要为生产食品膜袋、卫包、冰袋等，主要原材料为PE膜和铝箔袋，稼动率95%以上；\n2、拟担保企业嘉兴市高宝印刷股份有限公司主要为生产纸盒包装等，主要原材料为瓦楞纸板、纸片，稼动率95%以上；",
+      "mainEquipmentList": [],
+      "ratioList": [
+        {
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "ratio": "95.0000"
+        },
+        {
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "ratio": "95.0000"
+        }
+      ]
+    },
+    "proAndSaleSituation": {
+      "productionAndSaleSituationDesc": "1.拟承租人上海一可包装制品有限公司主要食品膜袋、卫包、冰袋等的生产，销售方面，下游客户较为分散，无明显异常，生产班制两班，无欠薪情况；\n2.拟担保企业嘉兴市高宝印刷股份有限公司主要为纸盒包装生产销售，销售方面，下游客户较为分散，无明显异，生产班制一班，无欠薪情况。",
+      "desc": "1、拟承租人主要原材料为PE膜和铝箔袋，生产工艺流程为下料-印刷-复合-分切-制袋-检验包装，在行业中处于较前端位置，有着不可或缺的地位；\n2、拟担保企业主要原材料为瓦楞纸板、纸片，生产工艺流程为拉瓦线（基本不用）-分切-印刷-覆膜-表面处理-模切-糊盒-包装，在行业中处于较后端位置，下游客户实力较强；",
+      "downstreamCustomerDesc": "1、浙江优全护理用品科技股份有限公司与苏州奥维科净化科技有限公司2025年1月建设工程合同纠纷，目前已结案；\n2、柏维力生物技术（安徽）有限公司与郎溪县高翔制衣有限公司2025年6月房屋租赁合同纠纷，目前已结案；2026年7月湖南和盛医药有限公司申请财产保全，目前尚未结案；\n3、铜陵洁雅生物科技股份有限公司与宁波微易科技有限公司2025年9月买卖合同纠纷，目前已结案；\n4、拟承租人及拟担保企业与上下游客户无诉讼；\n其余近两年内无其他诉讼。\n下游主要客户为市面知名品牌企业洁雅股份、晋江恒安（心相印）、巴比食品、王小卤等，较为优质；",
+      "mainProductList": [
+        {
+          "productName": "原纸",
+          "ratio": "4.6100",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "549.94",
+          "source": "系统"
+        },
+        {
+          "productName": "彩箱",
+          "ratio": "3.6800",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "439.10",
+          "source": "系统"
+        },
+        {
+          "productName": "铝箔卷膜",
+          "ratio": "3.6200",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "431.86",
+          "source": "系统"
+        },
+        {
+          "productName": "包装膜",
+          "ratio": "3.0000",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "357.45",
+          "source": "系统"
+        },
+        {
+          "productName": "包装材料",
+          "ratio": "2.5600",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "305.84",
+          "source": "系统"
+        },
+        {
+          "productName": "棉柔巾系列",
+          "ratio": "1.9400",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "231.59",
+          "source": "系统"
+        },
+        {
+          "productName": "包装卷膜",
+          "ratio": "1.5100",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "180.53",
+          "source": "系统"
+        },
+        {
+          "productName": "印刷包装制品",
+          "ratio": "1.5100",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "180.78",
+          "source": "系统"
+        },
+        {
+          "productName": "湿巾系列",
+          "ratio": "1.4300",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "170.38",
+          "source": "系统"
+        },
+        {
+          "productName": "包装袋",
+          "ratio": "1.2900",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "saleNoteAmount": "153.84",
+          "source": "系统"
+        },
+        {
+          "productName": "彩箱",
+          "ratio": "13.9500",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "970.07",
+          "source": "系统"
+        },
+        {
+          "productName": "200克莫斯利安原味酸牛奶礼箱1*12（带提手）",
+          "ratio": "7.9200",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "550.79",
+          "source": "系统"
+        },
+        {
+          "productName": "彩盒",
+          "ratio": "6.2000",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "430.95",
+          "source": "系统"
+        },
+        {
+          "productName": "纸箱",
+          "ratio": "6.1300",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "426.38",
+          "source": "系统"
+        },
+        {
+          "productName": "GA IJ外箱",
+          "ratio": "5.3000",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "368.92",
+          "source": "系统"
+        },
+        {
+          "productName": "山姆火龙果开口箱",
+          "ratio": "3.4300",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "238.83",
+          "source": "系统"
+        },
+        {
+          "productName": "小马宝莉转盘礼盒-底座插扣盒（按样）",
+          "ratio": "1.5500",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "107.99",
+          "source": "系统"
+        },
+        {
+          "productName": "金枕冻榴莲外箱",
+          "ratio": "1.3400",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "93.42",
+          "source": "系统"
+        },
+        {
+          "productName": "HBN-6号箱(2024)",
+          "ratio": "1.2700",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "88.78",
+          "source": "系统"
+        },
+        {
+          "productName": "Y25常规款;12粒;18/22/25#;金果;竖版抽拉式礼盒",
+          "ratio": "1.1400",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "C120240132025",
+          "saleNoteAmount": "79.50",
+          "source": "系统"
+        }
+      ],
+      "downstreamCustomerList": [
+        {
+          "customerNo": "120227572000",
+          "customerName": "晋江恒安家庭生活用纸有限公司",
+          "saleAmount": "1451.78",
+          "ratio": "12.1900",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "5.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "浙江优全护理用品科技股份有限公司",
+          "saleAmount": "842.40",
+          "ratio": "7.0700",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金",
+            "银行承兑"
+          ],
+          "cooperateDuration": "6.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "柏维力生物技术（安徽）有限公司",
+          "saleAmount": "630.80",
+          "ratio": "5.2900",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "3.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "上海惠洲实业有限公司",
+          "saleAmount": "607.18",
+          "ratio": "5.0900",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "8.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "铜陵洁雅生物科技股份有限公司",
+          "saleAmount": "524.92",
+          "ratio": "4.4000",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金",
+            "银行承兑"
+          ],
+          "cooperateDuration": "6.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "浙江乐岁新材料有限公司",
+          "saleAmount": "439.32",
+          "ratio": "3.6800",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "4.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "安徽乐美顺新材料有限公司",
+          "saleAmount": "431.86",
+          "ratio": "3.6200",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "1.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "山东斯伯特供应链有限公司",
+          "saleAmount": "368.11",
+          "ratio": "3.0900",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "3.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "浙江邦良护理用品科技有限公司",
+          "saleAmount": "365.05",
+          "ratio": "3.0600",
+          "settlementCycle": "4M",
+          "paymentMethod": [
+            "银行承兑",
+            "现金"
+          ],
+          "cooperateDuration": "5.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "120227572000",
+          "customerName": "宁波市星丛贸易有限公司",
+          "saleAmount": "272.31",
+          "ratio": "2.2800",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "2.00",
+          "source": "系统",
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "上海佳农香蕉实业有限公司",
+          "saleAmount": "973.68",
+          "ratio": "14.0000",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "6.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "上海一可包装制品有限公司",
+          "saleAmount": "818.85",
+          "ratio": "11.7800",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "5.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "安徽诗雅韵新材料有限公司",
+          "saleAmount": "699.00",
+          "ratio": "10.0500",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "1.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "南京光明乳品有限公司",
+          "saleAmount": "507.74",
+          "ratio": "7.3000",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "8.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "安徽乐美顺新材料有限公司",
+          "saleAmount": "463.06",
+          "ratio": "6.6600",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "1.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "上海佳农奇异果实业有限公司",
+          "saleAmount": "430.93",
+          "ratio": "6.2000",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "8.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "鸿兴包装（无锡）有限公司",
+          "saleAmount": "353.69",
+          "ratio": "5.0800",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "7.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "杭州千岛湖啤酒有限公司",
+          "saleAmount": "291.87",
+          "ratio": "4.1900",
+          "settlementCycle": "2M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "10.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "浙江乐岁新材料有限公司",
+          "saleAmount": "261.58",
+          "ratio": "3.7600",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "3.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        },
+        {
+          "customerNo": "C120240132025",
+          "customerName": "浙江佰宜农业科技有限公司",
+          "saleAmount": "236.54",
+          "ratio": "3.4000",
+          "settlementCycle": "3M",
+          "paymentMethod": [
+            "现金"
+          ],
+          "cooperateDuration": "4.00",
+          "source": "系统",
+          "subjectName": "嘉兴市高宝印刷股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ]
+        }
+      ]
+    },
+    "incomeAnalysis": {
+      "operatingIncomeAnalysis": [
+        {
+          "pkRevenueAnalysis": "1544658986886052864",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2023年01月-2023年12月",
+          "invoicingRevenue": "10619.75",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 0,
+          "amountTotal": "10619.75",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052865",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2024年01月-2024年12月",
+          "invoicingRevenue": "10902.46",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 1,
+          "amountTotal": "10902.46",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052866",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2025年01月-2025年12月",
+          "invoicingRevenue": "10389.43",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 2,
+          "amountTotal": "10389.43",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052867",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年01月-2026年06月",
+          "invoicingRevenue": "5362.65",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 3,
+          "amountTotal": "5362.65",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052868",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2023年01月-2023年12月",
+          "invoicingRevenue": "5043.22",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 0,
+          "amountTotal": "5043.22",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052869",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2024年01月-2024年12月",
+          "invoicingRevenue": "6329.81",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 1,
+          "amountTotal": "6329.81",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052870",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2025年01月-2025年12月",
+          "invoicingRevenue": "7164.29",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 2,
+          "amountTotal": "7164.29",
+          "startYear": null,
+          "endYear": null
+        },
+        {
+          "pkRevenueAnalysis": "1544658986886052871",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年01月-2026年06月",
+          "invoicingRevenue": "2858.85",
+          "nonInvoicingRevenue": "0.00",
+          "serialNumber": 3,
+          "amountTotal": "2858.85",
+          "startYear": null,
+          "endYear": null
+        }
+      ],
+      "operatingIncomeAnalysisTotal": [
+        {
+          "timeInterval": "2023年01月-2023年12月",
+          "invoicingRevenue": "15662.97",
+          "relatedTransaction": "700.00",
+          "excludeRelatedTransaction": "14962.97",
+          "serialNumber": 0
+        },
+        {
+          "timeInterval": "2024年01月-2024年12月",
+          "invoicingRevenue": "17232.27",
+          "relatedTransaction": "900.00",
+          "excludeRelatedTransaction": "16332.27",
+          "serialNumber": 1
+        },
+        {
+          "timeInterval": "2025年01月-2025年12月",
+          "invoicingRevenue": "17553.72",
+          "relatedTransaction": "815.00",
+          "excludeRelatedTransaction": "16738.72",
+          "serialNumber": 2
+        },
+        {
+          "timeInterval": "2026年01月-2026年06月",
+          "invoicingRevenue": "8221.50",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "8221.50",
+          "serialNumber": 3
+        }
+      ],
+      "operatingIncomeVerificationList": [
+        {
+          "pkOperatingRevenue": "1544658986911218688",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年01月",
+          "bankStatement": "728.84",
+          "bankStatementFromJz": null,
+          "bankAcceptance": "231.33",
+          "serialNumber": 0,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "840.03",
+          "totalFlow": "960.17",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "1094.30",
+          "electricityFee": "40.67",
+          "wage": "140.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218689",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年02月",
+          "bankStatement": "427.44",
+          "bankStatementFromJz": null,
+          "bankAcceptance": "65.64",
+          "serialNumber": 1,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "560.26",
+          "totalFlow": "493.08",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "500.96",
+          "electricityFee": "19.56",
+          "wage": "140.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218690",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年03月",
+          "bankStatement": "893.51",
+          "bankStatementFromJz": null,
+          "bankAcceptance": "221.42",
+          "serialNumber": 2,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "1010.41",
+          "totalFlow": "1114.93",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "950.74",
+          "electricityFee": "30.61",
+          "wage": "140.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218691",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年04月",
+          "bankStatement": "1391.00",
+          "bankStatementFromJz": null,
+          "bankAcceptance": "154.72",
+          "serialNumber": 3,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "1028.40",
+          "totalFlow": "1545.72",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "935.53",
+          "electricityFee": "26.15",
+          "wage": "140.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218692",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年05月",
+          "bankStatement": "521.77",
+          "bankStatementFromJz": null,
+          "bankAcceptance": "213.15",
+          "serialNumber": 4,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "930.48",
+          "totalFlow": "734.92",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "862.50",
+          "electricityFee": "21.37",
+          "wage": "140.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218693",
+          "customerName": "上海一可包装制品有限公司",
+          "customerNo": "120227572000",
+          "customerRole": [
+            "承租人"
+          ],
+          "timeInterval": "2026年06月",
+          "bankStatement": "716.00",
+          "bankStatementFromJz": null,
+          "bankAcceptance": "212.79",
+          "serialNumber": 5,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "996.84",
+          "totalFlow": "928.79",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "796.35",
+          "electricityFee": "25.94",
+          "wage": "140.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218694",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年01月",
+          "bankStatement": "440.60",
+          "bankStatementFromJz": "635.68",
+          "bankAcceptance": "20.00",
+          "serialNumber": 0,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "392.59",
+          "totalFlow": "460.60",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "403.91",
+          "electricityFee": "8.09",
+          "wage": "58.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218695",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年02月",
+          "bankStatement": "270.31",
+          "bankStatementFromJz": "771.99",
+          "bankAcceptance": "20.00",
+          "serialNumber": 1,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "403.34",
+          "totalFlow": "290.31",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "204.05",
+          "electricityFee": "5.43",
+          "wage": "58.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218696",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年03月",
+          "bankStatement": "437.63",
+          "bankStatementFromJz": "495.28",
+          "bankAcceptance": "20.00",
+          "serialNumber": 2,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "408.72",
+          "totalFlow": "457.63",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "235.07",
+          "electricityFee": "8.31",
+          "wage": "58.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218697",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年04月",
+          "bankStatement": "275.52",
+          "bankStatementFromJz": "539.65",
+          "bankAcceptance": "20.00",
+          "serialNumber": 3,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "309.05",
+          "totalFlow": "295.52",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "393.25",
+          "electricityFee": "9.21",
+          "wage": "58.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218698",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年05月",
+          "bankStatement": "374.93",
+          "bankStatementFromJz": "1139.89",
+          "bankAcceptance": "20.00",
+          "serialNumber": 4,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "664.31",
+          "totalFlow": "394.93",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "491.67",
+          "electricityFee": "11.85",
+          "wage": "58.00",
+          "balance": null,
+          "bankFlow": null
+        },
+        {
+          "pkOperatingRevenue": "1544658986911218699",
+          "customerName": "嘉兴市高宝印刷股份有限公司",
+          "customerNo": "C120240132025",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "timeInterval": "2026年06月",
+          "bankStatement": "597.98",
+          "bankStatementFromJz": "1240.34",
+          "bankAcceptance": "20.00",
+          "serialNumber": 5,
+          "startYear": null,
+          "endYear": null,
+          "taxableIncome": "680.84",
+          "totalFlow": "617.98",
+          "relatedTransaction": "0.00",
+          "taxDeclareIncome": "509.16",
+          "electricityFee": "9.12",
+          "wage": "58.00",
+          "balance": null,
+          "bankFlow": null
+        }
+      ],
+      "operatingIncomeVerificationFlowTotalList": [
+        {
+          "timeInterval": "2026年01月",
+          "totalFlow": "1420.77",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "1232.62",
+          "serialNumber": 0
+        },
+        {
+          "timeInterval": "2026年02月",
+          "totalFlow": "783.39",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "963.60",
+          "serialNumber": 1
+        },
+        {
+          "timeInterval": "2026年03月",
+          "totalFlow": "1572.56",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "1419.13",
+          "serialNumber": 2
+        },
+        {
+          "timeInterval": "2026年04月",
+          "totalFlow": "1841.24",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "1337.45",
+          "serialNumber": 3
+        },
+        {
+          "timeInterval": "2026年05月",
+          "totalFlow": "1129.85",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "1594.79",
+          "serialNumber": 4
+        },
+        {
+          "timeInterval": "2026年06月",
+          "totalFlow": "1546.77",
+          "relatedTransaction": "0.00",
+          "excludeRelatedTransaction": "1677.68",
+          "serialNumber": 5
+        }
+      ],
+      "operatingIncomeDesc": "1.拟承租人上海一可包装制品有限公司2023年-2025年12月开票营收分别为10619万元、10902万元、10389万元，营收近年较为稳定；拟担保企业嘉兴市高宝印刷股份有限公司2023年-2025年12月开票营收分别为：5043万元、6329万元、7164万元，营收近年平稳增长；\n2.拟承租人上土地厂房登记在松岩机电（上海）有限公司（无经营仅作为厂房持有）名下，实际使用为拟承租人及对外出租一部分，土地31.7亩，厂房面积18293.59平方米，市值8000万元左右；拟担保企业嘉兴市高宝印刷股份有限公司，有土地20.2亩，厂房面积12,011.89平方米，市值4500万元左右。\n3、拟承租人土地厂房有50%对外出租年租金在260万，上海一可包装股份有限公司（未经营仅作为写字楼持有）对外出租年租金30万；",
+      "operatingIncomeVerifyDesc": "1、拟承租人及拟担保企业月均开票营收合计1370万元，银行流水及承兑月均流入1466万元，可核验相关营业收入，无异常。\n2、流水中出现的对嘉兴市港区耀协建材商行转出资金1900万，经与客户了解，系通过该公司购入一些商业汇票，赚取少量收益。",
+      "repayAbilityAnalysis": {
+        "repayBaseInfoList": [
+          {
+            "subjectName": "上海一可包装制品有限公司",
+            "customerRole": [
+              "承租人"
+            ],
+            "customerNo": "120227572000",
+            "invoicingRevenue": "893.78",
+            "runningIncome": "962.94",
+            "dailyAverageBalance": "19.13",
+            "dailyAverageBalanceFromJz": "19.13"
+          },
+          {
+            "subjectName": "嘉兴市高宝印刷股份有限公司",
+            "customerRole": [
+              "担保人",
+              "关联方"
+            ],
+            "customerNo": "C120240132025",
+            "invoicingRevenue": "476.48",
+            "runningIncome": "419.50",
+            "dailyAverageBalance": "49.61",
+            "dailyAverageBalanceFromJz": "49.61"
+          }
+        ],
+        "revenueExpenseDetails": [
+          {
+            "rawMaterialCost": "625.00",
+            "personnelSalary": "67.13",
+            "personnelSalaryFromJz": "67.13",
+            "rentalExpenses": "2.42",
+            "rentalExpensesFromJz": "2.42",
+            "hydroelectricProperty": "17.49",
+            "hydroelectricPropertyFromJz": "17.49",
+            "outwardProcessing": "0.00",
+            "averageRepayment": "0.00",
+            "loanInterest": "40.00",
+            "financingLeaseRent": "43.00",
+            "otherCost": "80.00",
+            "fuelCost": null,
+            "runningIncome": null,
+            "rate": null,
+            "amountTotal": "875.04",
+            "subjectName": "上海一可包装制品有限公司",
+            "customerRole": [
+              "承租人"
+            ],
+            "customerNo": "120227572000",
+            "monthlyBalance": "87.90",
+            "dailyAverageBalance": "19.13",
+            "dailyAverageBalanceFromJz": "19.13",
+            "maxRent": "225225.00"
+          },
+          {
+            "rawMaterialCost": "334.00",
+            "personnelSalary": "20.55",
+            "personnelSalaryFromJz": "20.55",
+            "rentalExpenses": "0.00",
+            "rentalExpensesFromJz": "0.00",
+            "hydroelectricProperty": "3.78",
+            "hydroelectricPropertyFromJz": "3.78",
+            "outwardProcessing": "0.00",
+            "averageRepayment": "0.00",
+            "loanInterest": "21.60",
+            "financingLeaseRent": "68.00",
+            "otherCost": "42.00",
+            "fuelCost": null,
+            "runningIncome": null,
+            "rate": null,
+            "amountTotal": "489.93",
+            "subjectName": "嘉兴市高宝印刷股份有限公司",
+            "customerRole": [
+              "担保人",
+              "关联方"
+            ],
+            "customerNo": "C120240132025",
+            "monthlyBalance": "-13.45",
+            "dailyAverageBalance": "49.61",
+            "dailyAverageBalanceFromJz": "49.61",
+            "maxRent": "0.00"
+          }
+        ],
+        "repayAbilityIndex": {
+          "subjectName": "上海一可包装制品有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120227572000",
+          "maxRent": "22.52",
+          "rate": "390.2764",
+          "averageDailyBalanceRatio": "84.9373",
+          "averageDailyBalanceRate": "1.9866"
+        }
+      },
+      "ratio": "100.8426",
+      "businessDataAnalysisDesc": "1、拟承租人及拟担保企业收支明细做如下说明：\na、拟承租人及拟担保企业按2026年1-6月平均销售开票计算，每月收入分别为893万元、476万元，其中原材料成本在7成为625万元、334万元；\nb、拟承租人与拟担保企业有员工117、77人，拟承租人平均月薪9000元/人、拟担保企业7000元/人，平均每月工资在100万元、58万元左右；\nc、拟承租人与拟担保企业水电物业平均为35、15万元/月；\nd、拟承租人本次拟与我司申请授信金额500万元、24期，平均每月还款23万元；\ne、拟承租人目前有银行借款共计5000万元，平均利息按4%计算，每月利息共计20万元、拟担保企业目前有银行借款共计5400万元，平均利息按4%计算，每月利息共计21.6万元；\nf、拟承租人与拟担保企业平均每月租赁还款分别为43万元、68万元；\ng、其他开支平均80、42万元/月；\n\n2、拟承租人上海一可包装制品有限公司2023年-2025年12月开票营收分别为10619万元、10902万元、10389万元；\n拟承租人2025年12月科目余额如下：\na、应收账款余额4141万元，其中较大额的有：力试（上海）科学仪器有限公司466万元（厂房租客）、安徽乐美顺新材料有限公司268万元、上海星之蓝玻璃机械有限公司259万元、浙江优全护理用品科技有限公司230万元、上海顺都印刷有限公司220万元；\nb、应付账款余额3547万元，其中较大额的有：安徽诗雅韵新材料有限公司528万元、上海佳旺薄膜有限公司497万元、上海宏塔塑业有限公司395万元、辽宁博泽印刷油墨有限公司300万元、上海松江新颜化工油漆有限公司247万元、上海三景制版有限公司232万元；\nc、其他应收账款余额4810万元，主要为：上海一可包装股份有限公司3540万元、松岩机电（上海）有限公司1960万元、上海一可新材料科技股份有限公司219万元（以上几家为雍总其他几家关联公司，无实质运营）；\nd、其他应付账款余额8086万元，主要为：嘉兴市高宝印刷股份有限公司7631万元（拟担保企业，据雍总口述，该账目为财务做账不规范产生，实际为收购嘉兴高宝时，通过将嘉兴高宝抵押至银行获得5000万元，另嘉兴高宝账上现金1000多万元，6000多万元通过一可包装股份转给原股东，实际应为一可包装股份应付6000余万元）；\ne、库存商品6149万元，主要为：原材料1676万元、在产品2012万元、库存商品2460万元；（据雍总口述，存货增加主要是早期存在少量不开票收入，累计大概有3000多万到雍总个人账户，后雍总又借给公司，为消除该借款选择通过增资方式，实际存货在3000多万）\n\n3、拟担保企业嘉兴市高宝印刷股份有限公司2023年-2025年12月开票营收分别为5043万元、6329万元、7164万元；\n拟担保企业2025年12月科目余额如下：\na、应收账款余额4008万元，其中较大额的有：上海一可包装制品有限公司1612万元、松岩机电（上海）有限公司862万元、上海一可包装股份有限公司363万元、安徽诗雅韵新材料有限公司279万元、上海丰毅印务有限公司251万元、安徽乐美顺新材料有限公司249万元；\nb、应付账款815万元，其中较大额的有：嘉兴市荣晟包装材料有限公司65万元；\nc、嘉兴高宝中登有供应商嘉兴申丰包装科技股份有限公司登记抵押一台价值1296万元高宝印刷机，经与客户了解系早年购买印刷机等设备共计花费3000万元，因投资较大有挤占供应商款项，账期拉长，该供应商考虑欠款时间较长且金额较大800多万元，故而要求抵押一台设备，目前剩200万元左右为正常3-4个月账期应付余额；\n\n"
+    },
+    "operateAnalysisByCustomer": []
   }
 }

@@ -21,6 +21,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 │    ├─ AI分析结果 · 功能整合资源（prjc_integrate_analysis_results）
 │    ├─ 刚性负债分析 · 功能整合资源（prjc_integrate_liability_analysis）
 │    ├─ 重点指标 · 功能整合资源（prjc_integrate_key_indicators）
+│    ├─ 经营数据分析 · 功能整合资源（prjc_integrate_revenue_analysis）
 │    └─ …（后续扩展模块）
 │
 └─ Step 2 · 统一规范样式
@@ -53,7 +54,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 1. 若数据完整且模块明确，进入 Step 1，按模块依次下发对应功能整合资源；
 2. 若数据缺失，记录缺失字段，下发时告知各模块资源以「—」占位，**不中断**生成流程；
-3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：项目概要、合作历史、项目基本信息、实施方案、AI分析结果、刚性负债分析、重点指标）。
+3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：项目概要、合作历史、项目基本信息、实施方案、AI分析结果、刚性负债分析、重点指标、经营数据分析）。
 
 ### 二、Step 1 · 下发功能整合资源
 
@@ -77,6 +78,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 5 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 详见该资源文档；仅展示 `analysisConclusion` |
 | 6 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 详见该资源文档 |
 | 7 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 详见该资源文档 |
+| 8 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 详见该资源文档 |
 | — | 其他模块 | — | — | — | 后续扩展 |
 
 > 汇总 HTML 时按 `moduleIndex` 升序拼接各模块片段。
@@ -116,6 +118,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | L1 | 已编写 |
 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | L1 | 已编写 |
 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | L1 | 已编写 |
+| 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | L1 | 已编写 |
 | 统一规范样式 | `prjc_style_render` | L2 | 已编写 |
 
 ---
