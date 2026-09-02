@@ -561,6 +561,62 @@
   .report-litigation-card--common {
     background: linear-gradient(135deg, #6AA1FF 0%, #1677FF 100%);
   }
+  .report-attachment-section {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-attachment-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  .report-attachment-section__head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+  }
+  .report-attachment-section__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
+  }
+  .report-attachment-section__desc {
+    font-size: 12px;
+    color: #86909C;
+    line-height: 20px;
+  }
+  .report-attachment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .report-attachment-card {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    min-height: 72px;
+  }
+  .report-attachment-card__name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 20px;
+    word-break: break-all;
+    margin-bottom: 8px;
+  }
+  .report-attachment-card__meta {
+    font-size: 12px;
+    color: #86909C;
+    line-height: 20px;
+  }
 
 </style>
 <div class="report-root">
@@ -834,114 +890,101 @@
         </div>
     </div></div>
   </div></div>
-  </div><div class="report-module" data-module-key="analysis_results">
+  </div><div class="report-module" data-module-key="lessee_base_info">
     <div class="report-module__header">
-      <span>AI分析结果</span>
+      <span>承租人基本信息</span>
       
     </div>
-    <div class="report-module__body"><div class="report-block report-analysis-list">
-    <div class="report-section-title">
+    <div class="report-module__body"><div class="report-block report-group"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">项目流水分析</span>
-  </div>
-    <div class="report-analysis-list__items"><div class="report-analysis-item"><div class="report-analysis-item__conclusion"><div class="report-md"><p><strong>流水分析结论：</strong> 该承租人仅提供工商银行1个月流水（2024.01.05-2024.01.29），数据质量较低，尽调可靠性存疑。日均余额215.17万元，项目最大租金2.13万元，租金覆盖能力正常；月均偿贷占经营性流入仅5.72%，偿债压力较小。<strong>但存在以下核心风险：</strong>（1）<strong>数据时长严重不足</strong>，仅1个月流水无法反映完整经营周期，水电能源、租金、人力成本、纳税支出均为零，经营真实性存疑；（2）<strong>大额异常流出</strong>，向临泉泉河医院有限公司一次性流出250.00万元，占流出总额99.04%，被标记为大额整数交易需关注对手方，且该笔流出远超月均流入（42.13万元），存在资金挪用或非经营性占用风险；（3）流入高度依赖单一来源，临泉县财政国库支付中心占比88.65%。综合评定：<strong>数据基础薄弱，经营真实性无法验证，建议补充至少6个月流水后重新评估。</strong></p></div></div></div></div>
-  </div><div class="report-block report-analysis-list">
-    <div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">项目司法分析</span>
-  </div>
-    <div class="report-analysis-list__items"><div class="report-analysis-item"><div class="report-analysis-item__entity">
-          <span class="report-analysis-item__entity-dot"></span>
-          <span class="report-analysis-item__entity-name">苏州工业园区昌源工贸有限公司</span>
-        </div><div class="report-analysis-item__conclusion"><div class="report-analysis-item__empty">—</div></div></div><div class="report-analysis-item"><div class="report-analysis-item__entity">
-          <span class="report-analysis-item__entity-dot"></span>
-          <span class="report-analysis-item__entity-name">肖令权</span>
-        </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><ul><li><strong>综合评分</strong>：低风险</li><li><strong>风险等级</strong>：低风险</li><li><strong>风险结论</strong>：该客户无任何司法涉诉记录，包括原告案件、被告案件、被执行人、失信被执行人、限高及破产记录均为零。查询状态为&quot;无数据&quot;，表明该客户在司法系统中未检索到相关案件信息，整体司法涉诉风险极低。</li><li><strong>风控建议</strong>：</li></ul><ol><li>当前无司法涉诉风险，可正常开展业务合作；</li><li>建议定期复查询证，以及时发现潜在司法风险变化；</li><li>结合其他风控维度（如征信、经营状况等）综合评估客户整体风险水平。</li></ol></div></div></div><div class="report-analysis-item"><div class="report-analysis-item__entity">
-          <span class="report-analysis-item__entity-dot"></span>
-          <span class="report-analysis-item__entity-name">江阴绮星水泥有限公司</span>
-        </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><h3>风险等级: 高风险</h3><h3>评分依据</h3><ul><li>存在2件被执行人记录(均已结案)，触发&quot;仅被执行&quot;条件</li><li>无失信被执行人记录、无限高记录、无破产记录</li><li>无在诉被告案件</li><li>无未执行金额明确标注</li></ul><h3>风险结论</h3><p>客户存在2件被执行人记录(均为2022年财产保全执行案件，均已结案)，无失信被执行人记录。客户同时作为原告追讨货款(保全金额约1700万元，对手方为江苏广宇建设集团有限公司)，显示其经营中存在大额应收账款回收困难的问题。所有案件均已结案，无在诉案件，整体风险偏高但可控。客户在2022年集中出现4起被告案件(均与江阴市胜力特新型建材有限公司相关)，反映其曾面临短期集中纠纷，但目前已全部结案。</p><h3>风控建议</h3><ol><li><strong>核实被执行人案件结案情况</strong>: 确认(2022)苏0281执保3475号和(2022)苏0281执保3491号案件是否已完全履行义务，了解保全完毕和部分保全的具体执行情况</li><li><strong>持续监控被执行人记录</strong>: 定期查询是否出现新的被执行人或失信被执行人记录，一旦出现应立即预警</li><li><strong>关注原告案件执行进展</strong>: 重点跟踪保全金额约1700万元的案件(2024)苏0281财保7007号的后续执行情况，评估应收账款回收可能性</li><li><strong>评估客户经营状况</strong>: 结合客户作为原告追讨大额货款和曾作为被执行人的情况，综合评估其当前现金流和偿债能力</li><li><strong>定期更新司法涉诉信息</strong>: 建议每季度更新一次司法涉诉信息，关注案件动态变化</li></ol></div></div></div><div class="report-analysis-item"><div class="report-analysis-item__entity">
-          <span class="report-analysis-item__entity-dot"></span>
-          <span class="report-analysis-item__entity-name">连云港惟美数智家居科技有限公司</span>
-        </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><ul><li><strong>综合评分</strong>：无风险</li><li><strong>风险等级</strong>：低风险</li><li><strong>风险结论</strong>：该客户（C120240028608）经司法涉诉信息查询，查询状态为&quot;无数据&quot;，无任何作为原告、被告、被执行人、失信被执行人的司法涉诉记录。无被执行/失信/限高/破产记录，无在诉被告案件，近2年案件数量为0件（&lt;3件），符合低风险判定标准。客户整体信用状况良好，未发现司法涉诉相关风险点。</li><li><strong>风控建议</strong>：</li></ul><ol><li>该客户当前无司法涉诉风险，建议维持正常业务合作</li><li>建议定期（如每季度或每半年）复查司法涉诉信息，以及时发现潜在风险</li><li>关注客户经营状况变化，如出现异常可提高司法查询频次</li><li>评分基于剔除风险中性案件后的保留清单，当前保留清单为空，无风险案件需重点关注</li></ol></div></div></div></div>
-  </div></div>
-  </div><div class="report-module" data-module-key="liability_analysis">
-    <div class="report-module__header">
-      <span>刚性负债分析</span>
-      
-    </div>
-    <div class="report-module__body"><div class="report-block"><div class="report-kv">
-    <span class="report-kv__label">征信、中登数据更新时间：</span>
-    <span class="report-kv__value">2026-09-01 08:54:51</span>
-  </div></div><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">借款情况</span>
-  </div></div><div class="report-block report-table-block"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">企业借款</span>
-  </div><table class="report-table report-table--stacked">
-    <thead>
-      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">借款主体</th><th rowspan="2" class="">主体角色</th><th rowspan="2" class="report-table__cell--align-right">租赁借款余额合计(元)</th><th rowspan="2" class="report-table__cell--align-right">非租赁借款余额合计(元)</th><th><span class="report-table__stack-label">业务类型</span></th><th><span class="report-table__stack-label">授信机构</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">截止日期</span></th><th><span class="report-table__stack-label">抵押类型</span></th><th><span class="report-table__stack-label">当前逾期月份</span></th><th><span class="report-table__stack-label">是否与征信重复</span></th></tr>
-      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">机构编码</span></th><th><span class="report-table__stack-label">借款金额(元)</span></th><th><span class="report-table__stack-label">起始日期</span></th><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">五级分类</span></th><th><span class="report-table__stack-label">数据来源</span></th><th><span class="report-table__stack-label">—</span></th></tr>
-    </thead>
-    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="4" class=" report-table__span-cell">连云港惟美数智家居科技有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-08-27）</span></td><td rowspan="4" class=" report-table__span-cell">承租人</td><td rowspan="4" class="report-table__cell--align-right report-table__span-cell">4,005,800.00</td><td rowspan="4" class="report-table__cell--align-right report-table__span-cell">0.00</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,249,200.00</span></td><td><span class="report-table__stack-value">2027-03-16</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">本机构</span></td><td><span class="report-table__stack-value">2,628,700.00</span></td><td><span class="report-table__stack-value">2024-04-16</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,756,600.00</span></td><td><span class="report-table__stack-value">2027-03-16</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">本机构</span></td><td><span class="report-table__stack-value">2,070,000.00</span></td><td><span class="report-table__stack-value">2024-04-16</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td rowspan="8" class=" report-table__span-cell">江阴绮星水泥有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-10-25）</span></td><td rowspan="8" class=" report-table__span-cell">担保人</td><td rowspan="8" class="report-table__cell--align-right report-table__span-cell">0.00</td><td rowspan="8" class="report-table__cell--align-right report-table__span-cell">27,928,600.00</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">700,000.00</span></td><td><span class="report-table__stack-value">2025-02-26</span></td><td><span class="report-table__stack-value">厂房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B5820(商业银行)</span></td><td><span class="report-table__stack-value">700,000.00</span></td><td><span class="report-table__stack-value">2024-02-27</span></td><td><span class="report-table__stack-value">抵押</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">4</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">8,300,000.00</span></td><td><span class="report-table__stack-value">2025-08-11</span></td><td><span class="report-table__stack-value">自住房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B5820(商业银行)</span></td><td><span class="report-table__stack-value">8,300,000.00</span></td><td><span class="report-table__stack-value">2024-08-12</span></td><td><span class="report-table__stack-value">抵押</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">5</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">17,000,000.00</span></td><td><span class="report-table__stack-value">2027-08-12</span></td><td><span class="report-table__stack-value">厂房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B5820(商业银行)</span></td><td><span class="report-table__stack-value">17,000,000.00</span></td><td><span class="report-table__stack-value">2024-08-13</span></td><td><span class="report-table__stack-value">抵押</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">6</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,928,600.00</span></td><td><span class="report-table__stack-value">2026-03-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B6817(商业银行)</span></td><td><span class="report-table__stack-value">1,928,600.00</span></td><td><span class="report-table__stack-value">2024-03-25</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">7</td><td rowspan="14" class=" report-table__span-cell">苏州工业园区昌源工贸有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-09-10）</span></td><td rowspan="14" class=" report-table__span-cell">关联方</td><td rowspan="14" class="report-table__cell--align-right report-table__span-cell">749,800.00</td><td rowspan="14" class="report-table__cell--align-right report-table__span-cell">4,190,500.00</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,000,000.00</span></td><td><span class="report-table__stack-value">2024-09-21</span></td><td><span class="report-table__stack-value">自住房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B1329(商业银行)</span></td><td><span class="report-table__stack-value">2,000,000.00</span></td><td><span class="report-table__stack-value">2023-09-22</span></td><td><span class="report-table__stack-value">组合</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">8</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">900,000.00</span></td><td><span class="report-table__stack-value">2024-12-06</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B1329(商业银行)</span></td><td><span class="report-table__stack-value">900,000.00</span></td><td><span class="report-table__stack-value">2023-12-07</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">9</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,134,200.00</span></td><td><span class="report-table__stack-value">2026-07-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B6921(商业银行)</span></td><td><span class="report-table__stack-value">1,293,800.00</span></td><td><span class="report-table__stack-value">2018-11-07</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">10</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">37,500.00</span></td><td><span class="report-table__stack-value">2025-01-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">G7761(信托公司)</span></td><td><span class="report-table__stack-value">180,000.00</span></td><td><span class="report-table__stack-value">2023-01-30</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">11</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">118,800.00</span></td><td><span class="report-table__stack-value">2026-03-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">G7761(信托公司)</span></td><td><span class="report-table__stack-value">150,000.00</span></td><td><span class="report-table__stack-value">2024-03-26</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">12</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">359,700.00</span></td><td><span class="report-table__stack-value">2025-12-17</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">H6762(融资租赁公司)</span></td><td><span class="report-table__stack-value">595,800.00</span></td><td><span class="report-table__stack-value">2024-01-17</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">13</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">390,100.00</span></td><td><span class="report-table__stack-value">2025-12-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">H6762(融资租赁公司)</span></td><td><span class="report-table__stack-value">680,000.00</span></td><td><span class="report-table__stack-value">2023-12-25</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td rowspan="2" class="report-table__cell--align-right report-table__cell--strong report-table__span-cell">4,755,600.00</td><td rowspan="2" class="report-table__cell--align-right report-table__cell--strong report-table__span-cell">32,119,100.00</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">36,874,700.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">38,426,900.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
-  </table></div><div class="report-block report-table-block"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">个人借款</span>
-  </div><table class="report-table report-table--stacked">
-    <thead>
-      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">借款主体</th><th><span class="report-table__stack-label">业务大类</span></th><th><span class="report-table__stack-label">账户数量</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">当前逾期账户数</span></th><th><span class="report-table__stack-label">最大逾期金额(元)</span></th><th><span class="report-table__stack-label">近三个月被其他机构查询贷款审批及担保资格的次数</span></th></tr>
-      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">借款金额(元)</span></th><th><span class="report-table__stack-label">累计逾期月数</span></th><th><span class="report-table__stack-label">最长逾期月数</span></th><th><span class="report-table__stack-label">近一个月到期金额(元)</span></th><th><span class="report-table__stack-label">数据来源</span></th></tr>
-    </thead>
-    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="6" class=" report-table__span-cell">肖令权<span class="report-table__entity-sub">（征信查询日期: 2025-06-29）</span></td><td><span class="report-table__stack-value">被追偿</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">贷款(非房贷)</span></td><td><span class="report-table__stack-value">9</span></td><td><span class="report-table__stack-value">20,503.00</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">0</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">信用及保证</span></td><td><span class="report-table__stack-value">144,900.00</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td><span class="report-table__stack-value">贷记卡</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">3,428.00</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">714.00</span></td><td><span class="report-table__stack-value">0</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">信用及保证</span></td><td><span class="report-table__stack-value">5,000.00</span></td><td><span class="report-table__stack-value">3</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">579.00</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">23,931.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">714.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">149,900.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">579.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
-  </table></div><div class="report-block report-table-block"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">对外担保情况</span>
-  </div><table class="report-table report-table--stacked">
-    <thead>
-      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">担保主体</th><th rowspan="2" class="">主体角色</th><th><span class="report-table__stack-label">被担保主体</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">截止日期</span></th><th><span class="report-table__stack-label">当前逾期月数</span></th><th><span class="report-table__stack-label">数据来源</span></th></tr>
-      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">业务类型</span></th><th><span class="report-table__stack-label">起始日期</span></th><th><span class="report-table__stack-label">五级分类</span></th><th><span class="report-table__stack-label">是否存在对应借款</span></th><th><span class="report-table__stack-label">—</span></th></tr>
-    </thead>
-    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class=" report-table__span-cell">连云港惟美数智家居科技有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-08-27）</span></td><td rowspan="2" class=" report-table__span-cell">承租人</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td rowspan="28" class=" report-table__span-cell">江阴绮星水泥有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-10-25）</span></td><td rowspan="30" class=" report-table__span-cell">担保人</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2023-11-23</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2022-11-24</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2024-04-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-04-27</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">4</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2024-09-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-09-27</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">5</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">178,500.00</span></td><td><span class="report-table__stack-value">2024-11-09</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2022-12-09</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">6</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,780,000.00</span></td><td><span class="report-table__stack-value">2024-12-10</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-12-18</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">7</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,000,000.00</span></td><td><span class="report-table__stack-value">2024-12-17</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-12-18</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">8</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">4,500,000.00</span></td><td><span class="report-table__stack-value">2025-04-20</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2024-04-25</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">9</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">10,000,000.00</span></td><td><span class="report-table__stack-value">2025-09-18</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2024-09-19</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">10</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,955,200.00</span></td><td><span class="report-table__stack-value">2025-10-07</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2024-02-07</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">11</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,838,400.00</span></td><td><span class="report-table__stack-value">2025-11-11</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2022-11-11</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">12</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,946,200.00</span></td><td><span class="report-table__stack-value">2025-11-11</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2022-11-11</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">13</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,500,000.00</span></td><td><span class="report-table__stack-value">2026-04-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-04-27</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">14</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">4,063,500.00</span></td><td><span class="report-table__stack-value">2026-04-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2024-04-25</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">15</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,414,900.00</span></td><td><span class="report-table__stack-value">2026-08-05</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2024-08-26</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">16</td><td rowspan="2" class=" report-table__span-cell">肖令权<span class="report-table__entity-sub">（征信查询日期: 2025-06-29）</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">17</td><td rowspan="2" class=" report-table__span-cell">苏州工业园区昌源工贸有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-09-10）</span></td><td rowspan="2" class=" report-table__span-cell">关联方</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">427,200.00</span></td><td><span class="report-table__stack-value">2025-12-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2023-12-25</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">44,603,900.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
-  </table></div><div class="report-block report-longtext-block"><div class="report-longtext">
-    <div class="report-longtext__label">负债说明：</div>
-    <div class="report-longtext__value">负债说明1</div>
-  </div></div></div>
-  </div><div class="report-module" data-module-key="key_indicators">
-    <div class="report-module__header">
-      <span>重点指标</span>
-      
-    </div>
-    <div class="report-module__body"><div class="report-block report-group"><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">近一年收入同期增长率(%)：</span>
-    <span class="report-kv__value">0.0000</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">营授比(%)：</span>
-    <span class="report-kv__value">0.0000</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">承租人、担保人东莞市捷宏激光科技有限公司抵押类负债占比(%)：</span>
-    <span class="report-kv__value">0.0000</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">担保人江阴绮星水泥有限公司抵押类负债占比(%)：</span>
-    <span class="report-kv__value">93.0945</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">担保人苏州工业园区昌源工贸有限公司抵押类负债占比(%)：</span>
-    <span class="report-kv__value">0.0000</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">承租人及担保人抵押类负债占比(%)：</span>
-    <span class="report-kv__value">31.0315</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">日均余额收入比(%)：</span>
-    <span class="report-kv__value">0.0000</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">对外担保收入比(%)：</span>
-    <span class="report-kv__value">0.0000</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
-    <span class="report-kv__label">现金覆盖比(%)：</span>
-    <span class="report-kv__value">108.4952</span>
+    <span class="report-section-title__text">基本信息</span>
+  </div><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">企业名称：</span>
+    <span class="report-kv__value">昆山东卓精密电子科技有限公司</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">统一社会信用代码：</span>
+    <span class="report-kv__value">91320583302263439E</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">法定代表人：</span>
+    <span class="report-kv__value">陈洪虎</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">实际控制人：</span>
+    <span class="report-kv__value">陈洪虎</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">成立时间：</span>
+    <span class="report-kv__value">2014-06-19</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">注册资本(万元)：</span>
+    <span class="report-kv__value">1,500.00</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">行业小类：</span>
+    <span class="report-kv__value">塑料零件及其他塑料制品制造</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <span class="report-kv__label">从业人数：</span>
+    <span class="report-kv__value">100</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-100"><div class="report-kv">
+    <span class="report-kv__label">注册地址：</span>
+    <span class="report-kv__value">昆山市玉山镇成明路68号</span>
   </div></div></div></div><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">承租人近3年主要财务指标</span>
-  </div><table class="report-table"><thead><tr><th class="">评估项目</th><th class="">财务指标</th><th class="">202312 合并</th><th class="">202412 合并</th><th class="">202509 合并</th></tr></thead><tbody><tr><td class="" rowspan="3">盈利能力</td><td class="">销售毛利率(%)</td><td class="">3.6000</td><td class="">6.5700</td><td class="">6.5300</td></tr><tr><td class="">ROA 资产净利率(%)</td><td class="">—</td><td class="">3.5000</td><td class="">—</td></tr><tr><td class="">ROE 净资产收益率(%)</td><td class="">—</td><td class="">14.0500</td><td class="">—</td></tr><tr><td class="" rowspan="3">运营能力</td><td class="">存货周转率</td><td class="">—</td><td class="">98.25</td><td class="">—</td></tr><tr><td class="">应收账款周转率</td><td class="">—</td><td class="">11.66</td><td class="">—</td></tr><tr><td class="">总资产周转率</td><td class="">—</td><td class="">1.05</td><td class="">—</td></tr><tr><td class="" rowspan="7">偿债能力</td><td class="">资产负债率(%)</td><td class="">74.9900</td><td class="">75.2400</td><td class="">81.3700</td></tr><tr><td class="">速动比率</td><td class="">1.14</td><td class="">1.13</td><td class="">1.25</td></tr><tr><td class="">流动比率</td><td class="">1.23</td><td class="">1.23</td><td class="">1.31</td></tr><tr><td class="">借款依存度(%)</td><td class="">206.4400</td><td class="">202.4700</td><td class="">322.8100</td></tr><tr><td class="">现金流动负债比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="">销售现金比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="">清算价值比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="" rowspan="3">发展能力</td><td class="">营业增长率(%) [财报数据]</td><td class="">—</td><td class="">12.5300</td><td class="">—</td></tr><tr><td class="">资本积累率(%)</td><td class="">—</td><td class="">15.1100</td><td class="">—</td></tr><tr><td class="">总资产增长率(%)</td><td class="">—</td><td class="">16.2700</td><td class="">—</td></tr></tbody></table></div></div>
+    <span class="report-section-title__text">行业许可证</span>
+  </div><table class="report-table"><thead><tr><th>序号</th><th class="">证件名称</th><th class="">编号</th><th class="">期限</th></tr></thead><tbody><tr><td>1</td><td class="">排污许可证</td><td class="">91341721675859323G001P</td><td class="">2028-04-22</td></tr><tr><td>2</td><td class="">农药生产许可证</td><td class="">农药生许（皖）0071</td><td class="">2029-01-28</td></tr><tr><td>3</td><td class="">农药经营许可证</td><td class="">农药经许（皖）34172120045</td><td class="">2028-12-10</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">主营业务：</div>
+    <div class="report-longtext__value">电子产品科技领域内的技术研发、技术咨询、技术服务；塑料制品的生产、销售；电子元器件、电子产品及配件、通讯设备（不含卫星电视广播地面接收设备）、机电设备、五金机电、金属制品的生产、制造、销售；精密模具、自动化设备的设计、研发、制造、加工及销售；货物及技术的进出口业务。（依法须经批准的项目，经相关部门批准后方可开展经营活动）</div>
+  </div></div><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">公司沿革：</div>
+    <div class="report-longtext__value">电子产品科技领域内的技术研发、技术咨询、技术服务；塑料制品的生产、销售；电子元器件、电子产品及配件、通讯设备（不含卫星电视广播地面接收设备）、机电设备、五金机电、金属制品的生产、制造、销售；精密模具、自动化设备的设计、研发、制造、加工及销售；货物及技术的进出口业务。（依法须经批准的项目，经相关部门批准后方可开展经营活动）</div>
+  </div></div><div class="report-block report-table-block"><div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">股权结构</span>
+  </div><table class="report-table"><thead><tr><th>序号</th><th class="">股东名称</th><th class="report-table__cell--align-right">出资额(万元)</th><th class="report-table__cell--align-right">占比(%)</th></tr></thead><tbody><tr><td>1</td><td class="">测试</td><td class="report-table__cell--align-right report-table__cell--strong">1,000.00</td><td class="report-table__cell--align-right report-table__cell--strong">10.0000</td></tr><tr class="report-table__summary-row"><td class="report-table__cell--strong">合计</td><td class="">—</td><td class="report-table__cell--align-right report-table__cell--strong">1,000.00</td><td class="report-table__cell--align-right report-table__cell--strong">10.0000</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">实控人及股东情况介绍：</div>
+    <div class="report-longtext__value">测试</div>
+  </div></div><div class="report-block report-litigation-section"><div class="report-litigation-section__header">
+    <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">司法诉讼信息</span>
+  </div>
+    <span class="report-litigation-section__meta">司法诉讼数据更新时间：2026-06-02 09:53:30</span>
+  </div><div class="report-litigation-grid"><div class="report-litigation-card report-litigation-card--highRisk">
+      <span class="report-litigation-card__num">80</span>
+      <span class="report-litigation-card__type">被执行人</span>
+    </div><div class="report-litigation-card report-litigation-card--highRisk">
+      <span class="report-litigation-card__num">4</span>
+      <span class="report-litigation-card__type">强制清算与破产案件</span>
+    </div><div class="report-litigation-card report-litigation-card--highRisk">
+      <span class="report-litigation-card__num">1</span>
+      <span class="report-litigation-card__type">限制高消费</span>
+    </div><div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">105</span>
+      <span class="report-litigation-card__type">民事案件</span>
+    </div><div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">1</span>
+      <span class="report-litigation-card__type">非诉保全审查</span>
+    </div><div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">83</span>
+      <span class="report-litigation-card__type">执行案件</span>
+    </div></div></div><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">司法诉讼信息说明：</div>
+    <div class="report-longtext__value">案号：(2022)皖0811民初177号
+案由：合同、准合同纠纷,合同纠纷,追偿权纠纷
+原告： 安庆市融资担保集团有限公司
+第三人： 安徽金瑞禾农化有限公司
+被告： 黄**、吴**、汪**、王**、宇顺高科种业股份有限公司、安徽兴隆化工有限公司、安徽省安庆市兴隆化工有限责任公司
+起诉标的：716,260.23元
+2022-03-16准予撤诉
+发生原因：安徽金瑞禾农化有限公司资金链断裂，拖欠担保公司担保费，宇顺高科种业股份有限公司、安徽兴隆化工有限公司、安徽省安庆市兴隆化工有限责任公司作为担保方被起诉。
+目前状态：宇顺高科种业股份有限公司、安徽省安庆市兴隆化工有限责任公司，各支付一半担保费，案件已结清。
+案号：(2026)苏0411民初157号
+案由：与公司、证券、保险、票据等有关的民事纠纷,与公司有关的纠纷,股东出资纠纷
+原告： 安徽兴隆化工有限公司
+第三人： 江苏驰云环境科技有限公司
+被告： 何**、曹**、杨**
+法院：常州市新北区人民法院
+起诉标的：1,598,640元
+发生原因：江苏驰云环境科技有限公司是拟承租的设备供应商，设备质量有问题，原股东退股，遂起诉原股东。
+目前状态：等待开庭</div>
+  </div></div></div>
   </div><div class="report-module" data-module-key="revenue_analysis">
     <div class="report-module__header">
       <span>经营数据分析</span>
@@ -1077,100 +1120,473 @@ a、应收账款余额4008万元，其中较大额的有：上海一可包装制
 b、应付账款815万元，其中较大额的有：嘉兴市荣晟包装材料有限公司65万元；
 c、嘉兴高宝中登有供应商嘉兴申丰包装科技股份有限公司登记抵押一台价值1296万元高宝印刷机，经与客户了解系早年购买印刷机等设备共计花费3000万元，因投资较大有挤占供应商款项，账期拉长，该供应商考虑欠款时间较长且金额较大800多万元，故而要求抵押一台设备，目前剩200万元左右为正常3-4个月账期应付余额；</div>
   </div></div></div>
-  </div><div class="report-module" data-module-key="lessee_base_info">
+  </div><div class="report-module" data-module-key="liability_analysis">
     <div class="report-module__header">
-      <span>承租人基本信息</span>
+      <span>刚性负债分析</span>
       
     </div>
-    <div class="report-module__body"><div class="report-block report-group"><div class="report-section-title">
+    <div class="report-module__body"><div class="report-block"><div class="report-kv">
+    <span class="report-kv__label">征信、中登数据更新时间：</span>
+    <span class="report-kv__value">2026-09-01 08:54:51</span>
+  </div></div><div class="report-block report-group"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">基本信息</span>
-  </div><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">企业名称：</span>
-    <span class="report-kv__value">昆山东卓精密电子科技有限公司</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">统一社会信用代码：</span>
-    <span class="report-kv__value">91320583302263439E</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">法定代表人：</span>
-    <span class="report-kv__value">陈洪虎</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">实际控制人：</span>
-    <span class="report-kv__value">陈洪虎</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">成立时间：</span>
-    <span class="report-kv__value">2014-06-19</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">注册资本(万元)：</span>
-    <span class="report-kv__value">1,500.00</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">行业小类：</span>
-    <span class="report-kv__value">塑料零件及其他塑料制品制造</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
-    <span class="report-kv__label">从业人数：</span>
-    <span class="report-kv__value">100</span>
-  </div></div><div class="report-grid__cell report-grid__cell--w-100"><div class="report-kv">
-    <span class="report-kv__label">注册地址：</span>
-    <span class="report-kv__value">昆山市玉山镇成明路68号</span>
-  </div></div></div></div><div class="report-block report-table-block"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">行业许可证</span>
-  </div><table class="report-table"><thead><tr><th>序号</th><th class="">证件名称</th><th class="">编号</th><th class="">期限</th></tr></thead><tbody><tr><td>1</td><td class="">排污许可证</td><td class="">91341721675859323G001P</td><td class="">2028-04-22</td></tr><tr><td>2</td><td class="">农药生产许可证</td><td class="">农药生许（皖）0071</td><td class="">2029-01-28</td></tr><tr><td>3</td><td class="">农药经营许可证</td><td class="">农药经许（皖）34172120045</td><td class="">2028-12-10</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
-    <div class="report-longtext__label">主营业务：</div>
-    <div class="report-longtext__value">电子产品科技领域内的技术研发、技术咨询、技术服务；塑料制品的生产、销售；电子元器件、电子产品及配件、通讯设备（不含卫星电视广播地面接收设备）、机电设备、五金机电、金属制品的生产、制造、销售；精密模具、自动化设备的设计、研发、制造、加工及销售；货物及技术的进出口业务。（依法须经批准的项目，经相关部门批准后方可开展经营活动）</div>
-  </div></div><div class="report-block report-longtext-block"><div class="report-longtext">
-    <div class="report-longtext__label">公司沿革：</div>
-    <div class="report-longtext__value">电子产品科技领域内的技术研发、技术咨询、技术服务；塑料制品的生产、销售；电子元器件、电子产品及配件、通讯设备（不含卫星电视广播地面接收设备）、机电设备、五金机电、金属制品的生产、制造、销售；精密模具、自动化设备的设计、研发、制造、加工及销售；货物及技术的进出口业务。（依法须经批准的项目，经相关部门批准后方可开展经营活动）</div>
+    <span class="report-section-title__text">借款情况</span>
   </div></div><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">股权结构</span>
-  </div><table class="report-table"><thead><tr><th>序号</th><th class="">股东名称</th><th class="report-table__cell--align-right">出资额(万元)</th><th class="report-table__cell--align-right">占比(%)</th></tr></thead><tbody><tr><td>1</td><td class="">测试</td><td class="report-table__cell--align-right report-table__cell--strong">1,000.00</td><td class="report-table__cell--align-right report-table__cell--strong">10.0000</td></tr><tr class="report-table__summary-row"><td class="report-table__cell--strong">合计</td><td class="">—</td><td class="report-table__cell--align-right report-table__cell--strong">1,000.00</td><td class="report-table__cell--align-right report-table__cell--strong">10.0000</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
-    <div class="report-longtext__label">实控人及股东情况介绍：</div>
-    <div class="report-longtext__value">测试</div>
-  </div></div><div class="report-block report-litigation-section"><div class="report-litigation-section__header">
+    <span class="report-section-title__text">企业借款</span>
+  </div><table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">借款主体</th><th rowspan="2" class="">主体角色</th><th rowspan="2" class="report-table__cell--align-right">租赁借款余额合计(元)</th><th rowspan="2" class="report-table__cell--align-right">非租赁借款余额合计(元)</th><th><span class="report-table__stack-label">业务类型</span></th><th><span class="report-table__stack-label">授信机构</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">截止日期</span></th><th><span class="report-table__stack-label">抵押类型</span></th><th><span class="report-table__stack-label">当前逾期月份</span></th><th><span class="report-table__stack-label">是否与征信重复</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">机构编码</span></th><th><span class="report-table__stack-label">借款金额(元)</span></th><th><span class="report-table__stack-label">起始日期</span></th><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">五级分类</span></th><th><span class="report-table__stack-label">数据来源</span></th><th><span class="report-table__stack-label">—</span></th></tr>
+    </thead>
+    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="4" class=" report-table__span-cell">连云港惟美数智家居科技有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-08-27）</span></td><td rowspan="4" class=" report-table__span-cell">承租人</td><td rowspan="4" class="report-table__cell--align-right report-table__span-cell">4,005,800.00</td><td rowspan="4" class="report-table__cell--align-right report-table__span-cell">0.00</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,249,200.00</span></td><td><span class="report-table__stack-value">2027-03-16</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">本机构</span></td><td><span class="report-table__stack-value">2,628,700.00</span></td><td><span class="report-table__stack-value">2024-04-16</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,756,600.00</span></td><td><span class="report-table__stack-value">2027-03-16</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">本机构</span></td><td><span class="report-table__stack-value">2,070,000.00</span></td><td><span class="report-table__stack-value">2024-04-16</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td rowspan="8" class=" report-table__span-cell">江阴绮星水泥有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-10-25）</span></td><td rowspan="8" class=" report-table__span-cell">担保人</td><td rowspan="8" class="report-table__cell--align-right report-table__span-cell">0.00</td><td rowspan="8" class="report-table__cell--align-right report-table__span-cell">27,928,600.00</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">700,000.00</span></td><td><span class="report-table__stack-value">2025-02-26</span></td><td><span class="report-table__stack-value">厂房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B5820(商业银行)</span></td><td><span class="report-table__stack-value">700,000.00</span></td><td><span class="report-table__stack-value">2024-02-27</span></td><td><span class="report-table__stack-value">抵押</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">4</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">8,300,000.00</span></td><td><span class="report-table__stack-value">2025-08-11</span></td><td><span class="report-table__stack-value">自住房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B5820(商业银行)</span></td><td><span class="report-table__stack-value">8,300,000.00</span></td><td><span class="report-table__stack-value">2024-08-12</span></td><td><span class="report-table__stack-value">抵押</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">5</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">17,000,000.00</span></td><td><span class="report-table__stack-value">2027-08-12</span></td><td><span class="report-table__stack-value">厂房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B5820(商业银行)</span></td><td><span class="report-table__stack-value">17,000,000.00</span></td><td><span class="report-table__stack-value">2024-08-13</span></td><td><span class="report-table__stack-value">抵押</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">6</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,928,600.00</span></td><td><span class="report-table__stack-value">2026-03-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B6817(商业银行)</span></td><td><span class="report-table__stack-value">1,928,600.00</span></td><td><span class="report-table__stack-value">2024-03-25</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">7</td><td rowspan="14" class=" report-table__span-cell">苏州工业园区昌源工贸有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-09-10）</span></td><td rowspan="14" class=" report-table__span-cell">关联方</td><td rowspan="14" class="report-table__cell--align-right report-table__span-cell">749,800.00</td><td rowspan="14" class="report-table__cell--align-right report-table__span-cell">4,190,500.00</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,000,000.00</span></td><td><span class="report-table__stack-value">2024-09-21</span></td><td><span class="report-table__stack-value">自住房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B1329(商业银行)</span></td><td><span class="report-table__stack-value">2,000,000.00</span></td><td><span class="report-table__stack-value">2023-09-22</span></td><td><span class="report-table__stack-value">组合</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">8</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">900,000.00</span></td><td><span class="report-table__stack-value">2024-12-06</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B1329(商业银行)</span></td><td><span class="report-table__stack-value">900,000.00</span></td><td><span class="report-table__stack-value">2023-12-07</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">9</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,134,200.00</span></td><td><span class="report-table__stack-value">2026-07-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B6921(商业银行)</span></td><td><span class="report-table__stack-value">1,293,800.00</span></td><td><span class="report-table__stack-value">2018-11-07</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">10</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">37,500.00</span></td><td><span class="report-table__stack-value">2025-01-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">G7761(信托公司)</span></td><td><span class="report-table__stack-value">180,000.00</span></td><td><span class="report-table__stack-value">2023-01-30</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">11</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">118,800.00</span></td><td><span class="report-table__stack-value">2026-03-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">G7761(信托公司)</span></td><td><span class="report-table__stack-value">150,000.00</span></td><td><span class="report-table__stack-value">2024-03-26</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">12</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">359,700.00</span></td><td><span class="report-table__stack-value">2025-12-17</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">H6762(融资租赁公司)</span></td><td><span class="report-table__stack-value">595,800.00</span></td><td><span class="report-table__stack-value">2024-01-17</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">13</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">390,100.00</span></td><td><span class="report-table__stack-value">2025-12-25</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">H6762(融资租赁公司)</span></td><td><span class="report-table__stack-value">680,000.00</span></td><td><span class="report-table__stack-value">2023-12-25</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td rowspan="2" class="report-table__cell--align-right report-table__cell--strong report-table__span-cell">4,755,600.00</td><td rowspan="2" class="report-table__cell--align-right report-table__cell--strong report-table__span-cell">32,119,100.00</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">36,874,700.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">38,426,900.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
+  </table></div><div class="report-block report-table-block"><div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">个人借款</span>
+  </div><table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">借款主体</th><th><span class="report-table__stack-label">业务大类</span></th><th><span class="report-table__stack-label">账户数量</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">当前逾期账户数</span></th><th><span class="report-table__stack-label">最大逾期金额(元)</span></th><th><span class="report-table__stack-label">近三个月被其他机构查询贷款审批及担保资格的次数</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">借款金额(元)</span></th><th><span class="report-table__stack-label">累计逾期月数</span></th><th><span class="report-table__stack-label">最长逾期月数</span></th><th><span class="report-table__stack-label">近一个月到期金额(元)</span></th><th><span class="report-table__stack-label">数据来源</span></th></tr>
+    </thead>
+    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="6" class=" report-table__span-cell">肖令权<span class="report-table__entity-sub">（征信查询日期: 2025-06-29）</span></td><td><span class="report-table__stack-value">被追偿</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">贷款(非房贷)</span></td><td><span class="report-table__stack-value">9</span></td><td><span class="report-table__stack-value">20,503.00</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">0</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">信用及保证</span></td><td><span class="report-table__stack-value">144,900.00</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td><span class="report-table__stack-value">贷记卡</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">3,428.00</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">714.00</span></td><td><span class="report-table__stack-value">0</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">信用及保证</span></td><td><span class="report-table__stack-value">5,000.00</span></td><td><span class="report-table__stack-value">3</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">579.00</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">23,931.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">714.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">149,900.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">579.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
+  </table></div><div class="report-block report-table-block"><div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">对外担保情况</span>
+  </div><table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">担保主体</th><th rowspan="2" class="">主体角色</th><th><span class="report-table__stack-label">被担保主体</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">截止日期</span></th><th><span class="report-table__stack-label">当前逾期月数</span></th><th><span class="report-table__stack-label">数据来源</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">业务类型</span></th><th><span class="report-table__stack-label">起始日期</span></th><th><span class="report-table__stack-label">五级分类</span></th><th><span class="report-table__stack-label">是否存在对应借款</span></th><th><span class="report-table__stack-label">—</span></th></tr>
+    </thead>
+    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class=" report-table__span-cell">连云港惟美数智家居科技有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-08-27）</span></td><td rowspan="2" class=" report-table__span-cell">承租人</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td rowspan="28" class=" report-table__span-cell">江阴绮星水泥有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-10-25）</span></td><td rowspan="30" class=" report-table__span-cell">担保人</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2023-11-23</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2022-11-24</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2024-04-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-04-27</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">4</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2024-09-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-09-27</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">5</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">178,500.00</span></td><td><span class="report-table__stack-value">2024-11-09</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2022-12-09</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">6</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,780,000.00</span></td><td><span class="report-table__stack-value">2024-12-10</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-12-18</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">7</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,000,000.00</span></td><td><span class="report-table__stack-value">2024-12-17</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-12-18</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">8</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">4,500,000.00</span></td><td><span class="report-table__stack-value">2025-04-20</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2024-04-25</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">9</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">10,000,000.00</span></td><td><span class="report-table__stack-value">2025-09-18</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2024-09-19</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">10</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,955,200.00</span></td><td><span class="report-table__stack-value">2025-10-07</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2024-02-07</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">11</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">2,838,400.00</span></td><td><span class="report-table__stack-value">2025-11-11</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2022-11-11</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">12</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">1,946,200.00</span></td><td><span class="report-table__stack-value">2025-11-11</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2022-11-11</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">13</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,500,000.00</span></td><td><span class="report-table__stack-value">2026-04-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">2023-04-27</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">14</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">4,063,500.00</span></td><td><span class="report-table__stack-value">2026-04-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2024-04-25</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">15</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,414,900.00</span></td><td><span class="report-table__stack-value">2026-08-05</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2024-08-26</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">16</td><td rowspan="2" class=" report-table__span-cell">肖令权<span class="report-table__entity-sub">（征信查询日期: 2025-06-29）</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">17</td><td rowspan="2" class=" report-table__span-cell">苏州工业园区昌源工贸有限公司<span class="report-table__entity-sub">（征信查询日期: 2024-09-10）</span></td><td rowspan="2" class=" report-table__span-cell">关联方</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">427,200.00</span></td><td><span class="report-table__stack-value">2025-12-25</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">2023-12-25</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">44,603,900.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
+  </table></div><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">负债说明：</div>
+    <div class="report-longtext__value">负债说明1</div>
+  </div></div></div>
+  </div><div class="report-module" data-module-key="key_indicators">
+    <div class="report-module__header">
+      <span>重点指标</span>
+      
+    </div>
+    <div class="report-module__body"><div class="report-block report-group"><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">近一年收入同期增长率(%)：</span>
+    <span class="report-kv__value">0.0000</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">营授比(%)：</span>
+    <span class="report-kv__value">0.0000</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">承租人、担保人东莞市捷宏激光科技有限公司抵押类负债占比(%)：</span>
+    <span class="report-kv__value">0.0000</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">担保人江阴绮星水泥有限公司抵押类负债占比(%)：</span>
+    <span class="report-kv__value">93.0945</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">担保人苏州工业园区昌源工贸有限公司抵押类负债占比(%)：</span>
+    <span class="report-kv__value">0.0000</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">承租人及担保人抵押类负债占比(%)：</span>
+    <span class="report-kv__value">31.0315</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">日均余额收入比(%)：</span>
+    <span class="report-kv__value">0.0000</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">对外担保收入比(%)：</span>
+    <span class="report-kv__value">0.0000</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-33"><div class="report-kv">
+    <span class="report-kv__label">现金覆盖比(%)：</span>
+    <span class="report-kv__value">108.4952</span>
+  </div></div></div></div><div class="report-block report-table-block"><div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">承租人近3年主要财务指标</span>
+  </div><table class="report-table"><thead><tr><th class="">评估项目</th><th class="">财务指标</th><th class="">202312 合并</th><th class="">202412 合并</th><th class="">202509 合并</th></tr></thead><tbody><tr><td class="" rowspan="3">盈利能力</td><td class="">销售毛利率(%)</td><td class="">3.6000</td><td class="">6.5700</td><td class="">6.5300</td></tr><tr><td class="">ROA 资产净利率(%)</td><td class="">—</td><td class="">3.5000</td><td class="">—</td></tr><tr><td class="">ROE 净资产收益率(%)</td><td class="">—</td><td class="">14.0500</td><td class="">—</td></tr><tr><td class="" rowspan="3">运营能力</td><td class="">存货周转率</td><td class="">—</td><td class="">98.25</td><td class="">—</td></tr><tr><td class="">应收账款周转率</td><td class="">—</td><td class="">11.66</td><td class="">—</td></tr><tr><td class="">总资产周转率</td><td class="">—</td><td class="">1.05</td><td class="">—</td></tr><tr><td class="" rowspan="7">偿债能力</td><td class="">资产负债率(%)</td><td class="">74.9900</td><td class="">75.2400</td><td class="">81.3700</td></tr><tr><td class="">速动比率</td><td class="">1.14</td><td class="">1.13</td><td class="">1.25</td></tr><tr><td class="">流动比率</td><td class="">1.23</td><td class="">1.23</td><td class="">1.31</td></tr><tr><td class="">借款依存度(%)</td><td class="">206.4400</td><td class="">202.4700</td><td class="">322.8100</td></tr><tr><td class="">现金流动负债比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="">销售现金比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="">清算价值比率(%)</td><td class="">—</td><td class="">—</td><td class="">—</td></tr><tr><td class="" rowspan="3">发展能力</td><td class="">营业增长率(%) [财报数据]</td><td class="">—</td><td class="">12.5300</td><td class="">—</td></tr><tr><td class="">资本积累率(%)</td><td class="">—</td><td class="">15.1100</td><td class="">—</td></tr><tr><td class="">总资产增长率(%)</td><td class="">—</td><td class="">16.2700</td><td class="">—</td></tr></tbody></table></div></div>
+  </div><div class="report-module" data-module-key="analysis_results">
+    <div class="report-module__header">
+      <span>AI分析结果</span>
+      
+    </div>
+    <div class="report-module__body"><div class="report-block report-analysis-list">
     <div class="report-section-title">
     <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">司法诉讼信息</span>
+    <span class="report-section-title__text">项目流水分析</span>
   </div>
-    <span class="report-litigation-section__meta">司法诉讼数据更新时间：2026-06-02 09:53:30</span>
-  </div><div class="report-litigation-grid"><div class="report-litigation-card report-litigation-card--highRisk">
-      <span class="report-litigation-card__num">80</span>
-      <span class="report-litigation-card__type">被执行人</span>
-    </div><div class="report-litigation-card report-litigation-card--highRisk">
-      <span class="report-litigation-card__num">4</span>
-      <span class="report-litigation-card__type">强制清算与破产案件</span>
-    </div><div class="report-litigation-card report-litigation-card--highRisk">
-      <span class="report-litigation-card__num">1</span>
-      <span class="report-litigation-card__type">限制高消费</span>
-    </div><div class="report-litigation-card report-litigation-card--common">
-      <span class="report-litigation-card__num">105</span>
-      <span class="report-litigation-card__type">民事案件</span>
-    </div><div class="report-litigation-card report-litigation-card--common">
-      <span class="report-litigation-card__num">1</span>
-      <span class="report-litigation-card__type">非诉保全审查</span>
-    </div><div class="report-litigation-card report-litigation-card--common">
-      <span class="report-litigation-card__num">83</span>
-      <span class="report-litigation-card__type">执行案件</span>
-    </div></div></div><div class="report-block report-longtext-block"><div class="report-longtext">
-    <div class="report-longtext__label">司法诉讼信息说明：</div>
-    <div class="report-longtext__value">案号：(2022)皖0811民初177号
-案由：合同、准合同纠纷,合同纠纷,追偿权纠纷
-原告： 安庆市融资担保集团有限公司
-第三人： 安徽金瑞禾农化有限公司
-被告： 黄**、吴**、汪**、王**、宇顺高科种业股份有限公司、安徽兴隆化工有限公司、安徽省安庆市兴隆化工有限责任公司
-起诉标的：716,260.23元
-2022-03-16准予撤诉
-发生原因：安徽金瑞禾农化有限公司资金链断裂，拖欠担保公司担保费，宇顺高科种业股份有限公司、安徽兴隆化工有限公司、安徽省安庆市兴隆化工有限责任公司作为担保方被起诉。
-目前状态：宇顺高科种业股份有限公司、安徽省安庆市兴隆化工有限责任公司，各支付一半担保费，案件已结清。
-案号：(2026)苏0411民初157号
-案由：与公司、证券、保险、票据等有关的民事纠纷,与公司有关的纠纷,股东出资纠纷
-原告： 安徽兴隆化工有限公司
-第三人： 江苏驰云环境科技有限公司
-被告： 何**、曹**、杨**
-法院：常州市新北区人民法院
-起诉标的：1,598,640元
-发生原因：江苏驰云环境科技有限公司是拟承租的设备供应商，设备质量有问题，原股东退股，遂起诉原股东。
-目前状态：等待开庭</div>
-  </div></div></div>
+    <div class="report-analysis-list__items"><div class="report-analysis-item"><div class="report-analysis-item__conclusion"><div class="report-md"><p><strong>流水分析结论：</strong> 该承租人仅提供工商银行1个月流水（2024.01.05-2024.01.29），数据质量较低，尽调可靠性存疑。日均余额215.17万元，项目最大租金2.13万元，租金覆盖能力正常；月均偿贷占经营性流入仅5.72%，偿债压力较小。<strong>但存在以下核心风险：</strong>（1）<strong>数据时长严重不足</strong>，仅1个月流水无法反映完整经营周期，水电能源、租金、人力成本、纳税支出均为零，经营真实性存疑；（2）<strong>大额异常流出</strong>，向临泉泉河医院有限公司一次性流出250.00万元，占流出总额99.04%，被标记为大额整数交易需关注对手方，且该笔流出远超月均流入（42.13万元），存在资金挪用或非经营性占用风险；（3）流入高度依赖单一来源，临泉县财政国库支付中心占比88.65%。综合评定：<strong>数据基础薄弱，经营真实性无法验证，建议补充至少6个月流水后重新评估。</strong></p></div></div></div></div>
+  </div><div class="report-block report-analysis-list">
+    <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">项目司法分析</span>
+  </div>
+    <div class="report-analysis-list__items"><div class="report-analysis-item"><div class="report-analysis-item__entity">
+          <span class="report-analysis-item__entity-dot"></span>
+          <span class="report-analysis-item__entity-name">苏州工业园区昌源工贸有限公司</span>
+        </div><div class="report-analysis-item__conclusion"><div class="report-analysis-item__empty">—</div></div></div><div class="report-analysis-item"><div class="report-analysis-item__entity">
+          <span class="report-analysis-item__entity-dot"></span>
+          <span class="report-analysis-item__entity-name">肖令权</span>
+        </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><ul><li><strong>综合评分</strong>：低风险</li><li><strong>风险等级</strong>：低风险</li><li><strong>风险结论</strong>：该客户无任何司法涉诉记录，包括原告案件、被告案件、被执行人、失信被执行人、限高及破产记录均为零。查询状态为&quot;无数据&quot;，表明该客户在司法系统中未检索到相关案件信息，整体司法涉诉风险极低。</li><li><strong>风控建议</strong>：</li></ul><ol><li>当前无司法涉诉风险，可正常开展业务合作；</li><li>建议定期复查询证，以及时发现潜在司法风险变化；</li><li>结合其他风控维度（如征信、经营状况等）综合评估客户整体风险水平。</li></ol></div></div></div><div class="report-analysis-item"><div class="report-analysis-item__entity">
+          <span class="report-analysis-item__entity-dot"></span>
+          <span class="report-analysis-item__entity-name">江阴绮星水泥有限公司</span>
+        </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><h3>风险等级: 高风险</h3><h3>评分依据</h3><ul><li>存在2件被执行人记录(均已结案)，触发&quot;仅被执行&quot;条件</li><li>无失信被执行人记录、无限高记录、无破产记录</li><li>无在诉被告案件</li><li>无未执行金额明确标注</li></ul><h3>风险结论</h3><p>客户存在2件被执行人记录(均为2022年财产保全执行案件，均已结案)，无失信被执行人记录。客户同时作为原告追讨货款(保全金额约1700万元，对手方为江苏广宇建设集团有限公司)，显示其经营中存在大额应收账款回收困难的问题。所有案件均已结案，无在诉案件，整体风险偏高但可控。客户在2022年集中出现4起被告案件(均与江阴市胜力特新型建材有限公司相关)，反映其曾面临短期集中纠纷，但目前已全部结案。</p><h3>风控建议</h3><ol><li><strong>核实被执行人案件结案情况</strong>: 确认(2022)苏0281执保3475号和(2022)苏0281执保3491号案件是否已完全履行义务，了解保全完毕和部分保全的具体执行情况</li><li><strong>持续监控被执行人记录</strong>: 定期查询是否出现新的被执行人或失信被执行人记录，一旦出现应立即预警</li><li><strong>关注原告案件执行进展</strong>: 重点跟踪保全金额约1700万元的案件(2024)苏0281财保7007号的后续执行情况，评估应收账款回收可能性</li><li><strong>评估客户经营状况</strong>: 结合客户作为原告追讨大额货款和曾作为被执行人的情况，综合评估其当前现金流和偿债能力</li><li><strong>定期更新司法涉诉信息</strong>: 建议每季度更新一次司法涉诉信息，关注案件动态变化</li></ol></div></div></div><div class="report-analysis-item"><div class="report-analysis-item__entity">
+          <span class="report-analysis-item__entity-dot"></span>
+          <span class="report-analysis-item__entity-name">连云港惟美数智家居科技有限公司</span>
+        </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><ul><li><strong>综合评分</strong>：无风险</li><li><strong>风险等级</strong>：低风险</li><li><strong>风险结论</strong>：该客户（C120240028608）经司法涉诉信息查询，查询状态为&quot;无数据&quot;，无任何作为原告、被告、被执行人、失信被执行人的司法涉诉记录。无被执行/失信/限高/破产记录，无在诉被告案件，近2年案件数量为0件（&lt;3件），符合低风险判定标准。客户整体信用状况良好，未发现司法涉诉相关风险点。</li><li><strong>风控建议</strong>：</li></ul><ol><li>该客户当前无司法涉诉风险，建议维持正常业务合作</li><li>建议定期（如每季度或每半年）复查司法涉诉信息，以及时发现潜在风险</li><li>关注客户经营状况变化，如出现异常可提高司法查询频次</li><li>评分基于剔除风险中性案件后的保留清单，当前保留清单为空，无风险案件需重点关注</li></ol></div></div></div></div>
+  </div></div>
+  </div><div class="report-module" data-module-key="attachments">
+    <div class="report-module__header">
+      <span>附件信息</span>
+      
+    </div>
+    <div class="report-module__body"><div class="report-block report-attachment-sections"><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">基础材料</span>
+        <span class="report-attachment-section__desc">营业执照，自然人身份证明，公司章程，开户许可证，开票资料</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">宋文放身份证 (2).jpg</div>
+        <div class="report-attachment-card__meta">文件类型：自然人身份证明</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">宜飞营业执照.jpg</div>
+        <div class="report-attachment-card__meta">文件类型：营业执照</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">宋文放身份证 (1).jpg</div>
+        <div class="report-attachment-card__meta">文件类型：自然人身份证明</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹营业执照.jpg</div>
+        <div class="report-attachment-card__meta">文件类型：营业执照</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹开票资料.jpg</div>
+        <div class="report-attachment-card__meta">文件类型：开票资料</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">宜飞开票资料.jpg</div>
+        <div class="report-attachment-card__meta">文件类型：开票资料</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">宜飞报表和章程.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：公司章程</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹安徽工商备案档案（设立+2次变更）.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：公司章程</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">征信材料</span>
+        <span class="report-attachment-section__desc">征信附件，征信授权文件</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统同步-承租人-鹰兹汽车科技（安徽）有限公司-1787721118506-征信授权文件-1.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：征信授权文件</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统同步-担保人-宋文放-客户资信结构化报告-20260826131158.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：征信附件</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统同步-承租人-鹰兹汽车科技（安徽）有限公司-客户资信结构化报告-20260826131158.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：征信附件</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统同步-担保人-苏州宜飞美福进口汽车有限公司-客户资信结构化报告-20260826131209.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：征信附件</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">资质材料</span>
+        <span class="report-attachment-section__desc">厂房租赁合同，不动产权证书，水电费缴纳凭证，特殊行业资质证明，环评批复，房产证</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">房产 (1).jpg</div>
+        <div class="report-attachment-card__meta">文件类型：房产证</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">房产 (2).jpg</div>
+        <div class="report-attachment-card__meta">文件类型：房产证</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹安徽厂房租赁合同-双签202509.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：厂房租赁合同</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">苏州宜飞美福房屋租赁合同-苏州德宇汽车2026年(1).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：厂房租赁合同</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">租赁物材料</span>
+        <span class="report-attachment-section__desc">设备销售合同，代理进口合同，租赁物发票，营业执照（供应商），身份证明（供应商法人代表），开户许可证（供应商），开票资料（供应商）</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">租赁物发票.zip</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 10:06:12</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">1-5 (4).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">16.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">8.9.11.12.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">7.8.9.10.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">6 (2).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">1-5 (3).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">17.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">15.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">14 (2).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">8.9.10.13.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">14 (1).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">6 (3).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">1-5 (1).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">1-5 (2).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:02</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">6 (1).pdf</div>
+        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:02</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">财税报表</span>
+        <span class="report-attachment-section__desc">财务报表，纳税申报表</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹安徽202412财务报表-提交江苏金租（已签章）.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：财务报表</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">宜飞报表和章程.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：财务报表</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹安徽2026年06月财务报表-提交江苏金租（已签章）.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：财务报表</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹安徽202512财务报表-提交江苏金租（已盖章）.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：财务报表</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">银行流水</span>
+        <span class="report-attachment-section__desc">银行流水，银行流水分析报告</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统同步-鹰兹汽车科技（安徽）有限公司回租第(1)单-流水分析报告.docx</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水分析报告</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 18:13:27</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-202508-202608苏州宜飞平安工资.xlsx</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 17:59:36</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-202508-202608苏州宜飞交行工资.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 17:59:36</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-202508-202608苏州宜飞农商行工资.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 17:59:36</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">202508-202608苏州宜飞交行工资.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 14:07:02</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">202508-202608苏州宜飞农商行工资.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 14:07:02</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">202508-202608苏州宜飞平安工资.xlsx</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-01 14:07:02</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20260701-20260809银行流水（0817导出）.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:10</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽农业银行20250801-20251231明细（0817导出）.xlsx</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽农业银行20260701-20260809明细（0817导出）.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20250801-20251231银行流水（0817导出）.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20260101-20260331银行流水（0817导出）.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20260401-20260630银行流水（0817导出）.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽农业银行20260101-20260630明细（0817导出）.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽兴业银行2508-2512交易明细.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:16:41</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽兴业银行2601-260807交易明细.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:16:41</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-鹰兹安徽建设银行2508-2608交易明细.xlsx</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-12 09:08:45</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-建行10292025.08-2026.08.xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-10 12:07:12</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">系统上传-农行77002025.08-2026.08(1).xls</div>
+        <div class="report-attachment-card__meta">文件类型：银行流水</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-10 12:07:12</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">补充材料</span>
+        <span class="report-attachment-section__desc">政策文件，突破定价申请材料，访厂照片，订单信息，补充材料，其它，客户风险评估报告</span>
+      </div>
+      <div class="report-attachment-grid">
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">评审意见的回复.docx</div>
+        <div class="report-attachment-card__meta">文件类型：其它</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-02 10:56:03</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">裁定书.zip</div>
+        <div class="report-attachment-card__meta">文件类型：其它</div>
+        <div class="report-attachment-card__meta">上传时间：2026-09-02 10:37:24</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">补充材料-补充材料-鹰兹回租项目流动资金缺口测算更新V3.0.xlsx</div>
+        <div class="report-attachment-card__meta">文件类型：其它</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-27 10:07:00</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">苏州宜飞美福进口汽车有限公司-客户资信结构化报告-20260803104509.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：其它</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:18:19</div>
+      </div>
+      <div class="report-attachment-card">
+        <div class="report-attachment-card__name">鹰兹汽车科技（安徽）有限公司-客户资信结构化报告-20260826131606.pdf</div>
+        <div class="report-attachment-card__meta">文件类型：其它</div>
+        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:18:19</div>
+      </div></div>
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">中登报送</span>
+        <span class="report-attachment-section__desc">报送中登</span>
+      </div>
+      
+    </div><div class="report-attachment-section">
+      <div class="report-attachment-section__head">
+        <span class="report-attachment-section__title">尽调报告</span>
+        <span class="report-attachment-section__desc">尽职调查报告</span>
+      </div>
+      
+    </div></div></div>
   </div>
 </div>
