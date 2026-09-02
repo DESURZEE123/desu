@@ -22,7 +22,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 │    ├─ 租赁物信息 · 功能整合资源（prjc_integrate_lease_property）— 待编写
 │    ├─ 承租人基本信息 · 功能整合资源（prjc_integrate_lessee_base_info）
 │    ├─ 关联企业信息 · 功能整合资源（prjc_integrate_related_enterprise）
-│    ├─ 增信措施 · 功能整合资源（prjc_integrate_credit_enhancement）— 待编写
+│    ├─ 增信措施 · 功能整合资源（prjc_integrate_credit_enhancement）
 │    ├─ 经营数据分析 · 功能整合资源（prjc_integrate_revenue_analysis）
 │    ├─ 刚性负债分析 · 功能整合资源（prjc_integrate_liability_analysis）
 │    ├─ 重点指标 · 功能整合资源（prjc_integrate_key_indicators）
@@ -84,7 +84,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 6 | 租赁物信息 | 租赁物信息 · 功能整合 | `prjc_integrate_lease_property` | `lease_property` | 待编写 |
 | 7 | 承租人基本信息 | 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | `lessee_base_info` | 已编写 |
 | 8 | 关联企业信息 | 关联企业信息 · 功能整合 | `prjc_integrate_related_enterprise` | `related_enterprise` | 已编写 |
-| 9 | 增信措施 | 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | `credit_enhancement` | 待编写 |
+| 9 | 增信措施 | 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | `credit_enhancement` | 已编写 |
 | 10 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 已编写 |
 | 11 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 已编写 |
 | 12 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 已编写 |
@@ -129,7 +129,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 租赁物信息 · 功能整合 | `prjc_integrate_lease_property` | L1 | 待编写 |
 | 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | L1 | 已编写 |
 | 关联企业信息 · 功能整合 | `prjc_integrate_related_enterprise` | L1 | 已编写 |
-| 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | L1 | 待编写 |
+| 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | L1 | 已编写 |
 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | L1 | 已编写 |
 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | L1 | 已编写 |
 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | L1 | 已编写 |

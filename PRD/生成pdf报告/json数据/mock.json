@@ -4791,5 +4791,623 @@
       },
       "uploadTime": "2026-08-10 12:07:12"
     }
-  ]
+  ],
+  "creditEnhancementMeasure": {
+    "creditEnhancementMeasureInfo": {
+      "creditEnhancementMeasureList": [
+        {
+          "pkCreditEnhancementMeasure": null,
+          "guaCustType": 0,
+          "guaranteeMethod": {
+            "typeCode": "AGRS0005",
+            "code": 1,
+            "desc": "保证担保"
+          },
+          "guaranteeContType": "一般担保合同",
+          "customerName": "太和县中医院",
+          "currtype": "人民币",
+          "guaCustomerNo": "120160919000",
+          "relationship": null,
+          "relationshipDesc": null,
+          "customerType": [
+            {
+              "code": "1",
+              "name": "融资客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "31",
+              "name": "意向客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "crdntlsType": "统一社会信用代码",
+          "documentCode": "123412224859362015",
+          "isPerfect": null,
+          "collateralType": null,
+          "mortgageAndPledgeType": null,
+          "mortgageAndPledgeClass": null,
+          "collateralList": null,
+          "shareholderList": null,
+          "shareholderTotal": null,
+          "contName": null,
+          "ifSubordinate": "否",
+          "reason": null,
+          "ifConditionalGuarantee": null,
+          "contAmount": "3120723.00",
+          "guaranteeMeasures": null,
+          "remark": null,
+          "updateContAmount": null,
+          "guaranteeMethodCode": 1
+        },
+        {
+          "pkCreditEnhancementMeasure": null,
+          "guaCustType": 1,
+          "guaranteeMethod": {
+            "typeCode": "AGRS0005",
+            "code": 1,
+            "desc": "保证担保"
+          },
+          "guaranteeContType": "一般担保合同",
+          "customerName": "杨洪卫",
+          "currtype": "人民币",
+          "guaCustomerNo": "2202026978000",
+          "relationship": "法定代表人非实控人",
+          "relationshipDesc": null,
+          "customerType": [
+            {
+              "code": "1",
+              "name": "融资客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "31",
+              "name": "意向客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "crdntlsType": "居民身份证",
+          "documentCode": "522424197510101230",
+          "isPerfect": null,
+          "collateralType": null,
+          "mortgageAndPledgeType": null,
+          "mortgageAndPledgeClass": null,
+          "collateralList": null,
+          "shareholderList": null,
+          "shareholderTotal": null,
+          "contName": null,
+          "ifSubordinate": "否",
+          "reason": null,
+          "ifConditionalGuarantee": null,
+          "contAmount": "3120723.00",
+          "guaranteeMeasures": null,
+          "remark": null,
+          "updateContAmount": null,
+          "guaranteeMethodCode": 1
+        }
+      ]
+    },
+    "guaranteePersonList": [
+      {
+        "pkGuarantorInfo": null,
+        "customerNo": "2202026978000",
+        "customerName": "杨洪卫",
+        "crdntlsType": "居民身份证",
+        "documentCode": "522424197510101230",
+        "relationship": "法定代表人非实控人",
+        "relationshipDesc": null,
+        "judicialLitigationInfo": {
+          "caseTypeHighRiskList": [
+            {
+              "caseType": "被执行人",
+              "caseNum": 6,
+              "pkQueryRecord": "1451161705483321344"
+            },
+            {
+              "caseType": "失信被执行人",
+              "caseNum": 1,
+              "pkQueryRecord": "1451161705483321344"
+            },
+            {
+              "caseType": "限制高消费",
+              "caseNum": 4,
+              "pkQueryRecord": "1451161705483321344"
+            }
+          ],
+          "caseTypeCommonList": [
+            {
+              "caseType": "民事案件",
+              "caseNum": 8,
+              "pkQueryRecord": "1451161705483321344"
+            },
+            {
+              "caseType": "执行案件",
+              "caseNum": 6,
+              "pkQueryRecord": "1451161705483321344"
+            }
+          ],
+          "judicialLitigationInfoDesc": "司法诉讼信息说明司法诉讼信息说明司法诉讼信息说明",
+          "updateTime": "2025-12-18 10:38:31",
+          "queryStatusEnum": 0,
+          "pkQueryRecord": "1451161705483321344"
+        },
+        "guaranteePersonSituation": null,
+        "loan": {
+          "creditInfo": null,
+          "loanDesc": null,
+          "zdinfo": null
+        },
+        "collaborationHistoryModel": {
+          "leaseCollaborationHistoryList": [
+            {
+              "leaseMethod": "回租",
+              "leaseMethodFact": "直转回",
+              "guaranteeMethod": null,
+              "guaranteeMethodList": null,
+              "contName": "JFL20P02L021153-01",
+              "contCashPledge": "1135112.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "0.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 29,
+              "historyOverdueTimes": 2,
+              "contEndDate": "2023-03-31",
+              "leaseBeginDate": "2020-05-22",
+              "customerName": "杨洪卫",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "2.4308",
+              "cmprhnsvIrr": "2.9446",
+              "customerRole": null,
+              "customerNo": "2202026978000",
+              "businessStatus": null
+            }
+          ],
+          "leaseAmountTotal": {
+            "contCashPledge": "1135112.00",
+            "riskExposure": "0.00",
+            "curOverdueAmount": "0.00"
+          },
+          "guarantorCollaborationHistories": [],
+          "guarantorAmountTotal": {
+            "contCashPledge": null,
+            "riskExposure": null,
+            "curOverdueAmount": null
+          },
+          "updateTime": "2026-04-02",
+          "queryStatusEnum": 0,
+          "pkQueryRecord": null
+        },
+        "assetDesc": "阿达沙发上发大声道",
+        "guaranteeContInfoList": [
+          {
+            "guaranteeContType": "一般担保合同",
+            "contName": null,
+            "planCash": "3120723.00",
+            "currtype": "人民币",
+            "guaranteeMeasures": null,
+            "ifSubordinate": "否",
+            "reason": null
+          }
+        ],
+        "age": 50,
+        "sex": "男性",
+        "maritalStatus": "已婚无子"
+      }
+    ],
+    "guaranteeCompanyList": [
+      {
+        "companyPublicInfo": {
+          "pkCompanyPublicInfo": null,
+          "baseInfo": {
+            "customerName": "太和县中医院",
+            "customerNo": "120160919000",
+            "crdntlsCode": "123412224859362015",
+            "crdntlsType": "统一社会信用代码",
+            "estblshDate": "2024-09-30",
+            "rgstrdCapital": "38765.00",
+            "rgstrdAddress": "河北省秦皇岛市山海关区古城街道办事处团结西路59号",
+            "pkIndustrySortLittle": {
+              "code": "8411",
+              "name": "综合医院",
+              "typeName": "INDUSTRY_CLASS",
+              "typeCode": "CSTS0017"
+            },
+            "employeeNum": 1510,
+            "mainBusiness": "为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医",
+            "companyEvolution": "为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医疗与护理保健服务。医疗与护理医科中专生临床教学实习卫生医疗人员培训卫生技术人员继续教育保健与健康教育为人民身体健康提供医",
+            "legalRepresentativeCustomerName": "李福同",
+            "actControlsName": "李福同",
+            "customerType": [
+              {
+                "code": "1",
+                "name": "融资客户",
+                "typeName": "CUSTOMER_TYPE",
+                "typeCode": "CSTS0006"
+              },
+              {
+                "code": "14",
+                "name": "担保客户",
+                "typeName": "CUSTOMER_TYPE",
+                "typeCode": "CSTS0006"
+              },
+              {
+                "code": "31",
+                "name": "意向客户",
+                "typeName": "CUSTOMER_TYPE",
+                "typeCode": "CSTS0006"
+              }
+            ],
+            "serviceInformAdress": "河北省秦皇岛市山海关区古城街道办事处山海关1238号",
+            "personActControlList": [
+              "220162527000"
+            ],
+            "rgstrdProvinceName": "河北省",
+            "factCapital": "6898.00"
+          },
+          "industryLicenseList": [
+            {
+              "specCrdntlsName": "test001test001test001test001test001test001test001test001test001test001test001test001test001test001te",
+              "specCrdntlsCode": "9989862199898621998986219989862199898621998986219989862199898621998986219989862199898621998986219989",
+              "expirationDate": "2028-04-13"
+            }
+          ],
+          "shareholderList": [
+            {
+              "shareholderName": "韩梅梅",
+              "shareholderCapitalAmount": "23.00",
+              "holdStockRatio": "55.0000"
+            }
+          ],
+          "shareholderTotal": {
+            "shareholderCapitalAmount": "23.00",
+            "holdStockRatio": "55.0000"
+          },
+          "controllerIntroduction": "实控人及股东情况介绍 实控人及股东情况介绍 实控人及股东情况介绍 ",
+          "guaranteeCompanySituation": null,
+          "judicialLitigationInfo": {
+            "caseTypeHighRiskList": [
+              {
+                "caseType": "被执行人",
+                "caseNum": 23,
+                "pkQueryRecord": "1451164188536455168"
+              }
+            ],
+            "caseTypeCommonList": [
+              {
+                "caseType": "民事案件",
+                "caseNum": 151,
+                "pkQueryRecord": "1451164188536455168"
+              },
+              {
+                "caseType": "行政案件",
+                "caseNum": 2,
+                "pkQueryRecord": "1451164188536455168"
+              },
+              {
+                "caseType": "执行案件",
+                "caseNum": 35,
+                "pkQueryRecord": "1451164188536455168"
+              },
+              {
+                "caseType": "管辖案件",
+                "caseNum": 3,
+                "pkQueryRecord": "1451164188536455168"
+              }
+            ],
+            "judicialLitigationInfoDesc": "司法诉讼信息说明司法诉讼信息说明司法诉讼信息说明",
+            "updateTime": "2025-12-18 10:48:23",
+            "queryStatusEnum": 0,
+            "pkQueryRecord": "1451164188536455168"
+          },
+          "assetSize": {
+            "customerNo": null,
+            "rgstrdAddress": null,
+            "factoryOwnDetails": [],
+            "factoryRentDetails": [],
+            "equipmentList": [],
+            "ratio": null,
+            "incomeAndDebtScale": null
+          },
+          "equityPenetrationList": [],
+          "financialAnalysisList": [],
+          "financialAnalysisDesc": null,
+          "loan": {
+            "creditInfo": null,
+            "loanDesc": null,
+            "zdinfo": null
+          },
+          "projectOperationInfo": {
+            "operationInfoList": [],
+            "operationDescription": null
+          },
+          "financialDataOfKeyAccount": {
+            "isNewCompany": null,
+            "collectFinancialFlag": null,
+            "financialStatementsOfKeyAccount": {
+              "sheetName": null,
+              "creditCode": "123412224859362015",
+              "customerNo": "120160919000",
+              "fsDataSourceType": "税票授权采集",
+              "balanceSheet": [],
+              "profitSheet": [],
+              "financialIndex": []
+            },
+            "receiveAccountDetail": {
+              "ifCanVisible": "是",
+              "financialAnalysisDataList": []
+            },
+            "financialNotes": null,
+            "receiveAccountDesc": null
+          },
+          "relatedEnterpriseDesc": null,
+          "assetStatusDesc": null,
+          "existingContractAnalysis": {
+            "collectContractFlag": null,
+            "contractStatusInfoList": null,
+            "contractStatusDesc": null
+          }
+        },
+        "collaborationHistoryModel": {
+          "leaseCollaborationHistoryList": [
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": null,
+              "guaranteeMethodList": null,
+              "contName": "JFL24C01L022245-01",
+              "contCashPledge": "2400000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "1787704.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2027-11-25",
+              "leaseBeginDate": "2024-05-31",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.6483",
+              "cmprhnsvIrr": "7.6483",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            },
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": null,
+              "guaranteeMethodList": null,
+              "contName": "JFL23C01L021014-01",
+              "contCashPledge": "2210000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "922189.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2026-08-09",
+              "leaseBeginDate": "2023-08-09",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.9072",
+              "cmprhnsvIrr": "7.9072",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            },
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": null,
+              "guaranteeMethodList": null,
+              "contName": "JFL24C01L070885-01",
+              "contCashPledge": "3500000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "3267281.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2030-11-25",
+              "leaseBeginDate": "2024-11-28",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.4879",
+              "cmprhnsvIrr": "7.4879",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            },
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": null,
+              "guaranteeMethodList": null,
+              "contName": "JFL23C01L019130-01",
+              "contCashPledge": "3050000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "2369702.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2030-07-25",
+              "leaseBeginDate": "2023-07-31",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.9087",
+              "cmprhnsvIrr": "7.9087",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            }
+          ],
+          "leaseAmountTotal": {
+            "contCashPledge": "11160000.00",
+            "riskExposure": "8346876.00",
+            "curOverdueAmount": "0.00"
+          },
+          "guarantorCollaborationHistories": [
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": "质押担保",
+              "guaranteeMethodList": "质押担保",
+              "contName": "JFL24C01L022245-01",
+              "contCashPledge": "2400000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "1787704.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2027-11-25",
+              "leaseBeginDate": "2024-05-31",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.6464",
+              "cmprhnsvIrr": "7.6483",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            },
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": "质押担保",
+              "guaranteeMethodList": "质押担保",
+              "contName": "JFL23C01L021014-01",
+              "contCashPledge": "2210000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "922189.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2026-08-09",
+              "leaseBeginDate": "2023-08-09",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.9048",
+              "cmprhnsvIrr": "7.9072",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            },
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": "质押担保",
+              "guaranteeMethodList": "质押担保",
+              "contName": "JFL24C01L070885-01",
+              "contCashPledge": "3500000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "3267281.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2030-11-25",
+              "leaseBeginDate": "2024-11-28",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.4872",
+              "cmprhnsvIrr": "7.4879",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            },
+            {
+              "leaseMethod": "直租",
+              "leaseMethodFact": "直租",
+              "guaranteeMethod": "质押担保",
+              "guaranteeMethodList": "质押担保",
+              "contName": "JFL23C01L019130-01",
+              "contCashPledge": "3050000.00",
+              "curOverdueAmount": "0.00",
+              "corpusBalancePledge": "2369702.00",
+              "curOverdueDays": 0,
+              "historyOverdueDays": 0,
+              "historyOverdueTimes": 0,
+              "contEndDate": "2030-07-25",
+              "leaseBeginDate": "2023-07-31",
+              "customerName": "淮安泰竹新能源科技有限公司",
+              "customerRoleEnumList": [
+                "承租方"
+              ],
+              "customerRoleEnum": "承租方",
+              "irr": "7.9080",
+              "cmprhnsvIrr": "7.9087",
+              "customerRole": null,
+              "customerNo": "120160919000",
+              "businessStatus": null
+            }
+          ],
+          "guarantorAmountTotal": {
+            "contCashPledge": "11160000.00",
+            "riskExposure": "8346876.00",
+            "curOverdueAmount": "0.00"
+          },
+          "updateTime": "2026-04-02",
+          "queryStatusEnum": 0,
+          "pkQueryRecord": null
+        },
+        "productionAndSaleSituation": {
+          "productionAndSaleSituationDesc": null,
+          "desc": null,
+          "downstreamCustomerDesc": null,
+          "mainProductList": null,
+          "mainProductTotal": null,
+          "downstreamCustomerList": null,
+          "downstreamCustomerSaleAmountTotal": null,
+          "downstreamCustomerRatioTotal": null,
+          "useElectricityModelList": null
+        },
+        "guaranteeContInfoList": [
+          {
+            "guaranteeContType": "一般担保合同",
+            "contName": null,
+            "planCash": "3120723.00",
+            "currtype": "人民币",
+            "guaranteeMeasures": null,
+            "ifSubordinate": "否",
+            "reason": null
+          }
+        ]
+      }
+    ]
+  }
 }
