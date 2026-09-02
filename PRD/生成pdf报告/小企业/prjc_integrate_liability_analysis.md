@@ -1,7 +1,7 @@
 # 刚性负债分析 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**6**  
+> 模块索引：**11**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > 业务对照：`尽调系统/项目审批/刚性负债分析.md`  
@@ -25,7 +25,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `6` |
+| `moduleIndex` | `11` |
 | `moduleKey` | `liability_analysis` |
 | `moduleName` | `刚性负债分析` |
 
@@ -68,7 +68,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 5. 组装个人借款 table（含 summary）
 6. 组装对外担保情况 table（含 summary）
 7. 组装负债说明 longText（有值时）
-8. 输出 moduleIndex=6 的结构化 JSON → 交由 L2 渲染
+8. 输出 moduleIndex=11 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -282,7 +282,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 ```json
 {
-  "moduleIndex": 6,
+  "moduleIndex": 11,
   "moduleName": "刚性负债分析",
   "moduleKey": "liability_analysis",
   "blocks": [
@@ -482,7 +482,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 ## 十、输出约束
 
-1. 必须携带 `moduleIndex: 6`
+1. 必须携带 `moduleIndex: 11`
 2. 输出 JSON，**不包含 HTML 标签**
 3. 字段名使用中文 `label`；英文字段名仅用于取值匹配
 4. 空值统一填 `—`

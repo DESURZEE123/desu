@@ -16,14 +16,18 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 ├─ Step 1 · 功能整合 （按模块，同级并行资源）
 │    ├─ 项目概要 · 功能整合资源（prjc_integrate_project_summary）
 │    ├─ 合作历史 · 功能整合资源（prjc_integrate_cooperation_history）
+│    ├─ 知识图谱 · 功能整合资源（prjc_integrate_knowledge_graph）— 待编写
 │    ├─ 项目基本信息 · 功能整合资源（prjc_integrate_project_base_info）
 │    ├─ 实施方案 · 功能整合资源（prjc_integrate_implementation_plan）
-│    ├─ AI分析结果 · 功能整合资源（prjc_integrate_analysis_results）
+│    ├─ 租赁物信息 · 功能整合资源（prjc_integrate_lease_property）— 待编写
+│    ├─ 承租人基本信息 · 功能整合资源（prjc_integrate_lessee_base_info）
+│    ├─ 关联企业信息 · 功能整合资源（prjc_integrate_related_enterprise）— 待编写
+│    ├─ 增信措施 · 功能整合资源（prjc_integrate_credit_enhancement）— 待编写
+│    ├─ 经营数据分析 · 功能整合资源（prjc_integrate_revenue_analysis）
 │    ├─ 刚性负债分析 · 功能整合资源（prjc_integrate_liability_analysis）
 │    ├─ 重点指标 · 功能整合资源（prjc_integrate_key_indicators）
-│    ├─ 经营数据分析 · 功能整合资源（prjc_integrate_revenue_analysis）
-│    ├─ 承租人基本信息 · 功能整合资源（prjc_integrate_lessee_base_info）
-│    └─ …（后续扩展模块）
+│    ├─ AI分析结果 · 功能整合资源（prjc_integrate_analysis_results）
+│    └─ 附件信息 · 功能整合资源（prjc_integrate_attachments）— 待编写
 │
 └─ Step 2 · 统一规范样式
      ├─ 直接展示
@@ -55,7 +59,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 1. 若数据完整且模块明确，进入 Step 1，按模块依次下发对应功能整合资源；
 2. 若数据缺失，记录缺失字段，下发时告知各模块资源以「—」占位，**不中断**生成流程；
-3. 若模块范围不明确，默认生成所有已配置模块（当前已配置：项目概要、合作历史、项目基本信息、实施方案、AI分析结果、刚性负债分析、重点指标、经营数据分析、承租人基本信息）。
+3. 若模块范围不明确，默认生成所有已配置模块（按小企业页面 Tab 顺序，当前已实现 9 个，见下表）。
 
 ### 二、Step 1 · 下发功能整合资源
 
@@ -68,20 +72,24 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 > 当前 PDF 报告**仅支持小企业**；各模块字段范围与 blocks 组装规则见对应 L1 资源文档。
 
-**当前已规划模块（同级 L1）：**
+**当前模块规划（对齐小企业页面 Tab 顺序）：**
 
-| 顺序 | 模块 | 资源名称 | 标识 | `moduleKey` | 说明 |
+| 顺序 | 模块 | 资源名称 | 标识 | `moduleKey` | 状态 |
 | :--: | ---- | -------- | ---- | ----------- | ---- |
-| 1 | 项目概要 | 项目概要 · 功能整合 | `prjc_integrate_project_summary` | `project_summary` | 详见该资源文档；警示/负面清单 + 突破说明 |
-| 2 | 合作历史 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | `cooperation_history` | 详见该资源文档 |
-| 3 | 项目基本信息 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | `project_base_info` | 详见该资源文档 |
-| 4 | 实施方案 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | `implementation_plan` | 详见该资源文档 |
-| 5 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 详见该资源文档；仅展示 `analysisConclusion` |
-| 6 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 详见该资源文档 |
-| 7 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 详见该资源文档 |
-| 8 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 详见该资源文档 |
-| 9 | 承租人基本信息 | 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | `lessee_base_info` | 详见该资源文档 |
-| — | 其他模块 | — | — | — | 后续扩展 |
+| 1 | 项目概要 | 项目概要 · 功能整合 | `prjc_integrate_project_summary` | `project_summary` | 已编写 |
+| 2 | 合作历史 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | `cooperation_history` | 已编写 |
+| 3 | 知识图谱 | 知识图谱 · 功能整合 | `prjc_integrate_knowledge_graph` | `knowledge_graph` | 待编写（PDF 不输出交互图谱） |
+| 4 | 项目基本信息 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | `project_base_info` | 已编写 |
+| 5 | 实施方案 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | `implementation_plan` | 已编写 |
+| 6 | 租赁物信息 | 租赁物信息 · 功能整合 | `prjc_integrate_lease_property` | `lease_property` | 待编写 |
+| 7 | 承租人基本信息 | 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | `lessee_base_info` | 已编写 |
+| 8 | 关联企业信息 | 关联企业信息 · 功能整合 | `prjc_integrate_related_enterprise` | `related_enterprise` | 待编写 |
+| 9 | 增信措施 | 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | `credit_enhancement` | 待编写 |
+| 10 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 已编写 |
+| 11 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 已编写 |
+| 12 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 已编写 |
+| 13 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 已编写 |
+| 14 | 附件信息 | 附件信息 · 功能整合 | `prjc_integrate_attachments` | `attachments` | 待编写 |
 
 > 汇总 HTML 时按 `moduleIndex` 升序拼接各模块片段。
 
@@ -115,13 +123,18 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 报告自动生成 PDF 模块（总体架构 / 下发控制） | `prjc_integrate_report` | L0 | 已编写 |
 | 项目概要 · 功能整合 | `prjc_integrate_project_summary` | L1 | 已编写 |
 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | L1 | 已编写 |
+| 知识图谱 · 功能整合 | `prjc_integrate_knowledge_graph` | L1 | 待编写 |
 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | L1 | 已编写 |
 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | L1 | 已编写 |
-| AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | L1 | 已编写 |
+| 租赁物信息 · 功能整合 | `prjc_integrate_lease_property` | L1 | 待编写 |
+| 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | L1 | 已编写 |
+| 关联企业信息 · 功能整合 | `prjc_integrate_related_enterprise` | L1 | 待编写 |
+| 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | L1 | 待编写 |
+| 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | L1 | 已编写 |
 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | L1 | 已编写 |
 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | L1 | 已编写 |
-| 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | L1 | 已编写 |
-| 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | L1 | 已编写 |
+| AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | L1 | 已编写 |
+| 附件信息 · 功能整合 | `prjc_integrate_attachments` | L1 | 待编写 |
 | 统一规范样式 | `prjc_style_render` | L2 | 已编写 |
 
 ---

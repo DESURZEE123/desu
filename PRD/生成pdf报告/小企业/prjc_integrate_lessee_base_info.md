@@ -1,7 +1,7 @@
 # 承租人基本信息 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**9**  
+> 模块索引：**7**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > 业务对照：`尽调系统/项目审批/承租人基本信息.md`  
@@ -25,7 +25,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `9` |
+| `moduleIndex` | `7` |
 | `moduleKey` | `lessee_base_info` |
 | `moduleName` | `承租人基本信息` |
 
@@ -72,7 +72,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 7. 输出「司法诉讼信息」litigationCards（caseNum=0 的标签不展示）
 8. 输出「司法诉讼信息说明」longText（有值时）
 9. 空值规范化为「—」；数值原样透传
-10. 输出 moduleIndex=9 的结构化 JSON → 交由 L2 渲染
+10. 输出 moduleIndex=7 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -179,7 +179,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 9,
+  "moduleIndex": 7,
   "moduleName": "承租人基本信息",
   "moduleKey": "lessee_base_info",
   "blocks": [

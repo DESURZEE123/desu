@@ -1,7 +1,7 @@
 #项目基本信息 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**3**  
+> 模块索引：**4**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -20,7 +20,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `3` |
+| `moduleIndex` | `4` |
 | `moduleKey` | `project_base_info` |
 | `moduleName` | `基本信息` |
 
@@ -43,7 +43,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 1. 从 projectBaseInfo 提取字段
 2. 按固定 blocks 顺序组装（见第六节）
 3. 为每个字段标注 displayType 并格式化展示值
-4. 输出 moduleIndex=3 的结构化 JSON → 交由 L2 渲染
+4. 输出 moduleIndex=4 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -178,7 +178,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 3,
+  "moduleIndex": 4,
   "moduleName": "基本信息",
   "moduleKey": "project_base_info",
   "blocks": [
@@ -256,7 +256,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ## 十、输出约束
 
-1. 必须携带 `moduleIndex: 3`
+1. 必须携带 `moduleIndex: 4`
 2. 输出 JSON，**不包含 HTML 标签**
 3. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 4. 空值统一填 `—`，不输出 `null` 或空字符串

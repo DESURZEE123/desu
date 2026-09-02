@@ -1,7 +1,7 @@
 # 经营数据分析 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**8**  
+> 模块索引：**10**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > 业务对照：`尽调系统/项目审批/经营数据分析.md`  
@@ -25,7 +25,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `8` |
+| `moduleIndex` | `10` |
 | `moduleKey` | `revenue_analysis` |
 | `moduleName` | `经营数据分析` |
 
@@ -86,7 +86,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 5. 输出「收入分析」分组 + 营业收入分析 / 核验 / 说明 blocks
 6. 输出「还款能力分析」分组 + 基础信息 / 收支明细 / 指标 / 说明 blocks
 7. 空值规范化为「—」；数值原样透传（不追加 %）
-8. 输出 moduleIndex=8 的结构化 JSON → 交由 L2 渲染
+8. 输出 moduleIndex=10 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -282,7 +282,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 ```json
 {
-  "moduleIndex": 8,
+  "moduleIndex": 10,
   "moduleName": "经营数据分析",
   "moduleKey": "revenue_analysis",
   "blocks": [
