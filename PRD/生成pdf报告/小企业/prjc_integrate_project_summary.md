@@ -14,9 +14,7 @@
 
 AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不做标签条件计算、不调用外部接口、不做 HTML 渲染。
 
-页面为「数据更新时间 + 警示清单 / 负面清单双卡 + 突破说明」；PDF 按同一顺序全部展开输出（无链接弹窗、无悬浮省略交互）。
-
-> 当前 PDF **仅支持小企业**；不读取 `projectAttribute` 做尽调系统分支。标签文案以入参已落库结果为准，L1 **不重算**负面清单 / 警示清单条件。
+页面为「警示清单 / 负面清单双卡 + 突破说明」；PDF 按同一顺序全部展开输出（无链接弹窗、无悬浮省略交互）。
 
 ---
 
@@ -35,15 +33,15 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 来源路径 | 说明 |
 | -------- | ---- |
 | `labelInfo` | 模块主数据对象 |
-| `labelInfo.queryTime` | 数据更新时间（模块顶栏副标题） |
 | `labelInfo.riskLabel[]` | 警示清单条目（字符串数组） |
 | `labelInfo.negativeList[]` | 负面清单条目（字符串数组） |
 | `labelInfo.labelDesc` | 突破负面清单/警示清单说明 |
-| `labelInfo.highlightLabel[]` | 高亮标签（预留；当前 mock 为空，**PDF 不输出**） |
+| `labelInfo.queryTime` | 数据更新时间（**PDF 不输出**） |
+| `labelInfo.highlightLabel[]` | 高亮标签（预留；**PDF 不输出**） |
 | `labelInfo.status` | 查询状态（仅数据匹配，**不输出**） |
 | `labelInfo.pkRecord` | 记录主键（仅数据匹配，**不输出**） |
 
-> PDF **不输出**变更记录弹窗、标签链接下划线交互、重新计算按钮等页面能力。
+> PDF **不输出**变更记录弹窗、标签链接下划线交互、重新计算按钮、顶栏数据更新时间等页面能力。
 
 ---
 
@@ -52,10 +50,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ```text
 1. 若 labelInfo 为 null / 缺失：整模块不输出
 2. 若 riskLabel、negativeList 均为空且无有效 labelDesc：整模块不输出
-3. 组装 module 级 updateTime（见 §7.1）
-4. 组装 labelPanel 双卡（见 §7.2）；仅输出有数据的清单卡
-5. 组装突破说明 longText（见 §7.3）
-6. 输出 moduleIndex=2 的结构化 JSON → 交由 L2 渲染
+3. 组装 labelPanel 双卡（见 §7.1）；仅输出有数据的清单卡
+4. 组装突破说明 longText（见 §7.2）
+5. 输出 moduleIndex=2 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -71,7 +68,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | `negativeList` 为空 / `[]` | 不输出负面清单卡 |
 | 两清单皆空且无 `labelDesc` | 整模块不输出 |
 | `labelDesc` | 仅当 `riskLabel` 或 `negativeList` 至少一方有数据时输出 |
-| `queryTime` 为空 | 不传 module 级 `updateTime`；其余 blocks 仍正常输出 |
 | `highlightLabel` | 不输出（待业务定义 PDF 展示后再扩展） |
 
 **清单条目规则：**
@@ -89,32 +85,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 1 | `labelPanel` | （不传 label） | `labelPanel` | 警示 / 负面双卡区域；仅含非空清单 |
 | 2 | `labelDesc` | `突破负面清单/警示清单说明` | `longText` | 任一方清单有数据时 |
 
-> `queryTime` 不占用 block，作为**模块级**字段 `updateTime` 传给 L2，渲染在模块顶栏「数据更新时间」位置（对齐页面截图）。
-
 ---
 
 ## 七、字段映射与 displayType 规则
 
-### 7.1 模块级数据更新时间
-
-| 字段 | 取值 | 格式化 |
-| ---- | ---- | ------ |
-| `updateTime` | `labelInfo.queryTime` | `trim` 首尾空白后原样展示 |
-
-```json
-{
-  "moduleIndex": 2,
-  "moduleName": "项目概要",
-  "moduleKey": "project_summary",
-  "updateTime": "2026-06-02 10:19:07",
-  "blocks": []
-}
-```
-
-- L2 在 `report-module__header` 内模块标题右侧渲染：`数据更新时间 {updateTime}`（样式由 L2 统一定义）
-- 无 `updateTime` 时不渲染副标题
-
-### 7.2 清单双卡（labelPanel）
+### 7.1 清单双卡（labelPanel）
 
 **blockKey：** `labelPanel`  
 **displayType：** `labelPanel`
@@ -159,7 +134,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 - 仅一方有数据时：`panels` 长度为 1，L2 单卡仍按页面卡样式渲染（宽度对齐双卡布局）
 - 两方皆空：不输出本 block
 
-### 7.3 突破说明（longText）
+### 7.2 突破说明（longText）
 
 数据来源：`labelInfo.labelDesc`
 
@@ -196,7 +171,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
   "moduleIndex": 2,
   "moduleName": "项目概要",
   "moduleKey": "project_summary",
-  "updateTime": "2026-06-02 10:19:07",
   "blocks": [
     {
       "blockKey": "labelPanel",
@@ -242,7 +216,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 2. 输出 JSON，**不包含 HTML 标签**
 3. 空值统一填 `—`（`labelPanel.items` 除外：空白条目剔除）
 4. `blocks` 内顺序严格按第六节表格排列
-5. 不输出 `status` / `pkRecord` / `highlightLabel` 及页面交互能力
+5. 不输出 `queryTime` / `updateTime` / `status` / `pkRecord` / `highlightLabel` 及页面交互能力
 6. 不做标签条件重算；以入参 `labelInfo` 已落库数据为准
 
 ---
@@ -254,6 +228,5 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
    - 外层：`report-label-panel`（双列栅格）
    - 单卡：`report-label-card report-label-card--warning` / `--negative`
    - 卡头：`report-label-card__title`；列表：`ul.report-label-card__list` > `li`
-3. module 级 `updateTime` 由 L2 渲染在模块顶栏，**不**占用 `blocks`
 4. 清单条目在 PDF 中**完整展示**；不做 hover 省略
 5. 页面变更记录链接（下划线可点击项）在 PDF 中按**纯文本**输出（若后续入参携带链接型标签文案）
