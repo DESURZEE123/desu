@@ -54,7 +54,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | block | label | displayType |
 | ----- | ----- | ----------- |
-| `projectBaseInfo` | `项目基本信息` | `group` |
+| `projectBaseInfo` | （不传 / 空，无组标题） | `group` |
 | `environmentAndSocialRisk` | `环境与社会风险评估` | `table` |
 | `companyBaseInfo` | `项目基本情况` | `longText` |
 | `siteSituationList` | `现场尽调情况` | `table` |
@@ -75,7 +75,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 顺序 | blockKey | label | displayType |
 | :--: | -------- | ----- | ----------- |
-| 1 | `projectBaseInfo` | `项目基本信息` | `group` |
+| 1 | `projectBaseInfo` | （不传 / 空） | `group` |
 | 2 | `environmentAndSocialRisk` | `环境与社会风险评估` | `table` |
 | 3 | `companyBaseInfo` | `项目基本情况` | `longText` |
 | 4 | `siteSituationList` | `现场尽调情况` | `table` |
@@ -84,7 +84,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ## 七、字段映射与 displayType 规则
 
-### 7.1 项目基本信息（group · columns: 4）
+### 7.1 首屏字段（group · columns: 4 · 无组标题）
+
+> 不传 `label`（或传空）。L2 有 `label` 才渲染 `report-section-title`，故顶栏「基本信息」下直接铺栅格，不对齐「● 项目基本信息」。
 
 | 顺序 | label | 接口字段 | displayType | 格式化 |
 | :--: | ----- | -------- | ----------- | ------ |
@@ -179,12 +181,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ```json
 {
   "moduleIndex": 5,
-  "moduleName": "基本信息",
+  "moduleName": "项目基本信息",
   "moduleKey": "project_base_info",
   "blocks": [
     {
       "blockKey": "projectBaseInfo",
-      "label": "项目基本信息",
       "displayType": "group",
       "columns": 4,
       "children": [
