@@ -1,7 +1,7 @@
 # 合作历史 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**2**  
+> 模块索引：**3**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -20,7 +20,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `2` |
+| `moduleIndex` | `3` |
 | `moduleKey` | `cooperation_history` |
 | `moduleName` | `合作历史` |
 
@@ -188,7 +188,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 2,
+  "moduleIndex": 3,
   "moduleName": "合作历史",
   "moduleKey": "cooperation_history",
   "blocks": [

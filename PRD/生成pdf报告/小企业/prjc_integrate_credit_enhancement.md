@@ -1,7 +1,7 @@
 # 增信措施 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**9**  
+> 模块索引：**10**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -24,7 +24,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `9` |
+| `moduleIndex` | `10` |
 | `moduleKey` | `credit_enhancement` |
 | `moduleName` | `增信措施` |
 
@@ -44,8 +44,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 模块 | 数据 | 说明 |
 | ---- | ---- | ---- |
-| 实施方案（moduleIndex 5） | 报价维度增信措施摘要 | 见 `prjc_integrate_implementation_plan` §7.9；可走 `commonCreditEnhancementMeasure` / `embodiment` / 顶层兜底 |
-| **本模块（moduleIndex 9）** | **顶层 `creditEnhancementMeasure` 全量页** | 含担保措施列表 + 担保人 / 担保企业详情；**不以报价过滤** |
+| 实施方案（moduleIndex 6） | 报价维度增信措施摘要 | 见 `prjc_integrate_implementation_plan` §7.9；可走 `commonCreditEnhancementMeasure` / `embodiment` / 顶层兜底 |
+| **本模块（moduleIndex 10）** | **顶层 `creditEnhancementMeasure` 全量页** | 含担保措施列表 + 担保人 / 担保企业详情；**不以报价过滤** |
 
 **PDF 不提取 / 不输出：**
 
@@ -67,7 +67,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 3. 若 guaranteePersonList 非空：输出「担保人信息」分组标题，再按列表顺序输出各自然人详情
 4. 若 guaranteeCompanyList 非空：按列表顺序输出各担保企业详情（标题含企业名）
 5. 空值规范化为「—」；数值原样透传（金额千分位）
-6. 输出 moduleIndex=9 的结构化 JSON → 交由 L2 渲染
+6. 输出 moduleIndex=10 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -228,7 +228,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 9,
+  "moduleIndex": 10,
   "moduleName": "增信措施",
   "moduleKey": "credit_enhancement",
   "blocks": [

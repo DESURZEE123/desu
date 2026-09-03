@@ -1,7 +1,7 @@
 # AI分析结果 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**14**  
+> 模块索引：**15**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -22,7 +22,7 @@ AI 在本层**仅负责字段提取、分组排序与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `14` |
+| `moduleIndex` | `15` |
 | `moduleKey` | `analysis_results` |
 | `moduleName` | `AI分析结果` |
 
@@ -51,7 +51,7 @@ AI 在本层**仅负责字段提取、分组排序与 displayType 标注**，不
 3. 组内按入参数组原始顺序保留条目
 4. 组装 analysisList blocks（见第六节）
 5. 对 conclusion 做空值规范化（见第七节），原文透传，不做 Markdown 改写
-6. 输出 moduleIndex=14 的结构化 JSON → 交由 L2 渲染
+6. 输出 moduleIndex=15 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -160,7 +160,7 @@ AI 在本层**仅负责字段提取、分组排序与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 14,
+  "moduleIndex": 15,
   "moduleName": "AI分析结果",
   "moduleKey": "analysis_results",
   "blocks": [

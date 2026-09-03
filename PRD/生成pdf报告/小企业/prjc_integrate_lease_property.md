@@ -1,7 +1,7 @@
 # 租赁物信息 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**6**  
+> 模块索引：**7**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -24,7 +24,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `6` |
+| `moduleIndex` | `7` |
 | `moduleKey` | `lease_property` |
 | `moduleName` | `租赁物信息` |
 
@@ -68,7 +68,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 3. 输出租赁物明细 table（含合计行）
 4. 输出权属说明、突破作价说明 longText（有值时）
 5. 空值 →「—」；金额千分位 2 位；比例原样透传（不追加 %）
-6. 输出 moduleIndex=6 的结构化 JSON → 交由 L2 渲染
+6. 输出 moduleIndex=7 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -144,7 +144,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 6,
+  "moduleIndex": 7,
   "moduleName": "租赁物信息",
   "moduleKey": "lease_property",
   "blocks": [

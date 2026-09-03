@@ -1,7 +1,7 @@
 # 项目概要 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**1**  
+> 模块索引：**2**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -24,7 +24,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `1` |
+| `moduleIndex` | `2` |
 | `moduleKey` | `project_summary` |
 | `moduleName` | `项目概要` |
 
@@ -55,7 +55,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 3. 组装 module 级 updateTime（见 §7.1）
 4. 组装 labelPanel 双卡（见 §7.2）；仅输出有数据的清单卡
 5. 组装突破说明 longText（见 §7.3）
-6. 输出 moduleIndex=1 的结构化 JSON → 交由 L2 渲染
+6. 输出 moduleIndex=2 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -103,7 +103,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 1,
+  "moduleIndex": 2,
   "moduleName": "项目概要",
   "moduleKey": "project_summary",
   "updateTime": "2026-06-02 10:19:07",
@@ -193,7 +193,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 1,
+  "moduleIndex": 2,
   "moduleName": "项目概要",
   "moduleKey": "project_summary",
   "updateTime": "2026-06-02 10:19:07",
@@ -238,7 +238,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ## 十、输出约束
 
-1. 必须携带 `moduleIndex: 1`
+1. 必须携带 `moduleIndex: 2`
 2. 输出 JSON，**不包含 HTML 标签**
 3. 空值统一填 `—`（`labelPanel.items` 除外：空白条目剔除）
 4. `blocks` 内顺序严格按第六节表格排列

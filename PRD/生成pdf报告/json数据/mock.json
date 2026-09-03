@@ -1,5 +1,9 @@
 {
   "projectAttribute": "区域线",
+  "projectChange": {
+    "changeType": "审批修改",
+    "changeReason": "补充租赁物型号信息。"
+  },
   "projectBaseInfo": {
     "customerName": "苏州精实电子科技有限公司",
     "projectAmount": "10000.00",

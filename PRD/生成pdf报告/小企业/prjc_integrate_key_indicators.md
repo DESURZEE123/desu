@@ -1,7 +1,7 @@
 # 重点指标 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**12**  
+> 模块索引：**13**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -22,7 +22,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `12` |
+| `moduleIndex` | `13` |
 | `moduleKey` | `key_indicators` |
 | `moduleName` | `重点指标` |
 
@@ -59,7 +59,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 2. 组装顶部重点指标 group（见 §7.1），含 elementList 动态项
 3. 按 financialIndicatorList 生成年份列，按固定行序展开财务指标表（见 §7.2）
 4. 空值规范化为「—」；数值原样透传（不追加 %）
-5. 输出 moduleIndex=12 的结构化 JSON → 交由 L2 渲染
+5. 输出 moduleIndex=13 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -233,7 +233,7 @@ L1 按下行序**展开为行**；每行从各年份对象取对应接口字段�
 
 ```json
 {
-  "moduleIndex": 12,
+  "moduleIndex": 13,
   "moduleName": "重点指标",
   "moduleKey": "key_indicators",
   "blocks": [
@@ -293,7 +293,7 @@ L1 按下行序**展开为行**；每行从各年份对象取对应接口字段�
 
 ## 十、输出约束
 
-1. 必须携带 `moduleIndex: 12`
+1. 必须携带 `moduleIndex: 13`
 2. 输出 JSON，**不包含 HTML 标签**
 3. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 4. 空值统一填 `—`，不输出 `null` 或空字符串（`analysisList` 类除外；本模块无此类型）

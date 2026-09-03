@@ -14,6 +14,8 @@ AI 在本层**仅负责流程编排与资源下发**，不做数据整理、分�
 prjc_integrate_report（总体架构资源 · 下发控制）
 │
 ├─ Step 1 · 功能整合 （按模块，同级并行资源）
+
+│    ├─ 项目变更信息 · 功能整合资源（prjc_integrate_project_change）
 │    ├─ 项目概要 · 功能整合资源（prjc_integrate_project_summary）
 │    ├─ 合作历史 · 功能整合资源（prjc_integrate_cooperation_history）
 │    ├─ 知识图谱 · 功能整合资源（prjc_integrate_knowledge_graph）— 待编写
@@ -59,7 +61,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 1. 若数据完整且模块明确，进入 Step 1，按模块依次下发对应功能整合资源；
 2. 若数据缺失，记录缺失字段，下发时告知各模块资源以「—」占位，**不中断**生成流程；
-3. 若模块范围不明确，默认生成所有已配置模块（按小企业页面 Tab 顺序，当前已实现 9 个，见下表）。
+3. 若模块范围不明确，默认生成所有已配置模块（按小企业页面 Tab 顺序，当前已实现模块见下表；有 `projectChange` 时「项目变更信息」置顶输出）。
 
 ### 二、Step 1 · 下发功能整合资源
 
@@ -76,20 +78,21 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 
 | 顺序 | 模块 | 资源名称 | 标识 | `moduleKey` | 状态 |
 | :--: | ---- | -------- | ---- | ----------- | ---- |
-| 1 | 项目概要 | 项目概要 · 功能整合 | `prjc_integrate_project_summary` | `project_summary` | 已编写 |
-| 2 | 合作历史 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | `cooperation_history` | 已编写 |
-| 3 | 知识图谱 | 知识图谱 · 功能整合 | `prjc_integrate_knowledge_graph` | `knowledge_graph` | 待编写（PDF 不输出交互图谱） |
-| 4 | 项目基本信息 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | `project_base_info` | 已编写 |
-| 5 | 实施方案 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | `implementation_plan` | 已编写 |
-| 6 | 租赁物信息 | 租赁物信息 · 功能整合 | `prjc_integrate_lease_property` | `lease_property` | 已编写 |
-| 7 | 承租人基本信息 | 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | `lessee_base_info` | 已编写 |
-| 8 | 关联企业信息 | 关联企业信息 · 功能整合 | `prjc_integrate_related_enterprise` | `related_enterprise` | 已编写 |
-| 9 | 增信措施 | 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | `credit_enhancement` | 已编写 |
-| 10 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 已编写 |
-| 11 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 已编写 |
-| 12 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 已编写 |
-| 13 | 重点科目财务报表 | 重点科目财务报表 · 功能整合 | `prjc_integrate_key_account_financials` | `key_account_financials` | 已编写 |
-| 14 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 已编写 |
+| 1 | 项目变更信息 | 项目变更信息 · 功能整合 | `prjc_integrate_project_change` | `project_change` | 已编写 |
+| 2 | 项目概要 | 项目概要 · 功能整合 | `prjc_integrate_project_summary` | `project_summary` | 已编写 |
+| 3 | 合作历史 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | `cooperation_history` | 已编写 |
+| 4 | 知识图谱 | 知识图谱 · 功能整合 | `prjc_integrate_knowledge_graph` | `knowledge_graph` | 待编写（PDF 不输出交互图谱） |
+| 5 | 项目基本信息 | 项目基本信息 · 功能整合 | `prjc_integrate_project_base_info` | `project_base_info` | 已编写 |
+| 6 | 实施方案 | 实施方案 · 功能整合 | `prjc_integrate_implementation_plan` | `implementation_plan` | 已编写 |
+| 7 | 租赁物信息 | 租赁物信息 · 功能整合 | `prjc_integrate_lease_property` | `lease_property` | 已编写 |
+| 8 | 承租人基本信息 | 承租人基本信息 · 功能整合 | `prjc_integrate_lessee_base_info` | `lessee_base_info` | 已编写 |
+| 9 | 关联企业信息 | 关联企业信息 · 功能整合 | `prjc_integrate_related_enterprise` | `related_enterprise` | 已编写 |
+| 10 | 增信措施 | 增信措施 · 功能整合 | `prjc_integrate_credit_enhancement` | `credit_enhancement` | 已编写 |
+| 11 | 经营数据分析 | 经营数据分析 · 功能整合 | `prjc_integrate_revenue_analysis` | `revenue_analysis` | 已编写 |
+| 12 | 刚性负债分析 | 刚性负债分析 · 功能整合 | `prjc_integrate_liability_analysis` | `liability_analysis` | 已编写 |
+| 13 | 重点指标 | 重点指标 · 功能整合 | `prjc_integrate_key_indicators` | `key_indicators` | 已编写 |
+| 14 | 重点科目财务报表 | 重点科目财务报表 · 功能整合 | `prjc_integrate_key_account_financials` | `key_account_financials` | 已编写 |
+| 15 | AI分析结果 | AI分析结果 · 功能整合 | `prjc_integrate_analysis_results` | `analysis_results` | 已编写 |
 
 > 汇总 HTML 时按 `moduleIndex` 升序拼接各模块片段。
 
@@ -121,6 +124,7 @@ prjc_integrate_report（总体架构资源 · 下发控制）
 | 资源名称 | 标识 | 层级 | 状态 |
 | -------- | ---- | ---- | ---- |
 | 报告自动生成 PDF 模块（总体架构 / 下发控制） | `prjc_integrate_report` | L0 | 已编写 |
+| 项目变更信息 · 功能整合 | `prjc_integrate_project_change` | L1 | 已编写 |
 | 项目概要 · 功能整合 | `prjc_integrate_project_summary` | L1 | 已编写 |
 | 合作历史 · 功能整合 | `prjc_integrate_cooperation_history` | L1 | 已编写 |
 | 知识图谱 · 功能整合 | `prjc_integrate_knowledge_graph` | L1 | 待编写 |

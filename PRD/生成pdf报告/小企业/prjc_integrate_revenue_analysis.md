@@ -1,7 +1,7 @@
 # 经营数据分析 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**10**  
+> 模块索引：**11**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -24,7 +24,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `10` |
+| `moduleIndex` | `11` |
 | `moduleKey` | `revenue_analysis` |
 | `moduleName` | `经营数据分析` |
 
@@ -85,7 +85,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 5. 输出「收入分析」分组 + 营业收入分析 / 核验 / 说明 blocks
 6. 输出「还款能力分析」分组 + 基础信息 / 收支明细 / 指标 / 说明 blocks
 7. 空值规范化为「—」；数值原样透传（不追加 %）
-8. 输出 moduleIndex=10 的结构化 JSON → 交由 L2 渲染
+8. 输出 moduleIndex=11 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -281,7 +281,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 ```json
 {
-  "moduleIndex": 10,
+  "moduleIndex": 11,
   "moduleName": "经营数据分析",
   "moduleKey": "revenue_analysis",
   "blocks": [

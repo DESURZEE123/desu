@@ -1,7 +1,7 @@
 # 关联企业信息 · 功能整合
 
 > 所属：报告自动生成 PDF 模块（prjc_integrate_report）  
-> 模块索引：**8**  
+> 模块索引：**9**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
 > **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
@@ -24,7 +24,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 | 值 |
 | ---- | -- |
-| `moduleIndex` | `8` |
+| `moduleIndex` | `9` |
 | `moduleKey` | `related_enterprise` |
 | `moduleName` | `关联企业信息` |
 
@@ -67,7 +67,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 4. 按 synopsisList 顺序，匹配 associatedCompanyList（customerNo）输出详情卡片
 5. 详情内：基本信息 → 主营业务 → 股权结构 → 实控人介绍 → 司法诉讼 → 司法诉讼说明
 6. 空值规范化为「—」
-7. 输出 moduleIndex=8 的结构化 JSON → 交由 L2 渲染
+7. 输出 moduleIndex=9 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -135,7 +135,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```json
 {
-  "moduleIndex": 8,
+  "moduleIndex": 9,
   "moduleName": "关联企业信息",
   "moduleKey": "related_enterprise",
   "blocks": [
