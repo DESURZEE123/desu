@@ -109,29 +109,38 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 | 顺序 | blockKey | label | displayType | 说明 |
 | :--: | -------- | ----- | ----------- | ---- |
 | 1 | `subjectInfoList` | `主体列表` | `table` | 序号 + 主体名称 + 主体角色 |
-| 2 | `assetSizeTitle` | `资产规模` | `group`（仅标题） | 分隔标题 |
-| 3 | `factoryList` | `厂房情况` | `table` | 宽表叠行 |
+| 2 | `assetSizeTitle` | `资产规模` | `sectionHeading` | 大区仅标题（蓝竖条），与下方圆点内容标题区分 |
+| 3 | `factoryList` | `厂房情况` | `table` | 宽表叠行；圆点内容标题 |
 | 4 | `factoryDesc` | `厂房情况说明` | `longText` | 有值时 |
 | 5 | `mainEquipmentList` | `主要设备情况` | `table` | 空列表走 emptyText |
 | 6 | `ratioList` | `设备稼动率情况` | `table` | |
 | 7 | `ratioDesc` | `稼动率说明` | `longText` | 有值时 |
-| 8 | `proAndSaleTitle` | `生产销售情况分析` | `group`（仅标题） | |
+| 8 | `proAndSaleTitle` | `生产销售情况分析` | `sectionHeading` | 大区仅标题（蓝竖条） |
 | 9 | `mainProductList` | `近12个月主营产品` | `table` | 按主体分组 + 合计行 |
 | 10 | `materialProcessDesc` | `主要原材料、生产工艺流程、产品处于行业地位分析等说明` | `longText` | 有值时 |
 | 11 | `downstreamCustomerList` | `主要下游客户` | `table` | 按主体分组 + 合计行 |
 | 12 | `downstreamCustomerDesc` | `下游客户司法诉讼情况概述` | `longText` | 有值时 |
-| 13 | `incomeAnalysisTitle` | `收入分析` | `group`（仅标题） | |
+| 13 | `incomeAnalysisTitle` | `收入分析` | `sectionHeading` | 大区仅标题（蓝竖条） |
 | 14 | `productionAndSaleSituationDesc` | `生产销售情况说明` | `longText` | 有值时 |
 | 15 | `operatingIncomeAnalysis` | `营业收入分析` | `table` | 动态年份列 + 汇总行 |
 | 16 | `operatingIncomeDesc` | `营业收入分析说明` | `longText` | 有值时 |
 | 17 | `verifiableRatio` | `可验证回款比例(%)` | `direct` | 取 `incomeAnalysis.ratio` |
 | 18 | `operatingIncomeVerification` | `营业收入核验` | `table` | 动态月份列 + 汇总行 |
 | 19 | `operatingIncomeVerifyDesc` | `营业收入核验说明` | `longText` | 有值时 |
-| 20 | `repayAbilityTitle` | `还款能力分析` | `group`（仅标题） | |
+| 20 | `repayAbilityTitle` | `还款能力分析` | `sectionHeading` | 大区仅标题（蓝竖条） |
 | 21 | `repayBaseInfoList` | `基础信息` | `table` | |
 | 22 | `revenueExpenseDetails` | `收支明细` | `table` | 宽表叠行 |
 | 23 | `repayAbilityIndexList` | `还款能力指标` | `table` | |
 | 24 | `businessDataAnalysisDesc` | `经营数据分析说明` | `longText` | 有值时 |
+
+> **标题层级（对齐页面）：**
+>
+> | 层级 | 视觉 | displayType / 场景 | 本模块示例 |
+> | ---- | ---- | ---------------- | ---------- |
+> | 大区标题 | 左侧蓝竖条 + 加粗黑字 | `sectionHeading`（仅标题，无 children） | `资产规模` / `生产销售情况分析` / `收入分析` / `还款能力分析` |
+> | 内容标题 | 蓝色圆点 + 蓝字 | `table` / `longText` / `group` 等自带 `label` | `厂房情况` / `近12个月主营产品` / `营业收入分析` 等 |
+>
+> 大区标题**禁止**再用 `group` + `children: []`（那会渲染成圆点标题，与页面不一致）。
 
 ---
 
@@ -175,10 +184,10 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 | :--: | -------- | --- |
 | 1 | 主体名称 | `subjectName` |
 | 2 | 主体角色 | `customerRole`（`roleTag`） |
-| 3 | 数量、名称及品牌 | `equipmentDesc` |
+| 3 | 数量、名称及品牌 | `content` |
 | 4 | 原值(元) | `originalValue` |
 
-> 入参字段名因接口而异，L1 映射：`equipmentDesc` ← 数量名称品牌字段；无数据时 `emptyText: 暂无数据`。
+> 接口字段即为 `content`（数量、名称及品牌）；无数据时 `emptyText: 暂无数据`。
 
 ### 7.4 设备稼动率（table）
 
@@ -305,9 +314,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
     {
       "blockKey": "assetSizeTitle",
       "label": "资产规模",
-      "displayType": "group",
-      "columns": 1,
-      "children": []
+      "displayType": "sectionHeading"
     }
   ]
 }
