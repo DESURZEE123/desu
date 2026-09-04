@@ -32,9 +32,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | -------- | ---- |
 | `commonCollaborationHistoryModel` | 模块主数据对象（项目级合作历史） |
 | `commonCollaborationHistoryModel.leaseCollaborationHistoryList` | 作为承租人情况列表 |
-| `commonCollaborationHistoryModel.leaseAmountTotal` | 作为承租人情况 · 合计 |
+| `commonCollaborationHistoryModel.leaseAmountTotal` | 作为承租人情况 · 合计：`contCashPledge`（合同金额）/ `riskExposure`（剩余本金）/ `curOverdueAmount`（当前逾期金额） |
 | `commonCollaborationHistoryModel.guarantorCollaborationHistories` | 作为担保人情况列表 |
-| `commonCollaborationHistoryModel.guarantorAmountTotal` | 作为担保人情况 · 合计 |
+| `commonCollaborationHistoryModel.guarantorAmountTotal` | 作为担保人情况 · 合计：`contCashPledge`（合同金额）/ `riskExposure`（剩余本金）/ `curOverdueAmount`（当前逾期金额） |
 | `commonCollaborationHistoryModel.cooperateHistoryDesc` | 合作历史说明 |
 
 > 承租人 / 担保人模块内嵌的 `collaborationHistoryModel` **不**作为本模块主数据源；PDF「合作历史」大模块仅取项目级 `commonCollaborationHistoryModel`。
@@ -117,10 +117,17 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 历史逾期期数 | `historyOverdueTimes` | 原样 |
 
 - `showIndex`: `true`
-- `summary`：取 `leaseAmountTotal`
-  - 首列：`合计`
-  - `contCashPledge` / `corpusBalancePledge` / `curOverdueAmount`：汇总值
-  - 其余列：`—`
+- `summary`：仅取 `leaseAmountTotal` 下表三个字段，**禁止**从 rows 求和或取同名其他字段
+  - 首列（序号）：固定文案 `合计`
+  - 其余未列出的列：`—`
+  - 合计对象字段含义（接口侧）：`contCashPledge`=合同金额，`riskExposure`=剩余本金，`curOverdueAmount`=当前逾期金额
+
+| summary 输出 key（对应列） | 取值路径 | 说明 |
+| -------------------------- | -------- | ---- |
+| `contCashPledge`（合同金额） | `leaseAmountTotal.contCashPledge` | 千分位 + 2 位小数 |
+| `corpusBalancePledge`（剩余本金） | `leaseAmountTotal.riskExposure` | 合计里剩余本金字段名为 `riskExposure`，写入 summary 的 `corpusBalancePledge`；禁止用 rows 的 `corpusBalancePledge` 顶替 |
+| `curOverdueAmount`（当前逾期金额） | `leaseAmountTotal.curOverdueAmount` | 千分位 + 2 位小数 |
+
 - `emptyText`：`暂无合作历史数据`；两表皆空时 `所有客户均无合作历史数据`
 
 ### 7.2 作为担保人情况（table）
@@ -150,7 +157,17 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 历史逾期期数 | `historyOverdueTimes` | 原样 |
 
 - `showIndex`: `true`
-- `summary`：取 `guarantorAmountTotal`（规则同 §7.1）
+- `summary`：仅取 `guarantorAmountTotal` 下表三个字段，**禁止**从 rows 求和或取同名其他字段
+  - 首列（序号）：固定文案 `合计`
+  - 其余未列出的列：`—`
+  - 合计对象字段含义（接口侧）：`contCashPledge`=合同金额，`riskExposure`=剩余本金，`curOverdueAmount`=当前逾期金额
+
+| summary 输出 key（对应列） | 取值路径 | 说明 |
+| -------------------------- | -------- | ---- |
+| `contCashPledge`（合同金额） | `guarantorAmountTotal.contCashPledge` | 千分位 + 2 位小数 |
+| `corpusBalancePledge`（剩余本金） | `guarantorAmountTotal.riskExposure` | 合计里剩余本金字段名为 `riskExposure`，写入 summary 的 `corpusBalancePledge`；禁止用 rows 的 `corpusBalancePledge` 顶替 |
+| `curOverdueAmount`（当前逾期金额） | `guarantorAmountTotal.curOverdueAmount` | 千分位 + 2 位小数 |
+
 - `emptyText`：同 §7.1
 
 ### 7.3 合作历史说明（longText）
@@ -180,7 +197,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 收益率 | 接口已为百分比文案则原样；纯数字可按业务约定补 `%`，不做额外精度改写 |
 | 枚举 | 直接展示接口返回的中文值，不做码值转换 |
 | 列表顺序 | 按接口返回顺序输出，L1 不重排 |
-| 合计 | 优先用 `leaseAmountTotal` / `guarantorAmountTotal`；缺失时再按当前 rows 对应列求和 |
+| 合计 | 合计对象字段含义：`contCashPledge`=合同金额，`riskExposure`=剩余本金，`curOverdueAmount`=当前逾期金额。summary 写入：`contCashPledge`←`*.contCashPledge`，`corpusBalancePledge`←`*.riskExposure`，`curOverdueAmount`←`*.curOverdueAmount`（`*` 为 `leaseAmountTotal` / `guarantorAmountTotal`）。字段缺失则该格填 `—`；**禁止**按 rows 求和，**禁止**用 rows 的 `corpusBalancePledge` 代替 `riskExposure` |
 
 ---
 
@@ -269,3 +286,4 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 4. `blocks` 内顺序严格按第六节表格排列（承租人表 → 担保人表 → 说明）
 5. 不输出知识图谱、筛选主体、更新按钮等页面交互能力
 6. 宽表不拆 block；14～15 列完整输出于单个 `table`，叠行由 L2 处理
+7. 两表 `summary` 三金额列：合计对象中 `contCashPledge`=合同金额、`riskExposure`=剩余本金、`curOverdueAmount`=当前逾期金额；分别写入 summary 的 `contCashPledge` / `corpusBalancePledge` / `curOverdueAmount`；不得改用其他字段或自行汇总
