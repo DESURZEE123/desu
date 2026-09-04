@@ -47,7 +47,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 | `revenueAnalysis.proAndSaleSituation.desc` | 主要原材料、生产工艺流程、行业地位说明 |
 | `revenueAnalysis.proAndSaleSituation.downstreamCustomerList[]` | 主要下游客户 |
 | `revenueAnalysis.proAndSaleSituation.downstreamCustomerDesc` | 下游客户司法诉讼情况概述 |
-| `revenueAnalysis.proAndSaleSituation.productionAndSaleSituationDesc` | 生产销售情况说明（收入分析区） |
+| `revenueAnalysis.proAndSaleSituation.productionAndSaleSituationDesc` | 生产销售情况说明 |
 | `revenueAnalysis.incomeAnalysis` | 收入分析 |
 | `revenueAnalysis.incomeAnalysis.operatingIncomeAnalysis[]` | 营业收入分析明细 |
 | `revenueAnalysis.incomeAnalysis.operatingIncomeAnalysisTotal[]` | 营业收入分析合计行 |
@@ -120,8 +120,8 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 | 10 | `materialProcessDesc` | `主要原材料、生产工艺流程、产品处于行业地位分析等说明` | `longText` | 有值时 |
 | 11 | `downstreamCustomerList` | `主要下游客户` | `table` | 按主体分组 + 合计行 |
 | 12 | `downstreamCustomerDesc` | `下游客户司法诉讼情况概述` | `longText` | 有值时 |
-| 13 | `incomeAnalysisTitle` | `收入分析` | `sectionHeading` | 大区仅标题（蓝竖条） |
 | 14 | `productionAndSaleSituationDesc` | `生产销售情况说明` | `longText` | 有值时 |
+| 13 | `incomeAnalysisTitle` | `收入分析` | `sectionHeading` | 大区仅标题（蓝竖条） |
 | 15 | `operatingIncomeAnalysis` | `营业收入分析` | `table` | 动态年份列 + 汇总行 |
 | 16 | `operatingIncomeDesc` | `营业收入分析说明` | `longText` | 有值时 |
 | 17 | `verifiableRatio` | `可验证回款比例(%)` | `direct` | 取 `incomeAnalysis.ratio` |
