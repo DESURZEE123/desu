@@ -199,16 +199,27 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 ### 7.5 近 12 个月主营产品（table · 分组）
 
-按 `subjectName` + `customerNo` 分组；每组产品行后追加合计行：
+**blockKey：** `mainProductList`  
+**showIndex：** `true`  
+**emptyText：** `暂无主营产品数据`
 
-| 合计行 | 取值 |
-| ------ | ---- |
+按 `subjectName` + `customerNo` 分组；每组产品行后追加合计行。
+
+| 顺序 | 列 label | key | 说明 |
+| :--: | -------- | --- | ---- |
+| 1 | 主体名称 | `subjectName` | `mergeSame` |
+| 2 | 主体角色 | `customerRole` | `mergeSame` + `cellType: roleTag` |
+| 3 | 产品名称 | `productName` | 原样；合计行填 `合计` |
+| 4 | 开票销售额(万) | `saleNoteAmount` | 原样；合计行组内求和（保留原小数位） |
+| 5 | 占比(%) | `ratio` | 原样；合计行组内求和（保留 4 位） |
+| 6 | 来源 | `source` | 原样；合计行填 `—` |
+
+| 合计行 key | 取值 |
+| ---------- | ---- |
 | `productName` | `合计` |
 | `saleNoteAmount` | 组内 `saleNoteAmount` 求和（保留原小数位） |
 | `ratio` | 组内 `ratio` 求和（保留 4 位） |
 | `source` | `—` |
-
-列：`subjectName`、`customerRole`（`mergeSame` + `roleTag`）、`productName`、`saleNoteAmount`、`ratio`、`source`
 
 ### 7.6 主要下游客户（table · 分组）
 
