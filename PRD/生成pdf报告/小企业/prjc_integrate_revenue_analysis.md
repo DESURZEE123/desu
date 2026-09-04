@@ -223,16 +223,30 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 ### 7.6 主要下游客户（table · 分组）
 
-分组规则同 §7.5。合计行：
+**blockKey：** `downstreamCustomerList`  
+**showIndex：** `true`  
+**emptyText：** `暂无下游客户数据`
 
-| 合计行 | 取值 |
-| ------ | ---- |
+分组规则同 §7.5；每组客户行后追加合计行。
+
+| 顺序 | 列 label | key | 说明 |
+| :--: | -------- | --- | ---- |
+| 1 | 主体名称 | `subjectName` | `mergeSame` |
+| 2 | 主体角色 | `customerRole` | `mergeSame` + `cellType: roleTag` |
+| 3 | 客户名称 | `customerName` | 原样；合计行填 `合计` |
+| 4 | 开票销售额(万) | `saleAmount` | 原样；合计行组内求和 |
+| 5 | 占比(%) | `ratio` | 原样；合计行组内求和 |
+| 6 | 结算周期 | `settlementCycle` | 原样；合计行填 `—` |
+| 7 | 结算方式 | `paymentMethod` | 数组用 `/` 拼接（如 `现金/银行承兑`）；合计行填 `—` |
+| 8 | 合作时长(年) | `cooperateDuration` | 原样；合计行填 `—` |
+| 9 | 来源 | `source` | 原样；合计行填 `—` |
+
+| 合计行 key | 取值 |
+| ---------- | ---- |
 | `customerName` | `合计` |
-| `saleAmount` | 组内求和 |
-| `ratio` | 组内求和 |
+| `saleAmount` | 组内 `saleAmount` 求和 |
+| `ratio` | 组内 `ratio` 求和 |
 | 其余列 | `—` |
-
-列：`subjectName`、`customerRole`（`mergeSame` + `roleTag`）、`customerName`、`saleAmount`、`ratio`、`settlementCycle`、`paymentMethod`、`cooperateDuration`、`source`
 
 ### 7.7 营业收入分析（table · 透视）
 
