@@ -102,7 +102,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
 | 客户名称 | `customerName` | 原样 |
-| 客户角色 | `customerRoleEnum` | 原样（已为中文则直接展示） |
+| 客户角色 | `customerRole` | 原样（已为中文则直接展示） |
 | 租赁方式(实际) | `leaseMethodFact` | 原样 |
 | 合同名称 | `contName` | 原样 |
 | 内部收益率(%) | `irr` | 数值原样；已带 `%` 则不再追加 |
@@ -114,7 +114,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 合同到期日 | `contEndDate` | 原样 |
 | 当前逾期天数 | `curOverdueDays` | 原样 |
 | 历史最大逾期天数 | `historyOverdueDays` | 原样 |
-| 历史逾期次数 | `historyOverdueTimes` | 原样 |
+| 历史逾期期数 | `historyOverdueTimes` | 原样 |
 
 - `showIndex`: `true`
 - `summary`：取 `leaseAmountTotal`
@@ -134,7 +134,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
 | 客户名称 | `customerName` | 原样 |
-| 客户角色 | `customerRoleEnum` | 原样 |
+| 客户角色 | `customerRole` | 原样 |
 | 担保方式 | `guaranteeMethod` | 原样；多种担保方式已用 `；` 分隔则直接展示 |
 | 合同名称 | `contName` | 原样 |
 | 内部收益率(%) | `irr` | 数值原样；已带 `%` 则不再追加 |
@@ -147,7 +147,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 合同到期日 | `contEndDate` | 原样 |
 | 当前逾期天数 | `curOverdueDays` | 原样 |
 | 历史最大逾期天数 | `historyOverdueDays` | 原样 |
-| 历史逾期次数 | `historyOverdueTimes` | 原样 |
+| 历史逾期期数 | `historyOverdueTimes` | 原样 |
 
 - `showIndex`: `true`
 - `summary`：取 `guarantorAmountTotal`（规则同 §7.1）
@@ -199,7 +199,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       "showIndex": true,
       "columns": [
         { "key": "customerName", "label": "客户名称" },
-        { "key": "customerRoleEnum", "label": "客户角色" },
+        { "key": "customerRole", "label": "客户角色" },
         { "key": "leaseMethodFact", "label": "租赁方式(实际)" },
         { "key": "contName", "label": "合同名称" },
         { "key": "irr", "label": "内部收益率(%)" },
@@ -211,7 +211,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
         { "key": "contEndDate", "label": "合同到期日" },
         { "key": "curOverdueDays", "label": "当前逾期天数" },
         { "key": "historyOverdueDays", "label": "历史最大逾期天数" },
-        { "key": "historyOverdueTimes", "label": "历史逾期次数" }
+        { "key": "historyOverdueTimes", "label": "历史逾期期数" }
       ],
       "rows": [],
       "summary": {
@@ -229,7 +229,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       "showIndex": true,
       "columns": [
         { "key": "customerName", "label": "客户名称" },
-        { "key": "customerRoleEnum", "label": "客户角色" },
+        { "key": "customerRole", "label": "客户角色" },
         { "key": "guaranteeMethod", "label": "担保方式" },
         { "key": "contName", "label": "合同名称" },
         { "key": "irr", "label": "内部收益率(%)" },
@@ -242,7 +242,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
         { "key": "contEndDate", "label": "合同到期日" },
         { "key": "curOverdueDays", "label": "当前逾期天数" },
         { "key": "historyOverdueDays", "label": "历史最大逾期天数" },
-        { "key": "historyOverdueTimes", "label": "历史逾期次数" }
+        { "key": "historyOverdueTimes", "label": "历史逾期期数" }
       ],
       "rows": [],
       "summary": {
