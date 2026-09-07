@@ -4,7 +4,7 @@
 > 模块索引：**12**  
 > 上游：用户传入的尽调项目全量参数  
 > 下游：prjc_style_render.md（L2 统一样式渲染）  
-> **完整报告生成须经 L0（`prjc_integrate_report`）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
+> **完整报告生成须经 L0（**`prjc_integrate_report`**）调度；本 Skill 仅输出结构化 JSON，不得单独作为最终 HTML 交付物。**
 
 ---
 
@@ -14,7 +14,7 @@
 
 AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 displayType 标注**，不调用征信/中登接口、不筛选主体、不做 HTML 渲染。
 
-页面为「更新时间 + 借款情况（企业借款 / 个人借款）+ 对外担保情况 + 负债说明」；PDF **按顺序全部展开**（无 Tab / 折叠 / 筛选交互）。宽表（列数 > 8）由 L2 自动叠行，L1 不拆表。
+页面为「借款情况（企业借款 / 个人借款）+ 对外担保情况 + 负债说明」；PDF **按顺序全部展开**（无 Tab / 折叠 / 筛选交互）。宽表（列数 > 8）由 L2 自动叠行，L1 不拆表。
 
 > 若 `liabilityAnalysis` 为 null / 缺失，整模块不输出。
 
@@ -35,7 +35,6 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 | 来源路径 | 说明 |
 | -------- | ---- |
 | `liabilityAnalysis` | 模块主数据对象 |
-| `liabilityAnalysis.updateTime` | 征信、中登数据更新时间 |
 | `liabilityAnalysis.loanSituation.companyLoanList[]` | 企业借款明细 |
 | `liabilityAnalysis.loanSituation.companyLoanTotal` | 企业借款合计（借款金额 / 余额） |
 | `liabilityAnalysis.loanSituation.personLoanList[]` | 个人借款明细 |
@@ -61,20 +60,18 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 ```text
 1. 若 liabilityAnalysis 为 null / 缺失：整模块不输出
-2. 输出更新时间 direct（有 updateTime 时）
-3. 输出「借款情况」分组标题
-4. 组装企业借款 table（含 summary）
-5. 组装个人借款 table（含 summary）
-6. 组装对外担保情况 table（含 summary）
-7. 组装负债说明 longText（有值时）
-8. 输出 moduleIndex=12 的结构化 JSON → 交由 L2 渲染
+2. 输出「借款情况」大区标题（sectionHeading）
+3. 组装企业借款 table（含 summary）
+4. 组装个人借款 table（含 summary）
+5. 组装对外担保情况 table（含 summary）
+6. 组装负债说明 longText（有值时）
+7. 输出 moduleIndex=12 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
 
 ## 五、输出规则
 
-- `updateTime` 为空：不输出该 direct block
 - 各表 `null` / `[]`：仍输出对应 `table` block，走 `emptyText`
 - `liabilityStatement` 为空 / null：不输出负债说明 block
 - 「筛选主体」「更新刚性负债数据」：页面操作，PDF **不输出**
@@ -96,34 +93,20 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 ## 七、字段映射与 displayType 规则
 
-### 7.1 更新时间（direct）
 
-```json
-{
-  "blockKey": "updateTime",
-  "label": "征信、中登数据更新时间",
-  "displayType": "direct",
-  "value": "2026-09-01 08:54:51"
-}
-```
 
-- 取值：`liabilityAnalysis.updateTime`，`trim` 首尾空白后原样展示
-
-### 7.2 借款情况标题（group）
+### 7.1 借款情况标题（sectionHeading）
 
 ```json
 {
   "blockKey": "loanSituationTitle",
   "label": "借款情况",
-  "displayType": "group",
-  "columns": 1,
-  "children": []
+  "displayType": "sectionHeading"
 }
 ```
 
-- L2 仅渲染蓝色圆点小节标题（同实施方案报价名称）
-
-### 7.3 企业借款（table）
+- L2 渲染蓝竖条大区标题（同经营数据分析「资产规模」等）
+### 7.2 企业借款（table）
 
 数据来源：`loanSituation.companyLoanList`  
 **blockKey：** `companyLoanList`  
@@ -179,7 +162,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 > 若某行 `repeat == 是`：业务侧合计会排除该行；PDF 以接口 `companyLoanTotal` 为准，**不**自行按 `repeat` 重算借款金额/余额合计。
 
-### 7.4 个人借款（table）
+### 7.3 个人借款（table）
 
 数据来源：`loanSituation.personLoanList`  
 **blockKey：** `personLoanList`  
@@ -218,7 +201,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 > 页面合计行通常突出借款金额 / 余额 / 近一个月到期金额；`maxOverdueAmount` 有接口合计则一并填入 summary。
 
-### 7.5 对外担保情况（table）
+### 7.4 对外担保情况（table）
 
 数据来源：`externalGuaranteeSituationList`  
 **blockKey：** `externalGuaranteeSituationList`  
@@ -237,7 +220,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 | 7 | 截止日期 | `deadline` | 原样 | 配对叠放 |
 | 8 | 五级分类 | `fiveLevel` | 原样 | 配对叠放 |
 | 9 | 当前逾期月数 | `curOverdueMonth` | 原样 | 配对叠放 |
-| 10 | 是否存在对应借款 | `loanExists` | 原样（对齐业务 PRD；勿改成「对外借款」） | 配对叠放 |
+| 10 | 是否存在对应借款 | `loanExists` | 原样 | 配对叠放 |
 | 11 | 数据来源 | `querySource` | 原样 | 配对叠放 |
 
 **不输出：** `paymentAmount` / `customerNo` / 主键
@@ -250,7 +233,7 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 | `balance` | `amountTotal` 金额格式化 |
 | 其余列 | `—` |
 
-### 7.6 负债说明（longText）
+### 7.5 负债说明（longText）
 
 数据来源：`liabilityAnalysis.liabilityStatement`
 
@@ -277,6 +260,8 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
 
 ---
 
+
+
 ## 九、输出示例
 
 ```json
@@ -286,17 +271,9 @@ AI 在本层**仅负责字段提取、展示映射、金额/空值格式化与 d
   "moduleKey": "liability_analysis",
   "blocks": [
     {
-      "blockKey": "updateTime",
-      "label": "征信、中登数据更新时间",
-      "displayType": "direct",
-      "value": "2026-09-01 08:54:51"
-    },
-    {
       "blockKey": "loanSituationTitle",
       "label": "借款情况",
-      "displayType": "group",
-      "columns": 1,
-      "children": []
+      "displayType": "sectionHeading"
     },
     {
       "blockKey": "companyLoanList",
