@@ -117,7 +117,30 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 
 > 对应页面效果：蓝色圆点 + 分组标题（如「项目基本信息」「报价信息」「参考收益率」），下方 4 列栅格排列键值对。
 >
-> **仅标题分组**：`children` 为空数组时，只渲染 `report-section-title`，不输出栅格（用于实施方案报价名称 `quotName` 等分隔标题）。
+> **仅标题分组（圆点）**：`children` 为空数组时，只渲染 `report-section-title`（蓝色圆点），不输出栅格（用于实施方案报价名称 `quotName` 等**内容级**分隔标题）。
+>
+> **大区仅标题（蓝竖条）**：经营数据分析等模块的分区标题（如「资产规模」）须用 `sectionHeading`，**不要**用空 `group`（否则与「厂房情况」等圆点内容标题无法区分）。见下方 `sectionHeading`。
+
+#### sectionHeading — 大区仅标题（蓝竖条）
+
+用于模块内**分区级**仅标题，与内容标题（蓝色圆点）区分。对齐页面「资产规模 / 生产销售情况分析 / 收入分析 / 还款能力分析」。
+
+```json
+{
+  "blockKey": "assetSizeTitle",
+  "label": "资产规模",
+  "displayType": "sectionHeading"
+}
+```
+
+| 字段 | 类型 | 说明 |
+| ---- | ---- | ---- |
+| `label` | string | 必填；大区标题文案 |
+| `children` | — | **不传**；本类型无子节点 |
+
+> 对应页面效果：左侧 **3px 蓝色竖条** + 加粗黑字标题（非蓝色圆点、非蓝字）。
+>
+> L2 渲染为 `report-section-heading`，**禁止**降级为 `report-section-title`。
 
 #### table — 表格展示
 
@@ -258,6 +281,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `person` | 人员参照 | `report-kv` | §5.2 |
 | `longText` | 长文本说明 | `report-longtext` | §5.3 |
 | `group` | 分组多字段区域 | `report-group` | §5.4 |
+| `sectionHeading` | 大区仅标题（蓝竖条） | `report-section-heading` | §5.4.1 |
 | `table` | 列表 / 明细 / 合计（≤8 列） | `report-table-block` | §5.5 |
 | `table`（`columns.length > 8`） | 叠行宽表 | `report-table report-table--stacked` | §5.5.1 |
 | `empty` | 无数据占位 | `report-empty` | §5.6 |
@@ -348,6 +372,19 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
     font-size: 14px;
     font-weight: 600;
     color: #1677FF;
+  }
+
+  /* ===== 大区仅标题 — 蓝色竖条（与圆点内容标题区分） ===== */
+  .report-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
   }
 
   /* ===== direct / person — 键值对 ===== */
@@ -761,6 +798,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | `direct` / `person` | 字段名 + 值 | `report-kv` / `report-kv__label` / `report-kv__value` |
 | `longText` | 标签 + 全文 | `report-longtext` / `report-longtext__label` / `report-longtext__value` |
 | `group` | 圆点标题 + 栅格 | `report-block` + `report-section-title` + `report-grid` + `report-grid__cell--w-*` |
+| `sectionHeading` | 蓝竖条大区标题 | `report-block` + `report-section-heading` |
 | `table` | 圆点标题 + 表格 | `report-table-block` + `report-table` |
 | `table`（>8 列） | 叠行宽表 | `report-table report-table--stacked` + `report-table__head-row--*` / `report-table__data-row--*` |
 | `table` 空数据 | 虚线占位 | `report-table-empty` |
@@ -880,7 +918,19 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 
 - `children` 按数组顺序从左到右、从上到下填充栅格
 - `longText` 子项使用 `report-grid__cell--w-100`
-- `children` 为空或不传时：只输出小节标题，不输出 `.report-grid`
+- `children` 为空或不传时：只输出小节标题（**蓝色圆点**），不输出 `.report-grid`
+
+### 5.4.1 大区仅标题（sectionHeading）
+
+```html
+<div class="report-block">
+  <div class="report-section-heading">资产规模</div>
+</div>
+```
+
+- 仅输出蓝竖条大标题，无栅格、无子内容
+- 用于经营数据分析等模块的分区标题；下属内容块（如「厂房情况」）仍用各自 displayType 的圆点标题
+- **禁止**用空 `group` 冒充本类型
 
 ### 5.5 表格（table · 标准单行 · columns ≤ 8）
 
@@ -1169,6 +1219,7 @@ L2 将 `conclusion` 的 Markdown 原文转为 HTML，包裹在 `<div class="repo
   │           ├─ direct / person  → §5.2
   │           ├─ longText         → §5.3
   │           ├─ group            → §5.4（递归渲染 children）
+  │           ├─ sectionHeading   → §5.4.1（蓝竖条大区仅标题）
   │           ├─ table            → §5.5（≤8 列）或 §5.5.1（>8 列）
   │           ├─ empty            → §5.6
   │           ├─ measureList      → §5.7
@@ -1345,6 +1396,7 @@ L2 将 `conclusion` 的 Markdown 原文转为 HTML，包裹在 `<div class="repo
 | `person` | 字段名：姓名 | 同 `direct` |
 | `longText` | 字段名 + 换行全文 | `report-longtext` / `report-longtext__label` / `report-longtext__value` |
 | `group` | 蓝色圆点标题 + N 列栅格 | `report-group` + `report-section-title` + `report-grid` |
+| `sectionHeading` | 蓝色竖条大区仅标题 | `report-section-heading` |
 | `table` | 标准表格 + 可选合计行 | `report-table-block` + `report-table`（≤8 列） |
 | `table` | 叠行宽表（>8 列） | `report-table report-table--stacked` + 双行 thead/tbody |
 | `empty` | 虚线框 + 居中占位文案 | `report-empty` + `report-empty__placeholder` |
