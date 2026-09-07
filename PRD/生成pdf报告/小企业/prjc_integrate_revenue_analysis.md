@@ -70,7 +70,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 | `operateAnalysisByCustomer` | 页面筛选态，PDF 全量输出 |
 | `siIncomeVerifiUnit` / `siIncomeVerifiRemark` | 主体列表内部字段，页面不展示 |
 | `pkCompanyAsset` / `pkRevenueAnalysis` / `pkOperatingRevenue` | 主键 |
-| `bankStatementFromJz` 等内部流水字段 | 仅用于 L1 判断高亮，不单独成列 |
+| `bankStatementFromJz` 等内部流水字段 | 仅用于与 `bankStatement` 比较以决定是否 highlight，不单独成列、不替换展示值 |
 | 「筛选主体」「新增主体」「引入全部经营数据」 | 页面操作 |
 
 ---
@@ -99,7 +99,7 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 - 主体角色列：`customerRole[]` 保留数组，列定义 `cellType: roleTag`（L2/mock-to-html 渲染色标）
 - 按主体分组的表（主营产品、下游客户）：每组末尾插入「合计」行；`mergeSame` 合并主体名称与角色
 - 营业收入分析 / 核验：L1 按时间区间动态生成列；底部汇总行 `_summary: true`，首列 `colspan=3`
-- 银行流水与 `bankStatementFromJz` 不一致时：展示 `bankStatementFromJz`，并标记 `cellType: highlight`
+- 银行流水：展示 `bankStatement`；当 `bankStatementFromJz` 有值且与 `bankStatement` 不同时标记 `highlight`（**不**替换展示值）
 - 「信息已完善」badge、筛选主体：PDF **不输出**
 
 ---
@@ -250,37 +250,119 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 ### 7.7 营业收入分析（table · 透视）
 
-1. 从 `operatingIncomeAnalysis[]` 按 `serialNumber` 顺序提取不重复 `timeInterval` 作为动态列  
-2. 每个主体 2 行：`开票收入(万)` / `不开票收入(万)`；`subjectName`、`customerRole` 做 `mergeSame`（rowspan=2）  
-3. 底部 3 行汇总（`_summary: true`，首列 colspan 3）取自 `operatingIncomeAnalysisTotal[]`：
+**blockKey：** `operatingIncomeAnalysis`  
+**数据来源：** `incomeAnalysis.operatingIncomeAnalysis[]` + `incomeAnalysis.operatingIncomeAnalysisTotal[]`  
+**showIndex：** `false`  
+**emptyText：** `暂无营业收入分析数据`
 
-| 汇总 label | 字段 |
-| ---------- | ---- |
-| 合计(万) | `invoicingRevenue` |
-| 关联交易(万) | `relatedTransaction` |
-| 剔除关联交易后合计(万) | `excludeRelatedTransaction` |
+#### 7.7.1 列定义
+
+| 顺序 | 列 label | key / 来源 | 说明 |
+| :--: | -------- | ---------- | ---- |
+| 1 | 主体名称 | `customerName` → 输出 `subjectName` | `mergeSame`（同一主体两行合并） |
+| 2 | 主体角色 | `customerRole` | `mergeSame` + `cellType: roleTag` |
+| 3 | 类型 | 固定文案 | `开票收入(万)` / `不开票收入(万)` |
+| 4… | `{timeInterval}` | 动态列 | 列头取 `timeInterval` 原文（如 `2023年01月-2023年12月`）；按 `serialNumber` 升序去重 |
+
+#### 7.7.2 明细行（`operatingIncomeAnalysis[]`）
+
+1. 按 `serialNumber` 升序遍历列表，提取不重复的 `timeInterval` 作为动态列顺序  
+2. 按 `customerNo` 分组（保持首次出现顺序）；每组输出 **2 行**：
+
+| 类型（`type`） | 各动态列取值 |
+| -------------- | ------------ |
+| `开票收入(万)` | 对应区间的 `invoicingRevenue` |
+| `不开票收入(万)` | 对应区间的 `nonInvoicingRevenue` |
+
+3. 同一主体的 `subjectName` / `customerRole` 两行相同，L2 做 `mergeSame`（rowspan=2）  
+4. 某主体某区间缺失：该格填 `—`  
+5. **不输出** `amountTotal` / `pkRevenueAnalysis` / `startYear` / `endYear`（页面表无对应列）
+
+#### 7.7.3 底部汇总行（`operatingIncomeAnalysisTotal[]`）
+
+按与明细相同的 `timeInterval` 列对齐；每条合计对象对应一个区间列。共 **3** 行（`_summary: true`；首列文案跨「主体名称 / 主体角色 / 类型」三列展示，或等价占位）：
+
+| 顺序 | 汇总 label（写入首列） | 各动态列取值字段 |
+| :--: | ---------------------- | ---------------- |
+| 1 | `合计(万)` | `invoicingRevenue` |
+| 2 | `关联交易(万)` | `relatedTransaction` |
+| 3 | `剔除关联交易后合计(万)` | `excludeRelatedTransaction` |
+
+- 匹配键：`operatingIncomeAnalysisTotal[].timeInterval` ≡ 动态列 `timeInterval`  
+- 某区间合计缺失：该格填 `—`  
+- **禁止**用明细行自行加总替代 `operatingIncomeAnalysisTotal`（合计 / 关联交易 / 剔除关联交易以后端合计对象为准）
+
+#### 7.7.4 后续同区 blocks
+
+| blockKey | label | displayType | 取值 |
+| -------- | ----- | ----------- | ---- |
+| `operatingIncomeDesc` | `营业收入分析说明` | `longText` | `incomeAnalysis.operatingIncomeDesc`（有值时） |
+| `verifiableRatio` | `可验证回款比例(%)` | `direct` | `incomeAnalysis.ratio`（有值时；页面文案可为「可验证比例(%)」） |
 
 ### 7.8 营业收入核验（table · 透视）
 
-1. 动态列：各月 `timeInterval` + `合计` + `均值`  
-2. 每个主体 6 行类型（顺序固定）：
+**blockKey：** `operatingIncomeVerification`  
+**数据来源：** `incomeAnalysis.operatingIncomeVerificationList[]` + `incomeAnalysis.operatingIncomeVerificationFlowTotalList[]`  
+**showIndex：** `false`  
+**emptyText：** `暂无营业收入核验数据`
 
-| 类型 label | 字段 |
-| ---------- | ---- |
-| 纳税申报收入(万) | `taxDeclareIncome` |
-| 银行流水(万)(剔除关联交易) | `bankStatement`（有 `bankStatementFromJz` 且不同则取后者并高亮） |
-| 银行承兑(万)(剔除关联交易) | `bankAcceptance` |
-| 纳税申报采购(万) | `taxableIncome` |
-| 电费(万) | `electricityFee` |
-| 工资总额(万) | `wage` |
+> 页面标题可为「营业收入核查」；PDF block label 统一为 `营业收入核验`。
 
-3. 底部 3 行汇总（`_summary: true`）取自 `operatingIncomeVerificationFlowTotalList[]`：
+#### 7.8.1 列定义
 
-| 汇总 label | 字段 |
-| ---------- | ---- |
-| 流水与承兑合计(万)(剔除关联交易) | `totalFlow` |
-| 纳税申报收入关联交易(万) | `relatedTransaction` |
-| 剔除关联交易后纳税申报收入合计(万) | `excludeRelatedTransaction` |
+| 顺序 | 列 label | key / 来源 | 说明 |
+| :--: | -------- | ---------- | ---- |
+| 1 | 主体名称 | `customerName` → 输出 `subjectName` | `stackSpan` + `mergeSame`（同一主体 6 行合并） |
+| 2 | 主体角色 | `customerRole` | `stackSpan` + `mergeSame` + `roleTag` |
+| 3 | 类型 | 固定文案 | 见 §7.8.2；`stackSpan` |
+| 4… | `{timeInterval}` | 动态月列 | 列头取 `timeInterval` 原文（如 `2026年01月`）；按 `serialNumber` 升序去重 |
+| 末-1 | 合计 | L1 计算 | 该行各月展示值求和（保留 2 位） |
+| 末 | 均值 | L1 计算 | 该行各月展示值求平均（保留 2 位）；无有效月值则 `—` |
+
+#### 7.8.2 明细行（`operatingIncomeVerificationList[]`）
+
+1. 按 `serialNumber` 升序提取不重复 `timeInterval` 作为动态月列  
+2. 按 `customerNo` 分组（保持首次出现顺序）；每组固定输出 **6** 行（顺序不可调换）：
+
+| 顺序 | 类型（`type`） | 各月取值字段 | 备注 |
+| :--: | -------------- | ------------ | ---- |
+| 1 | `纳税申报收入(万)` | `taxableIncome` |  |
+| 2 | `银行流水(万)(剔除关联交易)` | `bankStatement` | 见下方高亮规则 |
+| 3 | `银行承兑(万)(剔除关联交易)` | `bankAcceptance` | |
+| 4 | `纳税申报采购(万)` | `taxDeclareIncome` | |
+| 5 | `电费(万)` | `electricityFee` | |
+| 6 | `工资总额(万)` | `wage` | |
+
+**银行流水高亮规则：**
+
+- **展示值**始终取 `bankStatement`（剔除关联交易后流水）  
+- 当 `bankStatementFromJz` 有值且与 `bankStatement` 不相等时：该单元格标记 `cellType: highlight`（页面黄字）；**不**用 `bankStatementFromJz` 替换展示值  
+- `bankStatementFromJz` **不单独成列**
+
+**其它：**
+
+- 某主体某月缺失：该格填 `—`，不参与合计/均值  
+- **不输出** `pkOperatingRevenue` / `totalFlow` / `relatedTransaction` / `balance` / `bankFlow` / `startYear` / `endYear`（明细行不展示这些字段；`totalFlow`/`relatedTransaction` 仅用于底部汇总对象）
+
+#### 7.8.3 底部汇总行（`operatingIncomeVerificationFlowTotalList[]`）
+
+按与明细相同的月列对齐。共 **3** 行（`_summary: true`）：
+
+| 顺序 | 汇总 label（写入首列） | 各月取值字段 |
+| :--: | ---------------------- | ------------ |
+| 1 | `流水与承兑合计(万)(剔除关联交易)` | `totalFlow` |
+| 2 | `纳税申报收入关联交易(万)` | `relatedTransaction` |
+| 3 | `剔除关联交易后纳税申报收入合计(万)` | `excludeRelatedTransaction` |
+
+- 匹配键：`operatingIncomeVerificationFlowTotalList[].timeInterval` ≡ 动态月列  
+- 「合计」列：对该汇总行各月取值求和；「均值」列：填 `—`（对齐页面汇总行）  
+- **禁止**用明细行自行加总替代 `operatingIncomeVerificationFlowTotalList`
+
+#### 7.8.4 后续同区 block
+
+| blockKey | label | displayType | 取值 |
+| -------- | ----- | ----------- | ---- |
+| `operatingIncomeVerifyDesc` | `营业收入核验说明` | `longText` | `incomeAnalysis.operatingIncomeVerifyDesc`（有值时） |
 
 ### 7.9 还款能力分析
 
