@@ -366,18 +366,58 @@ AI 在本层**仅负责字段提取、展示映射、分组/透视与 displayTyp
 
 ### 7.9 还款能力分析
 
-**基础信息** — `repayBaseInfoList`：流水收入(万)、开票收入(万)、日均余额(万)
+**数据来源：** `incomeAnalysis.repayAbilityAnalysis`
 
-**收支明细** — `revenueExpenseDetails`（叠行宽表）：原材料成本、人员工资、租赁费用、水电物业、外发加工、实际控制人月还款、银行贷款利息、融资租赁租金、其他费用、支出合计、月结余
+#### 7.9.1 基础信息 — `repayBaseInfoList`
 
-**还款能力指标** — 以 `repayBaseInfoList` 为主体顺序；优先取 `repayAbilityIndex`（对象则包装为数组）同 `customerNo` 匹配行；缺失时由 `revenueExpenseDetails` 推导（`maxRent` 由分转万，`rate` 等按页面公式计算）
+**blockKey：** `repayBaseInfoList` · **displayType：** `table` · **showIndex：** `true`
+
+| 列 label | key | 说明 |
+| -------- | --- | ---- |
+| 主体名称 | `subjectName` | |
+| 主体角色 | `customerRole` | `roleTag` |
+| 流水收入(万) | `runningIncome` | |
+| 开票收入(万) | `invoicingRevenue` | |
+| 日均余额(万) | `dailyAverageBalance` | 无值时回退 `dailyAverageBalanceFromJz` |
+
+#### 7.9.2 收支明细 — `revenueExpenseDetails`（叠行宽表）
+
+**blockKey：** `revenueExpenseDetails` · **displayType：** `table` · **showIndex：** `true`
+
+每主体一行数据、展示为上下叠行；公共列 `subjectName` / `customerRole` 使用 `stackSpan`。
 
 | 列 label | key |
 | -------- | --- |
+| 主体名称 | `subjectName` |
+| 主体角色 | `customerRole` |
+| 原材料成本(万) | `rawMaterialCost` |
+| 人员工资(万) | `personnelSalary` |
+| 租赁费用(如有)(万) | `rentalExpenses` |
+| 水电物业(万) | `hydroelectricProperty` |
+| 外发加工(如有)(万) | `outwardProcessing` |
+| 实际控制人月还款(万) | `averageRepayment` |
+| 银行贷款利息(万) | `loanInterest` |
+| 融资租赁租金(万) | `financingLeaseRent` |
+| 其他费用(万) | `otherCost` |
+| 支出合计(万) | `amountTotal` |
+| 月结余(万) | `monthlyBalance` |
+
+#### 7.9.3 还款能力指标 — `repayAbilityIndex`
+
+**blockKey：** `repayAbilityIndexList` · **displayType：** `table` · **showIndex：** `true`
+
+以 `repayBaseInfoList` 为主体顺序；优先取 `repayAbilityIndex`（对象则包装为数组）同 `customerNo` 匹配行；缺失时由 `revenueExpenseDetails` 推导（`maxRent` 由分转万，`rate` 等按页面公式计算）
+
+| 列 label | key |
+| -------- | --- |
+| 主体名称 | `subjectName` |
+| 主体角色 | `customerRole` |
 | 最大一期租金(万) | `maxRent` |
 | 月结余/最大一期租金(%) | `rate` |
 | 日均余额/最大一期租金(%) | `averageDailyBalanceRatio` |
 | 日均余额/流水收入(%) | `averageDailyBalanceRate` |
+
+> `maxRent === 0` 或无法计算时，`rate` / `averageDailyBalanceRatio` 展示 `—`。
 
 ---
 
