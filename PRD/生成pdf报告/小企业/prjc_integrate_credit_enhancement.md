@@ -63,11 +63,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```text
 1. 若 creditEnhancementMeasure 为 null / 缺失：整模块不输出
-2. 输出「担保措施」measureList（取 creditEnhancementMeasureInfo.creditEnhancementMeasureList）
-3. 若 guaranteePersonList 非空：输出「担保人信息」分组标题，再按列表顺序输出各自然人详情
-4. 若 guaranteeCompanyList 非空：按列表顺序输出各担保企业详情（标题含企业名）
-5. 空值规范化为「—」；数值原样透传（金额千分位）
-6. 输出 moduleIndex=10 的结构化 JSON → 交由 L2 渲染
+2. 输出「增信措施」大区标题（sectionHeading）
+3. 输出「担保措施」measureList（取 creditEnhancementMeasureInfo.creditEnhancementMeasureList）
+4. 若 guaranteePersonList 非空：输出「担保人信息」大区标题（sectionHeading），再按列表顺序输出各自然人详情
+5. 若 guaranteeCompanyList 非空：按列表顺序输出各担保企业详情（标题含企业名）
+6. 空值规范化为「—」；数值原样透传（金额千分位）
+7. 输出 moduleIndex=10 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -93,9 +94,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 顺序 | blockKey | label | displayType | 说明 |
 | :--: | -------- | ----- | ----------- | ---- |
-| 1 | `creditEnhancementMeasureList` | `担保措施` | `measureList` | 卡片列表 |
-| 2 | `guaranteePersonTitle` | `担保人信息` | `group`（仅标题，`columns: 1`，`children: []`） | 仅当 `guaranteePersonList` 非空 |
-| 3+ | `guaranteePerson_{customerNo}` | `担保自然人 - {customerName}` | `guaranteePersonDetail` | 嵌套 childBlocks；每人一组 |
+| 1 | `creditEnhancementTitle` | `增信措施` | `sectionHeading` | 大区仅标题（蓝竖条）；位于担保措施卡片上方 |
+| 2 | `creditEnhancementMeasureList` | `担保措施` | `measureList` | 卡片列表 |
+| 3 | `guaranteePersonTitle` | `担保人信息` | `sectionHeading` | 大区仅标题（蓝竖条）；仅当 `guaranteePersonList` 非空 |
+| 4+ | `guaranteePerson_{customerNo}` | `担保自然人 - {customerName}` | `guaranteePersonDetail` | 嵌套 childBlocks；每人一组 |
 | … | `guaranteeCompany_{customerNo}` | `担保企业 - {customerName}` | `guaranteeCompanyDetail` | 嵌套 childBlocks；每企一组 |
 
 > `guaranteePersonDetail` / `guaranteeCompanyDetail` 为 L2 扩展展示类型：渲染蓝色副标题 + 内部 blocks。若 L2 暂未实现该类型，可用 `group`（`columns: 1`）+ 后续 sibling blocks 等价展开，但 **L1 输出须按上表标注**，以便后续样式统一。
@@ -216,7 +218,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | displayType | 用途 | 既有约定 |
 | ----------- | ---- | -------- |
 | `measureList` | 担保措施卡片 | `prjc_style_render` / 实施方案 §7.9 |
-| `group` | 基本信息栅格、分区标题 | 标准 L2 |
+| `sectionHeading` | 「增信措施」「担保人信息」大区标题 | `prjc_style_render` §5.4.1（蓝竖条） |
+| `group` | 基本信息栅格 | 标准 L2 |
 | `table` | 股权结构 | 标准 L2 + summary |
 | `longText` | 说明类文本 | 标准 L2 |
 | `litigationCards` | 司法诉讼卡片网格 | 承租人基本信息 L1 §八 |
@@ -232,6 +235,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
   "moduleName": "增信措施",
   "moduleKey": "credit_enhancement",
   "blocks": [
+    {
+      "blockKey": "creditEnhancementTitle",
+      "label": "增信措施",
+      "displayType": "sectionHeading"
+    },
     {
       "blockKey": "creditEnhancementMeasureList",
       "label": "担保措施",
@@ -258,9 +266,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
     {
       "blockKey": "guaranteePersonTitle",
       "label": "担保人信息",
-      "displayType": "group",
-      "columns": 1,
-      "children": []
+      "displayType": "sectionHeading"
     },
     {
       "blockKey": "guaranteePerson_2202026978000",
