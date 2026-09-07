@@ -36,12 +36,12 @@ AI 在本层**仅负责字段提取、透视展开、行级样式标注与 displ
 | -------- | ---- |
 | `financialStatementsOfKeyAccounts` | 模块主数据对象 |
 | `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[]` | 各主体财报表 |
-| `….sheetName` | 主体标题（如「承租人XXX重点科目财务报表」） |
-| `….fsDataSourceType` | 数据来源（展示为「数据来源：{值}」） |
-| `….balanceSheet[]` | 资产负债表按期明细 |
-| `….profitSheet[]` | 利润表按期明细 |
-| `….balanceSheet[].period` / `profitSheet[].period` | 期间列头，如 `202312` |
-| `….balanceSheet[].dataType` / `profitSheet[].dataType` | 单体 / 合并（列头红标） |
+| `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].sheetName` | 主体标题（如「承租人XXX重点科目财务报表」） |
+| `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].fsDataSourceType` | 数据来源（展示为「数据来源：{值}」） |
+| `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].balanceSheet[]` | 资产负债表按期明细 |
+| `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].profitSheet[]` | 利润表按期明细 |
+| `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].balanceSheet[].period` / `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].profitSheet[].period` | 期间列头，如 `202312` |
+| `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].balanceSheet[].dataType` / `financialStatementsOfKeyAccounts.financialStatementsOfKeyAccountList[].profitSheet[].dataType` | 单体 / 合并（列头红标） |
 | `financialStatementsOfKeyAccounts.financialNotes` | 财务说明（模块级，全部主体表之后） |
 
 **PDF 不提取 / 不输出：**
@@ -180,7 +180,7 @@ AI 在本层**仅负责字段提取、透视展开、行级样式标注与 displ
 
 ---
 
-## 八、样式约定（L2 · mock-to-html 扩展）
+## 八、样式约定
 
 | rowLevel | 样式 |
 | :------: | ---- |
