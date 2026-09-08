@@ -22,7 +22,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | ---- | -- |
 | `moduleIndex` | `5` |
 | `moduleKey` | `project_base_info` |
-| `moduleName` | `基本信息` |
+| `moduleName` | `项目基本信息` |
 
 ---
 
@@ -31,6 +31,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 来源路径 | 说明 |
 | -------- | ---- |
 | `projectBaseInfo` | 模块主数据对象 |
+| `projectBaseInfo.settleBeLeaseContList` | 起租前结清合同 |
 | `projectBaseInfo.environmentAndSocialRisk` | 环境与社会风险评估 |
 | `projectBaseInfo.siteSituationList` | 现场尽调情况列表 |
 | `projectBaseInfo.companyBaseInfo` | 项目基本情况 |
@@ -56,12 +57,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | ----- | ----- | ----------- |
 | `projectBaseInfo` | （不传 / 空，无组标题） | `group` |
 | `environmentAndSocialRisk` | `环境与社会风险评估` | `table` |
-| `companyBaseInfo` | `项目基本情况` | `longText` |
 | `siteSituationList` | `现场尽调情况` | `table` |
+| `companyBaseInfo` | `项目基本情况` | `longText` |
 
 **条件展示：**
 
-- `对应老合同`：仅当 `projectType = 老客租项目` 时，在 `projectBaseInfo` group 内输出
+- `对应老合同`：仅当 `projectType = 老客租项目` 时，插在「项目类型」之后输出
 - `合同收益IRR(银票)`：实施方案存在银票投放且 `referenceYield.contIrrBanknote` 有值时，在参考收益率相关字段中展示（若入参携带）
 - `SOFR类型` / `margin`：业务部门 = 航运金融事业部时展示（若入参携带）
 
@@ -77,8 +78,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | :--: | -------- | ----- | ----------- |
 | 1 | `projectBaseInfo` | （不传 / 空） | `group` |
 | 2 | `environmentAndSocialRisk` | `环境与社会风险评估` | `table` |
-| 3 | `companyBaseInfo` | `项目基本情况` | `longText` |
-| 4 | `siteSituationList` | `现场尽调情况` | `table` |
+| 3 | `siteSituationList` | `现场尽调情况` | `table` |
+| 4 | `companyBaseInfo` | `项目基本情况` | `longText` |
 
 ---
 
@@ -92,19 +93,20 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | :--: | ----- | -------- | ----------- | ------ |
 | 1 | 客户名称 | `customerName` | `direct` | 原样 |
 | 2 | 项目金额(元) | `projectAmount` | `direct` | 千分位 + 2 位小数 |
-| 3 | 资金用途 | `capitalUse` | `direct` | 原样 |
-| 4 | 租赁方式 | `leaseMethod` | `direct` | 原样 |
-| 5 | 项目经理 | `managerName` | `direct` | 仅姓名，不传工号 |
-| 6 | 项目协办人 | `custHelpName` | `direct` | 仅姓名，不传工号 |
-| 7 | 业务信息来源 | `projectSource` | `direct` | 原样 |
-| 8 | 项目类型 | `projectType` | `direct` | 原样 |
+| 3 | 项目类型 | `projectType` | `direct` | 原样 |
+| — | 对应老合同 | `oldContInfoList` | `direct` | 条件：`projectType = 老客租项目`；取合同名称，多个用 `；` 分隔；插在「项目类型」后 |
+| 4 | 业务信息来源 | `projectSource` | `direct` | 原样 |
+| 5 | 租赁方式 | `leaseMethod` | `direct` | 原样 |
+| 6 | 资金用途 | `capitalUse` | `direct` | 原样 |
+| 7 | 售后回租(新设备)原因 | `leasebackReason` | `direct` | 原样 |
+| 8 | 售后回租(新设备)原因说明 | `leasebackExplain` | `longText` | 原样；`fullWidth: true` |
 | 9 | 投保情况 | `insuranceSituation` | `direct` | 原样 |
-| 10 | 售后回租原因 | `leasebackReason` | `direct` | 原样 |
-| 11 | 对应老合同 | `oldContInfoList` | `direct` | 条件：`projectType = 老客租项目`；取合同名称，多个用 `；` 分隔 |
-| 12 | 租赁物保险 | `leaseInsurance` | `longText` | 原样 |
-| 13 | 售后回租原因说明 | `leasebackExplain` | `longText` | 原样 |
+| 10 | 项目经理 | `managerName` | `direct` | 仅姓名，不传工号 |
+| 11 | 项目协办人 | `custHelpName` | `direct` | 仅姓名，不传工号 |
+| 12 | 起租前结清合同 | `settleBeLeaseContList` | `direct` | 取合同名称，多个用 `；` 分隔；空 → `—` |
+| 13 | 租赁物保险 | `leaseInsurance` | `longText` | 原样；`fullWidth: true` |
 
-> `项目基本情况`（`companyBaseInfo`）、`现场尽调情况`（`siteSituationList`）按第六节独立 block 输出，不放入 `projectBaseInfo` group。
+> `现场尽调情况`（`siteSituationList`）、`项目基本情况`（`companyBaseInfo`）按第六节独立 block 输出，不放入 `projectBaseInfo` group。
 
 ### 7.2 环境与社会风险评估（table）
 
@@ -131,20 +133,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 5 | 租赁物是否存在环境和社会风险隐患（易燃易爆物、危险化学品、有毒有害物等） | `hiddenRiskResult` |
 | 6 | 评估结论（高、中、低） | `assessResult` |
 
-### 7.3 项目基本情况（longText）
-
-数据来源：`projectBaseInfo.companyBaseInfo`
-
-```json
-{
-  "blockKey": "companyBaseInfo",
-  "label": "项目基本情况",
-  "displayType": "longText",
-  "value": "……"
-}
-```
-
-### 7.4 现场尽调情况（table）
+### 7.3 现场尽调情况（table）
 
 数据来源：`projectBaseInfo.siteSituationList`
 
@@ -160,7 +149,18 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 地点 | `address` | 原样 |
 | 主要内容 | `context` | 原样 |
 
-- PDF **不输出**打卡附件链接、删除按钮等页面交互
+### 7.4 项目基本情况（longText）
+
+数据来源：`projectBaseInfo.companyBaseInfo`
+
+```json
+{
+  "blockKey": "companyBaseInfo",
+  "label": "项目基本情况",
+  "displayType": "longText",
+  "value": "……"
+}
+```
 
 ---
 
@@ -189,18 +189,19 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       "displayType": "group",
       "columns": 4,
       "children": [
-        { "blockKey": "customerName", "label": "客户名称", "displayType": "direct", "value": "苏州隆实电子科技有限公司" },
+        { "blockKey": "customerName", "label": "客户名称", "displayType": "direct", "value": "苏州精实电子科技有限公司" },
         { "blockKey": "projectAmount", "label": "项目金额(元)", "displayType": "direct", "value": "10,000.00" },
-        { "blockKey": "capitalUse", "label": "资金用途", "displayType": "direct", "value": "购置本次租赁物" },
+        { "blockKey": "projectType", "label": "项目类型", "displayType": "direct", "value": "区域线" },
+        { "blockKey": "projectSource", "label": "业务信息来源", "displayType": "direct", "value": "渠道商推单" },
         { "blockKey": "leaseMethod", "label": "租赁方式", "displayType": "direct", "value": "回租" },
-        { "blockKey": "managerName", "label": "项目经理", "displayType": "direct", "value": "张三" },
-        { "blockKey": "custHelpName", "label": "项目协办人", "displayType": "direct", "value": "李四" },
-        { "blockKey": "projectSource", "label": "业务信息来源", "displayType": "direct", "value": "直销" },
-        { "blockKey": "projectType", "label": "项目类型", "displayType": "direct", "value": "小企业" },
-        { "blockKey": "insuranceSituation", "label": "投保情况", "displayType": "direct", "value": "客户自行购买保险" },
-        { "blockKey": "leasebackReason", "label": "售后回租原因", "displayType": "direct", "value": "承租人缺进项票" },
-        { "blockKey": "leaseInsurance", "label": "租赁物保险", "displayType": "longText", "value": "符合公司保险政策，为设备购买财产一切险" },
-        { "blockKey": "leasebackExplain", "label": "售后回租原因说明", "displayType": "longText", "value": "售后回租原因说明" }
+        { "blockKey": "capitalUse", "label": "资金用途", "displayType": "direct", "value": "购置本次租赁物" },
+        { "blockKey": "leasebackReason", "label": "售后回租(新设备)原因", "displayType": "direct", "value": "其他" },
+        { "blockKey": "leasebackExplain", "label": "售后回租(新设备)原因说明", "displayType": "longText", "value": "原因说明", "fullWidth": true },
+        { "blockKey": "insuranceSituation", "label": "投保情况", "displayType": "direct", "value": "不购买保险" },
+        { "blockKey": "managerName", "label": "项目经理", "displayType": "direct", "value": "郭铃玲" },
+        { "blockKey": "custHelpName", "label": "项目协办人", "displayType": "direct", "value": "张益光" },
+        { "blockKey": "settleBeLeaseContList", "label": "起租前结清合同", "displayType": "direct", "value": "—" },
+        { "blockKey": "leaseInsurance", "label": "租赁物保险", "displayType": "longText", "value": "符合公司保险政策，为设备购买财产一切险", "fullWidth": true }
       ]
     },
     {
@@ -223,12 +224,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       "emptyText": "暂无评估信息"
     },
     {
-      "blockKey": "companyBaseInfo",
-      "label": "项目基本情况",
-      "displayType": "longText",
-      "value": "项目基本情况说明"
-    },
-    {
       "blockKey": "siteSituationList",
       "label": "现场尽调情况",
       "displayType": "table",
@@ -248,6 +243,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
         }
       ],
       "emptyText": "暂无现场尽调记录"
+    },
+    {
+      "blockKey": "companyBaseInfo",
+      "label": "项目基本情况",
+      "displayType": "longText",
+      "value": "项目基本情况说明"
     }
   ]
 }
