@@ -31,6 +31,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 来源路径 | 说明 |
 | -------- | ---- |
 | `projectBaseInfo` | 模块主数据对象 |
+| `projectBaseInfo.projectType` | 项目类型（决定是否输出「对应老合同」） |
+| `projectBaseInfo.oldContInfoList[]` | 对应老合同列表（老客租专用） |
+| `projectBaseInfo.oldContInfoList[].oldContName` | 老合同名称（展示用） |
+| `projectBaseInfo.oldContInfoList[].oldContId` | 老合同主键（仅匹配，**不输出**） |
 | `projectBaseInfo.settleBeLeaseContList` | 起租前结清合同 |
 | `projectBaseInfo.environmentAndSocialRisk` | 环境与社会风险评估 |
 | `projectBaseInfo.siteSituationList` | 现场尽调情况列表 |
@@ -42,9 +46,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```text
 1. 从 projectBaseInfo 提取字段
-2. 按固定 blocks 顺序组装（见第六节）
-3. 为每个字段标注 displayType 并格式化展示值
-4. 输出 moduleIndex=5 的结构化 JSON → 交由 L2 渲染
+2. 组装首屏 group：固定字段按序输出；若 projectType = 「老客租项目」则在「项目类型」后插入「对应老合同」
+3. 继续组装环境评估 / 现场尽调 / 项目基本情况等 blocks（见第六节）
+4. 为每个字段标注 displayType 并格式化展示值
+5. 输出 moduleIndex=5 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -62,11 +67,19 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 **条件展示：**
 
-- `对应老合同`：仅当 `projectType = 老客租项目` 时，插在「项目类型」之后输出
+- **`对应老合同`（必填条件字段）**  
+  - **何时输出**：仅当 `projectBaseInfo.projectType = 老客租项目`  
+  - **插入位置**：紧接「项目类型」之后、「业务信息来源」之前  
+  - **取值**：`oldContInfoList[].oldContName`，按接口顺序；多个用中文分号 `；` 拼接  
+  - **空列表 / null**：仍输出该字段，值为 `—`（老客租场景须保留字段位）  
+  - **何时不输出**：`projectType` 非「老客租项目」（如「区域线」）时，**整字段不出现**（即使 `oldContInfoList` 有值也不输出；区域线样例中该列表为 `null`）  
+  - **对照样例**：  
+    - 老客租：`大于500w老客租回租.json` → `projectType=老客租项目`，展示 `JFL25C01L068143-01`  
+    - 区域线：`大于500w区域线回租.json` → `projectType=区域线`，不展示「对应老合同」
 - `合同收益IRR(银票)`：实施方案存在银票投放且 `referenceYield.contIrrBanknote` 有值时，在参考收益率相关字段中展示（若入参携带）
 - `SOFR类型` / `margin`：业务部门 = 航运金融事业部时展示（若入参携带）
 
-**不输出：** 报价信息、参考收益率（通用大单专属）、项目备案情况、现场考察情况（`siteSituation`）、手续情况、尽调情况说明、业务信息来源列表
+**不输出：** 报价信息、参考收益率（通用大单专属）、项目备案情况、现场考察情况（`siteSituation`）、手续情况、尽调情况说明、业务信息来源列表、`oldContId`
 
 ---
 
@@ -94,7 +107,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 1 | 客户名称 | `customerName` | `direct` | 原样 |
 | 2 | 项目金额(元) | `projectAmount` | `direct` | 千分位 + 2 位小数 |
 | 3 | 项目类型 | `projectType` | `direct` | 原样 |
-| — | 对应老合同 | `oldContInfoList` | `direct` | 条件：`projectType = 老客租项目`；取合同名称，多个用 `；` 分隔；插在「项目类型」后 |
+| 3a | 对应老合同 | `oldContInfoList` | `direct` | **条件字段**，见 §7.1.1；仅 `projectType = 老客租项目` 时输出，插在本行位置 |
 | 4 | 业务信息来源 | `projectSource` | `direct` | 原样 |
 | 5 | 租赁方式 | `leaseMethod` | `direct` | 原样 |
 | 6 | 资金用途 | `capitalUse` | `direct` | 原样 |
@@ -107,6 +120,32 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 13 | 租赁物保险 | `leaseInsurance` | `longText` | 原样；`fullWidth: true` |
 
 > `现场尽调情况`（`siteSituationList`）、`项目基本情况`（`companyBaseInfo`）按第六节独立 block 输出，不放入 `projectBaseInfo` group。
+
+#### 7.1.1 对应老合同（条件 · direct）
+
+当且仅当 **`projectBaseInfo.projectType = 老客租项目`** 时，须在「项目类型」后额外输出本字段（老客租必填展示位）。
+
+**blockKey：** `oldContInfoList`  
+**label：** `对应老合同`  
+**displayType：** `direct`
+
+| 项 | 规则 |
+| -- | ---- |
+| 条件 | `projectType === "老客租项目"` 才组装本 child；否则**跳过**，不占位 |
+| 取值路径 | `projectBaseInfo.oldContInfoList[].oldContName` |
+| 多值拼接 | 按数组顺序取 `oldContName`，用 `；` 连接（例：多合同时 `A；B`） |
+| 空值 | 老客租且 `oldContInfoList` 为 `null` / `[]` / 元素无名称 → `value: "—"`（字段仍输出） |
+
+**老客租有值示例：**
+
+```json
+{
+  "blockKey": "oldContInfoList",
+  "label": "对应老合同",
+  "displayType": "direct",
+  "value": "JFL25C01L068143-01"
+}
+```
 
 ### 7.2 环境与社会风险评估（table）
 
@@ -177,6 +216,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ---
 
 ## 九、输出示例
+
+> 下例为 **区域线**（非老客租）：`projectType` 后直接接「业务信息来源」，**不含**「对应老合同」。  
+> 老客租须在 `projectType` 与 `projectSource` 之间插入 §7.1.1 节点，例如  
+> `{ "blockKey": "oldContInfoList", "label": "对应老合同", "displayType": "direct", "value": "JFL25C01L068143-01" }`。
 
 ```json
 {
@@ -263,3 +306,4 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 3. 字段名使用中文 `label`，接口英文字段名仅用于取值匹配
 4. 空值统一填 `—`，不输出 `null` 或空字符串
 5. `blocks` 内顺序严格按第六节表格排列
+6. `对应老合同`：仅 `projectType = 老客租项目` 时输出（插在「项目类型」后）；非老客租不得输出；`oldContId` 不输出
