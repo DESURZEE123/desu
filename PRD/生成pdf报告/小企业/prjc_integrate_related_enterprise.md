@@ -43,9 +43,14 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | `associatedCompanyList[].baseInfo` | 基本信息 |
 | `associatedCompanyList[].relationTypes[]` | 与承租人关系 |
 | `associatedCompanyList[].otherDesc` | 其他关系说明 |
-| `associatedCompanyList[].shareholderList[]` / `shareholderTotal` | 股权结构 |
+| `associatedCompanyList[].shareholderList[]` | 股权结构明细（股东名称 / 出资额 / 占比） |
+| `associatedCompanyList[].shareholderTotal` | 股权结构合计行 |
 | `associatedCompanyList[].controllerIntroduction` | 实控人及股东情况介绍 |
 | `associatedCompanyList[].judicialLitigationInfo` | 司法诉讼总览 |
+| `associatedCompanyList[].judicialLitigationInfo.caseTypeHighRiskList[]` | 高风险案件标签（`caseType` / `caseNum`） |
+| `associatedCompanyList[].judicialLitigationInfo.caseTypeCommonList[]` | 普通案件标签（`caseType` / `caseNum`） |
+| `associatedCompanyList[].judicialLitigationInfo.updateTime` | 司法诉讼数据更新时间 |
+| `associatedCompanyList[].judicialLitigationInfo.judicialLitigationInfoDesc` | 司法诉讼信息说明 |
 
 **PDF 不提取 / 不输出：**
 
@@ -74,10 +79,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ## 五、输出规则
 
-- `isGuarantor === '是'` → 标签「担保人」、`tone: guarantor`（蓝）
-- 否则 → 标签「非担保人」、`tone: nonGuarantor`（黄）
+- **仅概要卡片**输出担保人标签：`isGuarantor === '是'` → 「担保人」、`tone: guarantor`（蓝）；否则 → 「非担保人」、`tone: nonGuarantor`（黄）
+- **关联企业详情标题**不输出 `guarantorTag` / `guarantorTone`（标题仅企业名称 + 统一社会信用代码）
 - `relationTypes[]`：多值用 `、` 拼接
-- 司法标签：`caseNum <= 0` 不展示卡片
+- 司法标签：先 `caseTypeHighRiskList` 后 `caseTypeCommonList`；`caseNum <= 0` 不展示卡片
+- 高风险 → `tone: highRisk`（红底）；普通 → `tone: common`（蓝底）
 - 无详情数据的概要企业：仅出现在概要列表，不输出详情 block
 
 ---
@@ -120,7 +126,56 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ---
 
-## 八、概要卡片样式（L2 扩展 · mock-to-html 已实现）
+## 八、股权结构（table）
+
+**数据来源：** `associatedCompanyList[].shareholderList[]` + `shareholderTotal`  
+**blockKey：** `shareholderList`  
+**showIndex：** `true`（序号列由 L2 自动生成，合计行序号位展示「合计」）  
+**emptyText：** `暂无股权结构数据`
+
+| 顺序 | 列 label | 接口字段 | 说明 |
+| :--: | -------- | -------- | ---- |
+| 1 | 股东名称 | `shareholderName` | 明细行原样；合计行固定文案「合计」 |
+| 2 | 出资额(万元) | `shareholderCapitalAmount` | 千分位；合计取 `shareholderTotal.shareholderCapitalAmount` |
+| 3 | 占比(%) | `holdStockRatio` | 原样透传；合计取 `shareholderTotal.holdStockRatio` |
+
+**合计行（summary）：** 取自同级 `shareholderTotal`；无 `shareholderTotal` 时不输出合计行。  
+**列表为空 / null：** 输出 empty「暂无股权结构数据」。
+
+---
+
+## 九、司法诉讼信息（litigationCards）
+
+规则同 `prjc_integrate_lessee_base_info` §7.4 / §八。
+
+**数据来源：** `associatedCompanyList[].judicialLitigationInfo`  
+**blockKey：** `judicialLitigationInfo`  
+**displayType：** `litigationCards`（L2 扩展 · mock-to-html 已实现）
+
+| 属性 | 接口字段 | 说明 |
+| ---- | -------- | ---- |
+| `updateTime` | `judicialLitigationInfo.updateTime` | 标题右侧展示「司法诉讼数据更新时间：{time}」 |
+| `cards[]` | 先 `caseTypeHighRiskList[]`，再 `caseTypeCommonList[]` | 过滤 `caseNum <= 0`；两列表合并为同一卡片流 |
+| `cards[].caseType` | `caseType` | 卡片居中文案 |
+| `cards[].caseNum` | `caseNum` | 卡片右上角数量 |
+| `cards[].tone` | 来源列表决定 | `caseTypeHighRiskList` → `highRisk`；`caseTypeCommonList` → `common` |
+| `emptyText` | — | `客户暂无司法诉讼数据` |
+
+**布局（与承租人 / 增信措施等模块一致）：**
+
+- 卡片左起排布，**自动换行**，不强制单行塞满
+- **宽度适中**（约 3 列量级），**不按一行卡片数均分拉满容器**
+- `highRisk` 红渐变底；`common` 蓝渐变底
+
+### 9.1 司法诉讼信息说明（longText）
+
+| label | 接口字段 | 说明 |
+| ----- | -------- | ---- |
+| 司法诉讼信息说明 | `judicialLitigationInfo.judicialLitigationInfoDesc` | 有值时输出；空 / null 不输出该 block |
+
+---
+
+## 十、概要卡片样式（L2 扩展 · mock-to-html 已实现）
 
 | tone | 标签文案 | 说明 |
 | ---- | -------- | ---- |
@@ -131,7 +186,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ---
 
-## 九、完整 JSON 示例（节选）
+## 十一、完整 JSON 示例（节选）
 
 ```json
 {
@@ -154,7 +209,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
     {
       "blockKey": "company_C120240098896",
       "displayType": "associateCompanyDetail",
-      "guarantorTag": "非担保人",
       "customerName": "北京鑫鑫印刷有限公司",
       "crdntlsCode": "911101147921218971",
       "childBlocks": []
