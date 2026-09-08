@@ -36,6 +36,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | -------- | ---- |
 | `lesseeBaseInfo.companyPublicInfo` | 模块主数据对象 |
 | `lesseeBaseInfo.companyPublicInfo.baseInfo` | 基本信息 |
+| `lesseeBaseInfo.companyPublicInfo.baseInfo.mainBusiness` | 主营业务 |
+| `lesseeBaseInfo.companyPublicInfo.baseInfo.companyEvolution` | 公司沿革 |
 | `lesseeBaseInfo.companyPublicInfo.industryLicenseList[]` | 行业许可证 |
 | `lesseeBaseInfo.companyPublicInfo.shareholderList[]` | 股权结构明细 |
 | `lesseeBaseInfo.companyPublicInfo.shareholderTotal` | 股权结构合计 |
@@ -63,15 +65,17 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```text
 1. 若 lesseeBaseInfo.companyPublicInfo 为 null / 缺失：整模块不输出
-2. 输出「基本信息」group（4 列栅格，注册地址整行）
-3. 输出「行业许可证」table
-4. 输出「主营业务」「公司沿革」longText（有值时）
-5. 输出「股权结构」table + 合计行
-6. 输出「实控人及股东情况介绍」longText（有值时）
-7. 输出「司法诉讼信息」litigationCards（caseNum=0 的标签不展示）
-8. 输出「司法诉讼信息说明」longText（有值时）
-9. 空值规范化为「—」；数值原样透传
-10. 输出 moduleIndex=8 的结构化 JSON → 交由 L2 渲染
+2. 输出「基本信息」大区标题 sectionHeading（蓝竖条）
+3. 输出「基本信息」group（4 列栅格，注册地址整行；**不传 label**，避免与大区标题重复）
+4. 输出「行业许可证」table（圆点小标题保留）
+5. 输出「主营业务」「公司沿革」longText（有值时；小标题不动）
+6. 输出「股权结构」table + 合计行（圆点小标题保留）
+7. 输出「实控人及股东情况介绍」longText（有值时；小标题不动）
+8. 输出「司法诉讼信息」大区标题 sectionHeading（蓝竖条）
+9. 输出诉讼卡片 litigationCards（**不传 label**；caseNum=0 的标签不展示）
+10. 输出「司法诉讼信息说明」longText（有值时；圆点小标题保留）
+11. 空值规范化为「—」；数值原样透传
+12. 输出 moduleIndex=8 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -91,22 +95,43 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 顺序 | blockKey | label | displayType | 说明 |
 | :--: | -------- | ----- | ----------- | ---- |
-| 1 | `baseInfo` | `基本信息` | `group` | 4 列；注册地址 `fullWidth: true` |
-| 2 | `industryLicenseList` | `行业许可证` | `table` | 序号 + 证件名称 + 编号 + 期限 |
-| 3 | `mainBusiness` | `主营业务` | `longText` | 有值时 |
-| 4 | `companyEvolution` | `公司沿革` | `longText` | 有值时 |
-| 5 | `shareholderList` | `股权结构` | `table` | 含合计行 |
-| 6 | `controllerIntroduction` | `实控人及股东情况介绍` | `longText` | 有值时 |
-| 7 | `judicialLitigationInfo` | `司法诉讼信息` | `litigationCards` | 含 `updateTime` |
-| 8 | `judicialLitigationInfoDesc` | `司法诉讼信息说明` | `longText` | 有值时 |
+| 1 | `baseInfoTitle` | `基本信息` | `sectionHeading` | 大区仅标题（蓝竖条）；覆盖其下字段栅格 / 行业许可证 / 股权结构等 |
+| 2 | `baseInfo` | 基本信息 | `group` | 4 列；注册地址 `fullWidth` |
+| 3 | `industryLicenseList` | `行业许可证` | `table` | 圆点小标题保留 |
+| 4 | `mainBusiness` | `主营业务` | `longText` | 有值时；小标题不动 |
+| 5 | `companyEvolution` | `公司沿革` | `longText` | 有值时；小标题不动 |
+| 6 | `shareholderList` | `股权结构` | `table` | 圆点小标题保留；含合计行 |
+| 7 | `controllerIntroduction` | `实控人及股东情况介绍` | `longText` | 有值时；小标题不动 |
+| 8 | `judicialLitigationTitle` | `司法诉讼信息` | `sectionHeading` | 大区仅标题（蓝竖条） |
+| 9 | `judicialLitigationInfo` | （不传 label） | `litigationCards` | 含 `updateTime`；标题已由上一项 sectionHeading 承担 |
+| 10 | `judicialLitigationInfoDesc` | `司法诉讼信息说明` | `longText` | 有值时；小标题不动 |
+
+> **标题层级：** 「基本信息」「司法诉讼信息」用 `sectionHeading`（蓝竖条）作大标题；其下原内容标题若与大标题同名则不再传 `label`。其余圆点小标题（行业许可证 / 股权结构 / 主营业务等）保持不变。
 
 ---
 
 ## 七、字段映射与 displayType 规则
 
+### 7.0 大区标题（sectionHeading）
+
+| blockKey | label | 说明 |
+| -------- | ----- | ---- |
+| `baseInfoTitle` | `基本信息` | 置于 `baseInfo` 之前；蓝竖条大标题 |
+| `judicialLitigationTitle` | `司法诉讼信息` | 置于 `judicialLitigationInfo` 之前；蓝竖条大标题 |
+
+```json
+{ "blockKey": "baseInfoTitle", "label": "基本信息", "displayType": "sectionHeading" }
+```
+
+```json
+{ "blockKey": "judicialLitigationTitle", "label": "司法诉讼信息", "displayType": "sectionHeading" }
+```
+
 ### 7.1 基本信息（group · columns: 4）
 
 **blockKey：** `baseInfo`  
+**displayType：** `group`  
+**label：** 不传（大区标题由 `baseInfoTitle` sectionHeading 承担）  
 **数据来源：** `companyPublicInfo.baseInfo`
 
 | 顺序 | label | 接口字段 | 说明 |
@@ -124,8 +149,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ### 7.2 行业许可证（table）
 
 **blockKey：** `industryLicenseList`  
+**label：** `行业许可证`（圆点小标题，保留）  
 **showIndex：** `true`  
 **emptyText：** `暂无行业许可证数据`
+**数据来源：** `companyPublicInfo.industryLicenseList`
 
 | 顺序 | 列 label | key |
 | :--: | -------- | --- |
@@ -133,11 +160,40 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 2 | 编号 | `specCrdntlsCode` |
 | 3 | 期限 | `expirationDate` |
 
-### 7.3 股权结构（table）
+### 7.3 主营业务 / 公司沿革（longText）
+
+圆点小标题保留；有值时输出，空 / null 不输出该 block。顺序在「行业许可证」之后、「股权结构」之前。
+
+| blockKey | label | displayType | 接口字段 |
+| -------- | ----- | ----------- | -------- |
+| `mainBusiness` | `主营业务` | `longText` | `companyPublicInfo.baseInfo.mainBusiness` |
+| `companyEvolution` | `公司沿革` | `longText` | `companyPublicInfo.baseInfo.companyEvolution` |
+
+```json
+{
+  "blockKey": "mainBusiness",
+  "label": "主营业务",
+  "displayType": "longText",
+  "value": "高新纤维与功能性复合面料的研发、生产及一体化供应链服务…"
+}
+```
+
+```json
+{
+  "blockKey": "companyEvolution",
+  "label": "公司沿革",
+  "displayType": "longText",
+  "value": "南通东屹高新纤维科技有限公司的历史沿革…"
+}
+```
+
+### 7.4 股权结构（table）
 
 **blockKey：** `shareholderList`  
+**label：** `股权结构`（圆点小标题，保留）  
 **showIndex：** `true`  
-**emptyText：** `暂无股权结构数据`
+**emptyText：** `暂无股权结构数据`  
+**数据来源：** `companyPublicInfo.shareholderList[]` + `companyPublicInfo.shareholderTotal`
 
 | 顺序 | 列 label | key |
 | :--: | -------- | --- |
@@ -147,21 +203,21 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 **合计行（summary）：** 取自 `shareholderTotal`；`shareholderName` 列展示 `合计`。
 
-### 7.4 司法诉讼信息（litigationCards）
+### 7.5 司法诉讼信息（litigationCards）
 
 **blockKey：** `judicialLitigationInfo`  
-**displayType：** `litigationCards`（L2 扩展 · mock-to-html 已实现）
+**displayType：** `litigationCards`  
+**label：** 不传（大区标题由 `judicialLitigationTitle` sectionHeading 承担）  
+**数据来源：** `companyPublicInfo.judicialLitigationInfo`
 
 | 属性 | 说明 |
 | ---- | ---- |
-| `updateTime` | `judicialLitigationInfo.updateTime`；展示为「司法诉讼数据更新时间：{time}」 |
+| `updateTime` | `judicialLitigationInfo.updateTime`；展示为「司法诉讼数据更新时间：{time}」（可置于卡片区上方右侧） |
 | `cards[]` | 先 `caseTypeHighRiskList`，再 `caseTypeCommonList`；过滤 `caseNum <= 0` |
 | `cards[].caseType` | 案件类型标签名 |
 | `cards[].caseNum` | 案件数量（卡片右上角） |
 | `cards[].tone` | `highRisk` / `common` |
 | `emptyText` | `客户暂无司法诉讼数据` |
-
----
 
 ## 八、司法诉讼卡片样式（L2 扩展 · mock-to-html 已实现）
 
@@ -183,8 +239,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
   "moduleKey": "lessee_base_info",
   "blocks": [
     {
-      "blockKey": "baseInfo",
+      "blockKey": "baseInfoTitle",
       "label": "基本信息",
+      "displayType": "sectionHeading"
+    },
+    {
+      "blockKey": "baseInfo",
       "displayType": "group",
       "columns": 4,
       "children": [
@@ -192,8 +252,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       ]
     },
     {
-      "blockKey": "judicialLitigationInfo",
+      "blockKey": "judicialLitigationTitle",
       "label": "司法诉讼信息",
+      "displayType": "sectionHeading"
+    },
+    {
+      "blockKey": "judicialLitigationInfo",
       "displayType": "litigationCards",
       "updateTime": "2026-06-02 09:53:30",
       "cards": [
