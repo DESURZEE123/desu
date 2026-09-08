@@ -54,6 +54,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | `lshldModel.lshldInfoList[].depreciationMonths` | 实际折旧月数（**纯回租**；清单或称「实际折旧年限」） |
 | `lshldModel.lshldInfoList[].accumulatedDepreciation` | 累计折旧(元)（**纯回租**） |
 | `lshldModel.lshldPriceTotal` | 原值合计（表合计行） |
+| `lshldModel.supplierInfoList[]` | 供应商信息列表（**仅直租 / 直转回**） |
+| `lshldModel.supplierInfoList[].providerName` | 供应商名称 |
+| `lshldModel.supplierInfoList[].accountNo` | 银行账号 |
+| `lshldModel.supplierInfoList[].invoiceWay` | 收票方式 |
+| `lshldModel.supplierInfoList[].invoiceDays` | 收票天数 |
 | `lshldModel.lshldOwnershipDesc` | 租赁物权属状态说明 |
 | `lshldModel.breakPriceDesc` | 是否突破作价及说明 |
 
@@ -71,11 +76,11 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 | 字段 / 能力 | 原因 |
 | ----------- | ---- |
-| `pkRentThing` / `pkRentThingCore` 等主键 | 仅数据匹配 |
-| `supplierInfoList` | 本 mock / 截图无供应商区展示需求（空列表） |
+| `pkRentThing` / `pkRentThingCore` / `providerCode` / `proCrdntlsCode` / `pkAccountCore` 等主键 | 仅数据匹配 |
 | `initialDetail` / `checkInfo` / `riskInfo` | 详情弹窗其它分区；本页展开区未展示 |
 | 「全部展开」「全部收起」「导出」「操作 / 收起」 | 页面交互；PDF 默认全部展开详情 |
 | 顶栏纯回租专属字段（见 §5 / §7.1） | 直租、直转回形态下不输出 |
+| `supplierInfoList`（纯回租） | **仅直租 / 直转回**展示供应商信息表 |
 
 ---
 
@@ -86,9 +91,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 2. 读取 projectBaseInfo.leaseMethod / capitalUse，按 §3.1 判定项目形态
 3. 输出顶部汇总 group（4 列）：始终含监控设备 2 字段；仅纯回租追加评估/净值/定价/折价/占比字段
 4. 输出租赁物明细 table：每行 = 汇总列 + detail 详情栅格（PDF 全部展开）
-5. 输出权属说明、突破作价说明 longText（有值时）
-6. 空值 →「—」；金额千分位 2 位；比例原样透传（不追加 %）
-7. 输出 moduleIndex=7 的结构化 JSON → 交由 L2 渲染
+5. 若形态为直租 / 直转回：输出「供应商信息」table（§7.3）；纯回租不输出
+6. 输出权属说明、突破作价说明 longText（有值时）
+7. 空值 →「—」；金额千分位 2 位；比例原样透传（不追加 %）
+8. 输出 moduleIndex=7 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -102,6 +108,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 - 合计行：原值 ← `lshldPriceTotal`，净值 ← `netWorthTotal`；其余列 `—`；序号列文案 `合计`；合计行**无** `detail`（合计行净值各形态均可带，与顶栏纯回租条件无关）
 - 宽表（汇总列数 > 8）：L2 自动叠行；详情栅格仍挂在该条记录下方
 - 长文本为空：不输出该 block
+- **供应商信息表**：仅直租 / 直转回输出（§7.3）；`supplierInfoList` 为 `null` / `[]` 时仍输出 table + `emptyText`；纯回租整表不输出
 
 **顶部汇总 · 仅纯回租展示的字段：**
 
@@ -117,24 +124,17 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 > 直租 / 直转回：上述 6 项 **整字段不输出**（不占位）。  
 > 各形态均展示：`是否安装租赁物监控设备`、`监控设备情况说明`。
 
-**样例对照：**
-
-| 样例 JSON | leaseMethod | capitalUse | 形态 | 顶栏纯回租字段 |
-| --------- | ----------- | ---------- | ---- | -------------- |
-| `大于500w区域线直租.json` | 直租 | 购置本次租赁物 | 直租 | 不展示 |
-| `大于500w区域线回租.json` | 回租 | 补充流动资金 | 纯回租 | 展示 |
-| `大于500w老客租回租.json` | 回租 | 补充流动资金 | 纯回租 | 展示 |
-
 ---
 
 ## 六、blocks 组装顺序
 
-| 顺序 | blockKey | label | displayType |
-| :--: | -------- | ----- | ----------- |
-| 1 | `summary` | （不传 label） | `group` columns: 4 |
-| 2 | `lshldInfoList` | `租赁物信息` | `table`（含行内 `detail`） |
-| 3 | `lshldOwnershipDesc` | `租赁物权属状态说明` | `longText`（有值时） |
-| 4 | `breakPriceDesc` | `是否突破作价及说明` | `longText`（有值时） |
+| 顺序 | blockKey | label | displayType | 条件 |
+| :--: | -------- | ----- | ----------- | ---- |
+| 1 | `summary` | （不传 label） | `group` columns: 4 | 各形态 |
+| 2 | `lshldInfoList` | `租赁物信息` | `table`（含行内 `detail`） | 各形态（列集按 A/B） |
+| 3 | `supplierInfoList` | `供应商信息` | `table` | **仅直租 / 直转回** |
+| 4 | `lshldOwnershipDesc` | `租赁物权属状态说明` | `longText`（有值时） | 各形态 |
+| 5 | `breakPriceDesc` | `是否突破作价及说明` | `longText`（有值时） | 各形态 |
 
 ---
 
@@ -282,6 +282,54 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 - 叠行表：每条记录的上下两行之后追加一行详情 `tr`（`colspan` 覆盖序号 + 全部叠列）
 - 详情区背景浅灰、与汇总行视觉分隔；**无**「收起」按钮
 
+### 7.3 供应商信息（table · 仅直租 / 直转回）
+
+对齐页面「供应商信息」子表（截图：序号 / 供应商名称 / 银行账号 / 收票方式 / 收票天数）。
+
+**展示条件：** 项目形态为 **直租** 或 **直转回**（§3.1）。纯回租 **不输出** 本 block。  
+**数据来源：** `lshldModel.supplierInfoList[]`  
+**blockKey：** `supplierInfoList`  
+**label：** `供应商信息`  
+**displayType：** `table`  
+**showIndex：** `true`  
+**emptyText：** `暂无数据`
+
+| 列 label | key | 接口字段 | 格式化 |
+| -------- | --- | -------- | ------ |
+| 供应商名称 | `providerName` | `providerName` | 原样 |
+| 银行账号 | `accountNo` | `accountNo` | 原样 |
+| 收票方式 | `invoiceWay` | `invoiceWay` | 原样（如「付相应款项前收票」） |
+| 收票天数 | `invoiceDays` | `invoiceDays` | 原样；空 / null → `—` |
+
+> **不输出列：** `providerCode` / `proCrdntlsCode` / `pkAccountCore`（仅匹配）。  
+> 无合计行。列表按接口顺序输出。
+
+**样例（对齐 `大于500w区域线直租.json`）：**
+
+```json
+{
+  "blockKey": "supplierInfoList",
+  "label": "供应商信息",
+  "displayType": "table",
+  "showIndex": true,
+  "columns": [
+    { "key": "providerName", "label": "供应商名称" },
+    { "key": "accountNo", "label": "银行账号" },
+    { "key": "invoiceWay", "label": "收票方式" },
+    { "key": "invoiceDays", "label": "收票天数" }
+  ],
+  "rows": [
+    {
+      "providerName": "江苏龙冶节能科技有限公司",
+      "accountNo": "80800188000184309",
+      "invoiceWay": "付相应款项前收票",
+      "invoiceDays": "—"
+    }
+  ],
+  "emptyText": "暂无数据"
+}
+```
+
 ---
 
 ## 八、完整 JSON 示例（节选）
@@ -386,5 +434,6 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 3. 项目形态按 §3.1 判定；顶栏「评估报告号 / 净值合计 / 定价结果 / 公司要求折价比例 / 实际折价比例 / 通用设备占比」**仅纯回租**输出
 4. 直租、直转回顶栏仅保留监控设备相关 2 字段
 5. 明细表字段集按形态分支：直租/直转回用 §7.2.A；纯回租用 §7.2.B；**不得**混用
-6. 空值统一填 `—`；比例字段原样透传，不追加 `%`
-7. 明细表合计行的净值不受顶栏纯回租条件限制
+6. 「供应商信息」表仅直租 / 直转回输出（§7.3）；纯回租不输出
+7. 空值统一填 `—`；比例字段原样透传，不追加 `%`
+8. 明细表合计行的净值不受顶栏纯回租条件限制
