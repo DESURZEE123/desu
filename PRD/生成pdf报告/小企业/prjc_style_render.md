@@ -117,13 +117,13 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 
 > 对应页面效果：蓝色圆点 + 分组标题（如「项目基本信息」「报价信息」「参考收益率」），下方 4 列栅格排列键值对。
 >
-> **仅标题分组（圆点）**：`children` 为空数组时，只渲染 `report-section-title`（蓝色圆点），不输出栅格（用于实施方案报价名称 `quotName` 等**内容级**分隔标题）。
+> **仅标题分组（圆点）**：`children` 为空数组时，只渲染 `report-section-title`（蓝色圆点），不输出栅格（用于内容级小节标题，如「投放信息」有字段时的圆点标题；**报价名称 `quotName` 须用 `sectionHeading`，不要用空 group**）。
 >
-> **大区仅标题（蓝竖条）**：经营数据分析等模块的分区标题（如「资产规模」）须用 `sectionHeading`，**不要**用空 `group`（否则与「厂房情况」等圆点内容标题无法区分）。见下方 `sectionHeading`。
+> **大区仅标题（蓝竖条）**：模块内分区标题（如经营数据分析「资产规模」、实施方案报价 `quotName`）须用 `sectionHeading`，**不要**用空 `group`（否则与圆点内容标题无法区分）。见下方 `sectionHeading`。
 
 #### sectionHeading — 大区仅标题（蓝竖条）
 
-用于模块内**分区级**仅标题，与内容标题（蓝色圆点）区分。对齐页面「资产规模 / 生产销售情况分析 / 收入分析 / 还款能力分析」。
+用于模块内**分区级**仅标题，与内容标题（蓝色圆点）区分。对齐页面「资产规模 / 生产销售情况分析 / 收入分析 / 还款能力分析」及实施方案报价名称等。
 
 ```json
 {
@@ -180,6 +180,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `columns[].stackSpan` | boolean | 仅叠行宽表有效：为 `true` 时该列**不参与两两配对**，单独占一物理列且 `rowspan="2"`（跨上下两行） |
 | `columns[].subKey` | string | 可选；同单元格副文案字段（如征信查询日期），渲染为主值下方一行 |
 | `rows` | array | 数据行 |
+| `rows[].detail` | object | 可选；行内展开详情。`{ columns: number, children: direct[] }`；有值时在该行（叠行则为该记录上下两行）之后追加全宽详情栅格；合计行不传 |
 | `summary` | object | 合计行；无合计时不传 |
 | `emptyText` | string | `rows` 为空时的占位文案，默认「暂无数据」 |
 
@@ -434,6 +435,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   .report-grid__cell--w-25 { width: 25%; }
   .report-grid__cell--w-33 { width: 33.33%; }
   .report-grid__cell--w-50 { width: 50%; }
+  .report-grid__cell--w-20 { width: 20%; }
   .report-grid__cell--w-100 { width: 100%; }
 
   /* ===== table — 表格 ===== */
@@ -480,6 +482,21 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
     font-size: 14px;
     border: 1px dashed #E5E6EB;
     border-radius: 4px;
+  }
+  .report-table__detail-row > td {
+    padding: 0;
+    background: #F7F8FA;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-table__detail {
+    padding: 12px 16px;
+    background: #F7F8FA;
+  }
+  .report-table__detail .report-grid {
+    margin: 0;
+  }
+  .report-table__detail .report-grid__cell {
+    margin-bottom: 8px;
   }
 
   /* ===== table — 叠行宽表（columns > 8） ===== */

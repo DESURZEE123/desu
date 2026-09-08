@@ -48,6 +48,19 @@
     color: #1677FF;
   }
 
+  /* ===== 大区仅标题 — 蓝色竖条（与圆点内容标题区分） ===== */
+  .report-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
+  }
+
   /* ===== direct / person — 键值对 ===== */
   .report-kv {
     display: flex;
@@ -95,6 +108,7 @@
   .report-grid__cell--w-25 { width: 25%; }
   .report-grid__cell--w-33 { width: 33.33%; }
   .report-grid__cell--w-50 { width: 50%; }
+  .report-grid__cell--w-20 { width: 20%; }
   .report-grid__cell--w-100 { width: 100%; }
 
   /* ===== table — 表格 ===== */
@@ -141,6 +155,21 @@
     font-size: 14px;
     border: 1px dashed #E5E6EB;
     border-radius: 4px;
+  }
+  .report-table__detail-row > td {
+    padding: 0;
+    background: #F7F8FA;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-table__detail {
+    padding: 12px 16px;
+    background: #F7F8FA;
+  }
+  .report-table__detail .report-grid {
+    margin: 0;
+  }
+  .report-table__detail .report-grid__cell {
+    margin-bottom: 8px;
   }
 
   /* ===== table — 叠行宽表（columns > 8） ===== */
@@ -510,6 +539,33 @@
   .report-role-tag--related { background: #E8FFEA; color: #00B42A; }
   .report-role-tag--default { background: #F2F3F5; color: #86909C; }
   .report-table__cell--highlight { color: #FF7D00; font-weight: 600; }
+  .report-grid__cell--w-20 { width: 20%; }
+  .report-table__detail-row > td {
+    padding: 0;
+    background: #F7F8FA;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-table__detail {
+    padding: 12px 16px;
+    background: #F7F8FA;
+  }
+  .report-table__detail .report-grid {
+    margin: 0;
+  }
+  .report-table__detail .report-grid__cell {
+    margin-bottom: 8px;
+  }
+  .report-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
+  }
   .report-litigation-section__header {
     display: flex;
     justify-content: space-between;
@@ -525,19 +581,21 @@
     flex-shrink: 0;
   }
   .report-litigation-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
   }
   .report-litigation-card {
     position: relative;
+    width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
     border-radius: 4px;
     padding: 20px 16px;
     min-height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
   }
   .report-litigation-card__type {
     font-size: 14px;
@@ -789,10 +847,22 @@
 
 </style>
 <div class="report-root">
-<div class="report-module" data-module-key="project_summary">
+<div class="report-module" data-module-key="project_change">
+    <div class="report-module__header">
+      <span>项目变更信息</span>
+      
+    </div>
+    <div class="report-module__body"><div class="report-block report-longtext-block"><div class="report-longtext">
+    <div class="report-longtext__label">审批变更原因：</div>
+    <div class="report-longtext__value">补充租赁物型号信息。</div>
+  </div></div><div class="report-block"><div class="report-kv">
+    <span class="report-kv__label">审批变更类型：</span>
+    <span class="report-kv__value">审批修改</span>
+  </div></div></div>
+  </div><div class="report-module" data-module-key="project_summary">
     <div class="report-module__header">
       <span>项目概要</span>
-      <span class="report-module__header-meta">数据更新时间 2026-06-02 10:19:07</span>
+      
     </div>
     <div class="report-module__body"><div class="report-block"><div class="report-label-panel"><div class="report-label-card report-label-card--warning">
       <div class="report-label-card__title">警示清单</div>
@@ -836,10 +906,7 @@
       <span>基本信息</span>
       
     </div>
-    <div class="report-module__body"><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">项目基本信息</span>
-  </div><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <div class="report-module__body"><div class="report-block report-group"><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
     <span class="report-kv__label">客户名称：</span>
     <span class="report-kv__value">苏州精实电子科技有限公司</span>
   </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
@@ -902,10 +969,7 @@
   </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
     <span class="report-kv__label">承租人及关联方累计风险敞口(元)：</span>
     <span class="report-kv__value">-1,917,728.16</span>
-  </div></div></div></div><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">精算05130913</span>
-  </div></div><div class="report-block report-group"><div class="report-section-title">
+  </div></div></div></div><div class="report-block"><div class="report-section-heading">精算05130913</div></div><div class="report-block report-group"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">投放信息</span>
   </div><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
@@ -1096,7 +1160,67 @@
       <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2" class="">租赁物名称</th><th><span class="report-table__stack-label">租赁物分类</span></th><th><span class="report-table__stack-label">型号</span></th><th><span class="report-table__stack-label">是否主租赁物</span></th><th><span class="report-table__stack-label">发票日期</span></th><th><span class="report-table__stack-label">原值(元)</span></th><th><span class="report-table__stack-label">使用地点</span></th></tr>
       <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">品牌</span></th><th><span class="report-table__stack-label">数量</span></th><th><span class="report-table__stack-label">发票号</span></th><th><span class="report-table__stack-label">折旧年限</span></th><th><span class="report-table__stack-label">净值(元)</span></th><th><span class="report-table__stack-label">租赁物权属状态</span></th></tr>
     </thead>
-    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class=" report-table__span-cell">测试</td><td><span class="report-table__stack-value">饮料加工设备</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">是</span></td><td><span class="report-table__stack-value">2026-05-26</span></td><td><span class="report-table__stack-value">1.00</span></td><td><span class="report-table__stack-value">江苏省苏州市昆山市玉山镇成明路68号</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">11</span></td><td><span class="report-table__stack-value">1.00</span></td><td><span class="report-table__stack-value">1.00</span></td><td><span class="report-table__stack-value">无抵押</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
+    <tbody><tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class=" report-table__span-cell">测试</td><td><span class="report-table__stack-value">饮料加工设备</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">是</span></td><td><span class="report-table__stack-value">2026-05-26</span></td><td><span class="report-table__stack-value">1.00</span></td><td><span class="report-table__stack-value">江苏省苏州市昆山市玉山镇成明路68号</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">11</span></td><td><span class="report-table__stack-value">1.00</span></td><td><span class="report-table__stack-value">1.00</span></td><td><span class="report-table__stack-value">无抵押</span></td></tr><tr class="report-table__detail-row"><td colspan="8"><div class="report-table__detail"><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">租赁物名称：</span>
+    <span class="report-kv__value">测试</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">品牌：</span>
+    <span class="report-kv__value">1</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">型号：</span>
+    <span class="report-kv__value">—</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">中登唯一标识码：</span>
+    <span class="report-kv__value">—</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">数量：</span>
+    <span class="report-kv__value">1</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">是否主租赁物：</span>
+    <span class="report-kv__value">是</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">租赁物分类：</span>
+    <span class="report-kv__value">饮料加工设备</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">使用地点：</span>
+    <span class="report-kv__value">江苏省苏州市昆山市玉山镇成明路68号</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">发票号：</span>
+    <span class="report-kv__value">11</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">发票日期：</span>
+    <span class="report-kv__value">2026-05-26</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">原值(元)：</span>
+    <span class="report-kv__value">1.00</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">实际折旧月数：</span>
+    <span class="report-kv__value">0</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">折旧年限：</span>
+    <span class="report-kv__value">1.00</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">累计折旧(元)：</span>
+    <span class="report-kv__value">0.00</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">净值(元)：</span>
+    <span class="report-kv__value">1.00</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">租赁物权属状态：</span>
+    <span class="report-kv__value">无抵押</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">保险计算基准金额(元)：</span>
+    <span class="report-kv__value">—</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">租赁物评估方式：</span>
+    <span class="report-kv__value">—</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">租赁物评估日期：</span>
+    <span class="report-kv__value">—</span>
+  </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+    <span class="report-kv__label">资产评估机构名称：</span>
+    <span class="report-kv__value">—</span>
+  </div></div></div></div></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" class="report-table__index-cell report-table__cell--strong">合计</td><td rowspan="2" class=" report-table__cell--strong report-table__span-cell">—</td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
   </table></div><div class="report-block report-longtext-block"><div class="report-longtext">
     <div class="report-longtext__label">租赁物权属状态说明：</div>
     <div class="report-longtext__value">测试</div>
@@ -1109,10 +1233,7 @@
       <span>承租人基本信息</span>
       
     </div>
-    <div class="report-module__body"><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">基本信息</span>
-  </div><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
+    <div class="report-module__body"><div class="report-block"><div class="report-section-heading">基本信息</div></div><div class="report-block report-group"><div class="report-grid"><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
     <span class="report-kv__label">企业名称：</span>
     <span class="report-kv__value">昆山东卓精密电子科技有限公司</span>
   </div></div><div class="report-grid__cell report-grid__cell--w-25"><div class="report-kv">
@@ -1154,11 +1275,8 @@
   </div><table class="report-table"><thead><tr><th>序号</th><th class="">股东名称</th><th class="report-table__cell--align-right">出资额(万元)</th><th class="report-table__cell--align-right">占比(%)</th></tr></thead><tbody><tr><td>1</td><td class="">测试</td><td class="report-table__cell--align-right report-table__cell--strong">1,000.00</td><td class="report-table__cell--align-right report-table__cell--strong">10.0000</td></tr><tr class="report-table__summary-row"><td class="report-table__cell--strong">合计</td><td class="">—</td><td class="report-table__cell--align-right report-table__cell--strong">1,000.00</td><td class="report-table__cell--align-right report-table__cell--strong">10.0000</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
     <div class="report-longtext__label">实控人及股东情况介绍：</div>
     <div class="report-longtext__value">测试</div>
-  </div></div><div class="report-block report-litigation-section"><div class="report-litigation-section__header">
-    <div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">司法诉讼信息</span>
-  </div>
+  </div></div><div class="report-block"><div class="report-section-heading">司法诉讼信息</div></div><div class="report-block report-litigation-section"><div class="report-litigation-section__header">
+    
     <span class="report-litigation-section__meta">司法诉讼数据更新时间：2026-06-02 09:53:30</span>
   </div><div class="report-litigation-grid"><div class="report-litigation-card report-litigation-card--highRisk">
       <span class="report-litigation-card__num">80</span>
@@ -1213,7 +1331,6 @@
       <span class="report-associate-synopsis__name">苏州宜飞美福进口汽车有限公司</span>
       <span class="report-associate-synopsis__id">统一社会信用代码：91320507346114611U</span>
     </div></div><div class="report-block report-associate-detail"><div class="report-associate-detail__header">
-    <span class="report-associate-tag report-associate-tag--nonGuarantor"><span>非担保人</span></span>
     <span class="report-associate-detail__title">北京鑫鑫印刷有限公司</span>
     <span class="report-associate-detail__id">统一社会信用代码：911101147921218971</span>
   </div><div class="report-block report-group"><div class="report-section-title">
@@ -1266,7 +1383,7 @@
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">司法诉讼信息</span>
   </div>
-    <span class="report-litigation-section__meta">司法诉讼数据更新时间：2025-04-17 10:34:39</span>
+    
   </div><div class="report-litigation-grid"><div class="report-litigation-card report-litigation-card--highRisk">
       <span class="report-litigation-card__num">1</span>
       <span class="report-litigation-card__type">被执行人</span>
@@ -1423,10 +1540,7 @@
     <div class="report-module__body"><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">主体列表</span>
-  </div><table class="report-table"><thead><tr><th>序号</th><th class="">主体名称</th><th class="">主体角色</th></tr></thead><tbody><tr><td>1</td><td class="">上海一可包装制品有限公司</td><td class="">承租人</td></tr><tr><td>2</td><td class="">嘉兴市高宝印刷股份有限公司</td><td class="">担保人,关联方</td></tr></tbody></table></div><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">资产规模</span>
-  </div></div><div class="report-block report-table-block"><div class="report-section-title">
+  </div><table class="report-table"><thead><tr><th>序号</th><th class="">主体名称</th><th class="">主体角色</th></tr></thead><tbody><tr><td>1</td><td class="">上海一可包装制品有限公司</td><td class="">承租人</td></tr><tr><td>2</td><td class="">嘉兴市高宝印刷股份有限公司</td><td class="">担保人,关联方</td></tr></tbody></table></div><div class="report-block"><div class="report-section-heading">资产规模</div></div><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">厂房情况</span>
   </div><table class="report-table report-table--stacked">
@@ -1449,10 +1563,7 @@
     <div class="report-longtext__label">稼动率说明：</div>
     <div class="report-longtext__value">1、拟承租人上海一可包装制品有限公司主要为生产食品膜袋、卫包、冰袋等，主要原材料为PE膜和铝箔袋，稼动率95%以上；
 2、拟担保企业嘉兴市高宝印刷股份有限公司主要为生产纸盒包装等，主要原材料为瓦楞纸板、纸片，稼动率95%以上；</div>
-  </div></div><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">生产销售情况分析</span>
-  </div></div><div class="report-block report-table-block"><div class="report-section-title">
+  </div></div><div class="report-block"><div class="report-section-heading">生产销售情况分析</div></div><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">近12个月主营产品</span>
   </div><table class="report-table"><thead><tr><th>序号</th><th class="">主体名称</th><th class="">主体角色</th><th class="">产品名称</th><th class="report-table__cell--align-right">开票销售额(万)</th><th class="report-table__cell--align-right">占比(%)</th><th class="">来源</th></tr></thead><tbody><tr><td>1</td><td class="" rowspan="11">上海一可包装制品有限公司</td><td class="" rowspan="11">承租人</td><td class="">原纸</td><td class="report-table__cell--align-right">549.94</td><td class="report-table__cell--align-right">4.6100</td><td class="">系统</td></tr><tr><td>2</td><td class="">彩箱</td><td class="report-table__cell--align-right">439.10</td><td class="report-table__cell--align-right">3.6800</td><td class="">系统</td></tr><tr><td>3</td><td class="">铝箔卷膜</td><td class="report-table__cell--align-right">431.86</td><td class="report-table__cell--align-right">3.6200</td><td class="">系统</td></tr><tr><td>4</td><td class="">包装膜</td><td class="report-table__cell--align-right">357.45</td><td class="report-table__cell--align-right">3.0000</td><td class="">系统</td></tr><tr><td>5</td><td class="">包装材料</td><td class="report-table__cell--align-right">305.84</td><td class="report-table__cell--align-right">2.5600</td><td class="">系统</td></tr><tr><td>6</td><td class="">棉柔巾系列</td><td class="report-table__cell--align-right">231.59</td><td class="report-table__cell--align-right">1.9400</td><td class="">系统</td></tr><tr><td>7</td><td class="">包装卷膜</td><td class="report-table__cell--align-right">180.53</td><td class="report-table__cell--align-right">1.5100</td><td class="">系统</td></tr><tr><td>8</td><td class="">印刷包装制品</td><td class="report-table__cell--align-right">180.78</td><td class="report-table__cell--align-right">1.5100</td><td class="">系统</td></tr><tr><td>9</td><td class="">湿巾系列</td><td class="report-table__cell--align-right">170.38</td><td class="report-table__cell--align-right">1.4300</td><td class="">系统</td></tr><tr><td>10</td><td class="">包装袋</td><td class="report-table__cell--align-right">153.84</td><td class="report-table__cell--align-right">1.2900</td><td class="">系统</td></tr><tr><td>11</td><td class="">合计</td><td class="report-table__cell--align-right">3001.31</td><td class="report-table__cell--align-right">25.1500</td><td class="">—</td></tr><tr><td>12</td><td class="" rowspan="11">嘉兴市高宝印刷股份有限公司</td><td class="" rowspan="11">担保人,关联方</td><td class="">彩箱</td><td class="report-table__cell--align-right">970.07</td><td class="report-table__cell--align-right">13.9500</td><td class="">系统</td></tr><tr><td>13</td><td class="">200克莫斯利安原味酸牛奶礼箱1*12（带提手）</td><td class="report-table__cell--align-right">550.79</td><td class="report-table__cell--align-right">7.9200</td><td class="">系统</td></tr><tr><td>14</td><td class="">彩盒</td><td class="report-table__cell--align-right">430.95</td><td class="report-table__cell--align-right">6.2000</td><td class="">系统</td></tr><tr><td>15</td><td class="">纸箱</td><td class="report-table__cell--align-right">426.38</td><td class="report-table__cell--align-right">6.1300</td><td class="">系统</td></tr><tr><td>16</td><td class="">GA IJ外箱</td><td class="report-table__cell--align-right">368.92</td><td class="report-table__cell--align-right">5.3000</td><td class="">系统</td></tr><tr><td>17</td><td class="">山姆火龙果开口箱</td><td class="report-table__cell--align-right">238.83</td><td class="report-table__cell--align-right">3.4300</td><td class="">系统</td></tr><tr><td>18</td><td class="">小马宝莉转盘礼盒-底座插扣盒（按样）</td><td class="report-table__cell--align-right">107.99</td><td class="report-table__cell--align-right">1.5500</td><td class="">系统</td></tr><tr><td>19</td><td class="">金枕冻榴莲外箱</td><td class="report-table__cell--align-right">93.42</td><td class="report-table__cell--align-right">1.3400</td><td class="">系统</td></tr><tr><td>20</td><td class="">HBN-6号箱(2024)</td><td class="report-table__cell--align-right">88.78</td><td class="report-table__cell--align-right">1.2700</td><td class="">系统</td></tr><tr><td>21</td><td class="">Y25常规款;12粒;18/22/25#;金果;竖版抽拉式礼盒</td><td class="report-table__cell--align-right">79.50</td><td class="report-table__cell--align-right">1.1400</td><td class="">系统</td></tr><tr><td>22</td><td class="">合计</td><td class="report-table__cell--align-right">3355.63</td><td class="report-table__cell--align-right">48.2300</td><td class="">—</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
@@ -1476,14 +1587,11 @@
 4、拟承租人及拟担保企业与上下游客户无诉讼；
 其余近两年内无其他诉讼。
 下游主要客户为市面知名品牌企业洁雅股份、晋江恒安（心相印）、巴比食品、王小卤等，较为优质；</div>
-  </div></div><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">收入分析</span>
   </div></div><div class="report-block report-longtext-block"><div class="report-longtext">
     <div class="report-longtext__label">生产销售情况说明：</div>
     <div class="report-longtext__value">1.拟承租人上海一可包装制品有限公司主要食品膜袋、卫包、冰袋等的生产，销售方面，下游客户较为分散，无明显异常，生产班制两班，无欠薪情况；
 2.拟担保企业嘉兴市高宝印刷股份有限公司主要为纸盒包装生产销售，销售方面，下游客户较为分散，无明显异，生产班制一班，无欠薪情况。</div>
-  </div></div><div class="report-block report-table-block"><div class="report-section-title">
+  </div></div><div class="report-block"><div class="report-section-heading">收入分析</div></div><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">营业收入分析</span>
   </div><table class="report-table"><thead><tr><th class="">主体名称</th><th class="">主体角色</th><th class="">类型</th><th class="report-table__cell--align-right">2023年01月-2023年12月</th><th class="report-table__cell--align-right">2024年01月-2024年12月</th><th class="report-table__cell--align-right">2025年01月-2025年12月</th><th class="report-table__cell--align-right">2026年01月-2026年06月</th></tr></thead><tbody><tr><td class="" rowspan="2">上海一可包装制品有限公司</td><td class="" rowspan="2">承租人</td><td class="">开票收入(万)</td><td class="report-table__cell--align-right">10619.75</td><td class="report-table__cell--align-right">10902.46</td><td class="report-table__cell--align-right">10389.43</td><td class="report-table__cell--align-right">5362.65</td></tr><tr><td class="">不开票收入(万)</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">0.00</td></tr><tr><td class="" rowspan="2">嘉兴市高宝印刷股份有限公司</td><td class="" rowspan="2">担保人,关联方</td><td class="">开票收入(万)</td><td class="report-table__cell--align-right">5043.22</td><td class="report-table__cell--align-right">6329.81</td><td class="report-table__cell--align-right">7164.29</td><td class="report-table__cell--align-right">2858.85</td></tr><tr><td class="">不开票收入(万)</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">0.00</td><td class="report-table__cell--align-right">0.00</td></tr><tr class="report-table__summary-row"><td colspan="3" class="report-table__cell--strong">合计(万)</td><td class="report-table__cell--align-right report-table__cell--strong">15662.97</td><td class="report-table__cell--align-right report-table__cell--strong">17232.27</td><td class="report-table__cell--align-right report-table__cell--strong">17553.72</td><td class="report-table__cell--align-right report-table__cell--strong">8221.50</td></tr><tr class="report-table__summary-row"><td colspan="3" class="report-table__cell--strong">关联交易(万)</td><td class="report-table__cell--align-right report-table__cell--strong">700.00</td><td class="report-table__cell--align-right report-table__cell--strong">900.00</td><td class="report-table__cell--align-right report-table__cell--strong">815.00</td><td class="report-table__cell--align-right report-table__cell--strong">0.00</td></tr><tr class="report-table__summary-row"><td colspan="3" class="report-table__cell--strong">剔除关联交易后合计(万)</td><td class="report-table__cell--align-right report-table__cell--strong">14962.97</td><td class="report-table__cell--align-right report-table__cell--strong">16332.27</td><td class="report-table__cell--align-right report-table__cell--strong">16738.72</td><td class="report-table__cell--align-right report-table__cell--strong">8221.50</td></tr></tbody></table></div><div class="report-block report-longtext-block"><div class="report-longtext">
@@ -1502,15 +1610,12 @@
       <tr class="report-table__head-row--top"><th rowspan="2" class="">主体名称</th><th rowspan="2" class="">主体角色</th><th rowspan="2" class="">类型</th><th><span class="report-table__stack-label">2026年01月</span></th><th><span class="report-table__stack-label">2026年03月</span></th><th><span class="report-table__stack-label">2026年05月</span></th><th><span class="report-table__stack-label">合计</span></th></tr>
       <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">2026年02月</span></th><th><span class="report-table__stack-label">2026年04月</span></th><th><span class="report-table__stack-label">2026年06月</span></th><th><span class="report-table__stack-label">均值</span></th></tr>
     </thead>
-    <tbody><tr class="report-table__data-row--top"><td rowspan="12" class=" report-table__span-cell">上海一可包装制品有限公司</td><td rowspan="12" class=" report-table__span-cell">承租人</td><td rowspan="2" class=" report-table__span-cell">纳税申报收入(万)</td><td><span class="report-table__stack-value">1094.30</span></td><td><span class="report-table__stack-value">950.74</span></td><td><span class="report-table__stack-value">862.50</span></td><td><span class="report-table__stack-value">5140.38</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">500.96</span></td><td><span class="report-table__stack-value">935.53</span></td><td><span class="report-table__stack-value">796.35</span></td><td><span class="report-table__stack-value">856.73</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行流水(万)(剔除关联交易)</td><td><span class="report-table__stack-value">728.84</span></td><td><span class="report-table__stack-value">893.51</span></td><td><span class="report-table__stack-value">521.77</span></td><td><span class="report-table__stack-value">4678.56</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">427.44</span></td><td><span class="report-table__stack-value">1391.00</span></td><td><span class="report-table__stack-value">716.00</span></td><td><span class="report-table__stack-value">779.76</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行承兑(万)(剔除关联交易)</td><td><span class="report-table__stack-value">231.33</span></td><td><span class="report-table__stack-value">221.42</span></td><td><span class="report-table__stack-value">213.15</span></td><td><span class="report-table__stack-value">1099.05</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">65.64</span></td><td><span class="report-table__stack-value">154.72</span></td><td><span class="report-table__stack-value">212.79</span></td><td><span class="report-table__stack-value">183.17</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">纳税申报采购(万)</td><td><span class="report-table__stack-value">840.03</span></td><td><span class="report-table__stack-value">1010.41</span></td><td><span class="report-table__stack-value">930.48</span></td><td><span class="report-table__stack-value">5366.42</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">560.26</span></td><td><span class="report-table__stack-value">1028.40</span></td><td><span class="report-table__stack-value">996.84</span></td><td><span class="report-table__stack-value">894.40</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">电费(万)</td><td><span class="report-table__stack-value">40.67</span></td><td><span class="report-table__stack-value">30.61</span></td><td><span class="report-table__stack-value">21.37</span></td><td><span class="report-table__stack-value">164.30</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">19.56</span></td><td><span class="report-table__stack-value">26.15</span></td><td><span class="report-table__stack-value">25.94</span></td><td><span class="report-table__stack-value">27.38</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">工资总额(万)</td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">840.00</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td></tr><tr class="report-table__data-row--top"><td rowspan="12" class=" report-table__span-cell">嘉兴市高宝印刷股份有限公司</td><td rowspan="12" class=" report-table__span-cell">担保人,关联方</td><td rowspan="2" class=" report-table__span-cell">纳税申报收入(万)</td><td><span class="report-table__stack-value">403.91</span></td><td><span class="report-table__stack-value">235.07</span></td><td><span class="report-table__stack-value">491.67</span></td><td><span class="report-table__stack-value">2237.11</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">204.05</span></td><td><span class="report-table__stack-value">393.25</span></td><td><span class="report-table__stack-value">509.16</span></td><td><span class="report-table__stack-value">372.85</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行流水(万)(剔除关联交易)</td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">4822.83</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">803.80</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行承兑(万)(剔除关联交易)</td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">120.00</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">纳税申报采购(万)</td><td><span class="report-table__stack-value">392.59</span></td><td><span class="report-table__stack-value">408.72</span></td><td><span class="report-table__stack-value">664.31</span></td><td><span class="report-table__stack-value">2858.85</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">403.34</span></td><td><span class="report-table__stack-value">309.05</span></td><td><span class="report-table__stack-value">680.84</span></td><td><span class="report-table__stack-value">476.48</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">电费(万)</td><td><span class="report-table__stack-value">8.09</span></td><td><span class="report-table__stack-value">8.31</span></td><td><span class="report-table__stack-value">11.85</span></td><td><span class="report-table__stack-value">52.01</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">5.43</span></td><td><span class="report-table__stack-value">9.21</span></td><td><span class="report-table__stack-value">9.12</span></td><td><span class="report-table__stack-value">8.67</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">工资总额(万)</td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">348.00</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" colspan="3" class="report-table__cell--strong">流水与承兑合计(万)(剔除关联交易)</td><td class="report-table__cell--strong"><span class="report-table__stack-value">1420.77</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1572.56</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1129.85</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">8294.58</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">783.39</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1841.24</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1546.77</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1382.43</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" colspan="3" class="report-table__cell--strong">纳税申报收入关联交易(万)</td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" colspan="3" class="report-table__cell--strong">剔除关联交易后纳税申报收入合计(万)</td><td class="report-table__cell--strong"><span class="report-table__stack-value">1232.62</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1419.13</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1594.79</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">8225.27</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">963.60</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1337.45</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1677.68</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1370.88</span></td></tr></tbody>
+    <tbody><tr class="report-table__data-row--top"><td rowspan="12" class=" report-table__span-cell">上海一可包装制品有限公司</td><td rowspan="12" class=" report-table__span-cell">承租人</td><td rowspan="2" class=" report-table__span-cell">纳税申报收入(万)</td><td><span class="report-table__stack-value">840.03</span></td><td><span class="report-table__stack-value">1010.41</span></td><td><span class="report-table__stack-value">930.48</span></td><td><span class="report-table__stack-value">5366.42</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">560.26</span></td><td><span class="report-table__stack-value">1028.40</span></td><td><span class="report-table__stack-value">996.84</span></td><td><span class="report-table__stack-value">894.40</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行流水(万)(剔除关联交易)</td><td><span class="report-table__stack-value">728.84</span></td><td><span class="report-table__stack-value">893.51</span></td><td><span class="report-table__stack-value">521.77</span></td><td><span class="report-table__stack-value">4678.56</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">427.44</span></td><td><span class="report-table__stack-value">1391.00</span></td><td><span class="report-table__stack-value">716.00</span></td><td><span class="report-table__stack-value">779.76</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行承兑(万)(剔除关联交易)</td><td><span class="report-table__stack-value">231.33</span></td><td><span class="report-table__stack-value">221.42</span></td><td><span class="report-table__stack-value">213.15</span></td><td><span class="report-table__stack-value">1099.05</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">65.64</span></td><td><span class="report-table__stack-value">154.72</span></td><td><span class="report-table__stack-value">212.79</span></td><td><span class="report-table__stack-value">183.17</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">纳税申报采购(万)</td><td><span class="report-table__stack-value">1094.30</span></td><td><span class="report-table__stack-value">950.74</span></td><td><span class="report-table__stack-value">862.50</span></td><td><span class="report-table__stack-value">5140.38</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">500.96</span></td><td><span class="report-table__stack-value">935.53</span></td><td><span class="report-table__stack-value">796.35</span></td><td><span class="report-table__stack-value">856.73</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">电费(万)</td><td><span class="report-table__stack-value">40.67</span></td><td><span class="report-table__stack-value">30.61</span></td><td><span class="report-table__stack-value">21.37</span></td><td><span class="report-table__stack-value">164.30</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">19.56</span></td><td><span class="report-table__stack-value">26.15</span></td><td><span class="report-table__stack-value">25.94</span></td><td><span class="report-table__stack-value">27.38</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">工资总额(万)</td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">840.00</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td><td><span class="report-table__stack-value">140.00</span></td></tr><tr class="report-table__data-row--top"><td rowspan="12" class=" report-table__span-cell">嘉兴市高宝印刷股份有限公司</td><td rowspan="12" class=" report-table__span-cell">担保人,关联方</td><td rowspan="2" class=" report-table__span-cell">纳税申报收入(万)</td><td><span class="report-table__stack-value">392.59</span></td><td><span class="report-table__stack-value">408.72</span></td><td><span class="report-table__stack-value">664.31</span></td><td><span class="report-table__stack-value">2858.85</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">403.34</span></td><td><span class="report-table__stack-value">309.05</span></td><td><span class="report-table__stack-value">680.84</span></td><td><span class="report-table__stack-value">476.48</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行流水(万)(剔除关联交易)</td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">2396.97</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">[object Object]</span></td><td><span class="report-table__stack-value">399.50</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">银行承兑(万)(剔除关联交易)</td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">120.00</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td><td><span class="report-table__stack-value">20.00</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">纳税申报采购(万)</td><td><span class="report-table__stack-value">403.91</span></td><td><span class="report-table__stack-value">235.07</span></td><td><span class="report-table__stack-value">491.67</span></td><td><span class="report-table__stack-value">2237.11</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">204.05</span></td><td><span class="report-table__stack-value">393.25</span></td><td><span class="report-table__stack-value">509.16</span></td><td><span class="report-table__stack-value">372.85</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">电费(万)</td><td><span class="report-table__stack-value">8.09</span></td><td><span class="report-table__stack-value">8.31</span></td><td><span class="report-table__stack-value">11.85</span></td><td><span class="report-table__stack-value">52.01</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">5.43</span></td><td><span class="report-table__stack-value">9.21</span></td><td><span class="report-table__stack-value">9.12</span></td><td><span class="report-table__stack-value">8.67</span></td></tr><tr class="report-table__data-row--top"><td rowspan="2" class=" report-table__span-cell">工资总额(万)</td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">348.00</span></td></tr><tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td><td><span class="report-table__stack-value">58.00</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" colspan="3" class="report-table__cell--strong">流水与承兑合计(万)(剔除关联交易)</td><td class="report-table__cell--strong"><span class="report-table__stack-value">1420.77</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1572.56</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1129.85</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">8294.58</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">783.39</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1841.24</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1546.77</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" colspan="3" class="report-table__cell--strong">纳税申报收入关联交易(万)</td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">0.00</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr><tr class="report-table__summary-row--top report-table__data-row--top"><td rowspan="2" colspan="3" class="report-table__cell--strong">剔除关联交易后纳税申报收入合计(万)</td><td class="report-table__cell--strong"><span class="report-table__stack-value">1232.62</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1419.13</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1594.79</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">8225.27</span></td></tr><tr class="report-table__summary-row--bottom report-table__data-row--bottom"><td class="report-table__cell--strong"><span class="report-table__stack-value">963.60</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1337.45</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">1677.68</span></td><td class="report-table__cell--strong"><span class="report-table__stack-value">—</span></td></tr></tbody>
   </table></div><div class="report-block report-longtext-block"><div class="report-longtext">
     <div class="report-longtext__label">营业收入核验说明：</div>
     <div class="report-longtext__value">1、拟承租人及拟担保企业月均开票营收合计1370万元，银行流水及承兑月均流入1466万元，可核验相关营业收入，无异常。
 2、流水中出现的对嘉兴市港区耀协建材商行转出资金1900万，经与客户了解，系通过该公司购入一些商业汇票，赚取少量收益。</div>
-  </div></div><div class="report-block report-group"><div class="report-section-title">
-    <span class="report-section-title__dot"></span>
-    <span class="report-section-title__text">还款能力分析</span>
-  </div></div><div class="report-block report-table-block"><div class="report-section-title">
+  </div></div><div class="report-block"><div class="report-section-heading">还款能力分析</div></div><div class="report-block report-table-block"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">基础信息</span>
   </div><table class="report-table"><thead><tr><th>序号</th><th class="">主体名称</th><th class="">主体角色</th><th class="report-table__cell--align-right">流水收入(万)</th><th class="report-table__cell--align-right">开票收入(万)</th><th class="report-table__cell--align-right">日均余额(万)</th></tr></thead><tbody><tr><td>1</td><td class="">上海一可包装制品有限公司</td><td class="">承租人</td><td class="report-table__cell--align-right">962.94</td><td class="report-table__cell--align-right">893.78</td><td class="report-table__cell--align-right">19.13</td></tr><tr><td>2</td><td class="">嘉兴市高宝印刷股份有限公司</td><td class="">担保人,关联方</td><td class="report-table__cell--align-right">419.50</td><td class="report-table__cell--align-right">476.48</td><td class="report-table__cell--align-right">49.61</td></tr></tbody></table></div><div class="report-block report-table-block"><div class="report-section-title">
@@ -1555,10 +1660,7 @@ c、嘉兴高宝中登有供应商嘉兴申丰包装科技股份有限公司登�
       <span>刚性负债分析</span>
       
     </div>
-    <div class="report-module__body"><div class="report-block"><div class="report-kv">
-    <span class="report-kv__label">征信、中登数据更新时间：</span>
-    <span class="report-kv__value">2026-09-01 08:54:51</span>
-  </div></div><div class="report-block report-group"><div class="report-section-title">
+    <div class="report-module__body"><div class="report-block report-group"><div class="report-section-title">
     <span class="report-section-title__dot"></span>
     <span class="report-section-title__text">借款情况</span>
   </div></div><div class="report-block report-table-block"><div class="report-section-title">
@@ -2070,365 +2172,4 @@ c、嘉兴高宝中登有供应商嘉兴申丰包装科技股份有限公司登�
           <span class="report-analysis-item__entity-name">连云港惟美数智家居科技有限公司</span>
         </div><div class="report-analysis-item__conclusion"><div class="report-md"><h2>模块七：综合评分与建议</h2><ul><li><strong>综合评分</strong>：无风险</li><li><strong>风险等级</strong>：低风险</li><li><strong>风险结论</strong>：该客户（C120240028608）经司法涉诉信息查询，查询状态为&quot;无数据&quot;，无任何作为原告、被告、被执行人、失信被执行人的司法涉诉记录。无被执行/失信/限高/破产记录，无在诉被告案件，近2年案件数量为0件（&lt;3件），符合低风险判定标准。客户整体信用状况良好，未发现司法涉诉相关风险点。</li><li><strong>风控建议</strong>：</li></ul><ol><li>该客户当前无司法涉诉风险，建议维持正常业务合作</li><li>建议定期（如每季度或每半年）复查司法涉诉信息，以及时发现潜在风险</li><li>关注客户经营状况变化，如出现异常可提高司法查询频次</li><li>评分基于剔除风险中性案件后的保留清单，当前保留清单为空，无风险案件需重点关注</li></ol></div></div></div></div>
   </div></div>
-  </div><div class="report-module" data-module-key="attachments">
-    <div class="report-module__header">
-      <span>附件信息</span>
-      
-    </div>
-    <div class="report-module__body"><div class="report-block report-attachment-sections"><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">基础材料</span>
-        <span class="report-attachment-section__desc">营业执照，自然人身份证明，公司章程，开户许可证，开票资料</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">宋文放身份证 (2).jpg</div>
-        <div class="report-attachment-card__meta">文件类型：自然人身份证明</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">宜飞营业执照.jpg</div>
-        <div class="report-attachment-card__meta">文件类型：营业执照</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">宋文放身份证 (1).jpg</div>
-        <div class="report-attachment-card__meta">文件类型：自然人身份证明</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹营业执照.jpg</div>
-        <div class="report-attachment-card__meta">文件类型：营业执照</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹开票资料.jpg</div>
-        <div class="report-attachment-card__meta">文件类型：开票资料</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">宜飞开票资料.jpg</div>
-        <div class="report-attachment-card__meta">文件类型：开票资料</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">宜飞报表和章程.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：公司章程</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹安徽工商备案档案（设立+2次变更）.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：公司章程</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">征信材料</span>
-        <span class="report-attachment-section__desc">征信附件，征信授权文件</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统同步-承租人-鹰兹汽车科技（安徽）有限公司-1787721118506-征信授权文件-1.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：征信授权文件</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统同步-担保人-宋文放-客户资信结构化报告-20260826131158.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：征信附件</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统同步-承租人-鹰兹汽车科技（安徽）有限公司-客户资信结构化报告-20260826131158.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：征信附件</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统同步-担保人-苏州宜飞美福进口汽车有限公司-客户资信结构化报告-20260826131209.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：征信附件</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:13:41</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">资质材料</span>
-        <span class="report-attachment-section__desc">厂房租赁合同，不动产权证书，水电费缴纳凭证，特殊行业资质证明，环评批复，房产证</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">房产 (1).jpg</div>
-        <div class="report-attachment-card__meta">文件类型：房产证</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">房产 (2).jpg</div>
-        <div class="report-attachment-card__meta">文件类型：房产证</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:09:53</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹安徽厂房租赁合同-双签202509.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：厂房租赁合同</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">苏州宜飞美福房屋租赁合同-苏州德宇汽车2026年(1).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：厂房租赁合同</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">租赁物材料</span>
-        <span class="report-attachment-section__desc">设备销售合同，代理进口合同，租赁物发票，营业执照（供应商），身份证明（供应商法人代表），开户许可证（供应商），开票资料（供应商）</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">租赁物发票.zip</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 10:06:12</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">1-5 (4).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">16.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">8.9.11.12.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">7.8.9.10.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">6 (2).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">1-5 (3).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">17.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">15.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">14 (2).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">8.9.10.13.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">14 (1).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">6 (3).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">1-5 (1).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">1-5 (2).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:02</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">6 (1).pdf</div>
-        <div class="report-attachment-card__meta">文件类型：租赁物发票</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 09:57:02</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">财税报表</span>
-        <span class="report-attachment-section__desc">财务报表，纳税申报表</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹安徽202412财务报表-提交江苏金租（已签章）.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：财务报表</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">宜飞报表和章程.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：财务报表</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹安徽2026年06月财务报表-提交江苏金租（已签章）.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：财务报表</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹安徽202512财务报表-提交江苏金租（已盖章）.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：财务报表</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-21 11:57:29</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">银行流水</span>
-        <span class="report-attachment-section__desc">银行流水，银行流水分析报告</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统同步-鹰兹汽车科技（安徽）有限公司回租第(1)单-流水分析报告.docx</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水分析报告</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 18:13:27</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-202508-202608苏州宜飞平安工资.xlsx</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 17:59:36</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-202508-202608苏州宜飞交行工资.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 17:59:36</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-202508-202608苏州宜飞农商行工资.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 17:59:36</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">202508-202608苏州宜飞交行工资.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 14:07:02</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">202508-202608苏州宜飞农商行工资.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 14:07:02</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">202508-202608苏州宜飞平安工资.xlsx</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-01 14:07:02</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20260701-20260809银行流水（0817导出）.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:10</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽农业银行20250801-20251231明细（0817导出）.xlsx</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽农业银行20260701-20260809明细（0817导出）.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20250801-20251231银行流水（0817导出）.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20260101-20260331银行流水（0817导出）.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽中国银行20260401-20260630银行流水（0817导出）.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽农业银行20260101-20260630明细（0817导出）.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:17:09</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽兴业银行2508-2512交易明细.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:16:41</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽兴业银行2601-260807交易明细.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-17 17:16:41</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-鹰兹安徽建设银行2508-2608交易明细.xlsx</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-12 09:08:45</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-建行10292025.08-2026.08.xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-10 12:07:12</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">系统上传-农行77002025.08-2026.08(1).xls</div>
-        <div class="report-attachment-card__meta">文件类型：银行流水</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-10 12:07:12</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">补充材料</span>
-        <span class="report-attachment-section__desc">政策文件，突破定价申请材料，访厂照片，订单信息，补充材料，其它，客户风险评估报告</span>
-      </div>
-      <div class="report-attachment-grid">
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">评审意见的回复.docx</div>
-        <div class="report-attachment-card__meta">文件类型：其它</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-02 10:56:03</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">裁定书.zip</div>
-        <div class="report-attachment-card__meta">文件类型：其它</div>
-        <div class="report-attachment-card__meta">上传时间：2026-09-02 10:37:24</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">补充材料-补充材料-鹰兹回租项目流动资金缺口测算更新V3.0.xlsx</div>
-        <div class="report-attachment-card__meta">文件类型：其它</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-27 10:07:00</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">苏州宜飞美福进口汽车有限公司-客户资信结构化报告-20260803104509.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：其它</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:18:19</div>
-      </div>
-      <div class="report-attachment-card">
-        <div class="report-attachment-card__name">鹰兹汽车科技（安徽）有限公司-客户资信结构化报告-20260826131606.pdf</div>
-        <div class="report-attachment-card__meta">文件类型：其它</div>
-        <div class="report-attachment-card__meta">上传时间：2026-08-26 13:18:19</div>
-      </div></div>
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">中登报送</span>
-        <span class="report-attachment-section__desc">报送中登</span>
-      </div>
-      
-    </div><div class="report-attachment-section">
-      <div class="report-attachment-section__head">
-        <span class="report-attachment-section__title">尽调报告</span>
-        <span class="report-attachment-section__desc">尽职调查报告</span>
-      </div>
-      
-    </div></div></div>
-  </div>
 </div>
