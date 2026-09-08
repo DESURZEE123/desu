@@ -184,6 +184,8 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `summary` | object | 合计行；无合计时不传 |
 | `emptyText` | string | `rows` 为空时的占位文案，默认「暂无数据」 |
 
+**单元格高亮（L1 → L2）：** 单元格值可为字符串，或 `{ "value": "…", "cellType": "highlight" }`（兼容 `highlight: true`）。L2 须解包 `value` 再渲染，高亮时包 `<span class="report-table__cell--highlight">`；**禁止**对对象直接 `String()`（会得到 `[object Object]`）。叠行宽表可将该类加在 `.report-table__stack-value` 上，以保证橙色生效。
+
 **`mergeSame` 合并规则：**
 
 1. 仅当 `columns[].mergeSame === true` 时生效
@@ -988,7 +990,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | 结构 | 必须包含 `thead` + `tbody`，合计行放在 `tbody` 最后一行 |
 | 序号列 | `showIndex: true` 时，首列为自增序号（从 1 开始）；**不计入** 8 列上限 |
 | 表头 | 取 `columns[].label`，**不输出** `columns[].key` |
-| 数据行 | `rows` 中每个对象对应一行 `tr`，按 `columns[].key` 取值 |
+| 数据行 | `rows` 中每个对象对应一行 `tr`，按 `columns[].key` 取值；若值为 `{ value, cellType: "highlight" }` 则解包并加 `.report-table__cell--highlight` |
 | 同值合并 | `columns[].mergeSame === true` 时，对该列连续相同非空值输出 `rowspan`（见 §2.3）；垂直居中可用默认 `td` 对齐 |
 | 合计行 | `summary` 存在时渲染；`summary.index` 默认为「合计 --」；数值列加 `report-table__cell--strong` |
 | 空数据 | `rows` 为空时，不渲染 `table`，改为 `report-table-empty` |
