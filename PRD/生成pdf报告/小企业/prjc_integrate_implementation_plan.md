@@ -97,7 +97,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 顺序 | blockKey | label | displayType |
 | :--: | -------- | ----- | ----------- |
 | 1 | `riskSummary` | （无标题 / 可不传 label） | `group` |
-| 2 | `quoteTitle_{i}` | `{quotName}` | `group`（仅标题，`children` 可为空） |
+| 2 | `quoteTitle_{i}` | `{quotName}` | `sectionHeading` |
 | 3 | `loanInfo_{i}` | `投放信息` | `group` |
 | 4 | `paymentTermList_{i}` | `付款条件及笔数` | `table` |
 | 5 | `rentPlanSummary_{i}` | `租金计划表` | `group` |
@@ -142,7 +142,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 }
 ```
 
-### 7.2 报价方案标题（group）
+### 7.2 报价方案标题（sectionHeading）
 
 数据来源：`advertisingInfoList[i].quotName`
 
@@ -150,15 +150,13 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 {
   "blockKey": "quoteTitle_0",
   "label": "20260810回租1",
-  "displayType": "group",
-  "columns": 1,
-  "children": []
+  "displayType": "sectionHeading"
 }
 ```
 
 - `label` 取 `quotName`；空则填 `—`
-- L2 渲染为蓝色圆点小节标题，对应页面报价名称标签
-
+- L2 渲染蓝竖条大区标题（`prjc_style_render` §5.4.1），对应页面报价名称标签
+- **不要**用空 `group`（圆点标题）
 ### 7.3 投放信息（group）
 
 数据来源：`advertisingInfoList[i]`
@@ -185,7 +183,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 是否起租调整 | `isStartLease` | `direct` | 原样 |
 | 先付后付标识 | `paymentOrder` | `direct` | 原样 |
 | 投放日期 | `advertisingDate` | `direct` | 原样 |
-| 银票收益率(%) | `babRate` | `direct` | 原样；空可回退 `referenceRate.contIrrBanknote` |
+| 银票收益率(%) | `referenceRate.contIrrBanknote` | `direct` | 原样` |
 | 是否调息 | `isAdjustingInterest` | `direct` | 原样 |
 
 ### 7.4 付款条件及笔数（table）
@@ -244,7 +242,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 - `showIndex`: `false`（期数为业务字段，非自增序号）
 - `emptyText`: `暂无租金计划`
-- 金额列建议 `align: "right"`
+- 金额列建议 `align: "left"`
 
 ### 7.7 保证金计划（table）
 
@@ -257,9 +255,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
 | 期数 | `leaseTime` | 原样 |
-| 事件类别 | `eventName` | 原样；空可回退 `eventCategory` / `type` |
+| 事件类别 | `eventName` | 原样 |
 | 还款日期 | `planDate` | 原样 |
-| 应收金额(元) | `amount` | 千分位 + 2 位小数；空可回退 `leaseCash` |
+| 应收金额(元) | `amount` | 千分位 + 2 位小数 |
 
 - `showIndex`: `false`
 - `emptyText`: `暂无保证金计划`
@@ -477,9 +475,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
     {
       "blockKey": "quoteTitle_0",
       "label": "20260810回租1",
-      "displayType": "group",
-      "columns": 1,
-      "children": []
+      "displayType": "sectionHeading"
     },
     {
       "blockKey": "loanInfo_0",
