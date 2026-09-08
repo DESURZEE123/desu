@@ -167,7 +167,7 @@ function normalizeConclusion(v) {
 }
 
 function gridWidthClass(columns) {
-  const map = { 1: '100', 2: '50', 3: '33', 4: '25' };
+  const map = { 1: '100', 2: '50', 3: '33', 4: '25', 5: '20' };
   return `report-grid__cell--w-${map[columns] || '25'}`;
 }
 
@@ -251,6 +251,33 @@ const EXTRA_CSS = `
   .report-role-tag--related { background: #E8FFEA; color: #00B42A; }
   .report-role-tag--default { background: #F2F3F5; color: #86909C; }
   .report-table__cell--highlight { color: #FF7D00; font-weight: 600; }
+  .report-grid__cell--w-20 { width: 20%; }
+  .report-table__detail-row > td {
+    padding: 0;
+    background: #F7F8FA;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-table__detail {
+    padding: 12px 16px;
+    background: #F7F8FA;
+  }
+  .report-table__detail .report-grid {
+    margin: 0;
+  }
+  .report-table__detail .report-grid__cell {
+    margin-bottom: 8px;
+  }
+  .report-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
+  }
   .report-litigation-section__header {
     display: flex;
     justify-content: space-between;
@@ -266,19 +293,21 @@ const EXTRA_CSS = `
     flex-shrink: 0;
   }
   .report-litigation-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
   }
   .report-litigation-card {
     position: relative;
+    width: 220px;
+    max-width: 100%;
+    box-sizing: border-box;
     border-radius: 4px;
     padding: 20px 16px;
     min-height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
   }
   .report-litigation-card__type {
     font-size: 14px;
@@ -817,6 +846,14 @@ function transformCooperationHistory(data) {
   };
 }
 
+function formatContNameList(list) {
+  if (!Array.isArray(list) || list.length === 0) return '—';
+  const names = list
+    .map((x) => (typeof x === 'string' ? x : x?.contName || x?.contractName || x?.name))
+    .filter(Boolean);
+  return names.length ? names.join('；') : '—';
+}
+
 function transformProjectBaseInfo(data) {
   const p = data.projectBaseInfo;
   if (!p) return null;
@@ -824,31 +861,29 @@ function transformProjectBaseInfo(data) {
   const children = [
     { blockKey: 'customerName', label: '客户名称', displayType: 'direct', value: dash(p.customerName) },
     { blockKey: 'projectAmount', label: '项目金额(元)', displayType: 'direct', value: fmtAmount(p.projectAmount) },
-    { blockKey: 'capitalUse', label: '资金用途', displayType: 'direct', value: dash(p.capitalUse) },
-    { blockKey: 'leaseMethod', label: '租赁方式', displayType: 'direct', value: dash(p.leaseMethod) },
-    { blockKey: 'managerName', label: '项目经理', displayType: 'direct', value: dash(p.managerName) },
-    { blockKey: 'custHelpName', label: '项目协办人', displayType: 'direct', value: dash(p.custHelpName) },
-    { blockKey: 'projectSource', label: '业务信息来源', displayType: 'direct', value: dash(p.projectSource) },
     { blockKey: 'projectType', label: '项目类型', displayType: 'direct', value: dash(p.projectType) },
-    { blockKey: 'insuranceSituation', label: '投保情况', displayType: 'direct', value: dash(p.insuranceSituation) },
-    { blockKey: 'leasebackReason', label: '售后回租原因', displayType: 'direct', value: dash(p.leasebackReason) },
   ];
 
-  if (p.projectType === '老客租项目' && p.oldContInfoList) {
-    const names = Array.isArray(p.oldContInfoList)
-      ? p.oldContInfoList.map((x) => (typeof x === 'string' ? x : x?.contName)).filter(Boolean)
-      : [];
+  if (p.projectType === '老客租项目') {
     children.push({
       blockKey: 'oldContInfoList',
       label: '对应老合同',
       displayType: 'direct',
-      value: names.length ? names.join('；') : '—',
+      value: formatContNameList(p.oldContInfoList),
     });
   }
 
   children.push(
-    { blockKey: 'leaseInsurance', label: '租赁物保险', displayType: 'longText', value: dash(p.leaseInsurance) },
-    { blockKey: 'leasebackExplain', label: '售后回租原因说明', displayType: 'longText', value: dash(p.leasebackExplain) },
+    { blockKey: 'projectSource', label: '业务信息来源', displayType: 'direct', value: dash(p.projectSource) },
+    { blockKey: 'leaseMethod', label: '租赁方式', displayType: 'direct', value: dash(p.leaseMethod) },
+    { blockKey: 'capitalUse', label: '资金用途', displayType: 'direct', value: dash(p.capitalUse) },
+    { blockKey: 'leasebackReason', label: '售后回租(新设备)原因', displayType: 'direct', value: dash(p.leasebackReason) },
+    { blockKey: 'leasebackExplain', label: '售后回租(新设备)原因说明', displayType: 'longText', value: dash(p.leasebackExplain), fullWidth: true },
+    { blockKey: 'insuranceSituation', label: '投保情况', displayType: 'direct', value: dash(p.insuranceSituation) },
+    { blockKey: 'managerName', label: '项目经理', displayType: 'direct', value: dash(p.managerName) },
+    { blockKey: 'custHelpName', label: '项目协办人', displayType: 'direct', value: dash(p.custHelpName) },
+    { blockKey: 'settleBeLeaseContList', label: '起租前结清合同', displayType: 'direct', value: formatContNameList(p.settleBeLeaseContList) },
+    { blockKey: 'leaseInsurance', label: '租赁物保险', displayType: 'longText', value: dash(p.leaseInsurance), fullWidth: true },
   );
 
   const env = p.environmentAndSocialRisk || {};
@@ -883,7 +918,6 @@ function transformProjectBaseInfo(data) {
         rows: envRows,
         emptyText: '暂无评估信息',
       },
-      { blockKey: 'companyBaseInfo', label: '项目基本情况', displayType: 'longText', value: dash(p.companyBaseInfo) },
       {
         blockKey: 'siteSituationList',
         label: '现场尽调情况',
@@ -898,6 +932,7 @@ function transformProjectBaseInfo(data) {
         rows: siteRows,
         emptyText: '暂无现场尽调记录',
       },
+      { blockKey: 'companyBaseInfo', label: '项目基本情况', displayType: 'longText', value: dash(p.companyBaseInfo) },
     ],
   };
 }
@@ -1008,7 +1043,7 @@ function transformImplementationPlan(data) {
 
   quotes.forEach((q, i) => {
     const quotName = dash(q.quotName);
-    blocks.push({ blockKey: `quoteTitle_${i}`, label: quotName, displayType: 'group', columns: 1, children: [] });
+    blocks.push({ blockKey: `quoteTitle_${i}`, label: quotName, displayType: 'sectionHeading' });
 
     const downPay = q.downPaymentRent ?? q.downPaymentSetting?.downPayment;
     const babRate = q.babRate ?? q.referenceRate?.contIrrBanknote;
@@ -1172,6 +1207,40 @@ function transformImplementationPlan(data) {
   };
 }
 
+function buildLshldRowDetail(item) {
+  const fields = [
+    ['thingName', '租赁物名称', dash(item.thingName)],
+    ['brand', '品牌', dash(item.brand)],
+    ['model', '型号', dash(item.model)],
+    ['zdNo', '中登唯一标识码', dash(item.zdNo)],
+    ['thingNumber', '数量', dash(item.thingNumber)],
+    ['isRefMain', '是否主租赁物', dash(item.isRefMain)],
+    ['thingType', '租赁物分类', dash(item.thingType?.name ?? item.thingType)],
+    ['useAddress', '使用地点', dash(item.useAddress)],
+    ['invoiceNo', '发票号', dash(item.invoiceNo)],
+    ['invoiceDate', '发票日期', dash(item.invoiceDate)],
+    ['originalValue', '原值(元)', fmtAmount(item.originalValue)],
+    ['depreciationMonths', '实际折旧月数', dash(item.depreciationMonths)],
+    ['depreciationYears', '折旧年限', dash(item.depreciationYears)],
+    ['accumulatedDepreciation', '累计折旧(元)', fmtAmount(item.accumulatedDepreciation)],
+    ['netWorth', '净值(元)', fmtAmount(item.netWorth)],
+    ['ownershipStatus', '租赁物权属状态', dash(item.ownershipStatus)],
+    ['insureBaseAmt', '保险计算基准金额(元)', fmtAmount(item.insureBaseAmt)],
+    ['leaseAssetAssessMethod', '租赁物评估方式', dash(item.leaseAssetAssessMethod)],
+    ['leaseAssetAssessDate', '租赁物评估日期', dash(item.leaseAssetAssessDate)],
+    ['assetAssessOrgName', '资产评估机构名称', dash(item.assetAssessOrgName)],
+  ];
+  return {
+    columns: 5,
+    children: fields.map(([blockKey, label, value]) => ({
+      blockKey,
+      label,
+      displayType: 'direct',
+      value,
+    })),
+  };
+}
+
 function transformLeaseProperty(data) {
   const m = data.lshldModel;
   if (!m) return null;
@@ -1229,6 +1298,7 @@ function transformLeaseProperty(data) {
       netWorth: fmtAmount(item.netWorth),
       useAddress: dash(item.useAddress),
       ownershipStatus: dash(item.ownershipStatus),
+      detail: buildLshldRowDetail(item),
     })),
     summary: list.length
       ? {
@@ -1404,10 +1474,6 @@ function transformLiabilityAnalysis(data) {
   }));
 
   const blocks = [];
-  const ut = trimStr(la.updateTime);
-  if (ut) {
-    blocks.push({ blockKey: 'updateTime', label: '征信、中登数据更新时间', displayType: 'direct', value: ut });
-  }
 
   blocks.push(
     { blockKey: 'loanSituationTitle', label: '借款情况', displayType: 'group', columns: 1, children: [] },
@@ -1615,7 +1681,7 @@ function transformRevenueAnalysis(data) {
     emptyText: '暂无主体数据',
   });
 
-  blocks.push({ blockKey: 'assetSizeTitle', label: '资产规模', displayType: 'group', columns: 1, children: [] });
+  blocks.push({ blockKey: 'assetSizeTitle', label: '资产规模', displayType: 'sectionHeading' });
 
   blocks.push({
     blockKey: 'factoryList',
@@ -1665,13 +1731,13 @@ function transformRevenueAnalysis(data) {
     columns: [
       { key: 'subjectName', label: '主体名称' },
       roleCol,
-      { key: 'equipmentDesc', label: '数量、名称及品牌' },
+      { key: 'content', label: '数量、名称及品牌' },
       { key: 'originalValue', label: '原值(元)', align: 'right' },
     ],
     rows: (asset.mainEquipmentList || []).map((e) => ({
       subjectName: dash(e.subjectName),
       customerRole: e.customerRole || [],
-      equipmentDesc: dash(e.equipmentDesc ?? e.equipmentName ?? e.nameBrand),
+      content: dash(e.content),
       originalValue: dash(e.originalValue ?? e.originalCost),
     })),
     emptyText: '暂无数据',
@@ -1699,7 +1765,7 @@ function transformRevenueAnalysis(data) {
     blocks.push({ blockKey: 'ratioDesc', label: '稼动率说明', displayType: 'longText', value: asset.ratioDesc });
   }
 
-  blocks.push({ blockKey: 'proAndSaleTitle', label: '生产销售情况分析', displayType: 'group', columns: 1, children: [] });
+  blocks.push({ blockKey: 'proAndSaleTitle', label: '生产销售情况分析', displayType: 'sectionHeading' });
 
   const productRows = [];
   for (const group of groupBySubject(sale.mainProductList || [])) {
@@ -1808,8 +1874,6 @@ function transformRevenueAnalysis(data) {
     });
   }
 
-  blocks.push({ blockKey: 'incomeAnalysisTitle', label: '收入分析', displayType: 'group', columns: 1, children: [] });
-
   if (!isEmpty(sale.productionAndSaleSituationDesc)) {
     blocks.push({
       blockKey: 'productionAndSaleSituationDesc',
@@ -1818,6 +1882,8 @@ function transformRevenueAnalysis(data) {
       value: sale.productionAndSaleSituationDesc,
     });
   }
+
+  blocks.push({ blockKey: 'incomeAnalysisTitle', label: '收入分析', displayType: 'sectionHeading' });
 
   const oiaList = income.operatingIncomeAnalysis || [];
   const intervals = [];
@@ -1914,10 +1980,10 @@ function transformRevenueAnalysis(data) {
   });
 
   const verifyTypes = [
-    { label: '纳税申报收入(万)', field: 'taxDeclareIncome' },
-    { label: '银行流水(万)(剔除关联交易)', field: 'bankStatement', altField: 'bankStatementFromJz' },
+    { label: '纳税申报收入(万)', field: 'taxableIncome' },
+    { label: '银行流水(万)(剔除关联交易)', field: 'bankStatement', altField: 'bankStatementFromJz', highlightOnly: true },
     { label: '银行承兑(万)(剔除关联交易)', field: 'bankAcceptance' },
-    { label: '纳税申报采购(万)', field: 'taxableIncome' },
+    { label: '纳税申报采购(万)', field: 'taxDeclareIncome' },
     { label: '电费(万)', field: 'electricityFee' },
     { label: '工资总额(万)', field: 'wage' },
   ];
@@ -1951,8 +2017,8 @@ function transformRevenueAnalysis(data) {
         let highlight = false;
         if (vt.altField && !isEmpty(rec?.[vt.altField])) {
           if (String(rec[vt.altField]) !== String(rec?.[vt.field] ?? '')) {
-            val = rec[vt.altField];
             highlight = true;
+            if (!vt.highlightOnly) val = rec[vt.altField];
           }
         }
         row[`month_${m}`] = highlight ? { value: dash(val), highlight: true } : dash(val);
@@ -1980,7 +2046,7 @@ function transformRevenueAnalysis(data) {
       if (!isEmpty(val)) monthVals.push(val);
     });
     row.total = sumDecimal2(monthVals);
-    row.average = avgDecimal(monthVals);
+    row.average = '—';
     verifyRows.push(row);
   }
 
@@ -2003,7 +2069,7 @@ function transformRevenueAnalysis(data) {
     });
   }
 
-  blocks.push({ blockKey: 'repayAbilityTitle', label: '还款能力分析', displayType: 'group', columns: 1, children: [] });
+  blocks.push({ blockKey: 'repayAbilityTitle', label: '还款能力分析', displayType: 'sectionHeading' });
 
   blocks.push({
     blockKey: 'repayBaseInfoList',
@@ -2141,8 +2207,13 @@ function transformLesseeBaseInfo(data) {
   const blocks = [];
 
   blocks.push({
-    blockKey: 'baseInfo',
+    blockKey: 'baseInfoTitle',
     label: '基本信息',
+    displayType: 'sectionHeading',
+  });
+
+  blocks.push({
+    blockKey: 'baseInfo',
     displayType: 'group',
     columns: 4,
     children: [
@@ -2244,8 +2315,13 @@ function transformLesseeBaseInfo(data) {
   }
 
   blocks.push({
-    blockKey: 'judicialLitigationInfo',
+    blockKey: 'judicialLitigationTitle',
     label: '司法诉讼信息',
+    displayType: 'sectionHeading',
+  });
+
+  blocks.push({
+    blockKey: 'judicialLitigationInfo',
     displayType: 'litigationCards',
     updateTime: dash(judicial.updateTime) !== '—' ? judicial.updateTime : null,
     cards: litigationCards,
@@ -2652,10 +2728,6 @@ function transformRelatedEnterprise(data) {
   for (const { synopsis, detail } of ordered) {
     const base = detail.baseInfo || {};
     const customerNo = base.customerNo || synopsis?.customerNo || 'unknown';
-    const isG = (synopsis?.isGuarantor === '是') || false;
-    const guarantorTag = synopsis
-      ? (isG ? '担保人' : '非担保人')
-      : '非担保人';
     const relation = Array.isArray(detail.relationTypes)
       ? detail.relationTypes.filter(Boolean).join('、')
       : (Array.isArray(synopsis?.relationTypes) ? synopsis.relationTypes.filter(Boolean).join('、') : '');
@@ -2706,7 +2778,6 @@ function transformRelatedEnterprise(data) {
       blockKey: 'judicialLitigationInfo',
       label: '司法诉讼信息',
       displayType: 'litigationCards',
-      updateTime: lit.updateTime,
       cards: lit.cards,
       emptyText: '客户暂无司法诉讼数据',
     });
@@ -2722,8 +2793,6 @@ function transformRelatedEnterprise(data) {
     blocks.push({
       blockKey: `company_${customerNo}`,
       displayType: 'associateCompanyDetail',
-      guarantorTag,
-      guarantorTone: isG ? 'guarantor' : 'nonGuarantor',
       customerName: dash(base.customerName || synopsis?.customerName),
       crdntlsCode: dash(base.crdntlsCode || synopsis?.crdntlsCode),
       childBlocks,
@@ -2910,6 +2979,11 @@ function renderSectionTitle(label) {
   </div>`;
 }
 
+function renderSectionHeading(block) {
+  if (!block.label) return '';
+  return `<div class="report-block"><div class="report-section-heading">${escapeHtml(block.label)}</div></div>`;
+}
+
 function renderKv(label, value, isPerson = false) {
   void isPerson;
   return `<div class="report-kv">
@@ -2992,8 +3066,19 @@ function computeMergeMeta(rows, col, stacked) {
   return { skip, rowspan };
 }
 
+function renderRowDetail(detail, colspan) {
+  if (!detail?.children?.length) return '';
+  const w = gridWidthClass(detail.columns || 5);
+  const grid = detail.children.map((child) => {
+    const val = child.displayType === 'person' ? dash(child.name) : dash(child.value);
+    return `<div class="report-grid__cell ${w}">${renderKv(child.label, val)}</div>`;
+  }).join('');
+  return `<tr class="report-table__detail-row"><td colspan="${colspan}"><div class="report-table__detail"><div class="report-grid">${grid}</div></div></td></tr>`;
+}
+
 function renderStandardTable(block) {
   const { columns, rows, showIndex, summary } = block;
+  const colspan = (showIndex ? 1 : 0) + columns.length;
   const mergeMeta = {};
   columns.forEach((col) => {
     if (col.mergeSame) mergeMeta[col.key] = computeMergeMeta(rows, col, false);
@@ -3018,7 +3103,7 @@ function renderStandardTable(block) {
       const strong = summary && col.key in (summary || {}) ? ' report-table__cell--strong' : '';
       cells += `<td class="${cls}${strong}"${rsAttr}>${cellValue(row, col)}</td>`;
     });
-    return `<tr>${cells}</tr>`;
+    return `<tr>${cells}</tr>${renderRowDetail(row.detail, colspan)}`;
   }).join('');
 
   if (summary) {
@@ -3051,6 +3136,7 @@ function buildStackPairs(columns) {
 function renderStackedTable(block) {
   const { columns, rows, showIndex, summary } = block;
   const { spanCols, pairs } = buildStackPairs(columns);
+  const colspan = (showIndex ? 1 : 0) + spanCols.length + pairs.length;
   const mergeMeta = {};
   spanCols.forEach((col) => {
     if (col.mergeSame) mergeMeta[col.key] = computeMergeMeta(rows, col, true);
@@ -3105,6 +3191,7 @@ function renderStackedTable(block) {
 
     body += `<tr class="report-table__data-row--top">${topCells.join('')}</tr>`;
     body += `<tr class="report-table__data-row--bottom report-table__record-divider">${bottomCells.join('')}</tr>`;
+    body += renderRowDetail(row.detail, colspan);
   });
 
   if (summary) {
@@ -3345,12 +3432,7 @@ function renderAssociateCompanySynopsis(block) {
 }
 
 function renderAssociateCompanyDetail(block) {
-  const tone = block.guarantorTone === 'guarantor' ? 'guarantor' : 'nonGuarantor';
-  const tag = block.guarantorTag
-    ? `<span class="report-associate-tag report-associate-tag--${tone}"><span>${escapeHtml(block.guarantorTag)}</span></span>`
-    : '';
   const header = `<div class="report-associate-detail__header">
-    ${tag}
     <span class="report-associate-detail__title">${escapeHtml(dash(block.customerName))}</span>
     <span class="report-associate-detail__id">统一社会信用代码：${escapeHtml(dash(block.crdntlsCode))}</span>
   </div>`;
@@ -3376,6 +3458,8 @@ function renderBlock(block) {
       return renderLongText(block);
     case 'group':
       return renderGroup(block);
+    case 'sectionHeading':
+      return renderSectionHeading(block);
     case 'table':
       return renderTableBlock(block);
     case 'empty':
