@@ -180,11 +180,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 供应商名称 | `consumerName` | `consumerName` | 原样 |
 | 是否主租赁物 | `isRefMain` | `isRefMain` | 原样 |
 | 新旧标识 | `isNew` | `isNew` | 原样（如「新设备」） |
-| 租赁物分类 | `thingType` | `thingType.name` | 原样 |
 | 使用地点 | `useAddress` | `useAddress` | 原样 |
-| 交货地点 | `deliveryAddress` | `deliveryAddress` | 原样 |
-| 原值(元) | `originalValue` | `originalValue` | 千分位 |
-| 净值(元) | `netWorth` | `netWorth` | 千分位 |
 | 租赁物权属状态 | `ownershipStatus` | `ownershipStatus` | 原样 |
 
 ##### A2 行内详情（`detail.columns: 5` · 每条必出）
@@ -197,10 +193,10 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 4 | 数量 | `thingNumber` | 原样 |
 | 5 | 供应商名称 | `consumerName` | 原样 |
 | 6 | 是否主租赁物 | `isRefMain` | 原样 |
-| 7 | 新旧标识 | `isNew` | 原样 |
-| 8 | 租赁物分类 | `thingType.name` | 原样 |
-| 9 | 使用地点 | `useAddress` | 原样 |
-| 10 | 交货地点 | `deliveryAddress` | 原样 |
+| 7 | 租赁物分类 | `thingType.name` | 原样 |
+| 8 | 使用地点 | `useAddress` | 原样 |
+| 9 | 交货地点 | `deliveryAddress` | 原样 |
+| 10 | 新旧标识 | `isNew` | 原样 |
 | 11 | 原值(元) | `originalValue` | 千分位 |
 | 12 | 净值(元) | `netWorth` | 千分位 |
 | 13 | 租赁物权属状态 | `ownershipStatus` | 原样 |
