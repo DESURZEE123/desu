@@ -35,19 +35,37 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 来源路径 | 说明 |
 | -------- | ---- |
 | `lshldModel` | 模块主数据对象 |
-| `lshldModel.isInstallEquipment` | 是否安装租赁物监控设备 |
-| `lshldModel.installEquipmentDesc` | 监控设备情况说明 |
-| `lshldModel.evalReportNo` | 评估报告号 |
-| `lshldModel.netWorthTotal` | 净值合计(元) |
-| `lshldModel.pricingResult` | 定价结果(元) |
-| `lshldModel.convertRatio` | 公司要求折价比例(%) |
-| `lshldModel.realityConvertRatio` | 实际折价比例(%) |
-| `lshldModel.equipmentRatio` | 通用设备占比(%) |
-| `lshldModel.lshldInfoList[]` | 租赁物明细（汇总列 + 行内详情） |
+| `projectBaseInfo.leaseMethod` | 租赁方式（判定项目形态） |
+| `projectBaseInfo.capitalUse` | 资金用途（判定项目形态） |
+| `lshldModel.isInstallEquipment` | 是否安装租赁物监控设备（各形态均展示） |
+| `lshldModel.installEquipmentDesc` | 监控设备情况说明（各形态均展示） |
+| `lshldModel.evalReportNo` | 评估报告号（**仅纯回租**） |
+| `lshldModel.netWorthTotal` | 净值合计(元)（顶栏**仅纯回租**；表合计行各形态均用） |
+| `lshldModel.pricingResult` | 定价结果(元)（**仅纯回租**） |
+| `lshldModel.convertRatio` | 公司要求折价比例(%)（**仅纯回租**） |
+| `lshldModel.realityConvertRatio` | 实际折价比例(%)（**仅纯回租**） |
+| `lshldModel.equipmentRatio` | 通用设备占比(%)（系统计算；**仅纯回租**） |
+| `lshldModel.lshldInfoList[]` | 租赁物明细（汇总列 + 行内详情；列集按形态分支，见 §7.2） |
+| `lshldModel.lshldInfoList[].consumerName` | 供应商名称（**直租 / 直转回**） |
+| `lshldModel.lshldInfoList[].isNew` | 新旧标识（**直租 / 直转回**） |
+| `lshldModel.lshldInfoList[].deliveryAddress` | 交货地点（**直租 / 直转回**） |
+| `lshldModel.lshldInfoList[].zdNo` | 中登唯一识别码（**纯回租**详情） |
+| `lshldModel.lshldInfoList[].invoiceNo` / `invoiceDate` | 发票号 / 发票日期（**纯回租**） |
+| `lshldModel.lshldInfoList[].depreciationMonths` | 实际折旧月数（**纯回租**；清单或称「实际折旧年限」） |
+| `lshldModel.lshldInfoList[].accumulatedDepreciation` | 累计折旧(元)（**纯回租**） |
 | `lshldModel.lshldPriceTotal` | 原值合计（表合计行） |
-| `lshldModel.netWorthTotal` | 净值合计（表合计行，与顶栏同字段） |
 | `lshldModel.lshldOwnershipDesc` | 租赁物权属状态说明 |
 | `lshldModel.breakPriceDesc` | 是否突破作价及说明 |
+
+### 3.1 项目形态判定（取 `projectBaseInfo`）
+
+| 项目形态 | 判定条件 |
+| -------- | -------- |
+| 直租 | `leaseMethod = 直租` |
+| 直转回 | `leaseMethod = 回租` 且 `capitalUse ∈ {购置本次租赁物, 其他租赁物}` |
+| 纯回租 | `leaseMethod = 回租` 且 `capitalUse = 补充流动资金` |
+
+> 判定顺序：先看是否直租；否则再按资金用途区分直转回 / 纯回租。L1 **只读**上述两字段做展示分支，不改写业务数据。
 
 **PDF 不提取 / 不输出：**
 
@@ -57,6 +75,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | `supplierInfoList` | 本 mock / 截图无供应商区展示需求（空列表） |
 | `initialDetail` / `checkInfo` / `riskInfo` | 详情弹窗其它分区；本页展开区未展示 |
 | 「全部展开」「全部收起」「导出」「操作 / 收起」 | 页面交互；PDF 默认全部展开详情 |
+| 顶栏纯回租专属字段（见 §5 / §7.1） | 直租、直转回形态下不输出 |
 
 ---
 
@@ -64,11 +83,12 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```text
 1. 若 lshldModel 为 null / 缺失：整模块不输出
-2. 输出顶部汇总 group（4 列）
-3. 输出租赁物明细 table：每行 = 汇总列 + detail 详情栅格（PDF 全部展开）
-4. 输出权属说明、突破作价说明 longText（有值时）
-5. 空值 →「—」；金额千分位 2 位；比例原样透传（不追加 %）
-6. 输出 moduleIndex=7 的结构化 JSON → 交由 L2 渲染
+2. 读取 projectBaseInfo.leaseMethod / capitalUse，按 §3.1 判定项目形态
+3. 输出顶部汇总 group（4 列）：始终含监控设备 2 字段；仅纯回租追加评估/净值/定价/折价/占比字段
+4. 输出租赁物明细 table：每行 = 汇总列 + detail 详情栅格（PDF 全部展开）
+5. 输出权属说明、突破作价说明 longText（有值时）
+6. 空值 →「—」；金额千分位 2 位；比例原样透传（不追加 %）
+7. 输出 moduleIndex=7 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
@@ -77,10 +97,33 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 - `lshldInfoList` 为 `null` / `[]`：仍输出 table + `emptyText`
 - `thingType`：取对象 `name`
-- 每条明细**必须**输出 `detail`（20 字段 · 5 列栅格），对齐页面展开区；无折叠交互
-- 合计行：原值 ← `lshldPriceTotal`，净值 ← `netWorthTotal`；其余列 `—`；序号列文案 `合计`；合计行**无** `detail`
+- 明细表 **汇总列 + 行内详情字段集按项目形态分支**（§7.2.A 直租/直转回 vs §7.2.B 纯回租）；不可混用
+- 每条明细**必须**输出对应形态的 `detail`，对齐页面展开区；无折叠交互
+- 合计行：原值 ← `lshldPriceTotal`，净值 ← `netWorthTotal`；其余列 `—`；序号列文案 `合计`；合计行**无** `detail`（合计行净值各形态均可带，与顶栏纯回租条件无关）
 - 宽表（汇总列数 > 8）：L2 自动叠行；详情栅格仍挂在该条记录下方
 - 长文本为空：不输出该 block
+
+**顶部汇总 · 仅纯回租展示的字段：**
+
+| 字段 label | 接口字段 | 必填（页面） | 说明 |
+| ---------- | -------- | :----------: | ---- |
+| 评估报告号 | `evalReportNo` | 视页面 | 空 → `—` |
+| 净值合计(元) | `netWorthTotal` | — | 千分位；系统汇总 |
+| 定价结果(元) | `pricingResult` | — | 千分位 |
+| 公司要求折价比例(%) | `convertRatio` | 视页面 | 原样透传，不追加 `%` |
+| 实际折价比例(%) | `realityConvertRatio` | — | 原样透传 |
+| 通用设备占比(%) | `equipmentRatio` | 视页面 | 系统计算；原样透传 |
+
+> 直租 / 直转回：上述 6 项 **整字段不输出**（不占位）。  
+> 各形态均展示：`是否安装租赁物监控设备`、`监控设备情况说明`。
+
+**样例对照：**
+
+| 样例 JSON | leaseMethod | capitalUse | 形态 | 顶栏纯回租字段 |
+| --------- | ----------- | ---------- | ---- | -------------- |
+| `大于500w区域线直租.json` | 直租 | 购置本次租赁物 | 直租 | 不展示 |
+| `大于500w区域线回租.json` | 回租 | 补充流动资金 | 纯回租 | 展示 |
+| `大于500w老客租回租.json` | 回租 | 补充流动资金 | 纯回租 | 展示 |
 
 ---
 
@@ -99,21 +142,23 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ### 7.1 顶部汇总（group · columns: 4）
 
-**数据来源：** `lshldModel` 顶层字段  
-**displayType：** `group`；子字段均为 `direct`
+**数据来源：** `lshldModel` 顶层字段 + §3.1 项目形态  
+**displayType：** `group`；子字段均为 `direct`；**不传 group label**
 
-| 顺序 | label | 接口字段 | displayType | 格式化 |
-| :--: | ----- | -------- | ----------- | ------ |
-| 1 | 是否安装租赁物监控设备 | `isInstallEquipment` | `direct` | 原样 |
-| 2 | 监控设备情况说明 | `installEquipmentDesc` | `direct` | 原样 |
-| 3 | 评估报告号 | `evalReportNo` | `direct` | 原样 |
-| 4 | 净值合计(元) | `netWorthTotal` | `direct` | 千分位 |
-| 5 | 定价结果(元) | `pricingResult` | `direct` | 千分位 |
-| 6 | 公司要求折价比例(%) | `convertRatio` | `direct` | 原样 |
-| 7 | 实际折价比例(%) | `realityConvertRatio` | `direct` | 原样 |
-| 8 | 通用设备占比(%) | `equipmentRatio` | `direct` | 原样 |
+| 顺序 | label | 接口字段 | displayType | 格式化 | 展示条件 |
+| :--: | ----- | -------- | ----------- | ------ | -------- |
+| 1 | 是否安装租赁物监控设备 | `isInstallEquipment` | `direct` | 原样 | 各形态 |
+| 2 | 监控设备情况说明 | `installEquipmentDesc` | `direct` | 原样 | 各形态 |
+| 3 | 评估报告号 | `evalReportNo` | `direct` | 原样 | **仅纯回租** |
+| 4 | 净值合计(元) | `netWorthTotal` | `direct` | 千分位 | **仅纯回租** |
+| 5 | 定价结果(元) | `pricingResult` | `direct` | 千分位 | **仅纯回租** |
+| 6 | 公司要求折价比例(%) | `convertRatio` | `direct` | 原样 | **仅纯回租** |
+| 7 | 实际折价比例(%) | `realityConvertRatio` | `direct` | 原样 | **仅纯回租** |
+| 8 | 通用设备占比(%) | `equipmentRatio` | `direct` | 原样（系统计算） | **仅纯回租** |
 
-### 7.2 租赁物明细（table）
+> 非纯回租时 `summary.children` 仅含顺序 1～2；纯回租时按 1～8 全量输出（空值填 `—`）。
+
+### 7.2 租赁物明细（table · 按形态分支）
 
 **数据来源：** `lshldModel.lshldInfoList[]`  
 **blockKey：** `lshldInfoList`  
@@ -122,7 +167,71 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 **showIndex：** `true`  
 **emptyText：** `暂无租赁物数据`
 
-#### 7.2.1 汇总行（表头列 · 对齐列表收起态）
+> 先按 §3.1 判定形态，再选用 **§7.2.A** 或 **§7.2.B** 的汇总列 + 详情字段。  
+> **直租 / 直转回** = 资金用途为「购置本次租赁物」或「其他租赁物」（含 `leaseMethod=直租`，以及回租且购置类资金用途）。  
+> **纯回租** = `leaseMethod=回租` 且 `capitalUse=补充流动资金`。
+
+**合计行 summary（各形态相同）：**
+
+| 字段 | 值 |
+| ---- | -- |
+| `index` | `合计` |
+| `originalValue` | `lshldPriceTotal` |
+| `netWorth` | `netWorthTotal` |
+
+> **不输出**「操作」列。
+
+---
+
+#### 7.2.A 直租 / 直转回（购置本次租赁物 / 其他租赁物）
+
+##### A1 汇总行（表头列）
+
+| 列 label | key | 来源 | 格式化 |
+| -------- | --- | ---- | ------ |
+| 租赁物名称 | `thingName` | `thingName` | 原样；建议 `stackSpan: true` |
+| 品牌 | `brand` | `brand` | 原样 |
+| 型号 | `model` | `model` | 原样 |
+| 数量 | `thingNumber` | `thingNumber` | 原样 |
+| 供应商名称 | `consumerName` | `consumerName` | 原样 |
+| 是否主租赁物 | `isRefMain` | `isRefMain` | 原样 |
+| 新旧标识 | `isNew` | `isNew` | 原样（如「新设备」） |
+| 租赁物分类 | `thingType` | `thingType.name` | 原样 |
+| 使用地点 | `useAddress` | `useAddress` | 原样 |
+| 交货地点 | `deliveryAddress` | `deliveryAddress` | 原样 |
+| 原值(元) | `originalValue` | `originalValue` | 千分位 |
+| 净值(元) | `netWorth` | `netWorth` | 千分位 |
+| 租赁物权属状态 | `ownershipStatus` | `ownershipStatus` | 原样 |
+
+##### A2 行内详情（`detail.columns: 5` · 每条必出）
+
+| 顺序 | label | 接口字段 | 格式化 |
+| :--: | ----- | -------- | ------ |
+| 1 | 租赁物名称 | `thingName` | 原样 |
+| 2 | 品牌 | `brand` | 原样 |
+| 3 | 型号 | `model` | 原样 |
+| 4 | 数量 | `thingNumber` | 原样 |
+| 5 | 供应商名称 | `consumerName` | 原样 |
+| 6 | 是否主租赁物 | `isRefMain` | 原样 |
+| 7 | 新旧标识 | `isNew` | 原样 |
+| 8 | 租赁物分类 | `thingType.name` | 原样 |
+| 9 | 使用地点 | `useAddress` | 原样 |
+| 10 | 交货地点 | `deliveryAddress` | 原样 |
+| 11 | 原值(元) | `originalValue` | 千分位 |
+| 12 | 净值(元) | `netWorth` | 千分位 |
+| 13 | 租赁物权属状态 | `ownershipStatus` | 原样 |
+| 14 | 保险计算基准金额(元) | `insureBaseAmt` | 千分位 |
+| 15 | 租赁物评估方式 | `leaseAssetAssessMethod` | 原样 |
+| 16 | 租赁物评估日期 | `leaseAssetAssessDate` | 原样 |
+| 17 | 资产评估机构名称 | `assetAssessOrgName` | 原样 |
+
+> **不输出**（本形态）：中登唯一识别码、发票号、发票日期、实际折旧月数、折旧年限、累计折旧。
+
+---
+
+#### 7.2.B 纯回租（回租 + 补充流动资金）
+
+##### B1 汇总行（表头列）
 
 | 列 label | key | 来源 | 格式化 |
 | -------- | --- | ---- | ------ |
@@ -140,33 +249,14 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 使用地点 | `useAddress` | `useAddress` | 原样 |
 | 租赁物权属状态 | `ownershipStatus` | `ownershipStatus` | 原样 |
 
-> **不输出**「操作」列。
-
-**合计行 summary：**
-
-| 字段 | 值 |
-| ---- | -- |
-| `index` | `合计` |
-| `originalValue` | `lshldPriceTotal` |
-| `netWorth` | `netWorthTotal` |
-
-#### 7.2.2 行内详情（展开区 · PDF 每条必出）
-
-对齐页面「展开」后的详情栅格；字段均取自同条 `lshldInfoList[]` 项。
-
-**结构：** `rows[i].detail`
-
-| 属性 | 值 |
-| ---- | -- |
-| `detail.columns` | `5`（每行 5 个字段，共 4 行） |
-| `detail.children[]` | 见下表；`displayType: direct` |
+##### B2 行内详情（`detail.columns: 5` · 每条必出）
 
 | 顺序 | label | 接口字段 | 格式化 |
 | :--: | ----- | -------- | ------ |
 | 1 | 租赁物名称 | `thingName` | 原样 |
 | 2 | 品牌 | `brand` | 原样 |
 | 3 | 型号 | `model` | 原样 |
-| 4 | 中登唯一标识码 | `zdNo` | 原样 |
+| 4 | 中登唯一识别码 | `zdNo` | 原样 |
 | 5 | 数量 | `thingNumber` | 原样 |
 | 6 | 是否主租赁物 | `isRefMain` | 原样 |
 | 7 | 租赁物分类 | `thingType.name` | 原样 |
@@ -174,9 +264,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 9 | 发票号 | `invoiceNo` | 原样 |
 | 10 | 发票日期 | `invoiceDate` | 原样 |
 | 11 | 原值(元) | `originalValue` | 千分位 |
-| 12 | 实际折旧月数 | `depreciationMonths` | 原样 |
+| 12 | 实际折旧月数 | `depreciationMonths` | 原样（清单或称「实际折旧年限」，按月数透传） |
 | 13 | 折旧年限 | `depreciationYears` | 原样 |
-| 14 | 累计折旧(元) | `accumulatedDepreciation` | 千分位 |
+| 14 | 累计折旧(元) | `accumulatedDepreciation` | 千分位（清单或称「累积折旧」） |
 | 15 | 净值(元) | `netWorth` | 千分位 |
 | 16 | 租赁物权属状态 | `ownershipStatus` | 原样 |
 | 17 | 保险计算基准金额(元) | `insureBaseAmt` | 千分位 |
@@ -184,7 +274,9 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | 19 | 租赁物评估日期 | `leaseAssetAssessDate` | 原样 |
 | 20 | 资产评估机构名称 | `assetAssessOrgName` | 原样 |
 
-**L2 渲染约定：**
+> **不输出**（本形态）：供应商名称、新旧标识、交货地点。
+
+**L2 渲染约定（A/B 通用）：**
 
 - 标准表：每条数据 `tr` 后追加一行 `td[colspan=列数]`，内嵌 `report-grid`（`columns: 5`）
 - 叠行表：每条记录的上下两行之后追加一行详情 `tr`（`colspan` 覆盖序号 + 全部叠列）
@@ -193,6 +285,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 ---
 
 ## 八、完整 JSON 示例（节选）
+
+> 下例顶栏为 **纯回租**；明细 `detail` 亦按 §7.2.B。直租 / 直转回请改用 §7.2.A 字段集（含供应商名称 / 新旧标识 / 交货地点，无发票与折旧月数等）。
 
 ```json
 {
@@ -206,7 +300,13 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
       "columns": 4,
       "children": [
         { "blockKey": "isInstallEquipment", "label": "是否安装租赁物监控设备", "displayType": "direct", "value": "是" },
-        { "blockKey": "netWorthTotal", "label": "净值合计(元)", "displayType": "direct", "value": "9,369,161.39" }
+        { "blockKey": "installEquipmentDesc", "label": "监控设备情况说明", "displayType": "direct", "value": "—" },
+        { "blockKey": "evalReportNo", "label": "评估报告号", "displayType": "direct", "value": "—" },
+        { "blockKey": "netWorthTotal", "label": "净值合计(元)", "displayType": "direct", "value": "9,369,161.39" },
+        { "blockKey": "pricingResult", "label": "定价结果(元)", "displayType": "direct", "value": "10,000,000.00" },
+        { "blockKey": "convertRatio", "label": "公司要求折价比例(%)", "displayType": "direct", "value": "85.0000" },
+        { "blockKey": "realityConvertRatio", "label": "实际折价比例(%)", "displayType": "direct", "value": "98.8409" },
+        { "blockKey": "equipmentRatio", "label": "通用设备占比(%)", "displayType": "direct", "value": "10.0000" }
       ]
     },
     {
@@ -250,7 +350,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
               { "blockKey": "thingName", "label": "租赁物名称", "displayType": "direct", "value": "正包毛巾机" },
               { "blockKey": "brand", "label": "品牌", "displayType": "direct", "value": "—" },
               { "blockKey": "model", "label": "型号", "displayType": "direct", "value": "30”20G60F" },
-              { "blockKey": "zdNo", "label": "中登唯一标识码", "displayType": "direct", "value": "—" },
+              { "blockKey": "zdNo", "label": "中登唯一识别码", "displayType": "direct", "value": "—" },
               { "blockKey": "thingNumber", "label": "数量", "displayType": "direct", "value": "9" },
               { "blockKey": "isRefMain", "label": "是否主租赁物", "displayType": "direct", "value": "否" },
               { "blockKey": "thingType", "label": "租赁物分类", "displayType": "direct", "value": "纺织设备" },
@@ -276,3 +376,15 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
   ]
 }
 ```
+
+---
+
+## 九、输出约束
+
+1. 必须携带 `moduleIndex: 7`
+2. 输出 JSON，**不包含 HTML 标签**
+3. 项目形态按 §3.1 判定；顶栏「评估报告号 / 净值合计 / 定价结果 / 公司要求折价比例 / 实际折价比例 / 通用设备占比」**仅纯回租**输出
+4. 直租、直转回顶栏仅保留监控设备相关 2 字段
+5. 明细表字段集按形态分支：直租/直转回用 §7.2.A；纯回租用 §7.2.B；**不得**混用
+6. 空值统一填 `—`；比例字段原样透传，不追加 `%`
+7. 明细表合计行的净值不受顶栏纯回租条件限制
