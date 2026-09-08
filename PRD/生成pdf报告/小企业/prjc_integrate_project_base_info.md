@@ -87,7 +87,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ### 7.1 首屏字段（group · columns: 4 · 无组标题）
 
-> 不传 `label`（或传空）。L2 有 `label` 才渲染 `report-section-title`，故顶栏「基本信息」下直接铺栅格，不对齐「● 项目基本信息」。
+> 不传 `label`（或传空）。L2 有 `label` 才渲染 `report-section-title`，故顶栏「项目基本信息」下直接铺栅格，不对齐「● 项目基本信息」。
 
 | 顺序 | label | 接口字段 | displayType | 格式化 |
 | :--: | ----- | -------- | ----------- | ------ |

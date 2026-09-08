@@ -66,7 +66,7 @@
 | 2 | 项目概要 | `prjc_integrate_project_summary` | `project_summary` | 已编写 |
 | 3 | 合作历史 | `prjc_integrate_cooperation_history` | `cooperation_history` | 已编写 |
 | 4 | 知识图谱 | `prjc_integrate_knowledge_graph` | `knowledge_graph` | 待编写（PDF 不输出交互图谱） |
-| 5 | 基本信息 | `prjc_integrate_project_base_info` | `project_base_info` | 已编写 |
+| 5 | 项目基本信息 | `prjc_integrate_project_base_info` | `project_base_info` | 已编写 |
 | 6 | 实施方案 | `prjc_integrate_implementation_plan` | `implementation_plan` | 已编写 |
 | 7 | 租赁物信息 | `prjc_integrate_lease_property` | `lease_property` | 已编写 |
 | 8 | 承租人基本信息 | `prjc_integrate_lessee_base_info` | `lessee_base_info` | 已编写 |

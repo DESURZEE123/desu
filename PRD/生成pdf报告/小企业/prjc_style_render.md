@@ -852,7 +852,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 
 ```html
 <div class="report-module" data-module-key="project_base_info">
-  <div class="report-module__header">基本信息</div>
+  <div class="report-module__header">项目基本信息</div>
   <div class="report-module__body">
     <!-- blocks 渲染结果 -->
   </div>
@@ -1265,7 +1265,7 @@ L2 将 `conclusion` 的 Markdown 原文转为 HTML，包裹在 `<div class="repo
 
 ```json
 {
-  "moduleName": "基本信息",
+  "moduleName": "项目基本信息",
   "moduleKey": "project_base_info",
   "blocks": [
     {
@@ -1325,7 +1325,7 @@ L2 将 `conclusion` 的 Markdown 原文转为 HTML，包裹在 `<div class="repo
 
 <div class="report-root">
   <div class="report-module" data-module-key="project_base_info">
-    <div class="report-module__header">基本信息</div>
+    <div class="report-module__header">项目基本信息</div>
     <div class="report-module__body">
 
       <div class="report-block report-group">
@@ -1384,7 +1384,7 @@ L2 将 `conclusion` 的 Markdown 原文转为 HTML，包裹在 `<div class="repo
 
 ```text
 ┌─────────────────────────────────────────────┐
-│  基本信息                          （蓝底顶栏）  │
+│  项目基本信息                      （蓝底顶栏）  │
 ├─────────────────────────────────────────────┤
 │  ● 项目基本信息                               │
 │  ┌──────────┬──────────┬──────────┬────────┐ │
