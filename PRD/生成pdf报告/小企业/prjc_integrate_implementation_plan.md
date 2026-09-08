@@ -117,15 +117,16 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 数据来源：`embodiment` 顶层字段
 
 **blockKey：** `riskSummary`  
+**displayType：** `group`（见 `prjc_style_render` §三）  
 **columns：** `4`  
 **label：** 不传（页面为顶栏指标行，无蓝色小节标题）
 
-| 列 label | key | 格式化 |
-| -------- | --- | ------ |
-| 预测风险敞口(元) | `riskExposure` | 千分位 + 2 位小数 |
-| 预测风险敞口/设备原值(%) | `rate` | 原样；纯数字保留接口精度（如 `24.5000`） |
-| 承租人累计风险敞口(元) | `lesseeAggregateRiskExposure` | 千分位 + 2 位小数 |
-| 承租人及关联方累计风险敞口(元) | `aggregateRiskExposure` | 千分位 + 2 位小数 |
+| 列 label | key | displayType | 格式化 |
+| -------- | --- | ----------- | ------ |
+| 预测风险敞口(元) | `riskExposure` | `direct` | 千分位 + 2 位小数 |
+| 预测风险敞口/设备原值(%) | `rate` | `direct` | 原样；纯数字保留接口精度（如 `24.5000`） |
+| 承租人累计风险敞口(元) | `lesseeAggregateRiskExposure` | `direct` | 千分位 + 2 位小数 |
+| 承租人及关联方累计风险敞口(元) | `aggregateRiskExposure` | `direct` | 千分位 + 2 位小数 |
 
 ```json
 {
@@ -164,34 +165,36 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 **blockKey：** `loanInfo_{i}`  
 **label：** `投放信息`  
+**displayType：** `group`  
 **columns：** `4`（对齐统一栅格；页面约 5 列，PDF 按 4 列换行）
 
-| 列 label | key | 格式化 |
-| -------- | --- | ------ |
-| 投放金额(元) | `advertisingAmount` | 千分位 + 2 位小数 |
-| 租金总额(元) | `totalRent` | 千分位 + 2 位小数 |
-| 首付款金额(元) | `downPaymentRent` | 千分位 + 2 位小数；空可回退 `downPaymentSetting.downPayment` |
-| 贴息金额(元) | `interestSubsidy` | 千分位 + 2 位小数 |
-| 保证金金额(元) | `marginRent` | 千分位 + 2 位小数 |
-| 名义货价(元) | `nominalPrice` | 千分位 + 2 位小数 |
-| 综合收益率(%) | `comprehensiveYield` | 原样 |
-| 内部收益率(%) | `internalYield` | 原样 |
-| 租金分配IRR(%) | `rentDistribution` | 原样 |
-| 报价利率(%) | `quotationRate` | 原样 |
-| 租赁期限(月) | `leasingTerm` | 原样 |
-| 租赁方式 | `leaseMethod` | 原样 |
-| 是否起租调整 | `isStartLease` | 原样 |
-| 先付后付标识 | `paymentOrder` | 原样 |
-| 投放日期 | `advertisingDate` | 原样 |
-| 银票收益率(%) | `babRate` | 原样；空可回退 `referenceRate.contIrrBanknote` |
-| 是否调息 | `isAdjustingInterest` | 原样 |
+| 列 label | key | displayType | 格式化 |
+| -------- | --- | ----------- | ------ |
+| 投放金额(元) | `advertisingAmount` | `direct` | 千分位 + 2 位小数 |
+| 租金总额(元) | `totalRent` | `direct` | 千分位 + 2 位小数 |
+| 首付款金额(元) | `downPaymentRent` | `direct` | 千分位 + 2 位小数；空可回退 `downPaymentSetting.downPayment` |
+| 贴息金额(元) | `interestSubsidy` | `direct` | 千分位 + 2 位小数 |
+| 保证金金额(元) | `marginRent` | `direct` | 千分位 + 2 位小数 |
+| 名义货价(元) | `nominalPrice` | `direct` | 千分位 + 2 位小数 |
+| 综合收益率(%) | `comprehensiveYield` | `direct` | 原样 |
+| 内部收益率(%) | `internalYield` | `direct` | 原样 |
+| 租金分配IRR(%) | `rentDistribution` | `direct` | 原样 |
+| 报价利率(%) | `quotationRate` | `direct` | 原样 |
+| 租赁期限(月) | `leasingTerm` | `direct` | 原样 |
+| 租赁方式 | `leaseMethod` | `direct` | 原样 |
+| 是否起租调整 | `isStartLease` | `direct` | 原样 |
+| 先付后付标识 | `paymentOrder` | `direct` | 原样 |
+| 投放日期 | `advertisingDate` | `direct` | 原样 |
+| 银票收益率(%) | `babRate` | `direct` | 原样；空可回退 `referenceRate.contIrrBanknote` |
+| 是否调息 | `isAdjustingInterest` | `direct` | 原样 |
 
 ### 7.4 付款条件及笔数（table）
 
 数据来源：`advertisingInfoList[i].paymentTermList`
 
 **blockKey：** `paymentTermList_{i}`  
-**label：** `付款条件及笔数`
+**label：** `付款条件及笔数`  
+**displayType：** `table`
 
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
@@ -213,20 +216,22 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 **blockKey：** `rentPlanSummary_{i}`  
 **label：** `租金计划表`  
+**displayType：** `group`  
 **columns：** `3`
 
-| 列 label | key | 格式化 |
-| -------- | --- | ------ |
-| 租金总额(元) | `rentTotalAmount` | 千分位 + 2 位小数 |
-| 本金总额(元) | `principalTotalAmount` | 千分位 + 2 位小数 |
-| 利息总额(元) | `interestTotalAmount` | 千分位 + 2 位小数 |
+| 列 label | key | displayType | 格式化 |
+| -------- | --- | ----------- | ------ |
+| 租金总额(元) | `rentTotalAmount` | `direct` | 千分位 + 2 位小数 |
+| 本金总额(元) | `principalTotalAmount` | `direct` | 千分位 + 2 位小数 |
+| 利息总额(元) | `interestTotalAmount` | `direct` | 千分位 + 2 位小数 |
 
 ### 7.6 租金计划表 · 明细（table）
 
 数据来源：`advertisingInfoList[i].rentPlan.rentPlanDetailList`
 
 **blockKey：** `rentPlanDetail_{i}`  
-**label：** 不传（标题已由 §7.5 输出）
+**label：** 不传（标题已由 §7.5 输出）  
+**displayType：** `table`
 
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
@@ -246,7 +251,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 数据来源：`advertisingInfoList[i].depositPlan.depositPlanDetailList`
 
 **blockKey：** `depositPlan_{i}`  
-**label：** `保证金计划`
+**label：** `保证金计划`  
+**displayType：** `table`
 
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
@@ -263,7 +269,8 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 数据来源：`advertisingInfoList[i].otherPlan.otherPlanDetailList`
 
 **blockKey：** `otherPlan_{i}`  
-**label：** `其他收支计划`
+**label：** `其他收支计划`  
+**displayType：** `table`
 
 | 列 label | key | 格式化 |
 | -------- | --- | ------ |
