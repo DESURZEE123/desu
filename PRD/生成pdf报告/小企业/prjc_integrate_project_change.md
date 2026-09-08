@@ -32,7 +32,7 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 | -------- | ---- |
 | `projectChange` | 模块主数据对象 |
 | `projectChange.changeReason` | 审批变更原因 |
-| `projectChange.changeType` | 审批变更类型 |
+| `projectChange.changeType` | 审批变更类型（仅 `审批变更` / `审批修改` 时本模块才输出） |
 
 ---
 
@@ -40,21 +40,23 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 
 ```text
 1. 若 projectChange 为 null / 缺失：整模块不输出
-2. 按固定 blocks 顺序组装（见第六节）
-3. 为每个字段标注 displayType 并格式化展示值
-4. 输出 moduleIndex=1 的结构化 JSON → 交由 L2 渲染
+2. 若 changeType 不是「审批变更」或「审批修改」（含空 / 其他枚举如「初次评审」）：整模块不输出
+3. 按固定 blocks 顺序组装（见第六节）
+4. 为每个字段标注 displayType 并格式化展示值
+5. 输出 moduleIndex=1 的结构化 JSON → 交由 L2 渲染
 ```
 
 ---
 
 ## 五、输出规则
 
-对齐页面截图展示逻辑：
+对齐页面截图展示逻辑：**仅审批变更 / 审批修改场景展示本模块**。
 
 | 场景 | 处理方式 |
 | ---- | -------- |
 | `projectChange` 缺失 / `null` | 整模块不输出 |
-| `changeReason` / `changeType` 为空 | 对应字段展示「—」，模块仍输出 |
+| `changeType` 非「审批变更」且非「审批修改」（含空 / `null` /「初次评审」等） | 整模块不输出 |
+| 已输出时 `changeReason` 为空 | 该字段展示「—」 |
 | 枚举 / 文案 | 直接展示接口返回的中文值，不做码值转换 |
 
 **展示形态：**
@@ -154,5 +156,5 @@ AI 在本层**仅负责字段提取、展示映射与 displayType 标注**，不
 1. 必须携带 `moduleIndex: 1`
 2. 仅输出结构化 JSON，**不包含 HTML 标签**
 3. 不修改、不计算、不补充业务数据
-4. `projectChange` 缺失时整模块不输出，由 L0 跳过拼接
+4. `projectChange` 缺失，或 `changeType` 非「审批变更」/「审批修改」时：整模块不输出，由 L0 跳过拼接
 5. 完整报告须经 L0 调度后交 L2 渲染；本 Skill 输出不得作为最终 HTML 交付物
