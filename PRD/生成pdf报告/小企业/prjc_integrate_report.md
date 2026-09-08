@@ -38,7 +38,21 @@
    将各模块结构化数据交 `prjc_style_render`，按 `displayType` 渲染 HTML。样式规则与 Schema 见该文档。
 
 4. **汇总输出**  
-   按 `moduleIndex` 升序拼接各模块 HTML 片段，交 PDF 生成服务。每个模块为独立容器（含标题与内容）；不输出完整文档壳（`html` / `head` / `body`）。
+   按 `moduleIndex` 升序拼接各模块 HTML 片段，交 PDF 生成服务。每个模块为独立容器（含标题与内容）；模块片段本身不输出完整文档壳（`html` / `head` / `body`）。
+
+5. **页面名称（`<title>`）**  
+   由「项目名称 + 固定文案 + 生成时间」拼接，作为 HTML 页面名称（浏览器 / PDF 文档标题）。  
+   - 数据路径：`headInfo.projectName`  
+   - 时间：L0 生成时刻，格式 `yyyyMMddHHmm`（示例：`202609081234`）  
+   - 有值：`{headInfo.projectName}-尽调调查报告-{yyyyMMddHHmm}`  
+     （示例：`南通东屹高新纤维科技有限公司回租第(2)单-尽调调查报告-202609081234`）  
+   - 缺失 / 空串：`尽调调查报告-{yyyyMMddHHmm}`  
+   - L0 负责写入；L1 / L2 **不**各自拼标题  
+   - 落盘可预览 HTML 时，由 L0 在模块片段外包裹文档壳，并写入：
+
+```html
+<title>{headInfo.projectName}-尽调调查报告-{yyyyMMddHHmm}</title>
+```
 
 ---
 
