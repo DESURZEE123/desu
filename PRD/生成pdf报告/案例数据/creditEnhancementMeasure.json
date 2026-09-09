@@ -1,0 +1,725 @@
+{
+  "creditEnhancementMeasureInfo": {
+    "creditEnhancementMeasureList": [
+      {
+        "pkCreditEnhancementMeasure": null,
+        "guaCustType": 1,
+        "guaranteeMethod": {
+          "typeCode": "AGRS0005",
+          "code": 1,
+          "desc": "保证担保"
+        },
+        "guaranteeContType": "一般担保合同",
+        "customerName": "张子睿",
+        "currtype": "人民币",
+        "guaCustomerNo": "2201912971000",
+        "relationship": "法定代表人及实控人",
+        "relationshipDesc": null,
+        "customerType": [
+          {
+            "code": "14",
+            "name": "担保客户",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          }
+        ],
+        "crdntlsType": "居民身份证",
+        "documentCode": "630104197012270017",
+        "isPerfect": null,
+        "collateralType": null,
+        "mortgageAndPledgeType": null,
+        "mortgageAndPledgeClass": null,
+        "collateralList": null,
+        "shareholderList": null,
+        "shareholderTotal": null,
+        "contName": null,
+        "ifSubordinate": "否",
+        "reason": null,
+        "ifConditionalGuarantee": null,
+        "contAmount": "10612900.00",
+        "guaranteeMeasures": null,
+        "remark": null,
+        "updateContAmount": null,
+        "guaranteeMethodCode": 1
+      },
+      {
+        "pkCreditEnhancementMeasure": null,
+        "guaCustType": 0,
+        "guaranteeMethod": {
+          "typeCode": "AGRS0005",
+          "code": 1,
+          "desc": "保证担保"
+        },
+        "guaranteeContType": "一般担保合同",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "currtype": "人民币",
+        "guaCustomerNo": "120192049000",
+        "relationship": null,
+        "relationshipDesc": null,
+        "customerType": [
+          {
+            "code": "1",
+            "name": "融资客户",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          },
+          {
+            "code": "14",
+            "name": "担保客户",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          }
+        ],
+        "crdntlsType": "统一社会信用代码",
+        "documentCode": "91320500765135302R",
+        "isPerfect": null,
+        "collateralType": null,
+        "mortgageAndPledgeType": null,
+        "mortgageAndPledgeClass": null,
+        "collateralList": null,
+        "shareholderList": null,
+        "shareholderTotal": null,
+        "contName": null,
+        "ifSubordinate": "否",
+        "reason": null,
+        "ifConditionalGuarantee": null,
+        "contAmount": "10612900.00",
+        "guaranteeMeasures": null,
+        "remark": null,
+        "updateContAmount": null,
+        "guaranteeMethodCode": 1
+      }
+    ]
+  },
+  "guaranteePersonList": [
+    {
+      "pkGuarantorInfo": null,
+      "customerNo": "2201912971000",
+      "customerName": "张子睿",
+      "crdntlsType": "居民身份证",
+      "documentCode": "630104197012270017",
+      "relationship": "法定代表人及实控人",
+      "relationshipDesc": null,
+      "judicialLitigationInfo": {
+        "caseTypeHighRiskList": [
+          {
+            "caseType": "被执行人",
+            "caseNum": 2,
+            "pkQueryRecord": "1542877547673277184"
+          }
+        ],
+        "caseTypeCommonList": [
+          {
+            "caseType": "民事案件",
+            "caseNum": 9,
+            "pkQueryRecord": "1542877547673277184"
+          },
+          {
+            "caseType": "执行案件",
+            "caseNum": 6,
+            "pkQueryRecord": "1542877547673277184"
+          }
+        ],
+        "judicialLitigationInfoDesc": "目前无在途诉讼，之前案件均为民事纠纷，对企业正常经营无影响。",
+        "updateTime": "2026-08-28 12:44:32",
+        "queryStatusEnum": 0,
+        "pkQueryRecord": "1542877547673277184"
+      },
+      "guaranteePersonSituation": null,
+      "loan": {
+        "creditInfo": null,
+        "loanDesc": null,
+        "zdinfo": null
+      },
+      "collaborationHistoryModel": {
+        "leaseCollaborationHistoryList": [],
+        "leaseAmountTotal": {
+          "contCashPledge": null,
+          "riskExposure": null,
+          "curOverdueAmount": null
+        },
+        "guarantorCollaborationHistories": [
+          {
+            "leaseMethod": "回租",
+            "leaseMethodFact": "回租",
+            "guaranteeMethod": "保证担保",
+            "guaranteeMethodList": "保证担保",
+            "contName": "JFL24C01L003551-01",
+            "contCashPledge": "15000000.00",
+            "curOverdueAmount": "0.00",
+            "corpusBalancePledge": "0.00",
+            "curOverdueDays": 0,
+            "historyOverdueDays": 1,
+            "historyOverdueTimes": 1,
+            "contEndDate": "2026-01-21",
+            "leaseBeginDate": "2024-01-31",
+            "customerName": "张子睿",
+            "customerRoleEnumList": [
+              "承租方"
+            ],
+            "customerRoleEnum": "承租方",
+            "irr": "8.6155",
+            "cmprhnsvIrr": "8.6297",
+            "customerRole": "担保人",
+            "customerNo": "2201912971000",
+            "businessStatus": null
+          },
+          {
+            "leaseMethod": "回租",
+            "leaseMethodFact": "回租",
+            "guaranteeMethod": "保证担保",
+            "guaranteeMethodList": "保证担保",
+            "contName": "苏租[2019]租赁字第366号",
+            "contCashPledge": "5000000.00",
+            "curOverdueAmount": "0.00",
+            "corpusBalancePledge": "0.00",
+            "curOverdueDays": 0,
+            "historyOverdueDays": 2,
+            "historyOverdueTimes": 1,
+            "contEndDate": "2020-05-25",
+            "leaseBeginDate": "2019-05-31",
+            "customerName": "张子睿",
+            "customerRoleEnumList": [
+              "承租方"
+            ],
+            "customerRoleEnum": "承租方",
+            "irr": "10.6030",
+            "cmprhnsvIrr": null,
+            "customerRole": "担保人",
+            "customerNo": "2201912971000",
+            "businessStatus": null
+          }
+        ],
+        "guarantorAmountTotal": {
+          "contCashPledge": "20000000.00",
+          "riskExposure": "0.00",
+          "curOverdueAmount": "0.00"
+        },
+        "updateTime": "2026-08-27",
+        "queryStatusEnum": 0,
+        "pkQueryRecord": null
+      },
+      "assetDesc": null,
+      "guaranteeContInfoList": [
+        {
+          "guaranteeContType": "一般担保合同",
+          "contName": null,
+          "planCash": "10612900.00",
+          "currtype": "人民币",
+          "guaranteeMeasures": null,
+          "ifSubordinate": "否",
+          "reason": null
+        }
+      ],
+      "age": 55,
+      "sex": "男性",
+      "maritalStatus": "已婚有子"
+    }
+  ],
+  "guaranteeCompanyList": [
+    {
+      "companyPublicInfo": {
+        "pkCompanyPublicInfo": null,
+        "baseInfo": {
+          "customerName": "昆山华阳新材料股份有限公司",
+          "customerNo": "120192049000",
+          "crdntlsCode": "91320500765135302R",
+          "crdntlsType": "统一社会信用代码",
+          "estblshDate": "2004-08-09",
+          "rgstrdCapital": "3597.82",
+          "rgstrdAddress": "江苏省苏州市昆山市开发区三巷路417号",
+          "pkIndustrySortLittle": {
+            "code": "1789",
+            "name": "其他产业用纺织制成品制造",
+            "typeName": "INDUSTRY_CLASS",
+            "typeCode": "CSTS0017"
+          },
+          "employeeNum": 120,
+          "mainBusiness": null,
+          "companyEvolution": null,
+          "legalRepresentativeCustomerName": "张子睿",
+          "actControlsName": "张子睿",
+          "customerType": [
+            {
+              "code": "1",
+              "name": "融资客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            },
+            {
+              "code": "14",
+              "name": "担保客户",
+              "typeName": "CUSTOMER_TYPE",
+              "typeCode": "CSTS0006"
+            }
+          ],
+          "serviceInformAdress": "江苏省苏州市昆山市开发区三巷路417号",
+          "personActControlList": [
+            "2201912971000"
+          ],
+          "rgstrdProvinceName": "江苏省",
+          "factCapital": "3597.00"
+        },
+        "industryLicenseList": [],
+        "shareholderList": [
+          {
+            "shareholderName": "昆山华屹企业管理中心（有限合伙）",
+            "shareholderCapitalAmount": "100.00",
+            "holdStockRatio": "2.7795"
+          },
+          {
+            "shareholderName": "张子睿",
+            "shareholderCapitalAmount": "3497.82",
+            "holdStockRatio": "97.2205"
+          }
+        ],
+        "shareholderTotal": {
+          "shareholderCapitalAmount": "3597.82",
+          "holdStockRatio": "100.0000"
+        },
+        "controllerIntroduction": "实控人为张子睿，今年56岁，现居住于昆山市花桥镇，毕业于青海师范专科学院，西安交通大学管理学硕士，英国温布尔大学健康管理学博士，现担任昆山华阳新材料股份有限公司董事长、南通东屹高新纤维科技有限公司董事长、中国纺织工业企业管理协会理事、中国印染协会理、昆山市纺织协会会长、国际佛教禅修学会理事。自青海师范专科学院英语专业毕业后就从事功能性纺织的研发与市场运营长期与江南大学、东华大学等纺织名校进行合作，实现多项科技成果转化。多次承担国家、省、市级科研项目。多次获得纺织之光“科技进步优秀奖”，中国印染行业企业产品设计“一奖”、“二等奖”、中国国际面料设计大赛“最佳荣誉奖”参与起草国家《纺织品服装限用物资清单》的行业标准。以第一发明人及权利人获得授权发明专利、实用新型专利共计64项。始终以仁爱之心和工匠精神经营企业。",
+        "guaranteeCompanySituation": null,
+        "judicialLitigationInfo": {
+          "caseTypeHighRiskList": [
+            {
+              "caseType": "被执行人",
+              "caseNum": 10,
+              "pkQueryRecord": "1542877512877331200"
+            }
+          ],
+          "caseTypeCommonList": [
+            {
+              "caseType": "民事案件",
+              "caseNum": 23,
+              "pkQueryRecord": "1542877512877331200"
+            },
+            {
+              "caseType": "非诉保全审查",
+              "caseNum": 5,
+              "pkQueryRecord": "1542877512877331200"
+            },
+            {
+              "caseType": "执行案件",
+              "caseNum": 39,
+              "pkQueryRecord": "1542877512877331200"
+            }
+          ],
+          "judicialLitigationInfoDesc": "目前无在途诉讼，之前案件均为民事纠纷，对企业正常经营无影响。",
+          "updateTime": "2026-08-28 12:44:24",
+          "queryStatusEnum": 0,
+          "pkQueryRecord": "1542877512877331200"
+        },
+        "assetSize": {
+          "customerNo": null,
+          "rgstrdAddress": null,
+          "factoryOwnDetails": [],
+          "factoryRentDetails": [],
+          "equipmentList": [],
+          "ratio": null,
+          "incomeAndDebtScale": null
+        },
+        "equityPenetrationList": [],
+        "financialAnalysisList": [],
+        "financialAnalysisDesc": null,
+        "loan": {
+          "creditInfo": null,
+          "loanDesc": null,
+          "zdinfo": null
+        },
+        "projectOperationInfo": {
+          "operationInfoList": [],
+          "operationDescription": null
+        },
+        "financialDataOfKeyAccount": {
+          "isNewCompany": null,
+          "collectFinancialFlag": null,
+          "financialStatementsOfKeyAccount": {
+            "sheetName": null,
+            "creditCode": "91320500765135302R",
+            "customerNo": "120192049000",
+            "fsDataSourceType": "税票授权采集",
+            "balanceSheet": [
+              {
+                "period": "202312",
+                "periodType": "107",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "totalAssets": "345045805.66",
+                "totalCurrentAssets": "216770049.35",
+                "monetaryFunds": "9140242.27",
+                "shortInvestments": "0.00",
+                "notesReceivable": "42650.65",
+                "accountsReceivable": "69856824.32",
+                "prepayments": "43507338.12",
+                "dividentsReceivable": "0.00",
+                "interestReceivable": "0.00",
+                "otherReceivables": "57863376.45",
+                "inventories": "36359617.54",
+                "otherCurrentAssets": "0.00",
+                "totalNoncurrentAssets": null,
+                "longDebtInvestments": "0.00",
+                "longEquityInvestments": "200000000.00",
+                "originalValueFixedAssets": "66038045.85",
+                "accumulateDepreciation": "40791504.89",
+                "bookValueOfFixedAssets": "25246540.96",
+                "constructionProjects": "0.00",
+                "producedBiologicalAssets": null,
+                "longAmortisedExpenses": "0.00",
+                "otherNoncurrentAssets": "679409.06",
+                "totalLiabilities": "203018856.14",
+                "totalCurrentLiabilities": "202807592.54",
+                "shortLoans": "122465378.82",
+                "notesPayable": "6000000.00",
+                "accountsPayable": "65952608.75",
+                "accountsReceivedAdvance": "6716763.05",
+                "wagesPayable": "1419783.72",
+                "taxesPayable": "223120.00",
+                "interestPayable": null,
+                "profitPayable": "0.00",
+                "otherPayables": "29938.20",
+                "otherCurrentLiabilities": "0.00",
+                "totalNoncurrentLiabilities": "211263.60",
+                "longLoans": "0.00",
+                "longPayables": "211263.60",
+                "deferredIncome": null,
+                "otherNoncurrentLiabilities": "0.00",
+                "totalOwnersEquity": "142026949.52",
+                "paidInCapital": "35978200.00",
+                "capitalSurplus": "9819314.41",
+                "surplusReserves": "1366570.71",
+                "undistributedProfit": "94862864.40",
+                "intangibleAssets": "2349806.29",
+                "leaseLiability": null,
+                "rightOfUseAsset": null,
+                "nonCurrentLiabilities": "0.00"
+              },
+              {
+                "period": "202412",
+                "periodType": "107",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "totalAssets": "347073192.69",
+                "totalCurrentAssets": "220007829.31",
+                "monetaryFunds": "17253615.07",
+                "shortInvestments": "0.00",
+                "notesReceivable": "254903.65",
+                "accountsReceivable": "95453750.52",
+                "prepayments": "29414198.22",
+                "dividentsReceivable": "0.00",
+                "interestReceivable": "0.00",
+                "otherReceivables": "40506138.19",
+                "inventories": "37125223.66",
+                "otherCurrentAssets": "0.00",
+                "totalNoncurrentAssets": null,
+                "longDebtInvestments": "0.00",
+                "longEquityInvestments": "200000000.00",
+                "originalValueFixedAssets": "66531832.24",
+                "accumulateDepreciation": "43238895.26",
+                "bookValueOfFixedAssets": "23292936.98",
+                "constructionProjects": "0.00",
+                "producedBiologicalAssets": null,
+                "longAmortisedExpenses": "0.00",
+                "otherNoncurrentAssets": "1508841.22",
+                "totalLiabilities": "194989251.01",
+                "totalCurrentLiabilities": "194926930.13",
+                "shortLoans": "104000000.00",
+                "notesPayable": "12500000.00",
+                "accountsPayable": "66344258.83",
+                "accountsReceivedAdvance": "9539558.49",
+                "wagesPayable": "2162885.65",
+                "taxesPayable": "311432.14",
+                "interestPayable": null,
+                "profitPayable": "0.00",
+                "otherPayables": "68795.02",
+                "otherCurrentLiabilities": "0.00",
+                "totalNoncurrentLiabilities": "62320.88",
+                "longLoans": "0.00",
+                "longPayables": "62320.88",
+                "deferredIncome": null,
+                "otherNoncurrentLiabilities": "0.00",
+                "totalOwnersEquity": "152083941.68",
+                "paidInCapital": "35978200.00",
+                "capitalSurplus": "9819314.41",
+                "surplusReserves": "1366570.71",
+                "undistributedProfit": "104919856.56",
+                "intangibleAssets": "2263585.18",
+                "leaseLiability": null,
+                "rightOfUseAsset": null,
+                "nonCurrentLiabilities": "0.00"
+              },
+              {
+                "period": "202512",
+                "periodType": "107",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "totalAssets": "366928852.85",
+                "totalCurrentAssets": "241192141.86",
+                "monetaryFunds": "20335952.77",
+                "shortInvestments": "7000000.00",
+                "notesReceivable": "1761842.70",
+                "accountsReceivable": "108210123.02",
+                "prepayments": "40734103.24",
+                "dividentsReceivable": null,
+                "interestReceivable": null,
+                "otherReceivables": "28604158.53",
+                "inventories": "34545961.60",
+                "otherCurrentAssets": "0.00",
+                "totalNoncurrentAssets": "125736710.99",
+                "longDebtInvestments": "0.00",
+                "longEquityInvestments": "101000000.00",
+                "originalValueFixedAssets": null,
+                "accumulateDepreciation": null,
+                "bookValueOfFixedAssets": "20874741.33",
+                "constructionProjects": "0.00",
+                "producedBiologicalAssets": "0.00",
+                "longAmortisedExpenses": "0.00",
+                "otherNoncurrentAssets": "0.00",
+                "totalLiabilities": "213817833.64",
+                "totalCurrentLiabilities": "213817833.64",
+                "shortLoans": "94000000.00",
+                "notesPayable": "40000000.00",
+                "accountsPayable": "68185643.76",
+                "accountsReceivedAdvance": "8715795.75",
+                "wagesPayable": "2185622.48",
+                "taxesPayable": "661976.63",
+                "interestPayable": null,
+                "profitPayable": null,
+                "otherPayables": "68795.02",
+                "otherCurrentLiabilities": "0.00",
+                "totalNoncurrentLiabilities": "0.00",
+                "longLoans": "0.00",
+                "longPayables": "0.00",
+                "deferredIncome": "0.00",
+                "otherNoncurrentLiabilities": "0.00",
+                "totalOwnersEquity": "153111019.21",
+                "paidInCapital": "35978200.00",
+                "capitalSurplus": "9819314.41",
+                "surplusReserves": "1366570.71",
+                "undistributedProfit": "105946934.09",
+                "intangibleAssets": "2186425.30",
+                "leaseLiability": "0.00",
+                "rightOfUseAsset": null,
+                "nonCurrentLiabilities": "0.00"
+              },
+              {
+                "period": "202606",
+                "periodType": "102",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "totalAssets": "340466819.57",
+                "totalCurrentAssets": "206680340.67",
+                "monetaryFunds": "35694634.47",
+                "shortInvestments": "0.00",
+                "notesReceivable": "532693.80",
+                "accountsReceivable": "86687247.60",
+                "prepayments": "1872625.99",
+                "dividentsReceivable": null,
+                "interestReceivable": null,
+                "otherReceivables": "28554525.77",
+                "inventories": "53338613.04",
+                "otherCurrentAssets": "0.00",
+                "totalNoncurrentAssets": "133786478.90",
+                "longDebtInvestments": "0.00",
+                "longEquityInvestments": "110173080.00",
+                "originalValueFixedAssets": null,
+                "accumulateDepreciation": null,
+                "bookValueOfFixedAssets": "19790009.18",
+                "constructionProjects": "0.00",
+                "producedBiologicalAssets": "0.00",
+                "longAmortisedExpenses": "0.00",
+                "otherNoncurrentAssets": "0.00",
+                "totalLiabilities": "190702120.64",
+                "totalCurrentLiabilities": "190702120.64",
+                "shortLoans": "119500000.00",
+                "notesPayable": "51000000.00",
+                "accountsPayable": "18558698.19",
+                "accountsReceivedAdvance": "0.00",
+                "wagesPayable": "1358654.70",
+                "taxesPayable": "215587.41",
+                "interestPayable": null,
+                "profitPayable": null,
+                "otherPayables": "69180.34",
+                "otherCurrentLiabilities": "0.00",
+                "totalNoncurrentLiabilities": "0.00",
+                "longLoans": "0.00",
+                "longPayables": "0.00",
+                "deferredIncome": "0.00",
+                "otherNoncurrentLiabilities": "0.00",
+                "totalOwnersEquity": "149764698.93",
+                "paidInCapital": "35978200.00",
+                "capitalSurplus": "9819314.41",
+                "surplusReserves": "1366570.71",
+                "undistributedProfit": "102600613.81",
+                "intangibleAssets": "2147845.36",
+                "leaseLiability": "0.00",
+                "rightOfUseAsset": null,
+                "nonCurrentLiabilities": "0.00"
+              }
+            ],
+            "profitSheet": [
+              {
+                "period": "202312",
+                "periodType": "107",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "revenueOperations": 255303162.3,
+                "costBusiness": 200663944.32,
+                "mainBusinessTaxesSurcharges": 1505507.64,
+                "sellingExpenses": 24622280.62,
+                "administrativeExpenses": 23285237.23,
+                "financeCosts": 4466088.43,
+                "operatingProfit": 827746.93,
+                "nonoperatingIncome": 1781482.86,
+                "nonoperatingExpenses": 319374.94,
+                "totalProfit": 2289854.85,
+                "incomeTaxExpense": 47347.93,
+                "netProfit": 2242506.92
+              },
+              {
+                "period": "202412",
+                "periodType": "107",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "revenueOperations": 327616429.03,
+                "costBusiness": 257633043.59,
+                "mainBusinessTaxesSurcharges": 1536585.95,
+                "sellingExpenses": 26394328.26,
+                "administrativeExpenses": 32225172.65,
+                "financeCosts": 3592102.42,
+                "operatingProfit": 6235196.16,
+                "nonoperatingIncome": 3036764,
+                "nonoperatingExpenses": 44400.16,
+                "totalProfit": 9227560,
+                "incomeTaxExpense": -829432.16,
+                "netProfit": 10056992.16
+              },
+              {
+                "period": "202512",
+                "periodType": "107",
+                "dataType": "单体",
+                "fsDataSourceType": "税票授权采集",
+                "revenueOperations": 318458250.05,
+                "costBusiness": 251292421.72,
+                "mainBusinessTaxesSurcharges": 1406905.93,
+                "sellingExpenses": 32779611.09,
+                "administrativeExpenses": 18128686.69,
+                "financeCosts": 3921211.39,
+                "operatingProfit": 1045654.37,
+                "nonoperatingIncome": 72362.24,
+                "nonoperatingExpenses": 257642.22,
+                "totalProfit": 860374.39,
+                "incomeTaxExpense": -166703.14,
+                "netProfit": 1027077.53
+              }
+            ],
+            "financialIndex": []
+          },
+          "receiveAccountDetail": {
+            "ifCanVisible": "是",
+            "financialAnalysisDataList": []
+          },
+          "financialNotes": null,
+          "receiveAccountDesc": null
+        },
+        "relatedEnterpriseDesc": null,
+        "assetStatusDesc": null,
+        "existingContractAnalysis": {
+          "collectContractFlag": null,
+          "contractStatusInfoList": null,
+          "contractStatusDesc": null
+        }
+      },
+      "collaborationHistoryModel": {
+        "leaseCollaborationHistoryList": [
+          {
+            "leaseMethod": "回租",
+            "leaseMethodFact": "回租",
+            "guaranteeMethod": null,
+            "guaranteeMethodList": null,
+            "contName": "苏租[2019]租赁字第366号",
+            "contCashPledge": "5000000.00",
+            "curOverdueAmount": "0.00",
+            "corpusBalancePledge": "0.00",
+            "curOverdueDays": 0,
+            "historyOverdueDays": 2,
+            "historyOverdueTimes": 1,
+            "contEndDate": "2020-05-25",
+            "leaseBeginDate": "2019-05-31",
+            "customerName": "昆山华阳新材料股份有限公司",
+            "customerRoleEnumList": [
+              "承租方"
+            ],
+            "customerRoleEnum": "承租方",
+            "irr": null,
+            "cmprhnsvIrr": null,
+            "customerRole": "担保人,关联方",
+            "customerNo": "120192049000",
+            "businessStatus": null
+          }
+        ],
+        "leaseAmountTotal": {
+          "contCashPledge": "5000000.00",
+          "riskExposure": "0.00",
+          "curOverdueAmount": "0.00"
+        },
+        "guarantorCollaborationHistories": [
+          {
+            "leaseMethod": "回租",
+            "leaseMethodFact": "回租",
+            "guaranteeMethod": "保证担保",
+            "guaranteeMethodList": "保证担保",
+            "contName": "JFL24C01L003551-01",
+            "contCashPledge": "15000000.00",
+            "curOverdueAmount": "0.00",
+            "corpusBalancePledge": "0.00",
+            "curOverdueDays": 0,
+            "historyOverdueDays": 1,
+            "historyOverdueTimes": 1,
+            "contEndDate": "2026-01-21",
+            "leaseBeginDate": "2024-01-31",
+            "customerName": "昆山华阳新材料股份有限公司",
+            "customerRoleEnumList": [
+              "承租方"
+            ],
+            "customerRoleEnum": "承租方",
+            "irr": "8.6155",
+            "cmprhnsvIrr": "8.6297",
+            "customerRole": "担保人,关联方",
+            "customerNo": "120192049000",
+            "businessStatus": null
+          }
+        ],
+        "guarantorAmountTotal": {
+          "contCashPledge": "15000000.00",
+          "riskExposure": "0.00",
+          "curOverdueAmount": "0.00"
+        },
+        "updateTime": "2026-08-27",
+        "queryStatusEnum": 0,
+        "pkQueryRecord": null
+      },
+      "productionAndSaleSituation": {
+        "productionAndSaleSituationDesc": null,
+        "desc": null,
+        "downstreamCustomerDesc": null,
+        "mainProductList": null,
+        "mainProductTotal": null,
+        "downstreamCustomerList": null,
+        "downstreamCustomerSaleAmountTotal": null,
+        "downstreamCustomerRatioTotal": null,
+        "useElectricityModelList": null
+      },
+      "guaranteeContInfoList": [
+        {
+          "guaranteeContType": "一般担保合同",
+          "contName": null,
+          "planCash": "10612900.00",
+          "currtype": "人民币",
+          "guaranteeMeasures": null,
+          "ifSubordinate": "否",
+          "reason": null
+        }
+      ]
+    }
+  ]
+}

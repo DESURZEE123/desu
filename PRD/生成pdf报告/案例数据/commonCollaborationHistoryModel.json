@@ -1,0 +1,173 @@
+{
+  "leaseCollaborationHistoryList": [
+    {
+      "leaseMethod": "回租",
+      "leaseMethodFact": "回租",
+      "guaranteeMethod": null,
+      "guaranteeMethodList": null,
+      "contName": "JFL24C01L003551-01",
+      "contCashPledge": "15000000.00",
+      "curOverdueAmount": "0.00",
+      "corpusBalancePledge": "0.00",
+      "curOverdueDays": 0,
+      "historyOverdueDays": 1,
+      "historyOverdueTimes": 1,
+      "contEndDate": "2026-01-21",
+      "leaseBeginDate": "2024-01-31",
+      "customerName": "南通东屹高新纤维科技有限公司",
+      "customerRoleEnumList": [
+        "承租方"
+      ],
+      "customerRoleEnum": "承租方",
+      "irr": "8.6297",
+      "cmprhnsvIrr": "8.6297",
+      "customerRole": "承租人",
+      "customerNo": "120192053000",
+      "businessStatus": null
+    },
+    {
+      "leaseMethod": "回租",
+      "leaseMethodFact": "回租",
+      "guaranteeMethod": null,
+      "guaranteeMethodList": null,
+      "contName": "苏租[2019]租赁字第366号",
+      "contCashPledge": "5000000.00",
+      "curOverdueAmount": "0.00",
+      "corpusBalancePledge": "0.00",
+      "curOverdueDays": 0,
+      "historyOverdueDays": 2,
+      "historyOverdueTimes": 1,
+      "contEndDate": "2020-05-25",
+      "leaseBeginDate": "2019-05-31",
+      "customerName": "昆山华阳新材料股份有限公司",
+      "customerRoleEnumList": [
+        "承租方"
+      ],
+      "customerRoleEnum": "承租方",
+      "irr": null,
+      "cmprhnsvIrr": null,
+      "customerRole": "担保人,关联方",
+      "customerNo": "120192049000",
+      "businessStatus": null
+    }
+  ],
+  "leaseAmountTotal": {
+    "contCashPledge": "20000000.00",
+    "riskExposure": "0.00",
+    "curOverdueAmount": "0.00"
+  },
+  "guarantorCollaborationHistories": [
+    {
+      "leaseMethod": "回租",
+      "leaseMethodFact": "回租",
+      "guaranteeMethod": "保证担保",
+      "guaranteeMethodList": "保证担保",
+      "contName": "苏租[2019]租赁字第366号",
+      "contCashPledge": "5000000.00",
+      "curOverdueAmount": "0.00",
+      "corpusBalancePledge": "0.00",
+      "curOverdueDays": 0,
+      "historyOverdueDays": 2,
+      "historyOverdueTimes": 1,
+      "contEndDate": "2020-05-25",
+      "leaseBeginDate": "2019-05-31",
+      "customerName": "南通东屹高新纤维科技有限公司",
+      "customerRoleEnumList": [
+        "承租方"
+      ],
+      "customerRoleEnum": "承租方",
+      "irr": "10.6030",
+      "cmprhnsvIrr": null,
+      "customerRole": "承租人",
+      "customerNo": "120192053000",
+      "businessStatus": null
+    },
+    {
+      "leaseMethod": "回租",
+      "leaseMethodFact": "回租",
+      "guaranteeMethod": "保证担保",
+      "guaranteeMethodList": "保证担保",
+      "contName": "JFL24C01L003551-01",
+      "contCashPledge": "15000000.00",
+      "curOverdueAmount": "0.00",
+      "corpusBalancePledge": "0.00",
+      "curOverdueDays": 0,
+      "historyOverdueDays": 1,
+      "historyOverdueTimes": 1,
+      "contEndDate": "2026-01-21",
+      "leaseBeginDate": "2024-01-31",
+      "customerName": "昆山华阳新材料股份有限公司",
+      "customerRoleEnumList": [
+        "承租方"
+      ],
+      "customerRoleEnum": "承租方",
+      "irr": "8.6155",
+      "cmprhnsvIrr": "8.6297",
+      "customerRole": "担保人,关联方",
+      "customerNo": "120192049000",
+      "businessStatus": null
+    },
+    {
+      "leaseMethod": "回租",
+      "leaseMethodFact": "回租",
+      "guaranteeMethod": "保证担保",
+      "guaranteeMethodList": "保证担保",
+      "contName": "JFL24C01L003551-01",
+      "contCashPledge": "15000000.00",
+      "curOverdueAmount": "0.00",
+      "corpusBalancePledge": "0.00",
+      "curOverdueDays": 0,
+      "historyOverdueDays": 1,
+      "historyOverdueTimes": 1,
+      "contEndDate": "2026-01-21",
+      "leaseBeginDate": "2024-01-31",
+      "customerName": "张子睿",
+      "customerRoleEnumList": [
+        "承租方"
+      ],
+      "customerRoleEnum": "承租方",
+      "irr": "8.6155",
+      "cmprhnsvIrr": "8.6297",
+      "customerRole": "担保人",
+      "customerNo": "2201912971000",
+      "businessStatus": null
+    },
+    {
+      "leaseMethod": "回租",
+      "leaseMethodFact": "回租",
+      "guaranteeMethod": "保证担保",
+      "guaranteeMethodList": "保证担保",
+      "contName": "苏租[2019]租赁字第366号",
+      "contCashPledge": "5000000.00",
+      "curOverdueAmount": "0.00",
+      "corpusBalancePledge": "0.00",
+      "curOverdueDays": 0,
+      "historyOverdueDays": 2,
+      "historyOverdueTimes": 1,
+      "contEndDate": "2020-05-25",
+      "leaseBeginDate": "2019-05-31",
+      "customerName": "张子睿",
+      "customerRoleEnumList": [
+        "承租方"
+      ],
+      "customerRoleEnum": "承租方",
+      "irr": "10.6030",
+      "cmprhnsvIrr": null,
+      "customerRole": "担保人",
+      "customerNo": "2201912971000",
+      "businessStatus": null
+    }
+  ],
+  "guarantorAmountTotal": {
+    "contCashPledge": "40000000.00",
+    "riskExposure": "0.00",
+    "curOverdueAmount": "0.00"
+  },
+  "updateTime": null,
+  "queryStatusEnum": null,
+  "pkQueryRecord": null,
+  "cooperateHistoryDesc": "合作2次，无余额，还款状况优秀，仅2次因周末遗忘所致，非恶意逾期。",
+  "subjects": null,
+  "isRepeatOrderOk": null,
+  "repeatOrderSituation": null
+}

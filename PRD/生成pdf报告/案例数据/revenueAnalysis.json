@@ -1,0 +1,1305 @@
+{
+  "subjectInfoList": [
+    {
+      "subjectName": "南通东屹高新纤维科技有限公司",
+      "customerRole": [
+        "承租人"
+      ],
+      "customerNo": "120192053000",
+      "creditCode": "913206213020578543",
+      "siIncomeVerifiUnit": null,
+      "siIncomeVerifiRemark": null
+    },
+    {
+      "subjectName": "昆山华阳新材料股份有限公司",
+      "customerRole": [
+        "担保人",
+        "关联方"
+      ],
+      "customerNo": "120192049000",
+      "creditCode": "91320500765135302R",
+      "siIncomeVerifiUnit": null,
+      "siIncomeVerifiRemark": null
+    }
+  ],
+  "assetSize": {
+    "factoryList": [
+      {
+        "pkCompanyAsset": "1542882854396499968",
+        "factoryType": 0,
+        "factoryArea": "13488.23",
+        "factoryRent": null,
+        "landArea": "28770.00",
+        "landValue": "7000.00",
+        "landMortgaged": "是",
+        "leaseEndDate": null,
+        "address": "海安经济开发区现代纺织园立发大道东88号",
+        "haveLoan": null,
+        "haveDocument": "是",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000"
+      },
+      {
+        "pkCompanyAsset": "1542882854396499969",
+        "factoryType": 0,
+        "factoryArea": "40972.27",
+        "factoryRent": null,
+        "landArea": "35155.00",
+        "landValue": "9000.00",
+        "landMortgaged": "是",
+        "leaseEndDate": null,
+        "address": "海安经济开发区现代纺织园立发大道东88号",
+        "haveLoan": null,
+        "haveDocument": "是",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000"
+      },
+      {
+        "pkCompanyAsset": "1542882854396499970",
+        "factoryType": 0,
+        "factoryArea": "59539.33",
+        "factoryRent": null,
+        "landArea": "51554.00",
+        "landValue": "9000.00",
+        "landMortgaged": "是",
+        "leaseEndDate": null,
+        "address": "海安经济开发区现代纺织园立发大道东88号",
+        "haveLoan": null,
+        "haveDocument": "是",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000"
+      },
+      {
+        "pkCompanyAsset": "1542882854396499971",
+        "factoryType": 0,
+        "factoryArea": "28517.16",
+        "factoryRent": null,
+        "landArea": "25590.00",
+        "landValue": "15000.00",
+        "landMortgaged": "是",
+        "leaseEndDate": null,
+        "address": "昆山经济技术开发区三巷路417号",
+        "haveLoan": null,
+        "haveDocument": "是",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000"
+      }
+    ],
+    "factoryDesc": "昆山一块厂房土地，苏州银行8000万元抵押贷款（其中2000万元为二抵），农行2800万元，抵押价值为10800万元，目前估值约15000万元；南通三块厂房土地海安农商行7600万元抵押，农行9200万元抵押，邮储银行1340万元，抵押价值18140万元，目前估值约25000万元。集团内安徽华阳厂房土地估值约10000万元，目前未做抵押。合计集团内部所有厂房土地估值约为5亿元，目前抵押金额为28940万元。",
+    "ratioDesc": "集团内稼动率约为80%。",
+    "mainEquipmentList": [
+      {
+        "pkAssetEquipment": "1542882854404888576",
+        "pkBaseInfo": "1542877466595639296",
+        "customerNo": "120192053000",
+        "content": "1",
+        "originalValue": "2800000.00",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "ratio": null
+      }
+    ],
+    "ratioList": [
+      {
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "ratio": "80.0000"
+      },
+      {
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "ratio": "80.0000"
+      }
+    ]
+  },
+  "proAndSaleSituation": {
+    "productionAndSaleSituationDesc": "南通东屹2025年前20大下游：\n1\t昆山华阳新材料股份有限公司\t 94,747,059.61 \t23.93%\n2\t伯希和户外运动集团股份有限公司\t 20,096,298.48 \t5.08%\n3\t山东大鲁阁织染工业有限公司\t 16,771,680.46 \t4.24%\n4\t安徽轻工国际贸易股份有限公司\t 14,958,510.98 \t3.78%\n5\t华阳服饰（芒市）有限公司\t 11,251,182.77 \t2.84%\n6\t天津埃尔泰克复合材料有限公司\t 10,210,908.88 \t2.58%\n7\t厦门懋铨纺织品有限公司\t 10,177,525.72 \t2.57%\n8\t广州德勤和信产业运营管理有限公司\t 10,089,805.94 \t2.55%\n9\t杭州云虹电子商务有限公司\t 7,097,592.90 \t1.79%\n10\t昆山三鑫纺织面料科技有限公司\t 6,991,762.58 \t1.77%\n11\t苏州东奕盛材料科技有限公司\t 5,267,985.78 \t1.33%\n12\t昆山三川面料科技有限公司\t 5,072,744.97 \t1.28%\n13\t广州市娇韵依城服饰有限公司\t 4,800,987.69 \t1.21%\n14\t苏州泰荃信息科技有限公司\t 4,420,778.76 \t1.12%\n15\t石狮多布达材料技术有限公司\t 4,332,050.49 \t1.09%\n16\t扬州牛牛户外用品有限公司\t 4,255,797.65 \t1.07%\n17\t南通杰克拜尼服帽有限公司\t 3,624,793.42 \t0.92%\n18\t苏州德高进出口有限公司\t 3,607,598.63 \t0.91%\n19\t滑县金泰服装有限公司\t 3,450,274.09 \t0.87%\n20\t南通百利时纺织科技有限公司\t 3,256,982.57 \t0.82%\n21\t其他\t 151,453,224.22 \t38.25%\n\t总计\t 395,935,546.59 \t\t          \n\n前20大客户占比共计38.25，下游客户较为分散，该存货在纺织行业内合理，主要为两班倒制，目前无欠薪情况，稼动率正常，产品主要应用于功能领域，例如防火服，迷彩服，环卫工人制服等，基本为国内销售。\n\n昆山华阳2025年前20大下游：\n1\t安徽华阳科技有限公司\t 15,964,967.52 \t5.03%\n2\t迪立美运动服饰（鹤山）有限公司\t 14,296,158.76 \t4.50%\n3\tDASSY HK LTD\t 9,492,304.56 \t2.99%\n4\tDynamic Denim Corporation\t 7,718,088.24 \t2.43%\n5\tSIOEN ASIA PACIFIC PTE LTD\t 7,225,683.94 \t2.28%\n6\t伊藤忠纤维贸易（中国）有限公司\t 6,625,055.46 \t2.09%\n7\t深圳市德安泰防护科技有限公司\t 5,663,744.44 \t1.78%\n8\t佛山市南海区承明贸易有限公司\t 5,454,226.11 \t1.72%\n9\t德州市东连制衣有限公司\t 5,261,905.84 \t1.66%\n10\t张家港保税区项成国际贸易有限公司\t 5,228,319.56 \t1.65%\n11\t福建恒彦服装有限公司\t 5,012,304.87 \t1.58%\n12\tESEN Textile\t 4,910,432.80 \t1.55%\n13\tPORTWEST\t 4,898,307.80 \t1.54%\n14\tBARI TEKSTIL MMC\t 4,771,767.64 \t1.50%\n15\tRAJCO INDUSTRIES\t 4,653,356.31 \t1.47%\n16\t山东向尚服饰文化有限公司\t 4,529,892.04 \t1.43%\n17\t苏州市希尔达服饰有限公司\t 4,489,071.15 \t1.41%\n18\t南京意烽扬服饰有限公司\t 4,249,507.68 \t1.34%\n19\tREVERSE S.R.L\t 4,086,656.93 \t1.29%\n20\t天津市博棉铭泰国际贸易有限公司\t 4,029,939.56 \t1.27%\n21\t其他\t 188,903,784.11 \t59.50%\n\t总计\t 317,465,475.32 \t100.00%\n前20大客户占比共计59.5:%，下游客户较为分散，该存货在纺织行业内合理，主要为两班倒制，目前无欠薪情况，稼动率正常，华阳主要应用于时尚日常产品，例如冲锋衣、防水服等，外销比例约占30%。\n\n\n",
+    "desc": "南通东屹高新纤维科技有限公司\n一、主要原材料\n？ 纤维/纱线端：涤纶（含细旦高F、无氨弹力改性涤纶、超细旦、中空纱）、尼龙/NY（100%尼龙、尼龙无氨超弹）、超高分子量聚乙烯；天然与生物质纤维（竹纤维、羊毛、桑蚕丝、杜邦Sorona、可再生可降解PES）。\n？ 功能化母粒/助剂：吸湿速干母粒、发热纤维母粒、二氧化钛及偏光母粒（易去污/防晒）、抗菌印花助剂。\n？ 膜与复合材：自研高分子防水PU透湿膜、微多孔薄膜、可降解PES薄膜、抗菌印花膜。\n？ 染化料：自动化输送系统的环保染料/助剂（配套绿色染整）。\n二、生产工艺流程（全链条）\n1. 高新纤维/纱线研发定制——定向开发改性涤纶、无氨弹力纱、中空纱、原纱防晒纱等。\n2. 织造——超细纤维织造；电子多臂喷水织机、德国进口织机生产针织/梭织坯布（弹力、高密、迷你格等）。\n3. 绿色环保染整——印染精加工；半自动称料+自动溶料输送，染色配方调整实现棉感、垂感、色牢度控制。\n4. 高分子薄膜制造——自产PU透湿膜、微多孔膜、可降解膜。\n5. 功能复合/涂层——4条功能性涂层线；轻量三贴、防水透汽复合、原纱+后整理双重防晒等工艺。\n6. 后整理与验收——RTO废气处理（能耗降30%）、CNAS认证实验室检测（UPF 50+~2000+、透湿、弹力回弹等）。\n7. 服装设计与生产（延伸环节）——为品牌提供面料+成衣整体方案。\n三、主营产品（十二大系列）\n新型棉感、高品质弹力、超细高密、特殊功能、时尚裤料、舒适针织、科技防绒、户外软壳（核心爆款，占展厅1/3，春夏单层无贴合软壳销量同比+100%）、原纱防晒（UPF 50+~2000+）、汗无痕、中空保暖、可再生/Sorona/可降解系列；覆盖防晒服、速干衣、滑雪服、羽绒服、运动休闲。\n昆山华阳新材料股份有限公司\n一、主要原材料\n华阳不做上游石化原料（不产PTA、己内酰胺），走“外采纤维+自研功能膜+绿色助剂”路线：\n？ 常规化纤纱线：涤纶（含T400/T800弹力丝、细旦高F）、尼龙66/PA6、腈纶、莱卡（氨纶替代）。\n？ 绿色/生物基纤维：再生涤纶（rPET，Unifi宝特瓶回收纱）、再生尼龙、Sorona（玉米淀粉基PDO）、PLA聚乳酸、海洋再生纱。\n？ 功能膜与复合材：自产PU透湿膜、TPU热熔胶网、微多孔膜、ePE环保微孔膜、石墨烯PU转移膜、静电纺PTFE/氟纳米纤维膜、PA热熔网膜。\n？ 功能助剂/母粒：阻燃剂（本质阻燃纤维）、远红外/蓄热母粒、原纱防晒（艾肤纶原位聚合）、抗菌印花助剂、玉米醇溶蛋白电纺液等。\n？ 坯布基材：棉布、中空纤维层、摇粒绒、针织提花布、梭织混纺/交织布。\n二、生产工艺流程（全链条）\n1. 纤维/纱线定制——外采或定向开发再生涤、Sorona、T400/T800、原纱防晒丝。\n2. 织造——梭织化纤/混纺/交织 + 针织提花 + 摇粒绒起绒，形成差异化坯布（如T400竖条泡泡条）。\n3. 染整——染色（常温常压沸染）、印花、Oeko-Tex/Bluesign/GRS合规管控，独立再生排产线。\n4. 功能膜制造——自产PU透湿膜、微多孔涂层液、ePE膜；静电纺丝制PTFE/氟纳米纤维膜；石墨烯共混制PU转移膜。\n5. 涂层/复合——微多孔涂层（5000–20000mm水压）、TPU热熔复合、PU透湿转移复合、PA热熔网层压（如纳米纤维氟膜三层贴合）。\n6. 功能后整理——阻燃、EN20471高可视、远红外蓄热、抗菌、原纱防晒（UPF50+ UVA<5%）、轻量7D–15D三层复合（最轻45g/㎡）。\n7. 检测认证——EN20471/EN343/EN11612/NFPA2112、Bluesign、GRS、Oeko-Tex 100、REACH。\n三、主营产品（八大系列）\n高端专业户外（冲锋衣/滑雪服/软壳/皮肤衣/速干）、特种安全防护（EN20471荧光、阻燃、防电弧、EN343防水透汽）、军警红外系列、生物绒（Sorona针织）、环保再生系列（rPET/海洋再生/PLA）、功能针织与针织仿梭织、高端功能膜材（PU/ePE/石墨烯/\n\n从开票数据来看，南通加工费约占30%，产品销售约占70%（其中每年销售昆山华阳关联交易约8000万元），产品主要应用于功能领域，例如防火服，迷彩服，环卫工人制服等。华阳主要应用于时尚日常产品，例如冲锋衣、防水服等。\n",
+    "downstreamCustomerDesc": "集团目前可查诉讼如扬州威登服饰欠货款60873.23元及利息，广州华梦文化传播面料买卖定制纠纷，目前尚未结案。由于拟承租人及拟担保人下游客户十分分散，目前经济环境下行，下游会遇到还款不及时甚至拖欠情况，考虑到金额占集团总销售较小，可认为对正常生产经营无影响。",
+    "mainProductList": [
+      {
+        "productName": "加工费",
+        "ratio": "26.9500",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "11745.28",
+        "source": "系统"
+      },
+      {
+        "productName": "高分子薄膜透湿复合面料",
+        "ratio": "21.1900",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "9235.78",
+        "source": "系统"
+      },
+      {
+        "productName": "透气干爽功能性面料",
+        "ratio": "20.1600",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "8784.87",
+        "source": "系统"
+      },
+      {
+        "productName": "高分子涂层面料加工",
+        "ratio": "4.2200",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "1838.72",
+        "source": "系统"
+      },
+      {
+        "productName": "染色加工费",
+        "ratio": "3.5000",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "1528.92",
+        "source": "系统"
+      },
+      {
+        "productName": "梭织布",
+        "ratio": "2.1000",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "917.89",
+        "source": "系统"
+      },
+      {
+        "productName": "化纤布",
+        "ratio": "2.0800",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "910.17",
+        "source": "系统"
+      },
+      {
+        "productName": "羽绒服",
+        "ratio": "1.6200",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "709.76",
+        "source": "系统"
+      },
+      {
+        "productName": "尼龙面料",
+        "ratio": "1.2400",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "541.68",
+        "source": "系统"
+      },
+      {
+        "productName": "全涤面料",
+        "ratio": "1.2200",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "saleNoteAmount": "534.12",
+        "source": "系统"
+      },
+      {
+        "productName": "高分子贴膜类复合材料",
+        "ratio": "49.2700",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "13768.15",
+        "source": "系统"
+      },
+      {
+        "productName": "高分子刮膜类复合材料",
+        "ratio": "7.9400",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "2219.80",
+        "source": "系统"
+      },
+      {
+        "productName": "复合布",
+        "ratio": "5.7200",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "1599.56",
+        "source": "系统"
+      },
+      {
+        "productName": "涤纶平纹布",
+        "ratio": "4.8600",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "1360.43",
+        "source": "系统"
+      },
+      {
+        "productName": "涤纶布",
+        "ratio": "4.4900",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "1256.86",
+        "source": "系统"
+      },
+      {
+        "productName": "涤纶斜纹布",
+        "ratio": "4.0700",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "1137.95",
+        "source": "系统"
+      },
+      {
+        "productName": "尼龙布",
+        "ratio": "2.3000",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "643.96",
+        "source": "系统"
+      },
+      {
+        "productName": "针织布",
+        "ratio": "2.1000",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "586.93",
+        "source": "系统"
+      },
+      {
+        "productName": "化纤制梭织布",
+        "ratio": "2.0600",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "577.71",
+        "source": "系统"
+      },
+      {
+        "productName": "涤纶摇粒绒",
+        "ratio": "1.4300",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "customerNo": "120192049000",
+        "saleNoteAmount": "399.55",
+        "source": "系统"
+      }
+    ],
+    "downstreamCustomerList": [
+      {
+        "customerNo": "120192053000",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "saleAmount": "8294.78",
+        "ratio": "19.0300",
+        "settlementCycle": "1个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "10.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "奔赴自然户外运动集团股份有限公司",
+        "saleAmount": "2771.24",
+        "ratio": "6.3600",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "安徽轻工国际贸易股份有限公司",
+        "saleAmount": "1828.77",
+        "ratio": "4.1900",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "山东大鲁阁织染工业有限公司",
+        "saleAmount": "1778.49",
+        "ratio": "4.0800",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "厦门懋铨纺织品有限公司",
+        "saleAmount": "1369.88",
+        "ratio": "3.1400",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "4.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "天津埃尔泰克复合材料有限公司",
+        "saleAmount": "1224.42",
+        "ratio": "2.8100",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "3.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "华阳服饰（芒市）有限公司",
+        "saleAmount": "1125.12",
+        "ratio": "2.5800",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "广州市娇韵依城服饰有限公司",
+        "saleAmount": "893.17",
+        "ratio": "2.0500",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "4.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "广州德勤和信产业运营管理有限公司",
+        "saleAmount": "863.59",
+        "ratio": "1.9800",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "3.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192053000",
+        "customerName": "天津向天歌科技有限公司",
+        "saleAmount": "719.07",
+        "ratio": "1.6500",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "3.00",
+        "source": "系统",
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "迪立美运动服饰（鹤山）有限公司",
+        "saleAmount": "1679.81",
+        "ratio": "6.0100",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "银行承兑",
+          "现金"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "佛山市南海区连接点贸易有限公司",
+        "saleAmount": "911.90",
+        "ratio": "3.2600",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "3.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "SIOEN ASIA PACIFIC PTE LTD",
+        "saleAmount": "902.96",
+        "ratio": "3.2300",
+        "settlementCycle": "2个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "BARI TEKSTIL MMC",
+        "saleAmount": "658.58",
+        "ratio": "2.3500",
+        "settlementCycle": "1个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "苏州市希尔达服饰有限公司",
+        "saleAmount": "611.38",
+        "ratio": "2.1800",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "福建恒彦服装有限公司",
+        "saleAmount": "568.39",
+        "ratio": "2.0300",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "张家港保税区项成国际贸易有限公司",
+        "saleAmount": "562.36",
+        "ratio": "2.0100",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金",
+          "银行承兑"
+        ],
+        "cooperateDuration": "3.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "德州市东连制衣有限公司",
+        "saleAmount": "523.10",
+        "ratio": "1.8700",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "2.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "TWG Service NV",
+        "saleAmount": "503.02",
+        "ratio": "1.8000",
+        "settlementCycle": "1个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "3.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      },
+      {
+        "customerNo": "120192049000",
+        "customerName": "南京意烽扬服饰有限公司",
+        "saleAmount": "429.48",
+        "ratio": "1.5300",
+        "settlementCycle": "3个月",
+        "paymentMethod": [
+          "现金"
+        ],
+        "cooperateDuration": "5.00",
+        "source": "系统",
+        "subjectName": "昆山华阳新材料股份有限公司",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ]
+      }
+    ]
+  },
+  "incomeAnalysis": {
+    "operatingIncomeAnalysis": [
+      {
+        "pkRevenueAnalysis": "1542882853851240448",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2023年01月-2023年12月",
+        "invoicingRevenue": "33139.81",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 0,
+        "amountTotal": "33139.81",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240449",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2024年01月-2024年12月",
+        "invoicingRevenue": "36079.34",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 1,
+        "amountTotal": "36079.34",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240450",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2025年01月-2025年12月",
+        "invoicingRevenue": "39593.55",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 2,
+        "amountTotal": "39593.55",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240451",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年01月-2026年06月",
+        "invoicingRevenue": "19675.75",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 3,
+        "amountTotal": "19675.75",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240452",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2023年01月-2023年12月",
+        "invoicingRevenue": "25595.85",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 0,
+        "amountTotal": "25595.85",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240453",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2024年01月-2024年12月",
+        "invoicingRevenue": "32683.05",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 1,
+        "amountTotal": "32683.05",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240454",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2025年01月-2025年12月",
+        "invoicingRevenue": "30637.07",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 2,
+        "amountTotal": "30637.07",
+        "startYear": null,
+        "endYear": null
+      },
+      {
+        "pkRevenueAnalysis": "1542882853851240455",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年01月-2026年06月",
+        "invoicingRevenue": "11567.70",
+        "nonInvoicingRevenue": "0.00",
+        "serialNumber": 3,
+        "amountTotal": "11567.70",
+        "startYear": null,
+        "endYear": null
+      }
+    ],
+    "operatingIncomeAnalysisTotal": [
+      {
+        "timeInterval": "2023年01月-2023年12月",
+        "invoicingRevenue": "58735.66",
+        "relatedTransaction": "8000.00",
+        "excludeRelatedTransaction": "50735.66",
+        "serialNumber": 0
+      },
+      {
+        "timeInterval": "2024年01月-2024年12月",
+        "invoicingRevenue": "68762.39",
+        "relatedTransaction": "8000.00",
+        "excludeRelatedTransaction": "60762.39",
+        "serialNumber": 1
+      },
+      {
+        "timeInterval": "2025年01月-2025年12月",
+        "invoicingRevenue": "70230.62",
+        "relatedTransaction": "8000.00",
+        "excludeRelatedTransaction": "62230.62",
+        "serialNumber": 2
+      },
+      {
+        "timeInterval": "2026年01月-2026年06月",
+        "invoicingRevenue": "31243.45",
+        "relatedTransaction": "3000.00",
+        "excludeRelatedTransaction": "28243.45",
+        "serialNumber": 3
+      }
+    ],
+    "operatingIncomeVerificationList": [
+      {
+        "pkOperatingRevenue": "1542882853876406272",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年01月",
+        "bankStatement": "1954.84",
+        "bankStatementFromJz": "4007.70",
+        "bankAcceptance": "1979.60",
+        "serialNumber": 0,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "2733.56",
+        "totalFlow": "3934.44",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "3212.86",
+        "electricityFee": "113.72",
+        "wage": "205.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406273",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年02月",
+        "bankStatement": "1984.23",
+        "bankStatementFromJz": "3413.71",
+        "bankAcceptance": "490.90",
+        "serialNumber": 1,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "2209.47",
+        "totalFlow": "2475.13",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "1515.41",
+        "electricityFee": "99.26",
+        "wage": "218.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406274",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年03月",
+        "bankStatement": "2963.56",
+        "bankStatementFromJz": "6650.06",
+        "bankAcceptance": "405.61",
+        "serialNumber": 2,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "2787.91",
+        "totalFlow": "3369.17",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "2504.65",
+        "electricityFee": "23.83",
+        "wage": "152.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406275",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年04月",
+        "bankStatement": "1646.65",
+        "bankStatementFromJz": "4036.70",
+        "bankAcceptance": "573.97",
+        "serialNumber": 3,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "3379.58",
+        "totalFlow": "2220.62",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "3507.09",
+        "electricityFee": "108.72",
+        "wage": "221.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406276",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年05月",
+        "bankStatement": "1423.37",
+        "bankStatementFromJz": "5594.75",
+        "bankAcceptance": "691.93",
+        "serialNumber": 4,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "4207.51",
+        "totalFlow": "2115.30",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "3276.96",
+        "electricityFee": "113.06",
+        "wage": "215.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406277",
+        "customerName": "南通东屹高新纤维科技有限公司",
+        "customerNo": "120192053000",
+        "customerRole": [
+          "承租人"
+        ],
+        "timeInterval": "2026年06月",
+        "bankStatement": "1512.71",
+        "bankStatementFromJz": "2206.71",
+        "bankAcceptance": "1547.16",
+        "serialNumber": 5,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "4285.32",
+        "totalFlow": "3059.87",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "3098.64",
+        "electricityFee": "105.68",
+        "wage": "229.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406278",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年01月",
+        "bankStatement": "2586.66",
+        "bankStatementFromJz": "8499.76",
+        "bankAcceptance": "263.91",
+        "serialNumber": 0,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "1351.04",
+        "totalFlow": "2850.57",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "1753.26",
+        "electricityFee": "7.12",
+        "wage": "98.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406279",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年02月",
+        "bankStatement": "2213.20",
+        "bankStatementFromJz": "7764.57",
+        "bankAcceptance": "254.37",
+        "serialNumber": 1,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "1617.88",
+        "totalFlow": "2467.57",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "1174.19",
+        "electricityFee": "8.34",
+        "wage": "102.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406280",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年03月",
+        "bankStatement": "1326.80",
+        "bankStatementFromJz": "9885.19",
+        "bankAcceptance": "168.90",
+        "serialNumber": 2,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "1597.16",
+        "totalFlow": "1495.70",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "1352.93",
+        "electricityFee": "5.07",
+        "wage": "76.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406281",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年04月",
+        "bankStatement": "4238.18",
+        "bankStatementFromJz": "9936.12",
+        "bankAcceptance": "96.09",
+        "serialNumber": 3,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "2132.04",
+        "totalFlow": "4334.27",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "1950.13",
+        "electricityFee": "6.00",
+        "wage": "108.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406282",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年05月",
+        "bankStatement": "2501.56",
+        "bankStatementFromJz": "7690.25",
+        "bankAcceptance": "91.73",
+        "serialNumber": 4,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "2501.69",
+        "totalFlow": "2593.29",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "2486.17",
+        "electricityFee": "5.22",
+        "wage": "106.00",
+        "balance": null,
+        "bankFlow": null
+      },
+      {
+        "pkOperatingRevenue": "1542882853876406283",
+        "customerName": "昆山华阳新材料股份有限公司",
+        "customerNo": "120192049000",
+        "customerRole": [
+          "担保人",
+          "关联方"
+        ],
+        "timeInterval": "2026年06月",
+        "bankStatement": "2202.28",
+        "bankStatementFromJz": "4746.15",
+        "bankAcceptance": "94.84",
+        "serialNumber": 5,
+        "startYear": null,
+        "endYear": null,
+        "taxableIncome": "4186.96",
+        "totalFlow": "2297.12",
+        "relatedTransaction": "500.00",
+        "taxDeclareIncome": "2457.06",
+        "electricityFee": "5.38",
+        "wage": "105.00",
+        "balance": null,
+        "bankFlow": null
+      }
+    ],
+    "operatingIncomeVerificationFlowTotalList": [
+      {
+        "timeInterval": "2026年01月",
+        "totalFlow": "6785.01",
+        "relatedTransaction": "500.00",
+        "excludeRelatedTransaction": "3584.60",
+        "serialNumber": 0
+      },
+      {
+        "timeInterval": "2026年02月",
+        "totalFlow": "4942.70",
+        "relatedTransaction": "500.00",
+        "excludeRelatedTransaction": "3327.35",
+        "serialNumber": 1
+      },
+      {
+        "timeInterval": "2026年03月",
+        "totalFlow": "4864.87",
+        "relatedTransaction": "500.00",
+        "excludeRelatedTransaction": "3885.07",
+        "serialNumber": 2
+      },
+      {
+        "timeInterval": "2026年04月",
+        "totalFlow": "6554.89",
+        "relatedTransaction": "500.00",
+        "excludeRelatedTransaction": "5011.62",
+        "serialNumber": 3
+      },
+      {
+        "timeInterval": "2026年05月",
+        "totalFlow": "4708.59",
+        "relatedTransaction": "500.00",
+        "excludeRelatedTransaction": "6209.20",
+        "serialNumber": 4
+      },
+      {
+        "timeInterval": "2026年06月",
+        "totalFlow": "5356.99",
+        "relatedTransaction": "500.00",
+        "excludeRelatedTransaction": "7972.28",
+        "serialNumber": 5
+      }
+    ],
+    "operatingIncomeDesc": "目前拟承租人集团主要销售企业有3家，分别为南通东屹高新纤维科技有限公司、昆山华阳新材料股份有限公司、安徽华阳科技有限公司。拟承租人南通东屹高新纤维科技有限公司近三年营收为2023年3.3亿元、2024年3.6亿元、2025年3.96亿元，2026年6月1.96亿元，经核查往年数据，拟承租人主要开票集中在四季度，预计今年销售达到4.2亿元。担保人昆山华阳近三年营收为2023年2.57亿元、2024年3.28亿元、2025年3.18亿元，2026年6月1.34亿元，预计今年为3.5亿元。安徽华阳今年开始有量产，今年半年销售约2500万元，目前安徽华阳外销比例较低，主要销售给关联公司南通东屹及昆山华阳。集团内近三年营收为3.3+2.57=5.87亿元、3.6+3.28=6.88亿元、3.96+3.18=7.14亿元，往年关联交易金额约为8000万元，今年集团销售预计为4.2+3.5=7.7亿元，今年关联交易因安徽华阳起量约为1.2亿元。集团对外开票金额历年增长，呈良性发展态势。",
+    "operatingIncomeVerifyDesc": "1、核验比例合理：集团2026年1月至6月纳税申报收入为29990.12万元（除去关联交易，上半年关联交易约为3000万元，每个月约为500万元），银行流水及银行承兑剔除关联交易为33213.05万元，流水核验情况良好，略高于开票收入的原因为开票与付款时间不一致，以及预付款影响。银行流水全年来看流水情况基本匹配。流水无异常。\n2、耗能对比稳定：平均能耗为110万元/月，与去年同期相比基本持平。员工人数南通约350人，昆山约200人，约定发放方式为电汇，每月平均约为320万元，发薪情况稳定。",
+    "repayAbilityAnalysis": {
+      "repayBaseInfoList": [
+        {
+          "subjectName": "南通东屹高新纤维科技有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120192053000",
+          "invoicingRevenue": "3279.29",
+          "runningIncome": "2862.42",
+          "dailyAverageBalance": "441.27",
+          "dailyAverageBalanceFromJz": null
+        },
+        {
+          "subjectName": "昆山华阳新材料股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "120192049000",
+          "invoicingRevenue": "1927.95",
+          "runningIncome": "2673.09",
+          "dailyAverageBalance": "1313.20",
+          "dailyAverageBalanceFromJz": null
+        }
+      ],
+      "revenueExpenseDetails": [
+        {
+          "rawMaterialCost": "1800.00",
+          "personnelSalary": "220.00",
+          "personnelSalaryFromJz": null,
+          "rentalExpenses": "0.00",
+          "rentalExpensesFromJz": null,
+          "hydroelectricProperty": "120.00",
+          "hydroelectricPropertyFromJz": null,
+          "outwardProcessing": "0.00",
+          "averageRepayment": "0.00",
+          "loanInterest": "600.00",
+          "financingLeaseRent": "500.00",
+          "otherCost": "0.00",
+          "fuelCost": null,
+          "runningIncome": null,
+          "rate": null,
+          "amountTotal": "3240.00",
+          "subjectName": "南通东屹高新纤维科技有限公司",
+          "customerRole": [
+            "承租人"
+          ],
+          "customerNo": "120192053000",
+          "monthlyBalance": "39.29",
+          "dailyAverageBalance": "441.27",
+          "dailyAverageBalanceFromJz": null,
+          "maxRent": "442200.00"
+        },
+        {
+          "rawMaterialCost": "1500.00",
+          "personnelSalary": "100.00",
+          "personnelSalaryFromJz": null,
+          "rentalExpenses": "0.00",
+          "rentalExpensesFromJz": null,
+          "hydroelectricProperty": "10.00",
+          "hydroelectricPropertyFromJz": null,
+          "outwardProcessing": "0.00",
+          "averageRepayment": "0.00",
+          "loanInterest": "600.00",
+          "financingLeaseRent": "0.00",
+          "otherCost": "0.00",
+          "fuelCost": null,
+          "runningIncome": null,
+          "rate": null,
+          "amountTotal": "2210.00",
+          "subjectName": "昆山华阳新材料股份有限公司",
+          "customerRole": [
+            "担保人",
+            "关联方"
+          ],
+          "customerNo": "120192049000",
+          "monthlyBalance": "463.09",
+          "dailyAverageBalance": "1313.20",
+          "dailyAverageBalanceFromJz": null,
+          "maxRent": "0.00"
+        }
+      ],
+      "repayAbilityIndex": {
+        "subjectName": "南通东屹高新纤维科技有限公司",
+        "customerRole": [
+          "承租人"
+        ],
+        "customerNo": "120192053000",
+        "maxRent": "44.22",
+        "rate": "88.8512",
+        "averageDailyBalanceRatio": "997.8969",
+        "averageDailyBalanceRate": "15.4160"
+      }
+    },
+    "ratio": "110.7466",
+    "businessDataAnalysisDesc": "1、营收变化及利润情况：拟承租人南通东屹高新纤维科技有限公司近三年营收为2023年3.3亿元、2024年3.6亿元、2025年3.96亿元，2026年6月1.96亿元，经核查往年数据，拟承租人主要开票集中在四季度，预计今年销售达到4.2亿元。担保人昆山华阳近三年营收为2023年2.57亿元、2024年3.28亿元、2025年3.18亿元，2026年6月1.34亿元，预计今年为3.5亿元。安徽华阳今年开始有量产，今年半年销售约2500万元，目前安徽华阳外销比例较低，主要销售给关联公司南通东屹及昆山华阳。集团内近三年营收为3.3+2.57=5.87亿元、3.6+3.28=6.88亿元、3.96+3.18=7.14亿元，往年关联交易金额约为8000万元，今年集团销售预计为4.2+3.5=7.7亿元，今年关联交易因安徽华阳起量约为1.2亿元。集团对外开票金额历年增长，呈良性发展态势。净利润近三年从整个集团看基本持平。\n2、还款能力分析：\na.企业自身业务情况：拟承租人为拓展自身业务发展，且涉及行业非传统纺织业，有一定技术含量及抗风险能力，营收连年增长且净利润于2024年扭亏为盈。\nb.企业自身资产情况：集团目前自有厂房土地评估价值约为6亿元，且老板深耕行业多年有较为雄厚资产，企业有一定的抗风险能力。"
+  },
+  "operateAnalysisByCustomer": []
+}

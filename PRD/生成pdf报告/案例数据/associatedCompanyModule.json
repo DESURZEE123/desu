@@ -1,0 +1,308 @@
+{
+  "associatedCompanySynopsisList": [
+    {
+      "pkCustomerStkhldr": null,
+      "customerName": "安徽华阳科技有限公司",
+      "customerNo": "C120261071753",
+      "crdntlsCode": "91340300052905610W",
+      "crdntlsType": "统一社会信用代码",
+      "isGuarantor": "否",
+      "relationTypes": [
+        "同一实际控制人"
+      ],
+      "otherDesc": null
+    },
+    {
+      "pkCustomerStkhldr": null,
+      "customerName": "吉林省华阳服装智能制造有限公司",
+      "customerNo": "C120261071964",
+      "crdntlsCode": "91220623MAK4DL187E",
+      "crdntlsType": "统一社会信用代码",
+      "isGuarantor": "否",
+      "relationTypes": [
+        "其它"
+      ],
+      "otherDesc": "实际实控人为张子睿，现法人为代持。"
+    },
+    {
+      "pkCustomerStkhldr": null,
+      "customerName": "昆山华阳新材料股份有限公司",
+      "customerNo": "120192049000",
+      "crdntlsCode": "91320500765135302R",
+      "crdntlsType": "统一社会信用代码",
+      "isGuarantor": "是",
+      "relationTypes": [
+        "母公司"
+      ],
+      "otherDesc": null
+    }
+  ],
+  "associatedCompanyList": [
+    {
+      "pkCompanyPublicInfo": null,
+      "baseInfo": {
+        "customerName": "吉林省华阳服装智能制造有限公司",
+        "customerNo": "C120261071964",
+        "crdntlsCode": "91220623MAK4DL187E",
+        "crdntlsType": "统一社会信用代码",
+        "estblshDate": "2026-01-13",
+        "rgstrdCapital": "500.00",
+        "rgstrdAddress": "吉林省白山市长白朝鲜族自治县长白镇县贸易市场一区5号",
+        "pkIndustrySortLittle": {
+          "code": "1811",
+          "name": "运动机织服装制造",
+          "typeName": "INDUSTRY_CLASS",
+          "typeCode": "CSTS0017"
+        },
+        "employeeNum": null,
+        "mainBusiness": null,
+        "companyEvolution": null,
+        "legalRepresentativeCustomerName": null,
+        "actControlsName": null,
+        "customerType": [
+          {
+            "code": "12",
+            "name": "客户关联方",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          }
+        ],
+        "serviceInformAdress": "吉林省白山市长白朝鲜族自治县长白镇",
+        "personActControlList": [],
+        "rgstrdProvinceName": "吉林省",
+        "factCapital": null
+      },
+      "industryLicenseList": [],
+      "shareholderList": [
+        {
+          "shareholderName": "高红芳",
+          "shareholderCapitalAmount": "400.00",
+          "holdStockRatio": "80.0000"
+        },
+        {
+          "shareholderName": "唐文梅",
+          "shareholderCapitalAmount": "100.00",
+          "holdStockRatio": "20.0000"
+        }
+      ],
+      "shareholderTotal": {
+        "shareholderCapitalAmount": "500.00",
+        "holdStockRatio": "100.0000"
+      },
+      "controllerIntroduction": "实控人为张子睿，法人高红芳为代持，该企业为实控人与当地合伙开始服装生产及销售公司，厂房土地为租赁投入设备约为200万元，目前营收约为300万元。",
+      "guaranteeCompanySituation": null,
+      "judicialLitigationInfo": {
+        "caseTypeHighRiskList": [],
+        "caseTypeCommonList": [],
+        "judicialLitigationInfoDesc": null,
+        "updateTime": "2026-08-28 12:44:32",
+        "queryStatusEnum": 3,
+        "pkQueryRecord": "1542877546985411328"
+      },
+      "assetSize": {
+        "customerNo": null,
+        "rgstrdAddress": null,
+        "factoryOwnDetails": [],
+        "factoryRentDetails": [],
+        "equipmentList": [],
+        "ratio": null,
+        "incomeAndDebtScale": null
+      },
+      "equityPenetrationList": [],
+      "financialAnalysisList": [],
+      "financialAnalysisDesc": null,
+      "loan": {
+        "creditInfo": null,
+        "loanDesc": null,
+        "zdinfo": null
+      },
+      "projectOperationInfo": {
+        "operationInfoList": [],
+        "operationDescription": null
+      },
+      "financialDataOfKeyAccount": {
+        "isNewCompany": null,
+        "collectFinancialFlag": null,
+        "financialStatementsOfKeyAccount": {
+          "sheetName": null,
+          "creditCode": "91220623MAK4DL187E",
+          "customerNo": "C120261071964",
+          "fsDataSourceType": "税票授权采集",
+          "balanceSheet": [],
+          "profitSheet": [],
+          "financialIndex": []
+        },
+        "receiveAccountDetail": {
+          "ifCanVisible": "是",
+          "financialAnalysisDataList": []
+        },
+        "financialNotes": null,
+        "receiveAccountDesc": null
+      },
+      "relatedEnterpriseDesc": null,
+      "assetStatusDesc": null,
+      "existingContractAnalysis": {
+        "collectContractFlag": null,
+        "contractStatusInfoList": null,
+        "contractStatusDesc": null
+      },
+      "relationTypes": [
+        "其它"
+      ],
+      "otherDesc": "实际实控人为张子睿，现法人为代持。",
+      "collaborationHistoryModel": {
+        "leaseCollaborationHistoryList": [],
+        "leaseAmountTotal": null,
+        "guarantorCollaborationHistories": [],
+        "guarantorAmountTotal": null,
+        "updateTime": "2026-08-27",
+        "queryStatusEnum": 3,
+        "pkQueryRecord": null
+      }
+    },
+    {
+      "pkCompanyPublicInfo": null,
+      "baseInfo": {
+        "customerName": "安徽华阳科技有限公司",
+        "customerNo": "C120261071753",
+        "crdntlsCode": "91340300052905610W",
+        "crdntlsType": "统一社会信用代码",
+        "estblshDate": "2012-08-22",
+        "rgstrdCapital": "7550.00",
+        "rgstrdAddress": "安徽省蚌埠市禹会区禹会虚镇涂山路1201号",
+        "pkIndustrySortLittle": {
+          "code": "7513",
+          "name": "新材料技术推广服务",
+          "typeName": "INDUSTRY_CLASS",
+          "typeCode": "CSTS0017"
+        },
+        "employeeNum": null,
+        "mainBusiness": null,
+        "companyEvolution": null,
+        "legalRepresentativeCustomerName": null,
+        "actControlsName": null,
+        "customerType": [
+          {
+            "code": "12",
+            "name": "客户关联方",
+            "typeName": "CUSTOMER_TYPE",
+            "typeCode": "CSTS0006"
+          }
+        ],
+        "serviceInformAdress": "安徽省蚌埠市禹会区禹会虚镇",
+        "personActControlList": [],
+        "rgstrdProvinceName": "安徽省",
+        "factCapital": null
+      },
+      "industryLicenseList": [],
+      "shareholderList": [
+        {
+          "shareholderName": "蚌埠华阳新材料有限公司",
+          "shareholderCapitalAmount": "7550.00",
+          "holdStockRatio": "100.0000"
+        }
+      ],
+      "shareholderTotal": {
+        "shareholderCapitalAmount": "7550.00",
+        "holdStockRatio": "100.0000"
+      },
+      "controllerIntroduction": "实控人为张子睿，该公司为华阳集团于2024年3月29日进行对破产公司收购，原企业名称为宿州市恒邦染织有限公司，据与财务沟通，当时收购价格约为5500万元，为集团自有资金，包含厂房土地及部分设备。该公司于今年2月开始量产，半年营收约为1500万元，目前厂房土地均未抵押，银行总授信额度为6000万元，为新购设备项目贷，按生产进度分批放款，目前用信金额为1900万元。",
+      "guaranteeCompanySituation": null,
+      "judicialLitigationInfo": {
+        "caseTypeHighRiskList": [
+          {
+            "caseType": "被执行人",
+            "caseNum": 101,
+            "pkQueryRecord": "1542877513997210368"
+          },
+          {
+            "caseType": "强制清算与破产案件",
+            "caseNum": 4,
+            "pkQueryRecord": "1542877513997210368"
+          }
+        ],
+        "caseTypeCommonList": [
+          {
+            "caseType": "民事案件",
+            "caseNum": 66,
+            "pkQueryRecord": "1542877513997210368"
+          },
+          {
+            "caseType": "非诉保全审查",
+            "caseNum": 11,
+            "pkQueryRecord": "1542877513997210368"
+          },
+          {
+            "caseType": "执行案件",
+            "caseNum": 106,
+            "pkQueryRecord": "1542877513997210368"
+          }
+        ],
+        "judicialLitigationInfoDesc": "该公司为破产公司收购，经查询2024年华阳收购后无执行及破产清算情况。",
+        "updateTime": "2026-08-28 12:44:24",
+        "queryStatusEnum": 0,
+        "pkQueryRecord": "1542877513997210368"
+      },
+      "assetSize": {
+        "customerNo": null,
+        "rgstrdAddress": null,
+        "factoryOwnDetails": [],
+        "factoryRentDetails": [],
+        "equipmentList": [],
+        "ratio": null,
+        "incomeAndDebtScale": null
+      },
+      "equityPenetrationList": [],
+      "financialAnalysisList": [],
+      "financialAnalysisDesc": null,
+      "loan": {
+        "creditInfo": null,
+        "loanDesc": null,
+        "zdinfo": null
+      },
+      "projectOperationInfo": {
+        "operationInfoList": [],
+        "operationDescription": null
+      },
+      "financialDataOfKeyAccount": {
+        "isNewCompany": null,
+        "collectFinancialFlag": null,
+        "financialStatementsOfKeyAccount": {
+          "sheetName": null,
+          "creditCode": "91340300052905610W",
+          "customerNo": "C120261071753",
+          "fsDataSourceType": "税票授权采集",
+          "balanceSheet": [],
+          "profitSheet": [],
+          "financialIndex": []
+        },
+        "receiveAccountDetail": {
+          "ifCanVisible": "是",
+          "financialAnalysisDataList": []
+        },
+        "financialNotes": null,
+        "receiveAccountDesc": null
+      },
+      "relatedEnterpriseDesc": null,
+      "assetStatusDesc": null,
+      "existingContractAnalysis": {
+        "collectContractFlag": null,
+        "contractStatusInfoList": null,
+        "contractStatusDesc": null
+      },
+      "relationTypes": [
+        "同一实际控制人"
+      ],
+      "otherDesc": null,
+      "collaborationHistoryModel": {
+        "leaseCollaborationHistoryList": [],
+        "leaseAmountTotal": null,
+        "guarantorCollaborationHistories": [],
+        "guarantorAmountTotal": null,
+        "updateTime": "2026-08-27",
+        "queryStatusEnum": 3,
+        "pkQueryRecord": null
+      }
+    }
+  ]
+}
