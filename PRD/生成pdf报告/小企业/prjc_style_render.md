@@ -201,7 +201,7 @@ AI 在本层**仅负责样式匹配与 HTML 输出**，不修改、不计算、�
 | `columns.length` | 布局 | 说明 |
 | :--------------: | ---- | ---- |
 | ≤ 8 | 标准单行表 | 1 行表头 + 每条数据 1 行 `tr` |
-| > 8 | 叠行宽表 | 2 行表头 + 每条数据 2 行 `tr`；见 §5.5.1；**单表输出，不按 16 列强制分段** |
+| > 8 | 叠行宽表 | 2 行表头 + 每条数据 2 行 `tr`；见 §5.5.1；**单表输出，不按 16 列强制分段**；**表头上行（`head-row--top`）与下行（`head-row--bottom`）样式须完全一致**（背景、字重、字色、字号、内边距、对齐；仅去掉两行之间的内部分隔线） |
 
 #### empty — 空状态
 
@@ -505,9 +505,18 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
   .report-table--stacked thead tr {
     background: #F7F8FA;
   }
+  .report-table--stacked .report-table__head-row--top th,
+  .report-table--stacked .report-table__head-row--bottom th {
+    background: #F7F8FA;
+    font-weight: 600;
+    color: #1D2129;
+    font-size: 14px;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: middle;
+  }
   .report-table--stacked .report-table__head-row--bottom th {
     border-top: none;
-    font-weight: 600;
   }
   .report-table--stacked .report-table__stack-label {
     display: block;
@@ -1058,6 +1067,7 @@ L0 汇总 HTML 时，在**所有模块片段之前**输出一次下方 `<style>`
 | 触发条件 | `columns.length > 8` |
 | 表格 class | `report-table report-table--stacked` |
 | 单表输出 | 无论列数多少，同一 block **只输出一张**叠行表 |
+| 表头上下行样式 | `head-row--top` 与 `head-row--bottom` **样式须完全一致**（背景 `#F7F8FA`、字重 600、字色、字号、内边距、对齐）；**禁止**对上下行做差异化字重/背景/字色；仅下行 `th` 设 `border-top: none` 以去掉两行之间的内部分隔线 |
 | 跨行固定列 | `stackSpan: true`：th/td `rowspan="2"`（单条记录）；若同时 `mergeSame`，则 `rowspan = 连续相同记录数 × 2`；内容**水平+垂直居中**（`report-table__span-cell`） |
 | 配对叠放列 | 非 `stackSpan` 列两两配对；物理列数不封顶 |
 | 副文案 | 有 `subKey` 时，主值下方追加 `report-table__entity-sub`（如征信查询日期） |
