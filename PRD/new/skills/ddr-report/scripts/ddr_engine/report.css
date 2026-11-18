@@ -1,0 +1,739 @@
+  /* ===== 报告根容器（可选，包裹全部模块） ===== */
+  .report-root {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    width: 100%;
+  }
+
+  /* ===== 模块容器 ===== */
+  .report-module {
+    margin-bottom: 24px;
+  }
+  .report-module__header {
+    background: #E8F3FF;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D2129;
+    border-radius: 4px 4px 0 0;
+  }
+  .report-module__body {
+    padding: 16px;
+    border: 1px solid #E5E6EB;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* ===== 通用 block 间距 ===== */
+  .report-block {
+    margin-bottom: 20px;
+  }
+
+  /* ===== 分组 / 表格 / 空状态 — 蓝色圆点标题 ===== */
+  .report-section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .report-section-title__dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1677FF;
+    margin-right: 8px;
+  }
+  .report-section-title__text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+  }
+
+  /* ===== 大区仅标题 — 蓝色竖条（与圆点内容标题区分） ===== */
+  .report-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
+  }
+
+  /* ===== direct / person — 键值对 ===== */
+  .report-kv {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-kv__label {
+    color: #86909C;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .report-kv__value {
+    color: #1D2129;
+    font-weight: 500;
+    word-break: break-all;
+  }
+
+  /* ===== longText — 长文本 ===== */
+  .report-longtext {
+    margin-bottom: 16px;
+  }
+  .report-longtext__label {
+    color: #86909C;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .report-longtext__value {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  /* ===== group — 分组栅格 ===== */
+  .report-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .report-grid__cell {
+    padding-right: 16px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+  }
+  .report-grid__cell--w-25 { width: 25%; }
+  .report-grid__cell--w-33 { width: 33.33%; }
+  .report-grid__cell--w-50 { width: 50%; }
+  .report-grid__cell--w-20 { width: 20%; }
+  .report-grid__cell--w-100 { width: 100%; }
+
+  /* ===== table — 表格 ===== */
+  .report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .report-table thead tr {
+    background: #F7F8FA;
+  }
+  .report-table th,
+  .report-table td {
+    padding: 10px 12px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+  }
+  .report-table th {
+    text-align: left;
+    font-weight: 600;
+  }
+  .report-table__summary-row {
+    background: #FAFBFC;
+  }
+  .report-table__cell--strong {
+    font-weight: 600;
+  }
+  .report-table__cell--align-center {
+    text-align: center;
+  }
+  .report-table__cell--align-right {
+    text-align: right;
+  }
+  .report-table__img {
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+  }
+  .report-table-empty {
+    padding: 24px;
+    text-align: center;
+    color: #86909C;
+    font-size: 14px;
+    border: 1px dashed #E5E6EB;
+    border-radius: 4px;
+  }
+  .report-table__detail-row > td {
+    padding: 0;
+    background: #F7F8FA;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-table__detail {
+    padding: 12px 16px;
+    background: #F7F8FA;
+  }
+  .report-table__detail .report-grid {
+    margin: 0;
+  }
+  .report-table__detail .report-grid__cell {
+    margin-bottom: 8px;
+  }
+
+  /* ===== table — 叠行宽表（columns > 8） ===== */
+  .report-table--stacked thead tr {
+    background: #F7F8FA;
+  }
+  .report-table--stacked .report-table__head-row--bottom th {
+    border-top: none;
+    font-weight: 600;
+  }
+  .report-table--stacked .report-table__stack-label {
+    display: block;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 20px;
+  }
+  .report-table--stacked .report-table__stack-value {
+    display: block;
+    color: #1D2129;
+    line-height: 20px;
+    word-break: break-all;
+  }
+  .report-table--stacked .report-table__data-row--top td {
+    border-bottom: none;
+    vertical-align: bottom;
+  }
+  .report-table--stacked .report-table__data-row--bottom td {
+    vertical-align: top;
+  }
+  .report-table--stacked .report-table__record-divider td {
+    border-bottom: 2px solid #E5E6EB;
+  }
+  .report-table--stacked .report-table__summary-row--top td {
+    border-bottom: none;
+    background: #FAFBFC;
+  }
+  .report-table--stacked .report-table__summary-row--bottom td {
+    background: #FAFBFC;
+  }
+  .report-table--stacked .report-table__index-cell {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table td[rowspan]:not(.report-table__index-cell) {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table--stacked .report-table__span-cell {
+    vertical-align: middle !important;
+    text-align: center;
+  }
+  .report-table td[rowspan]:not(.report-table__index-cell) {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table__entity-sub {
+    display: block;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .report-table--stacked + .report-table--stacked {
+    margin-top: 16px;
+  }
+
+  /* ===== empty — 空状态 ===== */
+  .report-empty__placeholder {
+    padding: 24px;
+    text-align: center;
+    color: #86909C;
+    font-size: 14px;
+    border: 1px dashed #E5E6EB;
+    border-radius: 4px;
+  }
+
+  /* ===== measureList — 增信措施卡片 ===== */
+  .report-measure-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .report-measure-card {
+    background: #F7F9FC;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-measure-card__head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    line-height: 22px;
+  }
+  .report-measure-card__tag {
+    display: inline-block;
+    padding: 0 8px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .report-measure-card__tag--guarantee { background: #FF7D00; }
+  .report-measure-card__tag--mortgage { background: #3491FA; }
+  .report-measure-card__tag--pledge { background: #FF9A2E; }
+  .report-measure-card__tag--default { background: #86909C; }
+  .report-measure-card__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1677FF;
+  }
+  .report-measure-card__rel {
+    display: inline-block;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 18px;
+    border: 1px solid #00B42A;
+    border-radius: 2px;
+    background: #E8FFEA;
+    color: #00B42A;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .report-measure-card__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+  .report-measure-card__attrs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 8px 24px;
+  }
+  .report-measure-card__attr {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-measure-card__attr-label {
+    color: #86909C;
+    white-space: nowrap;
+  }
+  .report-measure-card__attr-value {
+    color: #1D2129;
+    font-weight: 500;
+  }
+  .report-measure-card__collateral {
+    margin-top: 12px;
+  }
+  .report-measure-card__collateral-title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    margin-bottom: 8px;
+  }
+  .report-measure-card__collateral-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1D2129;
+    margin-right: 8px;
+  }
+  /* 担保物表：表头与单元格统一左对齐 */
+  .report-measure-card__collateral .report-table th,
+  .report-measure-card__collateral .report-table td {
+    text-align: left;
+  }
+
+  /* ===== analysisList — AI 分析结果 ===== */
+  .report-analysis-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .report-analysis-item__entity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .report-analysis-item__entity-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #1677FF;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .report-analysis-item__entity-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+    line-height: 22px;
+  }
+  .report-analysis-item__conclusion {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-analysis-item__empty {
+    color: #86909C;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  /* ===== Markdown 渲染容器 ===== */
+  .report-md {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    word-break: break-all;
+  }
+  .report-md > *:first-child { margin-top: 0; }
+  .report-md > *:last-child { margin-bottom: 0; }
+  .report-md h1,
+  .report-md h2,
+  .report-md h3,
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 {
+    color: #1D2129;
+    font-weight: 600;
+    margin: 12px 0 8px;
+    line-height: 24px;
+  }
+  .report-md h1 { font-size: 16px; }
+  .report-md h2 { font-size: 15px; }
+  .report-md h3 { font-size: 14px; }
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 { font-size: 14px; }
+  .report-md p {
+    margin: 0 0 8px;
+  }
+  .report-md ul,
+  .report-md ol {
+    margin: 0 0 8px;
+    padding-left: 1.5em;
+  }
+  .report-md li {
+    margin-bottom: 4px;
+  }
+  .report-md li > ul,
+  .report-md li > ol {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+  .report-md strong { font-weight: 600; }
+  .report-md em { font-style: italic; }
+  .report-md blockquote {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-left: 3px solid #E5E6EB;
+    color: #4E5969;
+    background: #FAFBFC;
+  }
+  .report-md hr {
+    border: none;
+    border-top: 1px solid #E5E6EB;
+    margin: 12px 0;
+  }
+  .report-md code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: #F2F3F5;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+  .report-md pre {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  .report-md pre code {
+    background: none;
+    padding: 0;
+  }
+  .report-md table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 8px 0 12px;
+  }
+  .report-md th,
+  .report-md td {
+    padding: 8px 10px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+    text-align: left;
+  }
+  .report-md th {
+    background: #F7F8FA;
+    font-weight: 600;
+  }
+
+  /* ===== table 单元格高亮（cellType: highlight） =====
+     银行流水与账面值不一致时标记，不替换展示值。
+     旧 L1 记「页面黄字」、旧 L2 记「橙色生效」，此处从 L2（样式权威方）取橙色。 */
+  .report-table__cell--highlight {
+    color: #FF7D00;
+    font-weight: 600;
+  }
+
+  /* ===== table 主体角色色标（cellType: roleTag，值为 string[]） ===== */
+  .report-role-tag {
+    display: inline-block;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 2px;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  /* 承租人：浅蓝底 + 蓝字 */
+  .report-role-tag--lessee {
+    background: #E8F3FF;
+    color: #1677FF;
+  }
+  /* 担保人：浅橙底 + 橙字 */
+  .report-role-tag--guarantor {
+    background: #FFF7E8;
+    color: #FF7D00;
+  }
+  /* 关联方：浅绿底 + 绿字 */
+  .report-role-tag--related {
+    background: #E8FFEA;
+    color: #00B42A;
+  }
+
+  /* ===== labelPanel — 警示 / 负面双卡清单 ===== */
+  .report-label-panel {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .report-label-card {
+    flex: 1 1 0;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  /* 单卡时仍按双卡布局占半宽，不拉满整行 */
+  .report-label-card:only-child {
+    flex: 0 0 calc(50% - 8px);
+  }
+  .report-label-card--warning {
+    background: #FFF7E8;
+    border-color: #FFE4BA;
+  }
+  .report-label-card--negative {
+    background: #FFECE8;
+    border-color: #FDCDC5;
+  }
+  .report-label-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .report-label-card--warning .report-label-card__title { color: #FF7D00; }
+  .report-label-card--negative .report-label-card__title { color: #F53F3F; }
+  .report-label-card__list {
+    margin: 0;
+    padding-left: 1.2em;
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-label-card__list li {
+    margin-bottom: 4px;
+  }
+
+  /* ===== litigationCards — 司法诉讼卡片网格 =====
+     卡片左起自动换行、宽度适中（约 3 列量级），不按一行卡片数均分拉满。 */
+  .report-litigation__update-time {
+    text-align: right;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 8px;
+  }
+  .report-litigation__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .report-litigation-card {
+    position: relative;
+    flex: 0 0 30%;
+    min-width: 160px;
+    border-radius: 4px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  .report-litigation-card--highRisk {
+    background: linear-gradient(135deg, #FFECE8 0%, #FFD9D3 100%);
+    border-color: #FDCDC5;
+  }
+  .report-litigation-card--common {
+    background: linear-gradient(135deg, #E8F3FF 0%, #D6E8FF 100%);
+    border-color: #BEDAFF;
+  }
+  /* 案件数量：卡片右上角 */
+  .report-litigation-card__num {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D2129;
+  }
+  /* 案件类型：卡片居中 */
+  .report-litigation-card__type {
+    font-size: 14px;
+    line-height: 20px;
+    color: #4E5969;
+  }
+
+  /* ===== associateCompanySynopsis — 关联企业概要卡片（平行四边形标签） ===== */
+  .report-synopsis__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .report-synopsis-card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    background: #F7F9FC;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 10px 16px;
+    line-height: 22px;
+  }
+  .report-synopsis-card__tag {
+    display: inline-block;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    transform: skewX(-12deg);
+  }
+  /* 文字反向 skew 抵消，保持竖直 */
+  .report-synopsis-card__tag > span {
+    display: inline-block;
+    transform: skewX(12deg);
+  }
+  .report-synopsis-card__tag--guarantor { background: #3491FA; }
+  .report-synopsis-card__tag--nonGuarantor { background: #FF9A2E; }
+  .report-synopsis-card__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1677FF;
+  }
+  .report-synopsis-card__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+
+  /* ===== associateCompanyDetail / guaranteePersonDetail / guaranteeCompanyDetail
+            — 详情容器（蓝色副标题 + childBlocks） ===== */
+  .report-detail {
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .report-detail__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    background: #F2F7FF;
+    border-left: 3px solid #1677FF;
+    padding: 10px 16px;
+  }
+  .report-detail__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+  }
+  .report-detail__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+  .report-detail__body {
+    padding: 16px;
+  }
+
+  /* ===== fsSubjectHeader — 财报主体标题栏 ===== */
+  .report-fs-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    background: #E8F3FF;
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .report-fs-header__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+  }
+  .report-fs-header__source {
+    font-size: 12px;
+    color: #4E5969;
+  }
+
+  /* ===== financialStatementTable — 财报透视表（rowLevel 行级底色） =====
+     与 report-table 叠加使用，继承其边框与内边距。 */
+  .report-fs-table__unit {
+    text-align: right;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 6px;
+  }
+  /* 列头 dataType 红色小标签（单体 / 合并） */
+  .report-fs-table__datatype {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 0 4px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 2px;
+    background: #FFECE8;
+    color: #F53F3F;
+    font-size: 11px;
+    font-weight: 400;
+  }
+  /* 金额列右对齐 */
+  .report-fs-table td:not(:first-child) {
+    text-align: right;
+  }
+  /* rowLevel 1：一级合计，粉底加粗 */
+  .report-fs-table__row--lv1 td {
+    background: #FFECE8;
+    font-weight: 600;
+  }
+  /* rowLevel 2：二级小计，黄底加粗 */
+  .report-fs-table__row--lv2 td {
+    background: #FFF7E8;
+    font-weight: 600;
+  }
+  /* rowLevel 3：明细行，科目名缩进 */
+  .report-fs-table__row--lv3 td:first-child {
+    padding-left: 24px;
+  }

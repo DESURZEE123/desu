@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>上海九头鸟印刷有限公司直租第(5)单-尽调调查报告-202611181055</title>
+<style>
+  /* ===== 报告根容器（可选，包裹全部模块） ===== */
+  .report-root {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    width: 100%;
+  }
+
+  /* ===== 模块容器 ===== */
+  .report-module {
+    margin-bottom: 24px;
+  }
+  .report-module__header {
+    background: #E8F3FF;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D2129;
+    border-radius: 4px 4px 0 0;
+  }
+  .report-module__body {
+    padding: 16px;
+    border: 1px solid #E5E6EB;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* ===== 通用 block 间距 ===== */
+  .report-block {
+    margin-bottom: 20px;
+  }
+
+  /* ===== 分组 / 表格 / 空状态 — 蓝色圆点标题 ===== */
+  .report-section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .report-section-title__dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1677FF;
+    margin-right: 8px;
+  }
+  .report-section-title__text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+  }
+
+  /* ===== 大区仅标题 — 蓝色竖条（与圆点内容标题区分） ===== */
+  .report-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid #1677FF;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 22px;
+  }
+
+  /* ===== direct / person — 键值对 ===== */
+  .report-kv {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-kv__label {
+    color: #86909C;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .report-kv__value {
+    color: #1D2129;
+    font-weight: 500;
+    word-break: break-all;
+  }
+
+  /* ===== longText — 长文本 ===== */
+  .report-longtext {
+    margin-bottom: 16px;
+  }
+  .report-longtext__label {
+    color: #86909C;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .report-longtext__value {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  /* ===== group — 分组栅格 ===== */
+  .report-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .report-grid__cell {
+    padding-right: 16px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+  }
+  .report-grid__cell--w-25 { width: 25%; }
+  .report-grid__cell--w-33 { width: 33.33%; }
+  .report-grid__cell--w-50 { width: 50%; }
+  .report-grid__cell--w-20 { width: 20%; }
+  .report-grid__cell--w-100 { width: 100%; }
+
+  /* ===== table — 表格 ===== */
+  .report-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .report-table thead tr {
+    background: #F7F8FA;
+  }
+  .report-table th,
+  .report-table td {
+    padding: 10px 12px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+  }
+  .report-table th {
+    text-align: left;
+    font-weight: 600;
+  }
+  .report-table__summary-row {
+    background: #FAFBFC;
+  }
+  .report-table__cell--strong {
+    font-weight: 600;
+  }
+  .report-table__cell--align-center {
+    text-align: center;
+  }
+  .report-table__cell--align-right {
+    text-align: right;
+  }
+  .report-table__img {
+    max-width: 120px;
+    max-height: 120px;
+    display: block;
+  }
+  .report-table-empty {
+    padding: 24px;
+    text-align: center;
+    color: #86909C;
+    font-size: 14px;
+    border: 1px dashed #E5E6EB;
+    border-radius: 4px;
+  }
+  .report-table__detail-row > td {
+    padding: 0;
+    background: #F7F8FA;
+    border-bottom: 1px solid #E5E6EB;
+  }
+  .report-table__detail {
+    padding: 12px 16px;
+    background: #F7F8FA;
+  }
+  .report-table__detail .report-grid {
+    margin: 0;
+  }
+  .report-table__detail .report-grid__cell {
+    margin-bottom: 8px;
+  }
+
+  /* ===== table — 叠行宽表（columns > 8） ===== */
+  .report-table--stacked thead tr {
+    background: #F7F8FA;
+  }
+  .report-table--stacked .report-table__head-row--bottom th {
+    border-top: none;
+    font-weight: 600;
+  }
+  .report-table--stacked .report-table__stack-label {
+    display: block;
+    font-weight: 600;
+    color: #1D2129;
+    line-height: 20px;
+  }
+  .report-table--stacked .report-table__stack-value {
+    display: block;
+    color: #1D2129;
+    line-height: 20px;
+    word-break: break-all;
+  }
+  .report-table--stacked .report-table__data-row--top td {
+    border-bottom: none;
+    vertical-align: bottom;
+  }
+  .report-table--stacked .report-table__data-row--bottom td {
+    vertical-align: top;
+  }
+  .report-table--stacked .report-table__record-divider td {
+    border-bottom: 2px solid #E5E6EB;
+  }
+  .report-table--stacked .report-table__summary-row--top td {
+    border-bottom: none;
+    background: #FAFBFC;
+  }
+  .report-table--stacked .report-table__summary-row--bottom td {
+    background: #FAFBFC;
+  }
+  .report-table--stacked .report-table__index-cell {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table td[rowspan]:not(.report-table__index-cell) {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table--stacked .report-table__span-cell {
+    vertical-align: middle !important;
+    text-align: center;
+  }
+  .report-table td[rowspan]:not(.report-table__index-cell) {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .report-table__entity-sub {
+    display: block;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    text-align: center;
+  }
+  .report-table--stacked + .report-table--stacked {
+    margin-top: 16px;
+  }
+
+  /* ===== empty — 空状态 ===== */
+  .report-empty__placeholder {
+    padding: 24px;
+    text-align: center;
+    color: #86909C;
+    font-size: 14px;
+    border: 1px dashed #E5E6EB;
+    border-radius: 4px;
+  }
+
+  /* ===== measureList — 增信措施卡片 ===== */
+  .report-measure-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .report-measure-card {
+    background: #F7F9FC;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-measure-card__head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    line-height: 22px;
+  }
+  .report-measure-card__tag {
+    display: inline-block;
+    padding: 0 8px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    flex-shrink: 0;
+  }
+  .report-measure-card__tag--guarantee { background: #FF7D00; }
+  .report-measure-card__tag--mortgage { background: #3491FA; }
+  .report-measure-card__tag--pledge { background: #FF9A2E; }
+  .report-measure-card__tag--default { background: #86909C; }
+  .report-measure-card__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1677FF;
+  }
+  .report-measure-card__rel {
+    display: inline-block;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 18px;
+    border: 1px solid #00B42A;
+    border-radius: 2px;
+    background: #E8FFEA;
+    color: #00B42A;
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .report-measure-card__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+  .report-measure-card__attrs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 8px 24px;
+  }
+  .report-measure-card__attr {
+    display: flex;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-measure-card__attr-label {
+    color: #86909C;
+    white-space: nowrap;
+  }
+  .report-measure-card__attr-value {
+    color: #1D2129;
+    font-weight: 500;
+  }
+  .report-measure-card__collateral {
+    margin-top: 12px;
+  }
+  .report-measure-card__collateral-title {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+    margin-bottom: 8px;
+  }
+  .report-measure-card__collateral-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1D2129;
+    margin-right: 8px;
+  }
+  /* 担保物表：表头与单元格统一左对齐 */
+  .report-measure-card__collateral .report-table th,
+  .report-measure-card__collateral .report-table td {
+    text-align: left;
+  }
+
+  /* ===== analysisList — AI 分析结果 ===== */
+  .report-analysis-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .report-analysis-item__entity {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .report-analysis-item__entity-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #1677FF;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+  .report-analysis-item__entity-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+    line-height: 22px;
+  }
+  .report-analysis-item__conclusion {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .report-analysis-item__empty {
+    color: #86909C;
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  /* ===== Markdown 渲染容器 ===== */
+  .report-md {
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+    word-break: break-all;
+  }
+  .report-md > *:first-child { margin-top: 0; }
+  .report-md > *:last-child { margin-bottom: 0; }
+  .report-md h1,
+  .report-md h2,
+  .report-md h3,
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 {
+    color: #1D2129;
+    font-weight: 600;
+    margin: 12px 0 8px;
+    line-height: 24px;
+  }
+  .report-md h1 { font-size: 16px; }
+  .report-md h2 { font-size: 15px; }
+  .report-md h3 { font-size: 14px; }
+  .report-md h4,
+  .report-md h5,
+  .report-md h6 { font-size: 14px; }
+  .report-md p {
+    margin: 0 0 8px;
+  }
+  .report-md ul,
+  .report-md ol {
+    margin: 0 0 8px;
+    padding-left: 1.5em;
+  }
+  .report-md li {
+    margin-bottom: 4px;
+  }
+  .report-md li > ul,
+  .report-md li > ol {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+  .report-md strong { font-weight: 600; }
+  .report-md em { font-style: italic; }
+  .report-md blockquote {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-left: 3px solid #E5E6EB;
+    color: #4E5969;
+    background: #FAFBFC;
+  }
+  .report-md hr {
+    border: none;
+    border-top: 1px solid #E5E6EB;
+    margin: 12px 0;
+  }
+  .report-md code {
+    font-family: Menlo, Consolas, monospace;
+    font-size: 12px;
+    background: #F2F3F5;
+    padding: 1px 4px;
+    border-radius: 2px;
+  }
+  .report-md pre {
+    background: #F7F8FA;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    margin: 8px 0;
+  }
+  .report-md pre code {
+    background: none;
+    padding: 0;
+  }
+  .report-md table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 8px 0 12px;
+  }
+  .report-md th,
+  .report-md td {
+    padding: 8px 10px;
+    border: 1px solid #E5E6EB;
+    color: #1D2129;
+    word-break: break-all;
+    text-align: left;
+  }
+  .report-md th {
+    background: #F7F8FA;
+    font-weight: 600;
+  }
+
+  /* ===== table 单元格高亮（cellType: highlight） =====
+     银行流水与账面值不一致时标记，不替换展示值。
+     旧 L1 记「页面黄字」、旧 L2 记「橙色生效」，此处从 L2（样式权威方）取橙色。 */
+  .report-table__cell--highlight {
+    color: #FF7D00;
+    font-weight: 600;
+  }
+
+  /* ===== table 主体角色色标（cellType: roleTag，值为 string[]） ===== */
+  .report-role-tag {
+    display: inline-block;
+    padding: 0 6px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 2px;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  /* 承租人：浅蓝底 + 蓝字 */
+  .report-role-tag--lessee {
+    background: #E8F3FF;
+    color: #1677FF;
+  }
+  /* 担保人：浅橙底 + 橙字 */
+  .report-role-tag--guarantor {
+    background: #FFF7E8;
+    color: #FF7D00;
+  }
+  /* 关联方：浅绿底 + 绿字 */
+  .report-role-tag--related {
+    background: #E8FFEA;
+    color: #00B42A;
+  }
+
+  /* ===== labelPanel — 警示 / 负面双卡清单 ===== */
+  .report-label-panel {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .report-label-card {
+    flex: 1 1 0;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  /* 单卡时仍按双卡布局占半宽，不拉满整行 */
+  .report-label-card:only-child {
+    flex: 0 0 calc(50% - 8px);
+  }
+  .report-label-card--warning {
+    background: #FFF7E8;
+    border-color: #FFE4BA;
+  }
+  .report-label-card--negative {
+    background: #FFECE8;
+    border-color: #FDCDC5;
+  }
+  .report-label-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .report-label-card--warning .report-label-card__title { color: #FF7D00; }
+  .report-label-card--negative .report-label-card__title { color: #F53F3F; }
+  .report-label-card__list {
+    margin: 0;
+    padding-left: 1.2em;
+    color: #1D2129;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .report-label-card__list li {
+    margin-bottom: 4px;
+  }
+
+  /* ===== litigationCards — 司法诉讼卡片网格 =====
+     卡片左起自动换行、宽度适中（约 3 列量级），不按一行卡片数均分拉满。 */
+  .report-litigation__update-time {
+    text-align: right;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 8px;
+  }
+  .report-litigation__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .report-litigation-card {
+    position: relative;
+    flex: 0 0 30%;
+    min-width: 160px;
+    border-radius: 4px;
+    padding: 16px 12px;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  .report-litigation-card--highRisk {
+    background: linear-gradient(135deg, #FFECE8 0%, #FFD9D3 100%);
+    border-color: #FDCDC5;
+  }
+  .report-litigation-card--common {
+    background: linear-gradient(135deg, #E8F3FF 0%, #D6E8FF 100%);
+    border-color: #BEDAFF;
+  }
+  /* 案件数量：卡片右上角 */
+  .report-litigation-card__num {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1D2129;
+  }
+  /* 案件类型：卡片居中 */
+  .report-litigation-card__type {
+    font-size: 14px;
+    line-height: 20px;
+    color: #4E5969;
+  }
+
+  /* ===== associateCompanySynopsis — 关联企业概要卡片（平行四边形标签） ===== */
+  .report-synopsis__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .report-synopsis-card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    background: #F7F9FC;
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    padding: 10px 16px;
+    line-height: 22px;
+  }
+  .report-synopsis-card__tag {
+    display: inline-block;
+    padding: 0 10px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    transform: skewX(-12deg);
+  }
+  /* 文字反向 skew 抵消，保持竖直 */
+  .report-synopsis-card__tag > span {
+    display: inline-block;
+    transform: skewX(12deg);
+  }
+  .report-synopsis-card__tag--guarantor { background: #3491FA; }
+  .report-synopsis-card__tag--nonGuarantor { background: #FF9A2E; }
+  .report-synopsis-card__name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1677FF;
+  }
+  .report-synopsis-card__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+
+  /* ===== associateCompanyDetail / guaranteePersonDetail / guaranteeCompanyDetail
+            — 详情容器（蓝色副标题 + childBlocks） ===== */
+  .report-detail {
+    border: 1px solid #E5E6EB;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .report-detail__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    background: #F2F7FF;
+    border-left: 3px solid #1677FF;
+    padding: 10px 16px;
+  }
+  .report-detail__name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1677FF;
+  }
+  .report-detail__id {
+    font-size: 14px;
+    color: #4E5969;
+  }
+  .report-detail__body {
+    padding: 16px;
+  }
+
+  /* ===== fsSubjectHeader — 财报主体标题栏 ===== */
+  .report-fs-header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    background: #E8F3FF;
+    padding: 10px 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .report-fs-header__title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1D2129;
+  }
+  .report-fs-header__source {
+    font-size: 12px;
+    color: #4E5969;
+  }
+
+  /* ===== financialStatementTable — 财报透视表（rowLevel 行级底色） =====
+     与 report-table 叠加使用，继承其边框与内边距。 */
+  .report-fs-table__unit {
+    text-align: right;
+    color: #86909C;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 6px;
+  }
+  /* 列头 dataType 红色小标签（单体 / 合并） */
+  .report-fs-table__datatype {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 0 4px;
+    height: 16px;
+    line-height: 16px;
+    border-radius: 2px;
+    background: #FFECE8;
+    color: #F53F3F;
+    font-size: 11px;
+    font-weight: 400;
+  }
+  /* 金额列右对齐 */
+  .report-fs-table td:not(:first-child) {
+    text-align: right;
+  }
+  /* rowLevel 1：一级合计，粉底加粗 */
+  .report-fs-table__row--lv1 td {
+    background: #FFECE8;
+    font-weight: 600;
+  }
+  /* rowLevel 2：二级小计，黄底加粗 */
+  .report-fs-table__row--lv2 td {
+    background: #FFF7E8;
+    font-weight: 600;
+  }
+  /* rowLevel 3：明细行，科目名缩进 */
+  .report-fs-table__row--lv3 td:first-child {
+    padding-left: 24px;
+  }
+
+</style>
+</head>
+<body>
+<div class="report-root">
+<div class="report-module" data-module-key="cooperation_history">
+  <div class="report-module__header">合作历史</div>
+  <div class="report-module__body">
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">承租人、关联方、担保人作为承租人情况</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th><span class="report-table__stack-label">客户名称</span></th><th><span class="report-table__stack-label">租赁方式(实际)</span></th><th><span class="report-table__stack-label">内部收益率(%)</span></th><th><span class="report-table__stack-label">合同金额(元)</span></th><th><span class="report-table__stack-label">当前逾期金额(元)</span></th><th><span class="report-table__stack-label">合同到期日</span></th><th><span class="report-table__stack-label">历史最大逾期天数</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">客户角色</span></th><th><span class="report-table__stack-label">合同名称</span></th><th><span class="report-table__stack-label">综合收益率(%)</span></th><th><span class="report-table__stack-label">剩余本金(元)</span></th><th><span class="report-table__stack-label">合同起租日</span></th><th><span class="report-table__stack-label">当前逾期天数</span></th><th><span class="report-table__stack-label">历史逾期期数</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">直租</span></td><td><span class="report-table__stack-value">9.5853</span></td><td><span class="report-table__stack-value">13,500,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2022-02-17</span></td><td><span class="report-table__stack-value">12</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">承租人</span></td><td><span class="report-table__stack-value">苏租[2019]租赁字第101号</span></td><td><span class="report-table__stack-value">10.2863</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2019-02-27</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">2</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">回租</span></td><td><span class="report-table__stack-value">7.6431</span></td><td><span class="report-table__stack-value">6,800,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2026-09-13</span></td><td><span class="report-table__stack-value">0</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">承租人</span></td><td><span class="report-table__stack-value">JFL23C01L029622-01</span></td><td><span class="report-table__stack-value">7.6431</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2023-10-13</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">回租</span></td><td><span class="report-table__stack-value">7.0293</span></td><td><span class="report-table__stack-value">7,890,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2027-01-21</span></td><td><span class="report-table__stack-value">28</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">承租人</span></td><td><span class="report-table__stack-value">JFL22C01L006682-01</span></td><td><span class="report-table__stack-value">7.0293</span></td><td><span class="report-table__stack-value">461,074.00</span></td><td><span class="report-table__stack-value">2022-02-22</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">1</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">4</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">直租</span></td><td><span class="report-table__stack-value">6.8101</span></td><td><span class="report-table__stack-value">17,500,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2025-09-23</span></td><td><span class="report-table__stack-value">0</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">承租人</span></td><td><span class="report-table__stack-value">JFL22C02L053022-01</span></td><td><span class="report-table__stack-value">6.8101</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2022-08-12</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">0</span></td></tr>
+<tr class="report-table__summary-row--top"><td rowspan="2" class="report-table__span-cell">合计</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">45,690,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">461,074.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">承租人、关联方、担保人作为担保人情况</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th><span class="report-table__stack-label">客户名称</span></th><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">内部收益率(%)</span></th><th><span class="report-table__stack-label">租赁方式(实际)</span></th><th><span class="report-table__stack-label">剩余本金(元)</span></th><th><span class="report-table__stack-label">合同起租日</span></th><th><span class="report-table__stack-label">当前逾期天数</span></th><th><span class="report-table__stack-label">历史逾期期数</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">客户角色</span></th><th><span class="report-table__stack-label">合同名称</span></th><th><span class="report-table__stack-label">综合收益率(%)</span></th><th><span class="report-table__stack-label">合同金额(元)</span></th><th><span class="report-table__stack-label">当前逾期金额(元)</span></th><th><span class="report-table__stack-label">合同到期日</span></th><th><span class="report-table__stack-label">历史最大逾期天数</span></th><th><span class="report-table__stack-label">—</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">抵押担保</span></td><td><span class="report-table__stack-value">7.8715</span></td><td><span class="report-table__stack-value">直租</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2019-02-27</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">2</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">承租人</span></td><td><span class="report-table__stack-value">苏租[2019]租赁字第101号</span></td><td><span class="report-table__stack-value">10.2863</span></td><td><span class="report-table__stack-value">13,500,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2022-02-17</span></td><td><span class="report-table__stack-value">12</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">抵押担保</span></td><td><span class="report-table__stack-value">7.0289</span></td><td><span class="report-table__stack-value">回租</span></td><td><span class="report-table__stack-value">461,074.00</span></td><td><span class="report-table__stack-value">2022-02-22</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">1</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">承租人</span></td><td><span class="report-table__stack-value">JFL22C01L006682-01</span></td><td><span class="report-table__stack-value">7.0293</span></td><td><span class="report-table__stack-value">7,890,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">2027-01-21</span></td><td><span class="report-table__stack-value">28</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--top"><td rowspan="2" class="report-table__span-cell">合计</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">461,074.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">21,390,000.00</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">合作历史说明：</div>
+  <div class="report-longtext__value">1111</div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="base_info">
+  <div class="report-module__header">项目基本信息</div>
+  <div class="report-module__body">
+<div class="report-block report-group">
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">客户名称：</span>
+    <span class="report-kv__value">上海九头鸟印刷有限公司</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">项目金额(元)：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">项目类型：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">对应老合同：</span>
+    <span class="report-kv__value">JFL22C01L006682-01</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">业务信息来源：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">租赁方式：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">资金用途：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">售后回租(新设备)原因：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">投保情况：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">项目经理：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">项目协办人：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">起租前结清合同：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">租赁物保险：</div>
+  <div class="report-longtext__value">符合公司保险政策，为设备购买财产一切险1</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">环境与社会风险评估</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>指标</th><th>结果</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>拟承租人经营活动是否涉及业务排除清单</td>
+<td>否</td>
+</tr>
+<tr>
+<td>所属行业是否为国家产业政策、行业准入政策限制的行业</td>
+<td>否</td>
+</tr>
+<tr>
+<td>是否取得主管部门颁发的特定行业的许可经营证明</td>
+<td>是</td>
+</tr>
+<tr>
+<td>是否存在国家或省级主管部门认定的重大环境、安全生产违法违规行为</td>
+<td>否</td>
+</tr>
+<tr>
+<td>租赁物是否存在环境和社会风险隐患（易燃易爆物、危险化学品、有毒有害物等）</td>
+<td>否</td>
+</tr>
+<tr>
+<td>评估结论（高、中、低）</td>
+<td>低</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">现场尽调情况</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>尽调人员</th><th>尽调日期</th><th>地点</th><th>主要内容</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>武羽天</td>
+<td>2025-04-10</td>
+<td>666</td>
+<td>—</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">项目基本情况：</div>
+  <div class="report-longtext__value">项目介绍测试</div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="implementation_plan">
+  <div class="report-module__header">实施方案</div>
+  <div class="report-module__body">
+<div class="report-block report-group">
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">预测风险敞口(元)：</span>
+    <span class="report-kv__value">200,000.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">预测风险敞口/设备原值(%)：</span>
+    <span class="report-kv__value">1636.3934</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">承租人累计风险敞口(元)：</span>
+    <span class="report-kv__value">-10,143,115.13</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">承租人及关联方累计风险敞口(元)：</span>
+    <span class="report-kv__value">-7,853,203.13</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block">
+  <div class="report-section-heading">不规则直租1111-1715</div>
+</div>
+<div class="report-block report-group">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">投放信息</span>
+  </div>
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">投放金额(元)：</span>
+    <span class="report-kv__value">200,000.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">租金总额(元)：</span>
+    <span class="report-kv__value">240,000.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">首付款金额(元)：</span>
+    <span class="report-kv__value">0.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">贴息金额(元)：</span>
+    <span class="report-kv__value">12.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">保证金金额(元)：</span>
+    <span class="report-kv__value">0.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">名义货价(元)：</span>
+    <span class="report-kv__value">0.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">综合收益率(%)：</span>
+    <span class="report-kv__value">0.0180</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">内部收益率(%)：</span>
+    <span class="report-kv__value">0.0180</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">租金分配IRR(%)：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">报价利率(%)：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">租赁期限(月)：</span>
+    <span class="report-kv__value">1</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">租赁方式：</span>
+    <span class="report-kv__value">直租</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">是否起租调整：</span>
+    <span class="report-kv__value">是</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">先付后付标识：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">投放日期：</span>
+    <span class="report-kv__value">2026-11-11</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">银票收益率(%)：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">是否调息：</span>
+    <span class="report-kv__value">是</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">付款条件及笔数</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>期数展示</th><th>付款方式</th><th>是否内扣</th><th>计划投放日期</th><th class="report-table__cell--align-right">金额(元)</th><th>付款条件</th><th>付款对象</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>投放日</td>
+<td>网银</td>
+<td>否</td>
+<td>2026-11-11</td>
+<td class="report-table__cell--align-right">200,000.00</td>
+<td>收到担保人同意担保的相关决议</td>
+<td>上海华龙测试仪器有限公司</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-group">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">租金计划表</span>
+  </div>
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-33">
+  <div class="report-kv">
+    <span class="report-kv__label">租金总额(元)：</span>
+    <span class="report-kv__value">240,000.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-33">
+  <div class="report-kv">
+    <span class="report-kv__label">本金总额(元)：</span>
+    <span class="report-kv__value">0.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-33">
+  <div class="report-kv">
+    <span class="report-kv__label">利息总额(元)：</span>
+    <span class="report-kv__value">240,000.00</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text"></span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>期数</th><th>事件类别</th><th>计划收取日期</th><th class="report-table__cell--align-right">租金(元)</th><th class="report-table__cell--align-right">利息(元)</th><th class="report-table__cell--align-right">本金(元)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>收租</td>
+<td>2026-07-30</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>收租</td>
+<td>2026-08-30</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+<tr>
+<td>3</td>
+<td>收租</td>
+<td>2026-09-30</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+<tr>
+<td>4</td>
+<td>收租</td>
+<td>2026-10-30</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+<tr>
+<td>5</td>
+<td>收租</td>
+<td>2026-11-30</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+<tr>
+<td>6</td>
+<td>收租</td>
+<td>2026-12-30</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">40,000.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">保证金计划</span>
+  </div>
+  <div class="report-table-empty">暂无保证金计划</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">其他收支计划</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>期数</th><th>还款类型</th><th>还款日期</th><th class="report-table__cell--align-right">金额(元)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>贴息</td>
+<td>2026-11-11</td>
+<td class="report-table__cell--align-right">12.00</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-measure-list">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">增信措施</span>
+  </div>
+  <div class="report-table-empty">暂无数据</div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="lease_property">
+  <div class="report-module__header">租赁物信息</div>
+  <div class="report-module__body">
+<div class="report-kv">
+  <span class="report-kv__label">监控设备：</span>
+  <span class="report-kv__value">GPS</span>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">租赁物信息</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2">租赁物名称</th><th><span class="report-table__stack-label">品牌</span></th><th><span class="report-table__stack-label">设备数量</span></th><th><span class="report-table__stack-label">是否主租赁物</span></th><th><span class="report-table__stack-label">设备金额(元)</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">型号</span></th><th><span class="report-table__stack-label">出厂日期</span></th><th><span class="report-table__stack-label">新旧标识</span></th><th><span class="report-table__stack-label">使用地点</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class="report-table__span-cell">测试11</td><td><span class="report-table__stack-value"></span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">是</span></td><td><span class="report-table__stack-value">12,222.00</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">111</span></td><td><span class="report-table__stack-value"></span></td><td><span class="report-table__stack-value">新设备</span></td><td><span class="report-table__stack-value">上海市上海市辖区宝山区友谊路街道大康路159号30幢</span></td></tr>
+<tr class="report-table__detail-row">
+        <td colspan="6">
+          <div class="report-table__detail">
+            <div class="report-grid">
+              <div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">租赁物名称：</span>
+            <span class="report-kv__value">测试11</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">品牌名称：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">品牌：</span>
+            <span class="report-kv__value">海德堡</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">型号：</span>
+            <span class="report-kv__value">111</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">设备数量：</span>
+            <span class="report-kv__value">1</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">是否主租赁物：</span>
+            <span class="report-kv__value">是</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">租赁物分类：</span>
+            <span class="report-kv__value">饮料加工设备</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">使用地点：</span>
+            <span class="report-kv__value">上海市上海市辖区宝山区友谊路街道大康路159号30幢</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">交货地点：</span>
+            <span class="report-kv__value">上海市上海市辖区宝山区友谊路街道大康路159号30幢</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">设备金额(元)：</span>
+            <span class="report-kv__value">12,222.00</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">供应商名称/外贸公司：</span>
+            <span class="report-kv__value">上海菲莱测试技术有限公司</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">保险计算基准金额(元)：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">外贸交易标识：</span>
+            <span class="report-kv__value">否</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">新旧标识：</span>
+            <span class="report-kv__value">新设备</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">原产地：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">印数：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">铭牌号：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">原始使用地：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">租赁物权属状态：</span>
+            <span class="report-kv__value">无抵押</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">租赁物评估方式：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">租赁物评估日期：</span>
+            <span class="report-kv__value">—</span>
+          </div></div><div class="report-grid__cell report-grid__cell--w-20"><div class="report-kv">
+            <span class="report-kv__label">资产评估机构名称：</span>
+            <span class="report-kv__value">—</span>
+          </div></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+<tr class="report-table__summary-row--top"><td rowspan="2" class="report-table__span-cell">合计</td><td rowspan="2" class="report-table__span-cell">—</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">12,222.00</span></td></tr>
+<tr class="report-table__summary-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">供应商信息</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>供应商名称</th><th>银行账号</th><th>收票方式</th><th>收票天数</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>上海菲莱测试技术有限公司</td>
+<td>121929538710601</td>
+<td>合同签署生效后收票</td>
+<td>12</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">价值预测</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>年租期</th><th class="report-table__cell--align-right">市场概估值(元)</th><th class="report-table__cell--align-right">剩余风险敞口(元)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1年</td>
+<td class="report-table__cell--align-right">160,000,001,234,567,904.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">租赁物使用情况说明：</div>
+  <div class="report-longtext__value">租赁物为XX胶印机，租赁物分别位于我公司XX合同项下，设备现位于拟承租人厂区。</div>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">租赁物现场尽调情况说明：</div>
+  <div class="report-longtext__value">在尽调过程中，客户经理已核实以下情况：a.本项目租赁物为设备资产，适格性符合相关要求，且权属清晰、特定化、可处置，具备经济价值并能够产生使用收益；b.（项目投放前确认）该租赁物为承租人真实拥有并有权处分，不存在任何权利负担和其他物上负担、瑕疵（包括但不限于抵押权、质押权或其他担保物权，也未转让或租赁给他人）（附租赁物现场尽调照片）；c.已收集租赁物权属相关材料（包括但不限于相关合同、发票、付款凭证、评估报告、现场照片、身份识别码、所有权登记证书等）；d.已查询中登网及国家企业信用信息公示系统的动产抵押信息等，具体查询情况详见外围信息查询。</div>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">租赁物定价说明：</div>
+  <div class="report-longtext__value">按照公司要求，本项目租赁物以发票作为定价依据，客户经理已对获取的租赁物发票通过官方渠道查验其真实性，并按照公司相关规定、以审慎的折旧方法计算设备净值，胶印机净值按15年折旧计算，符合租赁物定价管理办法，租赁物原值合计XX万元、净值XX万元，受让价格占净值的XX。另外，从市场询价来看，租赁物在二手胶印机市场中大约可卖XX万元。</div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="lessee_base_info">
+  <div class="report-module__header">承租人基本信息</div>
+  <div class="report-module__body">
+<div class="report-block">
+  <div class="report-section-heading">基本信息</div>
+</div>
+<div class="report-block report-group">
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">企业名称：</span>
+    <span class="report-kv__value">上海九头鸟印刷有限公司</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">统一社会信用代码：</span>
+    <span class="report-kv__value">91310113579106874R</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">法定代表人：</span>
+    <span class="report-kv__value">单兴德</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">实际控制人：</span>
+    <span class="report-kv__value">单兴德</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">成立时间：</span>
+    <span class="report-kv__value">2011-07-06</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">注册资本(万元)：</span>
+    <span class="report-kv__value">2,000.00</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">行业小类：</span>
+    <span class="report-kv__value">包装装潢及其他印刷</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">从业人数：</span>
+    <span class="report-kv__value">30</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-100">
+  <div class="report-kv">
+    <span class="report-kv__label">注册地址：</span>
+    <span class="report-kv__value">上海市上海市辖区宝山区庙行镇25</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">行业许可证</span>
+  </div>
+  <div class="report-table-empty">暂无行业许可证数据</div>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">主营业务：</div>
+  <div class="report-longtext__value">111</div>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">公司沿革：</div>
+  <div class="report-longtext__value">222222</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">股权结构</span>
+  </div>
+  <div class="report-table-empty">暂无股权结构数据</div>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">实控人及股东情况介绍：</div>
+  <div class="report-longtext__value">阿萨达</div>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">司法诉讼信息</div>
+</div>
+<div class="report-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text"></span>
+  </div>
+
+  <div class="report-litigation__update-time">2026-11-11 19:11:06</div>
+  <div class="report-litigation__cards">
+    <div class="report-litigation-card report-litigation-card--highRisk">
+      <span class="report-litigation-card__num">2</span>
+      <span class="report-litigation-card__type">被执行人</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">1</span>
+      <span class="report-litigation-card__type">民事案件</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">1</span>
+      <span class="report-litigation-card__type">执行案件</span>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="related_enterprise">
+  <div class="report-module__header">关联企业信息</div>
+  <div class="report-module__body">
+<div class="report-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text"></span>
+  </div>
+  <div class="report-synopsis__items">
+    <div class="report-synopsis-card">
+      <div class="report-synopsis-card__tag report-synopsis-card__tag--nonGuarantor">
+        <span>非担保人</span>
+      </div>
+      <div class="report-synopsis-card__name">上海菲莱测试技术有限公司</div>
+      <div class="report-synopsis-card__id">91310115MA1K43KG5K</div>
+    </div>
+    <div class="report-synopsis-card">
+      <div class="report-synopsis-card__tag report-synopsis-card__tag--nonGuarantor">
+        <span>非担保人</span>
+      </div>
+      <div class="report-synopsis-card__name">上海华龙测试仪器有限公司</div>
+      <div class="report-synopsis-card__id">91310000133511728E</div>
+    </div>
+  </div>
+</div>
+<div class="report-block report-detail">
+  <div class="report-detail__header">
+    <span class="report-detail__name">上海菲莱测试技术有限公司</span>
+    <span class="report-detail__id">91310115MA1K43KG5K</span>
+  </div>
+  <div class="report-detail__body">
+<div class="report-block report-group">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">基本信息</span>
+  </div>
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">企业名称：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">统一社会信用代码：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">法定代表人：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">实际控制人：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">成立时间：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">注册资本(万元)：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">行业小类：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">从业人数：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-100">
+  <div class="report-kv">
+    <span class="report-kv__label">注册地址：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">与承租人关系：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-100">
+  <div class="report-kv">
+    <span class="report-kv__label">其他关系说明：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">股权结构</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>股东名称</th><th class="report-table__cell--align-right">出资额(万元)</th><th class="report-table__cell--align-right">占比(%)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>上海菲光管理咨询合伙企业（有限合伙）</td>
+<td class="report-table__cell--align-right">225.75</td>
+<td class="report-table__cell--align-right">53.3800</td>
+</tr>
+<tr>
+<td>2</td>
+<td>薛银飞</td>
+<td class="report-table__cell--align-right">43.05</td>
+<td class="report-table__cell--align-right">10.1800</td>
+</tr>
+<tr>
+<td>3</td>
+<td>上海慧眼投资管理有限公司</td>
+<td class="report-table__cell--align-right">42.40</td>
+<td class="report-table__cell--align-right">10.0300</td>
+</tr>
+<tr>
+<td>4</td>
+<td>上海浦东海望集成电路产业私募基金合伙企业（有限合伙）</td>
+<td class="report-table__cell--align-right">24.96</td>
+<td class="report-table__cell--align-right">5.9000</td>
+</tr>
+<tr>
+<td>5</td>
+<td>无锡清源壹号创业投资合伙企业（有限合伙）</td>
+<td class="report-table__cell--align-right">23.53</td>
+<td class="report-table__cell--align-right">5.5600</td>
+</tr>
+<tr>
+<td>6</td>
+<td>上海光易投资管理中心（有限合伙）</td>
+<td class="report-table__cell--align-right">21.39</td>
+<td class="report-table__cell--align-right">5.0600</td>
+</tr>
+<tr>
+<td>7</td>
+<td>上海张江火炬创业投资有限公司</td>
+<td class="report-table__cell--align-right">17.83</td>
+<td class="report-table__cell--align-right">4.2200</td>
+</tr>
+<tr>
+<td>8</td>
+<td>上海芯莱智创管理咨询合伙企业（有限合伙）</td>
+<td class="report-table__cell--align-right">9.74</td>
+<td class="report-table__cell--align-right">2.3000</td>
+</tr>
+<tr>
+<td>9</td>
+<td>李家桐</td>
+<td class="report-table__cell--align-right">6.00</td>
+<td class="report-table__cell--align-right">1.4200</td>
+</tr>
+<tr>
+<td>10</td>
+<td>李德华</td>
+<td class="report-table__cell--align-right">5.26</td>
+<td class="report-table__cell--align-right">1.2500</td>
+</tr>
+<tr class="report-table__summary-row">
+<td class="report-table__cell--strong">合计</td>
+<td class="report-table__cell--strong">合计</td>
+<td class="report-table__cell--strong">419.91</td>
+<td class="report-table__cell--strong">99.3000</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">实控人及股东情况介绍：</div>
+  <div class="report-longtext__value">啊实打实</div>
+</div>
+<div class="report-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">司法诉讼信息</span>
+  </div>
+
+  <div class="report-litigation__update-time">2026-11-11 17:39:20</div>
+  <div class="report-litigation__cards">
+    <div class="report-litigation-card report-litigation-card--highRisk">
+      <span class="report-litigation-card__num">2</span>
+      <span class="report-litigation-card__type">被执行人</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">2</span>
+      <span class="report-litigation-card__type">民事案件</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">2</span>
+      <span class="report-litigation-card__type">执行案件</span>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report-block report-detail">
+  <div class="report-detail__header">
+    <span class="report-detail__name">上海华龙测试仪器有限公司</span>
+    <span class="report-detail__id">91310000133511728E</span>
+  </div>
+  <div class="report-detail__body">
+<div class="report-block report-group">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">基本信息</span>
+  </div>
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">企业名称：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">统一社会信用代码：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">法定代表人：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">实际控制人：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">成立时间：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">注册资本(万元)：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">行业小类：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">从业人数：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-100">
+  <div class="report-kv">
+    <span class="report-kv__label">注册地址：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">与承租人关系：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-100">
+  <div class="report-kv">
+    <span class="report-kv__label">其他关系说明：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">主营业务：</div>
+  <div class="report-longtext__value">1</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">股权结构</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>股东名称</th><th class="report-table__cell--align-right">出资额(万元)</th><th class="report-table__cell--align-right">占比(%)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>卢长城</td>
+<td class="report-table__cell--align-right">970.55</td>
+<td class="report-table__cell--align-right">57.0900</td>
+</tr>
+<tr>
+<td>2</td>
+<td>卢丹</td>
+<td class="report-table__cell--align-right">560.82</td>
+<td class="report-table__cell--align-right">32.9900</td>
+</tr>
+<tr>
+<td>3</td>
+<td>李圣业</td>
+<td class="report-table__cell--align-right">167.86</td>
+<td class="report-table__cell--align-right">9.8700</td>
+</tr>
+<tr>
+<td>4</td>
+<td>王盛</td>
+<td class="report-table__cell--align-right">0.77</td>
+<td class="report-table__cell--align-right">0.0500</td>
+</tr>
+<tr class="report-table__summary-row">
+<td class="report-table__cell--strong">合计</td>
+<td class="report-table__cell--strong">合计</td>
+<td class="report-table__cell--strong">1700.00</td>
+<td class="report-table__cell--strong">100.0000</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">实控人及股东情况介绍：</div>
+  <div class="report-longtext__value">啊实打实</div>
+</div>
+<div class="report-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">司法诉讼信息</span>
+  </div>
+
+  <div class="report-litigation__update-time">2026-11-10 19:32:11</div>
+  <div class="report-litigation__cards">
+    <div class="report-litigation-card report-litigation-card--highRisk">
+      <span class="report-litigation-card__num">19</span>
+      <span class="report-litigation-card__type">被执行人</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">42</span>
+      <span class="report-litigation-card__type">民事案件</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">48</span>
+      <span class="report-litigation-card__type">执行案件</span>
+    </div>
+    <div class="report-litigation-card report-litigation-card--common">
+      <span class="report-litigation-card__num">1</span>
+      <span class="report-litigation-card__type">管辖案件</span>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="credit_enhancement">
+  <div class="report-module__header">增信措施</div>
+  <div class="report-module__body">
+<div class="report-block">
+  <div class="report-section-heading">增信措施</div>
+</div>
+<div class="report-block report-measure-list">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">担保措施</span>
+  </div>
+  <div class="report-measure-list__items">
+    <div class="report-measure-card">
+  <div class="report-measure-card__head">
+    <span class="report-measure-card__tag report-measure-card__tag--guarantee">保证担保</span>
+    <span class="report-measure-card__name">王洪卫</span>
+    <span class="report-measure-card__rel">实控人子女</span>
+    <span class="report-measure-card__id">居民身份证：142625198808101912</span>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">担保人信息</div>
+</div>
+<div class="report-block report-detail">
+  <div class="report-detail__header">
+    <span class="report-detail__name">王洪卫</span>
+    <span class="report-detail__id">142625198808101912</span>
+  </div>
+  <div class="report-detail__body">
+<div class="report-block report-group">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">基本信息</span>
+  </div>
+  <div class="report-grid">
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">姓名：</span>
+    <span class="report-kv__value">王洪卫</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">证件类型：</span>
+    <span class="report-kv__value">居民身份证</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">证件代码：</span>
+    <span class="report-kv__value">142625198808101912</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">与承租人关系：</span>
+    <span class="report-kv__value">实控人子女</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-25">
+  <div class="report-kv">
+    <span class="report-kv__label">与承租人关系说明：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  <div class="report-grid__cell report-grid__cell--w-100">
+  <div class="report-kv">
+    <span class="report-kv__label">名下资产、市值与抵押情况：</span>
+    <span class="report-kv__value">—</span>
+  </div>
+  </div>
+  </div>
+  </div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">担保人房产信息</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>房产地址</th><th>是否贷款</th><th>估值(万)</th><th>扣本残值(万)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>阿萨达</td>
+<td>是</td>
+<td>—</td>
+<td>100.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>爱我去</td>
+<td>否</td>
+<td>200.00</td>
+<td>—</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">司法诉讼信息</span>
+  </div>
+  <div class="report-table-empty">客户暂无司法诉讼数据</div>
+</div>
+  </div>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="revenue_analysis">
+  <div class="report-module__header">经营数据分析</div>
+  <div class="report-module__body">
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">主体列表</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>主体名称</th><th>主体角色</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>上海九头鸟印刷有限公司</td>
+<td><span class="report-role-tag report-role-tag--lessee">承租人</span></td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">资产规模</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">厂房情况</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2">主体名称</th><th rowspan="2">主体角色</th><th><span class="report-table__stack-label">厂房类型</span></th><th><span class="report-table__stack-label">厂房年租金(万)</span></th><th><span class="report-table__stack-label">当前是否有欠租</span></th><th><span class="report-table__stack-label">土地价值(万)</span></th><th><span class="report-table__stack-label">是否有不动产权证</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">厂房面积(平方米)</span></th><th><span class="report-table__stack-label">租赁到期日</span></th><th><span class="report-table__stack-label">土地面积(平方米)</span></th><th><span class="report-table__stack-label">所在位置</span></th><th><span class="report-table__stack-label">土地厂房是否抵押</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class="report-table__span-cell">上海九头鸟印刷有限公司</td><td rowspan="2" class="report-table__span-cell"><span class="report-role-tag report-role-tag--lessee">承租人</span></td><td><span class="report-table__stack-value">自有</span></td><td><span class="report-table__stack-value">111.00</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">111.00</span></td><td><span class="report-table__stack-value">2026-11-04</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">厂房情况说明：</div>
+  <div class="report-longtext__value">asd 12</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">主要设备情况</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th><span class="report-table__stack-label">主体名称</span></th><th><span class="report-table__stack-label">核心设备(品牌、型号)</span></th><th><span class="report-table__stack-label">数量(台)</span></th><th><span class="report-table__stack-label">原值(元)</span></th><th><span class="report-table__stack-label">年均印数</span></th><th><span class="report-table__stack-label">备注</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">主体角色</span></th><th><span class="report-table__stack-label">新设备/二手设备</span></th><th><span class="report-table__stack-label">购置时间</span></th><th><span class="report-table__stack-label">是否被抵押</span></th><th><span class="report-table__stack-label">估值(万)</span></th><th><span class="report-table__stack-label">—</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td><span class="report-table__stack-value">上海九头鸟印刷有限公司</span></td><td><span class="report-table__stack-value">111</span></td><td><span class="report-table__stack-value">1</span></td><td><span class="report-table__stack-value">111.00</span></td><td><span class="report-table__stack-value">1111</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value"><span class="report-role-tag report-role-tag--lessee">承租人</span></span></td><td><span class="report-table__stack-value">新设备</span></td><td><span class="report-table__stack-value">2001-01-19</span></td><td><span class="report-table__stack-value">是</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">现场生产情况</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>主体名称</th><th>主体角色</th><th>情况说明</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>上海九头鸟印刷有限公司</td>
+<td><span class="report-role-tag report-role-tag--lessee">承租人</span></td>
+<td>asd</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">库存情况说明</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>序号</th><th>主体名称</th><th>主体角色</th><th>存货明细</th><th class="report-table__cell--align-right">金额(万)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>1</td>
+<td>上海九头鸟印刷有限公司</td>
+<td><span class="report-role-tag report-role-tag--lessee">承租人</span></td>
+<td>asdas</td>
+<td class="report-table__cell--align-right">111.00</td>
+</tr>
+<tr>
+<td>2</td>
+<td>合计(万)</td>
+<td></td>
+<td>合计(万)</td>
+<td class="report-table__cell--align-right">111.00</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">生产经营分析</div>
+</div>
+<div class="report-kv">
+  <span class="report-kv__label">生产性收入占比营业收入(%)：</span>
+  <span class="report-kv__value">12</span>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">营业收入分析</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>主体名称</th><th>主体角色</th><th>类型</th><th class="report-table__cell--align-right">2023年01月-2023年12月</th><th class="report-table__cell--align-right">2024年01月-2024年12月</th><th class="report-table__cell--align-right">2025年01月-2025年12月</th><th class="report-table__cell--align-right">2026年01月-2026年11月</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td rowspan="2">上海九头鸟印刷有限公司</td>
+<td rowspan="2"><span class="report-role-tag report-role-tag--lessee">承租人</span></td>
+<td>可核实收入(万)(剔除关联交易)</td>
+<td class="report-table__cell--align-right">12.00</td>
+<td class="report-table__cell--align-right">12.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+</tr>
+<tr>
+<td>纳税申报收入(万)</td>
+<td class="report-table__cell--align-right">12.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+</tr>
+<tr>
+<td>可核实收入合计(万)(剔除关联交易)</td>
+<td></td>
+<td>—</td>
+<td class="report-table__cell--align-right">12.00</td>
+<td class="report-table__cell--align-right">12.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+<td class="report-table__cell--align-right">121.00</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">营业收入分析说明：</div>
+  <div class="report-longtext__value">adas</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">开票系统中前五大客户</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th rowspan="2">主体名称</th><th rowspan="2">主体角色</th><th colspan="4">2026年</th></tr>
+      <tr><th>客户名称</th><th class="report-table__cell--align-right">开票销售额(万)</th><th>结算周期</th><th>来源</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>—</td><td rowspan="2"><span class="report-role-tag report-role-tag--lessee">承租人</span></td><td>111</td><td class="report-table__cell--align-right">111.00</td><td>111</td><td>手工</td></tr>
+<tr><td>—</td><td>合计(万)</td><td class="report-table__cell--align-right">111.00</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">电费</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>主体名称</th><th>主体角色</th><th>类型</th><th>2026年01月</th><th>2026年02月</th><th>均值</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>—</td>
+<td><span class="report-role-tag report-role-tag--lessee">承租人</span></td>
+<td>电费(万)</td>
+<td>10.00</td>
+<td>10.00</td>
+<td>10.0</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">流水核验</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">流水核验</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>主体名称</th><th>主体角色</th><th>类型</th><th>2023年01月</th><th>2023年02月</th><th>合计</th><th>日均余额</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>—</td>
+<td rowspan="3"><span class="report-role-tag report-role-tag--lessee">承租人</span></td>
+<td>流水流入(万)(剔除关联交易)</td>
+<td>{&#x27;value&#x27;: &#x27;11.00&#x27;, &#x27;cellType&#x27;: &#x27;highlight&#x27;}</td>
+<td>1.00</td>
+<td>12.0</td>
+<td>10.00</td>
+</tr>
+<tr>
+<td>—</td>
+<td>流水流出(万)(剔除关联交易)</td>
+<td>1.03</td>
+<td>1.00</td>
+<td>2.03</td>
+<td>—</td>
+</tr>
+<tr>
+<td>—</td>
+<td>银行承兑(万)(剔除关联交易)</td>
+<td>10.00</td>
+<td>10.00</td>
+<td>20.0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>流水及承兑合计(万)(剔除关联交易)</td>
+<td></td>
+<td>—</td>
+<td>21.0</td>
+<td>11.0</td>
+<td>—</td>
+<td>—</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-longtext">
+  <div class="report-longtext__label">流水核验说明：</div>
+  <div class="report-longtext__value">1221</div>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">现金流测算</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">现金流测算</span>
+  </div>
+  <table class="report-table">
+    <thead>
+      <tr><th>科目</th><th class="report-table__cell--align-right">2026</th><th class="report-table__cell--align-right">2027</th><th class="report-table__cell--align-right">2028</th><th>备注</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+<td>生产经营收入</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td>—</td>
+</tr>
+<tr>
+<td>其他收入</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>收入合计</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td>—</td>
+</tr>
+<tr>
+<td>原材料成本</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>外发加工</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>人工成本</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>水电费</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>房租</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>其他费用</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>管理费</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>银行利息</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>融资租赁还款</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>支出合计</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td class="report-table__cell--align-right">—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>税前结余</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td class="report-table__cell--align-right">11.00</td>
+<td>—</td>
+</tr>
+<tr>
+<td>项目还款金额</td>
+<td class="report-table__cell--align-right">0.00</td>
+<td class="report-table__cell--align-right">21,004,020.00</td>
+<td class="report-table__cell--align-right">0.00</td>
+<td>—</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+</div>
+<div class="report-module" data-module-key="liability_analysis">
+  <div class="report-module__header">刚性负债分析</div>
+  <div class="report-module__body">
+<div class="report-kv">
+  <span class="report-kv__label">征信、中登数据更新时间：</span>
+  <span class="report-kv__value">2026-11-11 10:23:47</span>
+</div>
+<div class="report-block">
+  <div class="report-section-heading">借款情况</div>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">企业借款</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2">借款主体</th><th rowspan="2">主体角色</th><th rowspan="2">租赁借款余额合计(元)</th><th rowspan="2">非租赁借款余额合计(元)</th><th><span class="report-table__stack-label">业务类型</span></th><th><span class="report-table__stack-label">授信机构</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">截止日期</span></th><th><span class="report-table__stack-label">抵押类型</span></th><th><span class="report-table__stack-label">当前逾期月份</span></th><th><span class="report-table__stack-label">是否与征信重复</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">机构编码</span></th><th><span class="report-table__stack-label">借款金额(元)</span></th><th><span class="report-table__stack-label">起始日期</span></th><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">五级分类</span></th><th><span class="report-table__stack-label">数据来源</span></th><th><span class="report-table__stack-label">—</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="8" class="report-table__span-cell">上海九头鸟印刷有限公司
+        <span class="report-table__entity-sub">（2023-10-14）</span></td><td rowspan="8" class="report-table__span-cell">承租人</td><td rowspan="8" class="report-table__span-cell">16,732,700.00</td><td rowspan="8" class="report-table__span-cell">3,000,000.00</td><td><span class="report-table__stack-value">流动资金贷款</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">3,000,000.00</span></td><td><span class="report-table__stack-value">2024-09-26</span></td><td><span class="report-table__stack-value">厂房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">B6994(商业银行)</span></td><td><span class="report-table__stack-value">3,000,000.00</span></td><td><span class="report-table__stack-value">2023-09-26</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">2</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">332,300.00</span></td><td><span class="report-table__stack-value">2026-01-30</span></td><td><span class="report-table__stack-value">厂房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">H7088(融资租赁公司)</span></td><td><span class="report-table__stack-value">442,500.00</span></td><td><span class="report-table__stack-value">2023-03-01</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">3</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">5,528,900.00</span></td><td><span class="report-table__stack-value">2027-01-21</span></td><td><span class="report-table__stack-value">自住房抵押</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom report-table__record-divider"><td><span class="report-table__stack-value">本机构</span></td><td><span class="report-table__stack-value">7,890,000.00</span></td><td><span class="report-table__stack-value">2022-02-22</span></td><td><span class="report-table__stack-value">组合</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">4</td><td><span class="report-table__stack-value">融资型租赁</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">10,871,500.00</span></td><td><span class="report-table__stack-value">2027-07-11</span></td><td><span class="report-table__stack-value">其他</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">本机构</span></td><td><span class="report-table__stack-value">17,500,000.00</span></td><td><span class="report-table__stack-value">2022-08-12</span></td><td><span class="report-table__stack-value">保证</span></td><td><span class="report-table__stack-value">正常</span></td><td><span class="report-table__stack-value">征信查询</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--top"><td rowspan="2" class="report-table__span-cell">合计</td><td rowspan="2" class="report-table__span-cell">—</td><td rowspan="2" class="report-table__span-cell">—</td><td rowspan="2" class="report-table__span-cell">—</td><td rowspan="2" class="report-table__span-cell">—</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">19,732,700.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">28,832,500.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">个人借款</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2">借款主体</th><th><span class="report-table__stack-label">业务大类</span></th><th><span class="report-table__stack-label">账户数量</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">当前逾期账户数</span></th><th><span class="report-table__stack-label">最大逾期金额(元)</span></th><th><span class="report-table__stack-label">近三个月被其他机构查询贷款审批及担保资格的次数</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">担保方式</span></th><th><span class="report-table__stack-label">借款金额(元)</span></th><th><span class="report-table__stack-label">累计逾期月数</span></th><th><span class="report-table__stack-label">最长逾期月数</span></th><th><span class="report-table__stack-label">近一个月到期金额(元)</span></th><th><span class="report-table__stack-label">数据来源</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class="report-table__span-cell">王洪卫
+        <span class="report-table__entity-sub">（2021-07-26）</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr>
+<tr class="report-table__summary-row--top"><td rowspan="2" class="report-table__span-cell">合计</td><td rowspan="2" class="report-table__span-cell">—</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="report-block report-table-block">
+  <div class="report-section-title">
+    <span class="report-section-title__dot"></span>
+    <span class="report-section-title__text">对外担保情况</span>
+  </div>
+  <table class="report-table report-table--stacked">
+    <thead>
+      <tr class="report-table__head-row--top"><th rowspan="2">序号</th><th rowspan="2">担保主体</th><th rowspan="2">主体角色</th><th><span class="report-table__stack-label">被担保主体</span></th><th><span class="report-table__stack-label">余额(元)</span></th><th><span class="report-table__stack-label">截止日期</span></th><th><span class="report-table__stack-label">当前逾期月数</span></th><th><span class="report-table__stack-label">数据来源</span></th></tr>
+      <tr class="report-table__head-row--bottom"><th><span class="report-table__stack-label">业务类型</span></th><th><span class="report-table__stack-label">起始日期</span></th><th><span class="report-table__stack-label">五级分类</span></th><th><span class="report-table__stack-label">是否存在对应借款</span></th><th><span class="report-table__stack-label">—</span></th></tr>
+    </thead>
+    <tbody>
+      <tr class="report-table__data-row--top"><td rowspan="2" class="report-table__index-cell">1</td><td rowspan="2" class="report-table__span-cell">上海九头鸟印刷有限公司
+        <span class="report-table__entity-sub">（2023-10-14）</span></td><td rowspan="2" class="report-table__span-cell">承租人</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0</span></td><td><span class="report-table__stack-value">征信查询</span></td></tr>
+<tr class="report-table__data-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">否</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--top"><td rowspan="2" class="report-table__span-cell">合计</td><td rowspan="2" class="report-table__span-cell">—</td><td rowspan="2" class="report-table__span-cell">—</td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">0.00</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+<tr class="report-table__summary-row--bottom"><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td><td><span class="report-table__stack-value">—</span></td></tr>
+    </tbody>
+  </table>
+</div>
+  </div>
+</div>
+</div>
+</body>
+</html>
