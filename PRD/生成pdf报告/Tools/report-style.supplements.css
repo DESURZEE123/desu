@@ -1,0 +1,276 @@
+/* L1/HTML extensions not yet fully in prjc_style_render §4.2 */
+/* Source: reference HTML; re-extract when L2 catches up */
+
+.report-module__header-meta {
+  font-size: 12px;
+      font-weight: 400;
+      color: #86909C;
+      flex-shrink: 0;
+      margin-left: 16px;
+}
+
+.report-label-panel {
+  display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+}
+
+.report-label-card {
+  flex: 1;
+      border-radius: 4px;
+      padding: 12px 16px;
+      border: 1px solid #E5E6EB;
+      box-sizing: border-box;
+}
+
+.report-label-card--warning {
+  background: #FFF7E8;
+      border-color: #FF7D00;
+}
+
+.report-label-card--negative {
+  background: #FFECE8;
+      border-color: #F53F3F;
+}
+
+.report-label-card__title {
+  font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+}
+
+.report-label-card--warning .report-label-card__title { color: #FF7D00; }
+
+.report-label-card--negative .report-label-card__title { color: #F53F3F; }
+
+.report-label-card__list {
+  margin: 0;
+      padding-left: 1.2em;
+      font-size: 14px;
+      line-height: 22px;
+      color: #1D2129;
+}
+
+.report-label-card__list li { margin-bottom: 4px; }
+
+.report-role-tag {
+  display: inline-block;
+      padding: 0 8px;
+      border-radius: 2px;
+      font-size: 12px;
+      line-height: 20px;
+      margin-right: 4px;
+      margin-bottom: 2px;
+}
+
+.report-role-tag--lessee { background: #E8F3FF; color: #1677FF; }
+
+.report-role-tag--guarantor { background: #FFF7E8; color: #FF7D00; }
+
+.report-role-tag--related { background: #E8FFEA; color: #00B42A; }
+
+.report-role-tag--default { background: #F2F3F5; color: #86909C; }
+
+.report-litigation-section__header {
+  display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+}
+
+.report-litigation-section__header .report-section-title { margin-bottom: 0; }
+
+.report-litigation-section__meta {
+  font-size: 12px;
+      color: #86909C;
+      flex-shrink: 0;
+}
+
+.report-litigation-grid {
+  display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+}
+
+.report-litigation-card {
+  position: relative;
+      width: 220px;
+      max-width: 100%;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 20px 16px;
+      min-height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.report-litigation-card__type {
+  font-size: 14px;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-align: center;
+      line-height: 22px;
+}
+
+.report-litigation-card__num {
+  position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1;
+}
+
+.report-litigation-card--highRisk { background: linear-gradient(135deg, #F98981 0%, #F53F3F 100%); }
+
+.report-litigation-card--common { background: linear-gradient(135deg, #6AA1FF 0%, #1677FF 100%); }
+
+.report-fs-subject-header {
+  display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 12px;
+      padding: 10px 12px;
+      background: #F2F3F5;
+      border-radius: 4px;
+}
+
+.report-fs-subject-header__title {
+  font-size: 14px;
+      font-weight: 600;
+      color: #1D2129;
+}
+
+.report-fs-subject-header__source {
+  font-size: 12px;
+      color: #86909C;
+}
+
+.report-fs-table-block { margin-bottom: 16px; }
+
+.report-fs-table-block__caption {
+  display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+}
+
+.report-fs-table-block__title {
+  font-size: 14px;
+      font-weight: 600;
+      color: #1D2129;
+}
+
+.report-fs-table-block__unit {
+  font-size: 12px;
+      color: #86909C;
+}
+
+.report-fs-table {
+  width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12px;
+}
+
+.report-fs-table th,
+  .report-fs-table td {
+  border-bottom: 1px solid #E5E6EB;
+      padding: 8px 10px;
+      vertical-align: middle;
+}
+
+.report-fs-table thead th {
+  background: #F2F3F5;
+      font-weight: 600;
+      color: #1D2129;
+      text-align: left;
+}
+
+.report-fs-table thead th.report-fs-table__period { text-align: right; }
+
+.report-fs-table__period-label {
+  display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+}
+
+.report-fs-table__data-type {
+  display: inline-block;
+      padding: 0 6px;
+      border-radius: 2px;
+      background: #F53F3F;
+      color: #FFFFFF;
+      font-size: 11px;
+      line-height: 18px;
+      font-weight: 500;
+}
+
+.report-fs-table__account { color: #1D2129; }
+
+.report-fs-table__account--l3 { padding-left: 28px; }
+
+.report-fs-table__value {
+  text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: #1D2129;
+}
+
+.report-fs-table__row--l1 td {
+  background: #FFECE8;
+      font-weight: 600;
+}
+
+.report-fs-table__row--l2 td {
+  background: #FFF7E8;
+      font-weight: 600;
+}
+
+.report-fs-table__row--l3:nth-child(even) td { background: #FAFBFC; }
+
+.report-associate-detail,
+  .report-guarantee-detail {
+  margin-bottom: 20px;
+      padding: 12px 16px 4px;
+      border: 1px solid #E5E6EB;
+      border-radius: 4px;
+      background: #FFFFFF;
+}
+
+.report-associate-detail__header,
+  .report-guarantee-detail__header {
+  display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #E5E6EB;
+}
+
+.report-associate-detail__title,
+  .report-guarantee-detail__title {
+  font-size: 14px;
+      font-weight: 600;
+      color: #1677FF;
+      line-height: 22px;
+}
+
+/* ===== table cell highlight (L2 §2.3 定义 class 但 §4.2 未收录) ===== */
+/* 营业收入核验等场景：银行流水对不上时标橙加粗 */
+.report-table__cell--highlight {
+  color: #FF7D00;
+  font-weight: 600;
+}
+/* 叠行宽表内高亮（class 常加在 .report-table__stack-value 上） */
+.report-table--stacked .report-table__stack-value.report-table__cell--highlight {
+  color: #FF7D00;
+  font-weight: 600;
+}
