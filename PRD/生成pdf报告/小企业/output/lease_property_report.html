@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>租赁物信息 - 上海九头鸟印刷有限公司</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang SC","Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333; padding:24px; font-size:13px; }
+  .page { max-width:1180px; margin:0 auto; background:#fff; border:1px solid #e5e6eb; border-radius:6px; overflow:hidden; }
+  .page-header { padding:14px 20px; background:#fafbfc; border-bottom:1px solid #e5e6eb; display:flex; justify-content:space-between; align-items:center; }
+  .page-header h1 { font-size:16px; font-weight:600; color:#1d2129; }
+  .page-header .meta { font-size:12px; color:#86909c; }
+  .section { padding:16px 20px; border-bottom:1px solid #f0f0f0; }
+  .sec-title { font-size:14px; font-weight:600; color:#1d2129; margin-bottom:12px; padding-left:8px; border-left:3px solid #165dff; }
+  /* direct field */
+  .direct-row { display:flex; gap:24px; align-items:center; background:#fafbfc; border:1px solid #f0f0f0; border-radius:4px; padding:10px 14px; }
+  .direct-row .lbl { color:#4e5969; font-weight:600; }
+  .direct-row .val { color:#1d2129; }
+  /* table */
+  table { width:100%; border-collapse:collapse; table-layout:auto; }
+  th, td { border:1px solid #e5e6eb; padding:8px 10px; text-align:left; vertical-align:top; word-break:break-all; }
+  th { background:#f2f3f5; color:#4e5969; font-weight:600; white-space:nowrap; }
+  td.num, th.num { text-align:right; }
+  tr.summary td { background:#fafbfc; font-weight:600; }
+  .dash { color:#c9cdd4; }
+  /* detail grid */
+  tr.detail-row > td { background:#fcfcfd; padding:14px 16px; }
+  .detail-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:10px 16px; }
+  .detail-item { min-width:0; }
+  .detail-item .k { font-size:12px; color:#86909c; margin-bottom:3px; }
+  .detail-item .v { color:#1d2129; word-break:break-all; }
+  .detail-seg { grid-column:1/-1; font-weight:600; color:#1d2129; font-size:12px; padding:6px 0 2px; border-bottom:1px dashed #e5e6eb; margin-top:4px; }
+  .detail-seg:first-child { margin-top:0; }
+  /* long text */
+  .longtext { background:#fafbfc; border:1px solid #f0f0f0; border-radius:4px; padding:12px 14px; line-height:1.8; color:#4e5969; white-space:pre-wrap; }
+  .longtext-label { font-weight:600; color:#1d2129; margin-bottom:6px; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-header">
+    <h1>租赁物信息</h1>
+    <div class="meta">承租人：上海九头鸟印刷有限公司 ｜ 租赁方式：回租 ｜ 资金用途：补充流动资金（回租）</div>
+  </div>
+
+  <!-- 1. 监管设备 -->
+  <div class="section">
+    <div class="sec-title">监管设备</div>
+    <div class="direct-row"><span class="lbl">监管设备</span><span class="val">GPS</span></div>
+  </div>
+
+  <!-- 2. 租赁物信息表（B 分支：纯回租） -->
+  <div class="section">
+    <div class="sec-title">租赁物信息</div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:44px;">序号</th>
+          <th>租赁物名称</th><th>品牌</th><th>型号</th>
+          <th>设备数量</th><th>出厂日期</th><th>发票号</th><th>发票日期</th>
+          <th>是否主租赁物</th><th>新旧标识</th>
+          <th class="num">原值(元)</th><th class="num">净值(元)</th><th>使用地点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr>
+          <td>1</td>
+          <td>测试11</td>
+          <td><span class="dash">—</span></td>
+          <td>111</td>
+          <td>1</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td>是</td>
+          <td>新设备</td>
+          <td class="num">12,222.00</td>
+          <td class="num">12,222.00</td>
+          <td>上海市上海市辖区宝山区友谊路街道大康路159号30幢</td>
+        </tr>
+        <tr class="detail-row"><td colspan="13">
+          <div class="detail-grid">
+            <div class="detail-seg">基本信息</div>
+            <div class="detail-item"><div class="k">租赁物名称</div><div class="v">测试11</div></div>
+            <div class="detail-item"><div class="k">品牌名称</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">品牌</div><div class="v">海德堡</div></div>
+            <div class="detail-item"><div class="k">型号</div><div class="v">111</div></div>
+            <div class="detail-item"><div class="k">设备数量</div><div class="v">1</div></div>
+            <div class="detail-item"><div class="k">是否主租赁物</div><div class="v">是</div></div>
+            <div class="detail-item"><div class="k">租赁物分类</div><div class="v">饮料加工设备</div></div>
+            <div class="detail-item"><div class="k">使用地点</div><div class="v">上海市上海市辖区宝山区友谊路街道大康路159号30幢</div></div>
+            <div class="detail-item"><div class="k">发票号</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">发票日期</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">原值(元)</div><div class="v">12,222.00</div></div>
+            <div class="detail-item"><div class="k">净值(元)</div><div class="v">12,222.00</div></div>
+            <div class="detail-item"><div class="k">折价(元)</div><div class="v">0.00</div></div>
+            <div class="detail-item"><div class="k">租赁物唯一标识码</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">保险计算基准金额(元)</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-seg">设备新旧情况</div>
+            <div class="detail-item"><div class="k">新旧标识</div><div class="v">新设备</div></div>
+            <div class="detail-item"><div class="k">原产地</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">印数</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">铭牌号</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">原始使用地</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-seg">租赁物评估</div>
+            <div class="detail-item"><div class="k">租赁物权属状态</div><div class="v">无抵押</div></div>
+            <div class="detail-item"><div class="k">租赁物评估方式</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">租赁物评估日期</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">资产评估机构名称</div><div class="v"><span class="dash">—</span></div></div>
+          </div>
+        </td></tr>
+
+        <!-- row 2 -->
+        <tr>
+          <td>2</td>
+          <td>测试</td>
+          <td><span class="dash">—</span></td>
+          <td>2.0</td>
+          <td>10</td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td><span class="dash">—</span></td>
+          <td>否</td>
+          <td>二手设备</td>
+          <td class="num">1,000.00</td>
+          <td class="num">1,000.00</td>
+          <td>上海市上海市辖区宝山区友谊路街道大康路159号30幢</td>
+        </tr>
+        <tr class="detail-row"><td colspan="13">
+          <div class="detail-grid">
+            <div class="detail-seg">基本信息</div>
+            <div class="detail-item"><div class="k">租赁物名称</div><div class="v">测试</div></div>
+            <div class="detail-item"><div class="k">品牌名称</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">品牌</div><div class="v">高宝</div></div>
+            <div class="detail-item"><div class="k">型号</div><div class="v">2.0</div></div>
+            <div class="detail-item"><div class="k">设备数量</div><div class="v">10</div></div>
+            <div class="detail-item"><div class="k">是否主租赁物</div><div class="v">否</div></div>
+            <div class="detail-item"><div class="k">租赁物分类</div><div class="v">饮料加工设备</div></div>
+            <div class="detail-item"><div class="k">使用地点</div><div class="v">上海市上海市辖区宝山区友谊路街道大康路159号30幢</div></div>
+            <div class="detail-item"><div class="k">发票号</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">发票日期</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">原值(元)</div><div class="v">1,000.00</div></div>
+            <div class="detail-item"><div class="k">净值(元)</div><div class="v">1,000.00</div></div>
+            <div class="detail-item"><div class="k">折价(元)</div><div class="v">0.00</div></div>
+            <div class="detail-item"><div class="k">租赁物唯一标识码</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">保险计算基准金额(元)</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-seg">设备新旧情况</div>
+            <div class="detail-item"><div class="k">新旧标识</div><div class="v">二手设备</div></div>
+            <div class="detail-item"><div class="k">出厂日期</div><div class="v"><span class="dash">—</span></div></div>
+            <div class="detail-item"><div class="k">原产地</div><div class="v">上海市上海市辖区宝山区友谊路街道大康路159号30幢</div></div>
+            <div class="detail-item"><div class="k">印数</div><div class="v">10,244</div></div>
+            <div class="detail-item"><div class="k">铭牌号</div><div class="v">201254154</div></div>
+            <div class="detail-item"><div class="k">原始使用地</div><div class="v">上海市上海市辖区宝山区友谊路街道大康路159号30幢</div></div>
+            <div class="detail-seg">租赁物评估</div>
+            <div class="detail-item"><div class="k">租赁物权属状态</div><div class="v">无抵押</div></div>
+            <div class="detail-item"><div class="k">租赁物评估方式</div><div class="v">账面价值</div></div>
+            <div class="detail-item"><div class="k">租赁物评估日期</div><div class="v">2026-11-09</div></div>
+            <div class="detail-item"><div class="k">资产评估机构名称</div><div class="v">T-2018南京久辉运输</div></div>
+          </div>
+        </td></tr>
+
+        <!-- summary -->
+        <tr class="summary">
+          <td>合计</td>
+          <td colspan="10"></td>
+          <td class="num">13,222.00</td>
+          <td class="num">13,222.00</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. 供应商信息：B 分支（纯回租）不输出 -->
+
+  <!-- 4. 价值预测 -->
+  <div class="section">
+    <div class="sec-title">价值预测</div>
+    <table>
+      <thead><tr><th style="width:120px;">年租期</th><th class="num">市场概估值(元)</th><th class="num">剩余风险敞口(元)</th></tr></thead>
+      <tbody><tr><td>1年</td><td class="num">160,000.00</td><td class="num">200,000.00</td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- 5-9. 说明长文本 -->
+  <div class="section">
+    <div class="sec-title">租赁物权属状态说明</div>
+    <div class="longtext">租赁物权属状态说明租赁物权属状态说明租赁物权属状态说明</div>
+  </div>
+  <div class="section">
+    <div class="sec-title">是否突破作价及说明</div>
+    <div class="longtext">是否突破作价及说明是否突破作价及说明是否突破作价及说明是否突破作价及说明是否突破作价及说明是否突破作价及说明</div>
+  </div>
+  <div class="section">
+    <div class="sec-title">租赁物使用情况说明</div>
+    <div class="longtext">租赁物为XX胶印机，租赁物分别位于我公司XX合同项下，设备现位于拟承租人厂区。</div>
+  </div>
+  <div class="section">
+    <div class="sec-title">租赁物现场尽调情况说明</div>
+    <div class="longtext">在尽调过程中，客户经理已核实以下情况：a.本项目租赁物为设备资产，适格性符合相关要求，且权属清晰、特定化、可处置，具备经济价值并能够产生使用收益；b.（项目投放前确认）该租赁物为承租人真实拥有并有权处分，不存在任何权利负担和其他物上负担、瑕疵（包括但不限于抵押权、质押权或其他担保物权，也未转让或租赁给他人）（附租赁物现场尽调照片）；c.已收集租赁物权属相关材料（包括但不限于相关合同、发票、付款凭证、评估报告、现场照片、身份识别码、所有权登记证书等）；d.已查询中登网及国家企业信用信息公示系统的动产抵押信息等，具体查询情况详见外围信息查询。</div>
+  </div>
+  <div class="section" style="border-bottom:none;">
+    <div class="sec-title">租赁物定价说明</div>
+    <div class="longtext">按照公司要求，本项目租赁物以发票作为定价依据，客户经理已对获取的租赁物发票通过官方渠道查验其真实性，并按照公司相关规定、以审慎的折旧方法计算设备净值，胶印机净值按15年折旧计算，符合租赁物定价管理办法，租赁物原值合计XX万元、净值XX万元，受让价格占净值的XX。另外，从市场询价来看，租赁物在二手胶印机市场中大约可卖XX万元。</div>
+  </div>
+</div>
+</body>
+</html>
