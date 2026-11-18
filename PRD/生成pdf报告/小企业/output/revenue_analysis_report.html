@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>经营数据分析</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang SC","Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333; padding:24px; font-size:13px; }
+  .page { max-width:1280px; margin:0 auto; background:#fff; border:1px solid #e5e6eb; border-radius:6px; overflow:hidden; }
+  .page-header { padding:14px 20px; background:#fafbfc; border-bottom:1px solid #e5e6eb; }
+  .page-header h1 { font-size:16px; font-weight:600; color:#1d2129; }
+  .section { padding:16px 20px; border-bottom:1px solid #f0f0f0; }
+  .sec-heading { font-size:15px; font-weight:600; color:#1d2129; padding-left:10px; border-left:4px solid #165dff; margin-bottom:14px; }
+  .sub-title { font-size:13px; font-weight:600; color:#165dff; margin:16px 0 8px; }
+  .sub-title::before { content:"●"; font-size:9px; margin-right:6px; vertical-align:2px; }
+  .sub-title:first-of-type { margin-top:0; }
+  .direct-row { display:flex; gap:16px; align-items:center; background:#fafbfc; border:1px solid #f0f0f0; border-radius:4px; padding:10px 14px; }
+  .direct-row .lbl { color:#4e5969; font-weight:600; }
+  .direct-row .val { color:#1d2129; font-weight:600; font-size:15px; }
+  .tbl-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #e5e6eb; padding:7px 9px; text-align:left; vertical-align:middle; word-break:break-all; }
+  th { background:#f2f3f5; color:#4e5969; font-weight:600; white-space:nowrap; }
+  td.num, th.num { text-align:right; }
+  td.ctr, th.ctr { text-align:center; }
+  tr.summary td { background:#fafbfc; font-weight:600; }
+  .dash { color:#c9cdd4; }
+  .tag { display:inline-block; padding:1px 8px; border-radius:3px; font-size:12px; margin-right:4px; }
+  .tag.lessee { background:#e8f3ff; color:#165dff; }
+  .tag.related { background:#e8ffee; color:#00b42a; }
+  .tag.guarantor { background:#fff7e8; color:#ff7d00; }
+  .highlight { color:#ff7d00; font-weight:600; }
+  .longtext { background:#fafbfc; border:1px solid #f0f0f0; border-radius:4px; padding:12px 14px; line-height:1.8; color:#4e5969; white-space:pre-wrap; }
+  .src-tag { font-size:11px; color:#86909c; border:1px solid #d9dce1; border-radius:3px; padding:0 4px; margin-left:4px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-header"><h1>经营数据分析</h1></div>
+
+  <!-- 主体列表 -->
+  <div class="section">
+    <div class="sub-title">主体列表</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:44px;">序号</th><th>主体名称</th><th>主体角色</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td></tr>
+        <tr><td>2</td><td>上海菲莱测试技术有限公司</td><td><span class="tag related">关联方</span></td></tr>
+        <tr><td>3</td><td>上海华龙测试仪器有限公司</td><td><span class="tag related">关联方</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 资产规模 -->
+  <div class="section">
+    <div class="sec-heading">资产规模</div>
+
+    <div class="sub-title">厂房情况</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th style="width:44px;">序号</th><th>主体名称</th><th>主体角色</th><th>厂房类型</th>
+        <th class="num">厂房面积(平方米)</th><th class="num">厂房年租金(万)</th><th>租赁到期日</th>
+        <th>当前是否有欠租</th><th class="num">土地面积(平方米)</th><th class="num">土地价值(万)</th>
+        <th>所在位置</th><th>是否有不动产权证</th><th>土地厂房是否抵押</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>1</td><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td><td>租用</td><td class="num">111.00</td><td class="num">111.00</td><td>2026-11-04</td><td>否</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>2</td><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td><td>自有</td><td class="num">111.00</td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td class="num">111.00</td><td class="num">111.00</td><td>111</td><td>是</td><td>否</td></tr>
+        <tr><td>3</td><td>上海菲莱测试技术有限公司</td><td><span class="tag related">关联方</span></td><td>租用</td><td class="num">1,111.00</td><td class="num">1,111.00</td><td>2026-11-18</td><td>否</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>4</td><td>上海华龙测试仪器有限公司</td><td><span class="tag related">关联方</span></td><td>无厂房</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num">1,111.00</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub-title">厂房情况说明</div>
+    <div class="longtext">asd 12</div>
+
+    <div class="sub-title">主要设备情况</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th style="width:44px;">序号</th><th>主体名称</th><th>主体角色</th><th>核心设备(品牌、型号)</th>
+        <th>新设备/二手设备</th><th class="num">数量(台)</th><th>购置时间</th><th class="num">原值(元)</th>
+        <th>是否被抵押</th><th class="num">年均印数</th><th class="num">估值(万)</th><th>备注</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>1</td><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td><td>111</td><td>新设备</td><td class="num">1</td><td>2001-01-19</td><td class="num">111.00</td><td>是</td><td class="num">1,111</td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>2</td><td>上海菲莱测试技术有限公司</td><td><span class="tag related">关联方</span></td><td>111</td><td>新设备</td><td class="num">222</td><td>2026-11-19</td><td class="num">11.00</td><td>是</td><td class="num">1,222</td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>3</td><td>上海华龙测试仪器有限公司</td><td><span class="tag related">关联方</span></td><td>111</td><td>二手设备</td><td class="num">333</td><td>2026-11-19</td><td class="num">11.00</td><td>否</td><td class="num">111</td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub-title">现场生产情况</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:44px;">序号</th><th>主体名称</th><th>主体角色</th><th>情况说明</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td><td>asd</td></tr>
+        <tr><td>2</td><td>上海菲莱测试技术有限公司</td><td><span class="tag related">关联方</span></td><td>现场生产情况现场生产情况</td></tr>
+        <tr><td>3</td><td>上海华龙测试仪器有限公司</td><td><span class="tag related">关联方</span></td><td>现场生产情况现场生产情况现场生产情况</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub-title">库存情况说明</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th style="width:44px;">序号</th><th>主体名称</th><th>主体角色</th><th>存货明细</th><th class="num">金额(万)</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td><td>asdas</td><td class="num">111.00</td></tr>
+        <tr><td>2</td><td>上海菲莱测试技术有限公司</td><td><span class="tag related">关联方</span></td><td>存货明细存货明细</td><td class="num">111.00</td></tr>
+        <tr><td>3</td><td>上海华龙测试仪器有限公司</td><td><span class="tag related">关联方</span></td><td>存货明细存货明细存货明细</td><td class="num">2,222.00</td></tr>
+        <tr class="summary"><td></td><td colspan="3">合计(万)</td><td class="num">2,444.00</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 生产经营分析 -->
+  <div class="section">
+    <div class="sec-heading">生产经营分析</div>
+
+    <div class="direct-row" style="margin-bottom:16px;"><span class="lbl">生产性收入占比营业收入(%)</span><span class="val">12</span></div>
+
+    <div class="sub-title">营业收入分析</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th>主体名称</th><th>主体角色</th><th>类型</th>
+        <th class="num">2023年01月-2023年12月</th><th class="num">2024年01月-2024年12月</th>
+        <th class="num">2025年01月-2025年12月</th><th class="num">2026年01月-2026年11月</th>
+      </tr></thead>
+      <tbody>
+        <tr><td rowspan="2">上海九头鸟印刷有限公司</td><td rowspan="2"><span class="tag lessee">承租人</span></td><td>可核实收入(万)(剔除关联交易)</td><td class="num">12.00</td><td class="num">12.00</td><td class="num">121.00</td><td class="num">121.00</td></tr>
+        <tr><td>纳税申报收入(万)</td><td class="num">12.00</td><td class="num">121.00</td><td class="num">121.00</td><td class="num">121.00</td></tr>
+        <tr><td rowspan="2">上海菲莱测试技术有限公司</td><td rowspan="2"><span class="tag related">关联方</span></td><td>可核实收入(万)(剔除关联交易)</td><td class="num">11,111.00</td><td class="num">222.00</td><td class="num">1,111.00</td><td class="num">222.00</td></tr>
+        <tr><td>纳税申报收入(万)</td><td class="num">1,111.00</td><td class="num">333.00</td><td class="num">111.00</td><td class="num">333.00</td></tr>
+        <tr><td rowspan="2">上海华龙测试仪器有限公司</td><td rowspan="2"><span class="tag related">关联方</span></td><td>可核实收入(万)(剔除关联交易)</td><td class="num">112,221.00</td><td class="num">111.00</td><td class="num">1.00</td><td class="num">444.00</td></tr>
+        <tr><td>纳税申报收入(万)</td><td class="num">111.00</td><td class="num">111.00</td><td class="num">1,111.00</td><td class="num">444.00</td></tr>
+        <tr class="summary"><td colspan="3">可核实收入合计(万)(剔除关联交易)</td><td class="num">123,344.00</td><td class="num">345.00</td><td class="num">1,233.00</td><td class="num">787.00</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub-title">营业收入分析说明</div>
+    <div class="longtext">adas</div>
+
+    <div class="sub-title">开票系统中前五大客户</div>
+    <div class="tbl-wrap"><table>
+      <thead>
+        <tr>
+          <th rowspan="2">主体名称</th><th rowspan="2">主体角色</th>
+          <th colspan="4" class="ctr">2026年</th>
+          <th colspan="4" class="ctr">2025年</th>
+        </tr>
+        <tr>
+          <th>客户名称</th><th class="num">开票销售额(万)</th><th>结算周期</th><th>来源</th>
+          <th>客户名称</th><th class="num">开票销售额(万)</th><th>结算周期</th><th>来源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="2">上海九头鸟印刷有限公司</td><td rowspan="2"><span class="tag lessee">承租人</span></td>
+          <td>111</td><td class="num">11.00</td><td>111</td><td>手工</td>
+          <td>1111</td><td class="num">111.00</td><td>11</td><td>手工</td></tr>
+        <tr class="summary">
+          <td>合计(万)</td><td class="num">11.00</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td>
+          <td>合计(万)</td><td class="num">111.00</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td rowspan="2">上海菲莱测试技术有限公司</td><td rowspan="2"><span class="tag related">关联方</span></td>
+          <td><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td>
+          <td>1111</td><td class="num">111.00</td><td>111</td><td>手工</td></tr>
+        <tr class="summary">
+          <td>合计(万)</td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="dash">—</span></td>
+          <td>合计(万)</td><td class="num">111.00</td><td><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub-title">电费</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>主体名称</th><th>主体角色</th><th>类型</th><th class="num">2026年01月</th><th class="num">2026年02月</th><th class="num">均值</th></tr></thead>
+      <tbody>
+        <tr><td>上海九头鸟印刷有限公司</td><td><span class="tag lessee">承租人</span></td><td>电费(万)</td><td class="num">10.00</td><td class="num">10.00</td><td class="num">10.00</td></tr>
+        <tr><td>上海华龙测试仪器有限公司</td><td><span class="tag related">关联方</span></td><td>电费(万)</td><td class="num">111.00</td><td class="num">111.00</td><td class="num">111.00</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <!-- 流水核验 -->
+  <div class="section">
+    <div class="sec-heading">流水核验</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th>主体名称</th><th>主体角色</th><th>类型</th>
+        <th class="num">2023年01月</th><th class="num">2023年02月</th>
+        <th class="num">合计</th><th class="num">日均余额</th>
+      </tr></thead>
+      <tbody>
+        <tr><td rowspan="3">上海九头鸟印刷有限公司</td><td rowspan="3"><span class="tag lessee">承租人</span></td>
+          <td>流水流入(万)(剔除关联交易)</td><td class="num"><span class="highlight">11.00</span></td><td class="num">1.00</td><td class="num">12.00</td>
+          <td class="num" rowspan="3">10.00</td></tr>
+        <tr><td>流水流出(万)(剔除关联交易)</td><td class="num">1.03</td><td class="num">1.00</td><td class="num">2.03</td></tr>
+        <tr><td>银行承兑(万)(剔除关联交易)</td><td class="num">10.00</td><td class="num">10.00</td><td class="num">20.00</td></tr>
+        <tr><td rowspan="3">上海菲莱测试技术有限公司</td><td rowspan="3"><span class="tag related">关联方</span></td>
+          <td>流水流入(万)(剔除关联交易)</td><td class="num">1,111.00</td><td class="num">111.00</td><td class="num">1,222.00</td>
+          <td class="num" rowspan="3">222.00</td></tr>
+        <tr><td>流水流出(万)(剔除关联交易)</td><td class="num">11.00</td><td class="num">111.00</td><td class="num">122.00</td></tr>
+        <tr><td>银行承兑(万)(剔除关联交易)</td><td class="num">111.00</td><td class="num">1,111.00</td><td class="num">1,222.00</td></tr>
+        <tr><td rowspan="3">上海华龙测试仪器有限公司</td><td rowspan="3"><span class="tag related">关联方</span></td>
+          <td>流水流入(万)(剔除关联交易)</td><td class="num">1.00</td><td class="num">11,111.00</td><td class="num">11,112.00</td>
+          <td class="num" rowspan="3">333.00</td></tr>
+        <tr><td>流水流出(万)(剔除关联交易)</td><td class="num">111.00</td><td class="num">1,111.00</td><td class="num">1,222.00</td></tr>
+        <tr><td>银行承兑(万)(剔除关联交易)</td><td class="num">1,111.00</td><td class="num">111.00</td><td class="num">1,222.00</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="sub-title">流水核验说明</div>
+    <div class="longtext">1221</div>
+  </div>
+
+  <!-- 现金流测算 -->
+  <div class="section" style="border-bottom:none;">
+    <div class="sec-heading">现金流测算</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>项目</th><th class="num">2026年</th><th class="num">2027年</th><th class="num">2028年</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>生产经营收入</td><td class="num">11.00</td><td class="num">11,111.00</td><td class="num">11.00</td><td>阿萨达</td></tr>
+        <tr><td>其他收入</td><td class="num">111.00</td><td class="num">1.00</td><td class="num">11.00</td><td><span class="dash">—</span></td></tr>
+        <tr class="summary"><td>收入合计</td><td class="num">122.00</td><td class="num">11,112.00</td><td class="num">22.00</td><td><span class="dash">—</span></td></tr>
+        <tr><td>原材料成本</td><td class="num">11.00</td><td class="num">111.00</td><td class="num">11.00</td><td><span class="dash">—</span></td></tr>
+        <tr><td>外发加工</td><td class="num">1.00</td><td class="num"><span class="dash">—</span></td><td class="num">1.00</td><td><span class="dash">—</span></td></tr>
+        <tr><td>人工成本</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>水电费</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>房租</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>其他费用</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>管理费</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>银行利息</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>融资租赁还款</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr><td>支出合计</td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td class="num"><span class="dash">—</span></td><td><span class="dash">—</span></td></tr>
+        <tr class="summary"><td>税前结余</td><td class="num">110.00</td><td class="num">11,001.00</td><td class="num">10.00</td><td><span class="dash">—</span></td></tr>
+        <tr><td>项目还款金额</td><td class="num">0.00</td><td class="num">21,004,020.00</td><td class="num">0.00</td><td><span class="dash">—</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+</body>
+</html>
