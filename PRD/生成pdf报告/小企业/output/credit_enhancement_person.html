@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>增信措施 - 担保自然人详情</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "PingFang SC","Microsoft YaHei",sans-serif; background:#f0f2f5; color:#333; padding:24px; font-size:13px; }
+  .page { max-width:1180px; margin:0 auto; background:#fff; border:1px solid #e5e6eb; border-radius:6px; overflow:hidden; }
+  .page-header { padding:14px 20px; background:#fafbfc; border-bottom:1px solid #e5e6eb; }
+  .page-header h1 { font-size:16px; font-weight:600; color:#1d2129; }
+  .section { padding:16px 20px; border-bottom:1px solid #f0f0f0; }
+  .person-title { font-size:14px; font-weight:600; color:#165dff; margin-bottom:14px; }
+  .sub-title { font-size:13px; font-weight:600; color:#1d2129; margin:16px 0 10px; padding-left:8px; border-left:3px solid #165dff; }
+  .sub-title:first-of-type { margin-top:0; }
+  /* 基本信息 grid */
+  .info-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px 20px; background:#fafbfc; border:1px solid #f0f0f0; border-radius:4px; padding:14px 16px; }
+  .info-item .k { font-size:12px; color:#86909c; margin-bottom:3px; }
+  .info-item .v { color:#1d2129; word-break:break-all; }
+  .info-item.full { grid-column:1/-1; }
+  /* table */
+  .tbl-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #e5e6eb; padding:7px 10px; text-align:left; vertical-align:middle; word-break:break-all; }
+  th { background:#f2f3f5; color:#4e5969; font-weight:600; white-space:nowrap; }
+  td.num, th.num { text-align:right; }
+  td.ctr, th.ctr { text-align:center; }
+  .dash { color:#c9cdd4; }
+  .empty-row td { text-align:center; color:#86909c; padding:20px 10px; }
+  .update-time { font-size:12px; color:#86909c; margin-bottom:8px; }
+  .empty-box { background:#fafbfc; border:1px solid #f0f0f0; border-radius:4px; padding:24px; text-align:center; color:#86909c; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="page-header"><h1>担保人信息</h1></div>
+
+  <div class="section">
+    <div class="person-title">担保自然人 - 王洪卫</div>
+
+    <!-- 基本信息 -->
+    <div class="sub-title">基本信息</div>
+    <div class="info-grid">
+      <div class="info-item"><div class="k">姓名</div><div class="v">王洪卫</div></div>
+      <div class="info-item"><div class="k">证件类型</div><div class="v">居民身份证</div></div>
+      <div class="info-item"><div class="k">证件代码</div><div class="v">142625198808101912</div></div>
+      <div class="info-item"><div class="k">与承租人关系</div><div class="v">实控人子女</div></div>
+      <div class="info-item"><div class="k">与承租人关系说明</div><div class="v"><span class="dash">—</span></div></div>
+      <div class="info-item full"><div class="k">名下资产、市值与抵押情况</div><div class="v"><span class="dash">—</span></div></div>
+    </div>
+
+    <!-- 担保人房产信息（恒输出） -->
+    <div class="sub-title">担保人房产信息</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr>
+        <th style="width:44px;" class="ctr">序号</th>
+        <th>房产地址</th>
+        <th class="ctr" style="width:100px;">是否贷款</th>
+        <th class="num" style="width:140px;">估值(万)</th>
+        <th class="num" style="width:140px;">扣本残值(万)</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="ctr">1</td><td>阿萨达</td><td class="ctr">是</td><td class="num"><span class="dash">—</span></td><td class="num">100.00</td></tr>
+        <tr><td class="ctr">2</td><td>爱我去</td><td class="ctr">否</td><td class="num">200.00</td><td class="num"><span class="dash">—</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <!-- 司法诉讼信息 -->
+    <div class="sub-title">司法诉讼信息</div>
+    <div class="update-time">司法诉讼数据更新时间：2026-11-13 11:53:35</div>
+    <div class="empty-box">客户暂无司法诉讼数据</div>
+  </div>
+</div>
+</body>
+</html>

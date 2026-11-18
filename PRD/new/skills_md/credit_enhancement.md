@@ -9,6 +9,7 @@
 | `$.creditEnhancementMeasure` | 模块主数据对象（null / 缺失时整模块不输出） |
 | `$.creditEnhancementMeasure.creditEnhancementMeasureInfo.creditEnhancementMeasureList[]` | 担保措施列表 |
 | `$.creditEnhancementMeasure.guaranteePersonList[]` | 担保自然人详情列表 |
+| `$.creditEnhancementMeasure.guaranteePersonList[].guaranteeEstateInfoList[]` | 担保人房产信息（propertyAddress / ifLoan / assessedValue / residualValue） |
 | `$.creditEnhancementMeasure.guaranteeCompanyList[]` | 担保企业详情列表 |
 | `$.creditEnhancementMeasure.guaranteeCompanyList[].companyPublicInfo` | 担保企业公示信息（与承租人 `companyPublicInfo` 同构） |
 
@@ -157,6 +158,7 @@ blocks 为「增信措施大区 + 条件输出的担保人 / 担保企业详情�
   "displayType": "guaranteePersonDetail",
   "childBlocks": [
     { "blockKey": "baseInfo", "label": "基本信息", "displayType": "group", "value": { "columns": 4, "groups": [] } },
+    { "blockKey": "guaranteeEstateInfoList", "label": "担保人房产信息", "displayType": "table", "value": { "showIndex": true, "columns": [], "rows": [], "emptyText": "暂无房产数据" } },
     { "blockKey": "judicialLitigationInfo", "label": "司法诉讼信息", "displayType": "litigationCards" },
     { "blockKey": "judicialLitigationInfoDesc", "label": "司法诉讼信息说明", "displayType": "longText", "value": "……" }
   ]
@@ -292,8 +294,9 @@ L2 扩展展示类型：渲染蓝色副标题 + 内部 blocks。若 L2 暂未实
 | 顺序 | blockKey | label | displayType |
 |:----:|----------|-------|-------------|
 | 1 | `baseInfo` | `基本信息` | `group`（columns: 4） |
-| 2 | `judicialLitigationInfo` | `司法诉讼信息` | `litigationCards` |
-| 3 | `judicialLitigationInfoDesc` | `司法诉讼信息说明` | `longText`（有值时） |
+| 2 | `guaranteeEstateInfoList` | `担保人房产信息` | `table`（**恒输出**，无数据时输出表头 + `emptyText`） |
+| 3 | `judicialLitigationInfo` | `司法诉讼信息` | `litigationCards` |
+| 4 | `judicialLitigationInfoDesc` | `司法诉讼信息说明` | `longText`（有值时） |
 
 **基本信息（group · columns: 4）**，来自 `guaranteePersonList[]` 项：
 
@@ -305,6 +308,19 @@ L2 扩展展示类型：渲染蓝色副标题 + 内部 blocks。若 L2 暂未实
 | 4 | 与承租人关系 | `relationship` | |
 | 5 | 与承租人关系说明 | `relationshipDesc` | |
 | 6 | 名下资产、市值与抵押情况 | `assetDesc` | `fullWidth: true` |
+
+#### 7.2.1 担保人房产信息（table · 恒输出）
+
+- 来自：`guaranteePersonList[].guaranteeEstateInfoList[]`
+- blockKey：`guaranteeEstateInfoList`；label：`担保人房产信息`；displayType：`table`；showIndex：`true`
+- **恒输出**：无论有无数据都输出该 block；`guaranteeEstateInfoList` 为 `null` / `[]` 时输出表头 + `emptyText: 暂无房产数据`
+
+| 顺序 | 列 label | key | 格式化 |
+|:----:|----------|-----|--------|
+| 1 | 房产地址 | `propertyAddress` | 原样 |
+| 2 | 是否贷款 | `ifLoan` | 原样（是/否） |
+| 3 | 估值(万) | `assessedValue` | 千分位；空 → `—` |
+| 4 | 扣本残值(万) | `residualValue` | 千分位；空 → `—` |
 
 ### 7.3 担保企业 childBlocks
 
@@ -363,6 +379,7 @@ L2 扩展展示类型：渲染蓝色副标题 + 内部 blocks。若 L2 暂未实
 | 金额 | 千分位 + 保留 2 位小数 |
 | 对象枚举 | `guaranteeMethod` 为 `{ desc: "保证担保" }` 时取 `desc` |
 | 表格判空 | 股权结构 `null` / `[]`：仍输出 `table` block，走 `emptyText` |
+| 房产信息恒输出 | 担保人房产信息 `guaranteeEstateInfoList` **恒输出**：无数据时输出表头 + `emptyText: 暂无房产数据` |
 | 说明长文本 | 为空 / null 不输出该 `longText` block |
 | 司法标签 | `caseNum <= 0` 或缺失时不输出该卡片 |
 | 输出物 | 仅输出 JSON，**不包含 HTML 标签**；字段名使用中文 `label`，接口英文字段名仅用于取值匹配 |
